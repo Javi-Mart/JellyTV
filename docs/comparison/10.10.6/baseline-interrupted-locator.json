@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-23",
+  "serverVersion": "10.10.6",
+  "webCommit": "c335a3024",
+  "browser": "154.0.8037.100",
+  "source": "isolated-10.10.6-original-fixtures",
+  "runs": [
+    {
+      "mode": "stock",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "home",
+      "cssSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "screenshot": "docs/comparison/10.10.6/stock/1920/home.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [],
+        "headings": [
+          {
+            "text": "My Media",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section0 emby-scroller-container",
+            "x": 0,
+            "y": 99.6875,
+            "width": 1920,
+            "height": 45.71875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Continue Watching",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section1 emby-scroller-container",
+            "x": 0,
+            "y": 399.515625,
+            "width": 1920,
+            "height": 45.71875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Next Up",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 736.734375,
+            "width": 84.828125,
+            "height": 30.109375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Movies",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 1067.078125,
+            "width": 311.1875,
+            "height": 30.109375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Music",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 1477.59375,
+            "width": 298.71875,
+            "height": 30.109375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Shows",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 1798.046875,
+            "width": 304.859375,
+            "height": 30.109375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    }
+  ]
+}

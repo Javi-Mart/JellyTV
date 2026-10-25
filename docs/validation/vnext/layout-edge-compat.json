@@ -1,0 +1,4860 @@
+{
+  "date": "2026-10-24T20:43:08.172Z",
+  "serverVersion": "10.10.6",
+  "engine": "edge",
+  "cssSha256": "7985d73887bce718d537de1d05a604150872cd9135560d2e5bc3708eb9953623",
+  "upstreamBundle": "25b50389160c4d80c4062b5fcaa2bc94823ee645072268c8fe025fe22863e1fc",
+  "compat": true,
+  "results": [
+    {
+      "name": "desktop-1920x1080-A",
+      "fixture": "A",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-B",
+      "fixture": "B",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-C",
+      "fixture": "C",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-D",
+      "fixture": "D",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 300,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 300,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-E",
+      "fixture": "E",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-F",
+      "fixture": "F",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 209.765625,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 508.484375,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 510.265625,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 593.84375,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-G",
+      "fixture": "G",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-H",
+      "fixture": "H",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 468.875,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-I",
+      "fixture": "I",
+      "type": "BoxSet",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 300,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 300,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 433.28125,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 435.0625,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-J",
+      "fixture": "J",
+      "type": "Series",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 84.796875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 383.515625,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 385.296875,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-K",
+      "fixture": "K",
+      "type": "Episode",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 168.75,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 168.75,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 94.078125,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 65.265625,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 505.265625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 388.578125,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 390.359375,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 417.34375,
+          "y": 473.9375,
+          "width": 1071.359375,
+          "height": 74.9375,
+          "right": 1488.703125,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "desktop-1920x1080-L",
+      "fixture": "L",
+      "type": "MusicAlbum",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-desktop",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 65.265625,
+          "y": 248.390625,
+          "width": 300,
+          "height": 450,
+          "right": 365.265625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 417.34375,
+          "y": 248.390625,
+          "width": 1437.390625,
+          "height": 134.875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 417.34375,
+          "y": 583.28125,
+          "width": 1437.390625,
+          "height": 48.171875,
+          "right": 1854.734375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 417.34375,
+          "y": 585.0625,
+          "width": 119.03125,
+          "height": 44.609375,
+          "right": 536.375,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-A",
+      "fixture": "A",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-B",
+      "fixture": "B",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-C",
+      "fixture": "C",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-D",
+      "fixture": "D",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 80,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 80,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 380.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 380.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 460.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-E",
+      "fixture": "E",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-F",
+      "fixture": "F",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 205,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 508.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 508.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 588.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-G",
+      "fixture": "G",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-H",
+      "fixture": "H",
+      "type": "Movie",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 400.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 480.046875,
+          "width": 361.21875,
+          "height": 73.9375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-I",
+      "fixture": "I",
+      "type": "BoxSet",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 80,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 80,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 73.984375,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 380.0625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 380.0625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-J",
+      "fixture": "J",
+      "type": "Series",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 47.78125,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 390.765625,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 390.765625,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-K",
+      "fixture": "K",
+      "type": "Episode",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 45,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 45,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 108.53125,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 14.390625,
+          "y": 76,
+          "width": 253.5,
+          "height": 64,
+          "right": 267.890625,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 408.09375,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 408.09375,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 14.390625,
+          "y": 488.078125,
+          "width": 361.21875,
+          "height": 158.671875,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mobile-390x844-L",
+      "fixture": "L",
+      "type": "MusicAlbum",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "geometry": {
+        "layout": "preload layout-mobile",
+        "pageOverflow": false,
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "poster": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 14.390625,
+          "y": 256.375,
+          "width": 80,
+          "height": 120,
+          "right": 94.390625,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 108.78125,
+          "y": 256.375,
+          "width": 266.828125,
+          "height": 91.78125,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 14.390625,
+          "y": 405.453125,
+          "width": 361.21875,
+          "height": 44,
+          "right": 375.609375,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 14.390625,
+          "y": 405.453125,
+          "width": 115.1875,
+          "height": 44,
+          "right": 129.578125,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-A",
+      "fixture": "A",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-B",
+      "fixture": "B",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-C",
+      "fixture": "C",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-D",
+      "fixture": "D",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 300,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 300,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-E",
+      "fixture": "E",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-F",
+      "fixture": "F",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 120.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 120.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 120.890625,
+          "width": 1370.40625,
+          "height": 308.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": -92.40625,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 503.28125,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 503.4937438964844,
+          "width": 165.5999755859375,
+          "height": 72.44998168945312,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 626.15625,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-G",
+      "fixture": "G",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-H",
+      "fixture": "H",
+      "type": "Movie",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 639.09375,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-I",
+      "fixture": "I",
+      "type": "BoxSet",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 300,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 300,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": true,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.9375,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 517.1500244140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "music cover keeps native square ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-J",
+      "fixture": "J",
+      "type": "Series",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 99.6875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 516.21875,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 516.4312744140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-K",
+      "fixture": "K",
+      "type": "Episode",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 168.75,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 168.75,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": false,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 149.1875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 96,
+          "y": 129.59375,
+          "width": 440,
+          "height": 129.59375,
+          "right": 536,
+          "position": "absolute",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 559.328125,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 559.5406494140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 453.59375,
+          "y": 682.203125,
+          "width": 1370.40625,
+          "height": 116.75,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "logo is contained and bounded",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "tv-1920x1080-L",
+      "fixture": "L",
+      "type": "MusicAlbum",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "geometry": {
+        "layout": "preload layout-tv",
+        "pageOverflow": false,
+        "scrollWidth": 1920,
+        "viewportWidth": 1920,
+        "poster": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "scalable": {
+          "x": 96,
+          "y": 342.890625,
+          "width": 300,
+          "height": 450,
+          "right": 396,
+          "position": "relative",
+          "display": "block",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "portrait": true,
+        "square": false,
+        "title": {
+          "x": 453.59375,
+          "y": 342.890625,
+          "width": 1370.40625,
+          "height": 178.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "logo": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "absolute",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "contain"
+        },
+        "buttons": {
+          "x": 453.59375,
+          "y": 627.515625,
+          "width": 1370.40625,
+          "height": 72.875,
+          "right": 1824,
+          "position": "static",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "play": {
+          "x": 450.79376220703125,
+          "y": 627.7281494140625,
+          "width": 165.5999755859375,
+          "height": 72.449951171875,
+          "right": 616.3937377929688,
+          "position": "relative",
+          "display": "flex",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        },
+        "tracks": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "position": "static",
+          "display": "none",
+          "visibility": "visible",
+          "objectFit": "fill",
+          "backgroundSize": "auto"
+        }
+      },
+      "checks": [
+        {
+          "name": "page has no unintended horizontal overflow",
+          "passed": true
+        },
+        {
+          "name": "title remains visible with positive readable dimensions",
+          "passed": true
+        },
+        {
+          "name": "primary actions stay in the document flow",
+          "passed": true
+        },
+        {
+          "name": "poster remains bounded instead of becoming viewport artwork",
+          "passed": true
+        },
+        {
+          "name": "poster stays inside the viewport",
+          "passed": true
+        },
+        {
+          "name": "portrait keeps native 2:3 ratio",
+          "passed": true
+        },
+        {
+          "name": "no unhandled browser errors",
+          "passed": true
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "status": "PASS",
+  "browserVersion": "156.0.4314.42"
+}

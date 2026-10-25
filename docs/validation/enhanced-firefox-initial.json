@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "name": "enhanced-firefox",
+  "serverVersion": "12.2.0",
+  "browsers": [
+    "firefox"
+  ],
+  "browserVersions": [
+    "157.0"
+  ],
+  "startTime": "2026-10-18T17:08:53.452Z",
+  "durationMs": 59787.655,
+  "counts": {
+    "passed": 9,
+    "failed": 3,
+    "skipped": 0,
+    "flaky": 0,
+    "setupFailures": 0
+  },
+  "setupFailureKinds": [],
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7322,
+        "gzipBytes": 2245,
+        "sha256": "8577cf936e4c9e6756690b4a0a2d490109e6cecf6e6f0aa3165a56e91e5f61ae"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18238,
+        "gzipBytes": 6216,
+        "sha256": "897364e68e635d1d539d9efd0e4313161d3391181a381459ea6cdff9dee62f39"
+      }
+    }
+  },
+  "tests": [
+    {
+      "project": "laptop",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 4072,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 3380,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 3157,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 2128,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 3330,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 3084,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2301,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 3019,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 2066,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": {
+        "horizontal": true,
+        "enter": true,
+        "back": true,
+        "heroEscape": true
+      }
+    },
+    {
+      "project": "tv-1080",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "unexpected",
+      "durationMs": 16432,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(locator).not.toHaveAttribute(expected) failed"
+    },
+    {
+      "project": "laptop",
+      "title": "login accepts the real limited user",
+      "status": "unexpected",
+      "durationMs": 2673,
+      "diagnostics": {
+        "unexpected": 1,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: Browser console errors and uncaught exceptions caused by JellyTV or outside the verified upstream baseline"
+    },
+    {
+      "project": "tv-1080",
+      "title": "login accepts the real limited user",
+      "status": "unexpected",
+      "durationMs": 2602,
+      "diagnostics": {
+        "unexpected": 1,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: Browser console errors and uncaught exceptions caused by JellyTV or outside the verified upstream baseline"
+    }
+  ]
+}

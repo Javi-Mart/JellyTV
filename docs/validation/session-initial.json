@@ -1,0 +1,511 @@
+{
+  "date": "2026-10-20T02:14:03.708Z",
+  "browser": "154.0.8037.100",
+  "server": "12.2.0",
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7322,
+        "gzipBytes": 2245,
+        "sha256": "8577cf936e4c9e6756690b4a0a2d490109e6cecf6e6f0aa3165a56e91e5f61ae"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "runs": [
+    {
+      "mode": "baseline",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "baseline",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "baseline",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "core",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "core",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "core",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": false,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "enhanced",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "enhanced",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "enhanced",
+      "loginLimited": true,
+      "logoutCleanup": true,
+      "loginDifferentUser": true,
+      "permissionsCorrect": true,
+      "featuredRequestsUseCurrentUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "route": "/login",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "stage": "initial-login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/System/Info",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/UserViews",
+          "stage": "logout"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "route": "/login",
+          "source": "/SyncPlay/List",
+          "stage": "logout"
+        }
+      ],
+      "unauthorized": [
+        {
+          "path": "/System/Info",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/UserViews",
+          "stage": "logout",
+          "featuredRequest": false
+        },
+        {
+          "path": "/SyncPlay/List",
+          "stage": "logout",
+          "featuredRequest": false
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    }
+  ],
+  "baselineMaximumCounts": {
+    "initial-login|WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403|/web/node_modules.%40jellyfin.sdk.bundle.js": 1,
+    "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/System/Info": 1
+  },
+  "unexpectedSignatures": [
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    },
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    },
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "core",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/UserViews",
+      "count": 1
+    },
+    {
+      "mode": "enhanced",
+      "signature": "logout|Failed to load resource: the server responded with a status of 401 (Unauthorized)|/SyncPlay/List",
+      "count": 1
+    }
+  ],
+  "status": "FAIL: differential console checks require investigation"
+}

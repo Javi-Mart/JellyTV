@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-21T14:55:24.774499+00:00",
+  "device": "Android TV API 34 x86 emulator / WHPX",
+  "resolution": "4k",
+  "app": "org.jellyfin.androidtv.debug",
+  "input": "ADB KEYCODE_DPAD events; no injected UI or fake media responses",
+  "installedApkSha256": "ebcb4803710d219436f30dc831f9aa40309bf5599f0554ab4015afc2c59088c8",
+  "server": "isolated Jellyfin 12.2 laboratory",
+  "checks": [
+    {
+      "name": "home",
+      "status": "FAIL",
+      "detail": "Native rows must remain after the hero",
+      "screenshot": "screenshots/runtime-4k-failure-home.png"
+    },
+    {
+      "name": "info-return",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-4k-info.png",
+        "screenshots/runtime-4k-return-info.png"
+      ],
+      "restoredFocus": "Info"
+    },
+    {
+      "name": "favorite",
+      "status": "FAIL",
+      "detail": "UI condition timed out: [{\"text\": \"Home\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Search\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"8:53\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"2026 \u00b7 TV-PG \u00b7 Drama \u00b7 Science Fiction\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Original JellyTV laboratory media. A quiet journey through imagined landscapes, created to validate real playback, navigation, artwork and accessibility without using a private library.\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Play\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Info\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Add favorite\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 1 of 6: The Meridian Archive\", \"focused\": \"true\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 2 of 6: Without Artwork\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 3 of 6: A Very Long Journey Beyond Every Known Horizon and Into the Unknown\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 4 of 6: The Last Signal\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 5 of 6: North of the Stars\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 6 of 6: Tides of Tomorrow\", \"focused\": \"false\"}]",
+      "screenshot": "screenshots/runtime-4k-failure-favorite.png"
+    },
+    {
+      "name": "carousel",
+      "status": "FAIL",
+      "detail": "UI condition timed out: [{\"text\": \"Home\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Search\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"8:53\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"2022 \u00b7 TV-PG \u00b7 Adventure \u00b7 Science Fiction\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Original JellyTV laboratory media. A quiet journey through imagined landscapes, created to validate real playback, navigation, artwork and accessibility without using a private library.\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Play\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Info\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Add favorite\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 1 of 6: The Meridian Archive\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 2 of 6: Without Artwork\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 3 of 6: A Very Long Journey Beyond Every Known Horizon and Into the Unknown\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 4 of 6: The Last Signal\", \"focused\": \"true\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 5 of 6: North of the Stars\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 6 of 6: Tides of Tomorrow\", \"focused\": \"false\"}]",
+      "screenshot": "screenshots/runtime-4k-failure-carousel.png"
+    },
+    {
+      "name": "vertical",
+      "status": "PASS",
+      "nativeRowsAccessible": true,
+      "screenshot": "screenshots/runtime-4k-native-row.png"
+    },
+    {
+      "name": "play",
+      "status": "PASS",
+      "nativePlayer": true,
+      "position": "0:01",
+      "screenshots": [
+        "screenshots/runtime-4k-playback.png",
+        "screenshots/runtime-4k-return-play.png"
+      ]
+    },
+    {
+      "name": "resume",
+      "status": "FAIL",
+      "detail": "UI condition timed out: [{\"text\": \"Home\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Search\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"8:54\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"2022 \u00b7 TV-PG \u00b7 Adventure \u00b7 Science Fiction\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Original JellyTV laboratory media. A quiet journey through imagined landscapes, created to validate real playback, navigation, artwork and accessibility without using a private library.\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Play\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Info\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"Add favorite\", \"content-desc\": \"\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 1 of 6: The Meridian Archive\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 2 of 6: Without Artwork\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 3 of 6: A Very Long Journey Beyond Every Known Horizon and Into the Unknown\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 4 of 6: The Last Signal\", \"focused\": \"true\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 5 of 6: North of the Stars\", \"focused\": \"false\"}, {\"text\": \"\u2022\", \"content-desc\": \"Featured item 6 of 6: Tides of Tomorrow\", \"focused\": \"false\"}]",
+      "screenshot": "screenshots/runtime-4k-failure-resume.png"
+    },
+    {
+      "name": "row-detail-play",
+      "status": "FAIL",
+      "detail": "UI condition timed out: []",
+      "screenshot": "screenshots/runtime-4k-failure-row-detail-play.png"
+    }
+  ],
+  "status": "FAIL"
+}

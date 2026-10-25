@@ -1,0 +1,282 @@
+/* Native headers keep their measured height and visibility. In particular the
+   hidden Legacy header must remain hidden alongside the Modern AppBar. */
+body:not(.dashboardDocument) .skinHeader:not(.osdHeader),
+body:not(.dashboardDocument) .MuiAppBar-root:not(.videoOsd-appBar) {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  background-image: none;
+  border-block-end: 1px solid var(--color-divider);
+  box-shadow: none;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  body:not(.dashboardDocument) .skinHeader-withBackground:not(.osdHeader),
+  body:not(.dashboardDocument) .MuiAppBar-root:not(.videoOsd-appBar) {
+    background-color: var(--color-scrim);
+    backdrop-filter: blur(var(--blur-small));
+  }
+}
+
+body:not(.dashboardDocument) .skinHeader.semiTransparent:not(.osdHeader) {
+  background-color: var(--color-scrim);
+}
+
+body:not(.dashboardDocument) :where(.headerButton, .emby-tab-button, .MuiTab-root) {
+  border-radius: var(--radius-pill);
+  text-transform: none;
+  font-weight: 600;
+}
+
+body:not(.dashboardDocument) :where(.headerButton, .emby-tab-button, .MuiTab-root):not(:where(.osdHeader *)) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) .headerTabs {
+  padding-block: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) :where(.mainDrawer, .MuiDrawer-paper) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) .navMenuOption {
+  border-radius: var(--radius-small);
+  margin-inline: var(--spacing-2);
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) .MuiTabs-indicator {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* Only horizontal rows get the configurable card width. Library grids keep
+   upstream responsive column counts and all their poster/square ratios. */
+body:not(.dashboardDocument) .scrollSlider > :is(.overflowPortraitCard, .overflowSquareCard) {
+  width: var(--card-size);
+}
+
+body:not(.dashboardDocument) .scrollSlider > :is(.overflowBackdropCard, .overflowSmallBackdropCard) {
+  width: var(--card-size-landscape);
+}
+
+body:not(.dashboardDocument) .emby-scroller {
+  scroll-padding-inline: var(--page-gutter);
+}
+
+/* Animated rails move their children with transforms. Clip at the rail frame,
+   not at the page; native .scrollX frames keep their touch scrolling. */
+body:not(.dashboardDocument) .emby-scroller:has(> .animatedScrollX) {
+  overflow: hidden;
+}
+
+body:not(.dashboardDocument) .padded-top-focusscale {
+  padding-block-start: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .emby-scrollbuttons-button {
+  color: var(--color-text-primary);
+  background-color: var(--color-scrim);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card);
+}
+
+/* Details: artwork remains supplied by Jellyfin. A pseudo-element adds a
+   contrast scrim without replacing its inline background-image. */
+body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+  height: clamp(17rem, 50vh, 40rem);
+  background-attachment: scroll;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .itemBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(8 10 14 / 10%) 25%, rgb(8 10 14 / 58%) 68%, var(--color-background));
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPageWrapperContainer {
+  background: var(--color-background);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailRibbon {
+  background: transparent;
+  height: auto;
+  min-height: 0;
+  gap: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #itemDetailPage :where(.itemName, .parentName) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) #itemDetailPage h1.itemName {
+  font-size: var(--font-size-title);
+  line-height: 1.12;
+  margin-block: var(--spacing-2) var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .itemMiscInfo {
+  color: var(--color-text-secondary);
+  gap: var(--spacing-1) 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-block: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailButton {
+  min-inline-size: var(--target-size);
+  min-block-size: var(--target-size);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-pill);
+  margin: 0;
+}
+
+/* Legacy renders resume/play with .btnPlay and a separate secondary .btnReplay. */
+body:not(.dashboardDocument) #itemDetailPage .btnPlay {
+  color: var(--color-on-accent);
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-pill);
+  padding-inline: var(--spacing-5);
+  font-weight: 700;
+}
+
+body:not(.dashboardDocument) #itemDetailPage :where(.overview, .tagline) {
+  max-inline-size: 68ch;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .tagline {
+  color: var(--color-text-primary);
+  font-size: 1.125em;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .trackSelections {
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+  max-inline-size: 100%;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPageSecondaryContainer {
+  padding-block-start: var(--spacing-6);
+}
+
+@media (width >= 56.25rem) {
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+    display: grid;
+    grid-template-columns: minmax(10rem, min(20%, 24rem)) minmax(0, 1fr);
+    grid-template-rows: max-content 1fr;
+    align-items: start;
+    column-gap: var(--spacing-7);
+    padding-inline: var(--page-gutter);
+    margin-block-start: calc(-1 * var(--spacing-8));
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailImageContainer {
+    grid-row: 1 / span 2;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailImageContainer .card {
+    position: relative;
+    float: none;
+    inset: auto;
+    width: 100%;
+    max-width: var(--detail-poster-width);
+    margin: 0;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailRibbon {
+    grid-column: 2;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailPagePrimaryContent {
+    grid-column: 2;
+    min-width: 0;
+    padding: 0;
+  }
+}
+
+/* Search uses the existing input and the native results, including live TV. */
+body:not(.dashboardDocument) #searchPage .searchFieldsInner {
+  box-sizing: border-box;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-block: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #searchTextInput {
+  min-block-size: 3.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  color: var(--color-text-primary);
+  padding-inline: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #loginPage {
+  background: radial-gradient(ellipse at 50% 0%, rgb(65 82 106 / 32%), transparent 65%), var(--color-background);
+}
+
+body:not(.dashboardDocument) #loginPage .manualLoginForm {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 30rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevated);
+}
+
+body:not(.dashboardDocument) #loginPage .readOnlyContent {
+  max-width: 30rem;
+}
+
+body:not(.dashboardDocument) #loginPage .sectionTitle {
+  margin-block: var(--spacing-2) var(--spacing-6);
+}
+
+/* Playback is a chrome-only change: no video/canvas, OSD visibility, subtitle
+   sizing, time calculations, gesture layers or stacking-order overrides. */
+body:not(.dashboardDocument) #videoOsdPage .videoOsdBottom {
+  background: linear-gradient(transparent, rgb(0 0 0 / 85%));
+}
+
+body:not(.dashboardDocument) #videoOsdPage :where(.osdTitle, .osdTextContainer) {
+  color: var(--color-text-primary);
+  text-shadow: 0 1px 4px #000;
+}
+
+body:not(.dashboardDocument) #videoOsdPage .osdControls {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) #videoOsdPage .upNextContainer {
+  color: var(--color-text-primary);
+  background-color: var(--color-scrim);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
+}

@@ -1,0 +1,1087 @@
+{
+  "schema": 1,
+  "name": "enhanced-chrome-shared-fixture-run",
+  "serverVersion": "12.2.0",
+  "browsers": [
+    "chrome"
+  ],
+  "browserVersions": [
+    "154.0.8037.100"
+  ],
+  "startTime": "2026-10-21T19:55:33.692Z",
+  "durationMs": 196503.963,
+  "counts": {
+    "passed": 77,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0,
+    "setupFailures": 0
+  },
+  "setupFailureKinds": [],
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7352,
+        "gzipBytes": 2264,
+        "sha256": "ce3294426996da0975302e5c0137ba51bdffcac957c6c3ae35cdfb8f6b10c94d"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "tests": [
+    {
+      "project": "desktop-1080",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2141,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1080",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2590,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1080",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2583,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1080",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1799,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "desktop-1080",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 3553,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2593,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2790,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2713,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 2126,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 3337,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 3635,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 3147,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2675,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1923,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 3586,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2357,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2684,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2494,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1622,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2520,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2400,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2709,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2424,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1507,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2255,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2367,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2763,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2434,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1732,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2403,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 1899,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2539,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2657,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1681,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2483,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-360",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "unexpected",
+      "durationMs": 16210,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(locator).toBeVisible() failed"
+    },
+    {
+      "project": "mobile-360",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2786,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-360",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2445,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-360",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1460,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "mobile-360",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2280,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 1944,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2564,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2355,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1456,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2215,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 1959,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2491,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2333,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1426,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2197,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 1946,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2483,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2319,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1444,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2201,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2190,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 1646,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2519,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1648,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": {
+        "horizontal": true,
+        "enter": true,
+        "back": true,
+        "heroEscape": true
+      }
+    },
+    {
+      "project": "tv-1080",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2404,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-4k",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2769,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-4k",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 1849,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-4k",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2783,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-4k",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1777,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": {
+        "horizontal": true,
+        "enter": true,
+        "back": true,
+        "heroEscape": true
+      }
+    },
+    {
+      "project": "tv-4k",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2527,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1080",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1207,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-1440",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1310,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "desktop-4k",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1571,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1211,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-portrait",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1065,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tablet-landscape",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1078,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-320",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1175,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-360",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1052,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1025,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-430",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1005,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-480",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1131,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1178,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-4k",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1459,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    }
+  ]
+}

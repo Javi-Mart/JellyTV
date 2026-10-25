@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-22T20:37:48.901659+00:00",
+  "device": "Android TV API 34 x86 emulator / WHPX",
+  "resolution": "4k",
+  "app": "org.jellyfin.androidtv.debug",
+  "input": "ADB KEYCODE_DPAD events; no injected UI or fake media responses",
+  "installedApkSha256": "e7d31d38aee854fa1990b6e01dee9f596bab0cc8274c0ec3b11945632e942216",
+  "outputPixels": [
+    3840,
+    2160
+  ],
+  "viewportPixels": [
+    1920,
+    1080
+  ],
+  "displayConfiguration": {
+    "size": "Physical size: 3840x2160\r\nOverride size: 1920x1080",
+    "density": "Physical density: 320",
+    "frameworkMaxUiWidth": 1920
+  },
+  "native4kUiRasterization": "UNVERIFIED: system UI capped at 1920",
+  "server": "isolated Jellyfin 12.2 laboratory",
+  "checks": [
+    {
+      "name": "home",
+      "status": "PASS",
+      "candidates": 6,
+      "minimumButtonDp": 44,
+      "screenshot": "screenshots/runtime-4k-home.png",
+      "visibleNativeHeaderPixels": 2371
+    },
+    {
+      "name": "info-return",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-4k-info.png",
+        "screenshots/runtime-4k-return-info.png"
+      ],
+      "restoredFocus": "Info"
+    },
+    {
+      "name": "favorite",
+      "status": "PASS",
+      "persistedAcrossRestart": true,
+      "restoredOriginalFavorite": true,
+      "screenshot": "screenshots/runtime-4k-favorite.png"
+    },
+    {
+      "name": "carousel",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-4k-missing-art.png",
+        "screenshots/runtime-4k-long-title.png"
+      ],
+      "fallbackTitle": true
+    },
+    {
+      "name": "vertical",
+      "status": "PASS",
+      "nativeRowsAccessible": true,
+      "screenshot": "screenshots/runtime-4k-native-row.png"
+    },
+    {
+      "name": "play",
+      "status": "PASS",
+      "nativePlayer": true,
+      "position": "0:01",
+      "screenshots": [
+        "screenshots/runtime-4k-playback.png",
+        "screenshots/runtime-4k-return-play.png"
+      ]
+    },
+    {
+      "name": "resume",
+      "status": "PASS",
+      "savedPositionSeconds": 180,
+      "playerPosition": "3:01",
+      "restoredFocus": "Resume",
+      "screenshot": "screenshots/runtime-4k-resume.png"
+    },
+    {
+      "name": "row-detail-play",
+      "status": "PASS",
+      "route": "Home \u2192 native row \u2192 movie detail \u2192 Play \u2192 detail \u2192 row",
+      "input": "D-pad only",
+      "position": "0:01",
+      "rowFocusRestored": true,
+      "screenshots": [
+        "screenshots/runtime-4k-flow-row.png",
+        "screenshots/runtime-4k-flow-detail.png",
+        "screenshots/runtime-4k-flow-player.png",
+        "screenshots/runtime-4k-flow-return.png"
+      ]
+    }
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,266 @@
+/* Cards retain native aspect-ratio padders and item semantics. */
+body:not(.dashboardDocument) :where(.cardScalable, .cardContent, .cardImageContainer, .cardPadder, .blurhash-canvas, .visualCardBox) {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .cardBox:not(.visualCardBox) .cardPadder {
+  border-radius: var(--radius-medium);
+  background-color: var(--color-surface-elevated);
+  box-shadow: var(--shadow-card);
+}
+
+body:not(.dashboardDocument) .card .cardBox {
+  border-radius: var(--radius-medium);
+  transform-origin: center;
+}
+
+body:not(.dashboardDocument) .card .cardText {
+  padding-block-start: var(--spacing-2);
+  line-height: 1.4;
+  font-weight: 550;
+}
+
+body:not(.dashboardDocument) .card .cardText-secondary {
+  padding-block-start: var(--spacing-1);
+  font-size: var(--font-size-caption);
+  font-weight: 400;
+}
+
+body:not(.dashboardDocument) .card .innerCardFooter {
+  background: linear-gradient(transparent, rgb(0 0 0 / 92%));
+  padding-block-start: var(--spacing-6);
+  border-end-start-radius: var(--radius-medium);
+  border-end-end-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .cardOverlayContainer {
+  background: linear-gradient(transparent 35%, rgb(0 0 0 / 55%));
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .card:focus-within .cardOverlayContainer {
+  opacity: 1;
+}
+
+body:not(.dashboardDocument) :where(.playedIndicator, .countIndicator, .mediaSourceIndicator, .filterButtonBubble, .MuiBadge-badge) {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 35%);
+}
+
+body:not(.dashboardDocument) :where(.itemProgressBar, .MuiLinearProgress-root) {
+  background-color: rgb(255 255 255 / 22%);
+  border-radius: var(--radius-pill);
+}
+
+body:not(.dashboardDocument) :where(.itemProgressBarForeground, .MuiLinearProgress-bar) {
+  background-color: var(--color-accent);
+  border-radius: inherit;
+}
+
+body:not(.dashboardDocument) :where(.listItem) {
+  border-radius: var(--radius-small);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) .listItemBody {
+  min-width: 0;
+  line-height: 1.45;
+}
+
+body:not(.dashboardDocument) :where(.listItemImage, .listItemIcon) {
+  border-radius: var(--radius-small);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .MuiButton-root) {
+  border-radius: var(--radius-small);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* OSD controls retain the player's own dimensions, including its compact row. */
+body:not(.dashboardDocument) :where(.emby-button, .MuiButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+  min-inline-size: var(--target-size);
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.raised:not(.button-submit, .button-delete), .MuiButton-containedInherit) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+}
+
+body:not(.dashboardDocument) :where(.button-submit, .MuiButton-containedPrimary) {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) :where(.button-delete, .MuiButton-containedError) {
+  color: var(--color-on-accent);
+  background-color: var(--color-error);
+}
+
+body:not(.dashboardDocument) :where(.MuiButton-outlined, .emby-button.raised) {
+  border: 1px solid var(--color-border);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root)[aria-pressed="true"] {
+  color: var(--color-accent);
+  background-color: var(--color-selected);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+/* Reserve space during existing asynchronous loads; never invent progress. */
+body:not(.dashboardDocument) :where(.card, .emby-button, .MuiButton-root)[aria-busy="true"] {
+  cursor: progress;
+}
+
+body:not(.dashboardDocument) .MuiSkeleton-root {
+  background-color: var(--color-surface-elevated);
+  border-radius: var(--radius-small);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea, .emby-select, .MuiInputBase-root) {
+  box-sizing: border-box;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-body);
+  min-block-size: var(--target-size);
+  max-inline-size: 100%;
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea, .emby-select) {
+  border: 1px solid var(--color-border);
+  padding-block: var(--spacing-3);
+  padding-inline-start: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .MuiOutlinedInput-notchedOutline {
+  border-color: var(--color-border);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea)::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+body:not(.dashboardDocument) :where(.inputLabel, .selectLabel, .textareaLabel, .MuiInputLabel-root, .fieldDescription) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-select, .emby-textarea)[aria-invalid="true"],
+body:not(.dashboardDocument) .Mui-error .MuiOutlinedInput-notchedOutline {
+  border-color: var(--color-error);
+  border-width: 2px;
+}
+
+body:not(.dashboardDocument) :where(.MuiFormHelperText-root.Mui-error, .MuiInputLabel-root.Mui-error) {
+  color: var(--color-error);
+}
+
+body:not(.dashboardDocument) :where(.checkboxContainer, .MuiFormControlLabel-root) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.MuiCheckbox-root, .MuiRadio-root, .MuiSwitch-switchBase) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.MuiCheckbox-root, .MuiRadio-root, .MuiSwitch-switchBase).Mui-checked {
+  color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.MuiSlider-root, .mdl-slider) {
+  color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider::-webkit-slider-thumb {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider::-moz-range-thumb {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider-background-lower {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.dialog, .MuiDialog-paper, .MuiMenu-paper, .MuiPopover-paper) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  background-image: none;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Upstream actionSheet hardcodes border-radius with !important. */
+body:not(.dashboardDocument) .actionSheet:not(.actionsheet-fullscreen) {
+  border-radius: var(--radius-large) !important;
+}
+
+body:not(.dashboardDocument) :where(.MuiMenu-paper, .MuiPopover-paper) {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) :where(.dialogBackdropOpened, .MuiBackdrop-root) {
+  background-color: rgb(0 0 0 / 65%);
+}
+
+body:not(.dashboardDocument) :where(.formDialogHeader, .formDialogFooter) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) :where(.actionSheetMenuItem, .MuiMenuItem-root) {
+  min-block-size: var(--target-size);
+  border-radius: var(--radius-small);
+  line-height: 1.45;
+}
+
+body:not(.dashboardDocument) :where(.MuiMenuItem-root.Mui-selected, .navMenuOption-selected, .emby-tab-button-active) {
+  color: var(--color-accent);
+  background-color: var(--color-selected);
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.MuiTooltip-tooltip, .toast) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-card);
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+}
+
+body:not(.dashboardDocument) .MuiAvatar-root {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) :where(.MuiAlert-standardError, .MuiAlert-outlinedError) {
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  background-color: var(--color-surface);
+}
+
+body:not(.dashboardDocument) :where(.MuiAlert-standardSuccess, .MuiAlert-outlinedSuccess) {
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+  background-color: var(--color-surface);
+}

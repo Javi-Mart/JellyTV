@@ -1,0 +1,27 @@
+@media (width >= 37.5rem) and (width <= 74.999rem) {
+  html:not(.layout-tv) {
+    --card-size: 10.5rem;
+    --card-size-landscape: calc(var(--card-size) * 1.65);
+    --page-gutter: var(--spacing-5);
+    --hero-height: clamp(28rem, 62vh, 40rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .headerTop {
+    padding-inline: var(--spacing-3);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+    gap: var(--spacing-2);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+    min-inline-size: min(12rem, 100%);
+  }
+}
+
+@media (width >= 56.25rem) and (width <= 74.999rem) {
+  html:not(.layout-mobile, .layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+    column-gap: var(--spacing-5);
+    grid-template-columns: minmax(9rem, 23%) minmax(0, 1fr);
+  }
+}

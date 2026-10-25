@@ -1,0 +1,125 @@
+@media (width <= 37.499rem) {
+  html:not(.layout-tv) {
+    --card-size: 8.25rem;
+    --card-size-landscape: min(75vw, 18rem);
+    --page-gutter: var(--spacing-4);
+    --hero-height: 34rem;
+    --font-size-section: 1.2rem;
+    --font-size-body: max(1rem, 16px);
+    --radius-large: 1rem;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .headerTop {
+    padding-inline: var(--spacing-1);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #loginPage .manualLoginForm {
+    padding: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #searchPage .searchFieldsInner {
+    padding-block: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #searchTextInput {
+    font-size: var(--font-size-body);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .MuiDialog-paper:not(.MuiDialog-paperFullScreen) {
+    margin: var(--spacing-3);
+    width: calc(100% - 1.5rem);
+    max-width: calc(100% - 1.5rem);
+    max-height: calc(100% - 1.5rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.MuiDialogTitle-root, .MuiDialogContent-root, .MuiDialogActions-root) {
+    padding-inline: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .MuiDialogActions-root {
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .actionsheet-not-fullscreen {
+    max-width: calc(100% - 1rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .actionSheetItemAsideText {
+    margin-inline-start: var(--spacing-4);
+  }
+}
+
+/* Also handles desktop-browser zoom: no forced minimum page width. */
+@media (width <= 56.249rem) {
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer {
+    margin-block-start: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+    height: clamp(12rem, 34vh, 23rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailRibbon {
+    display: block;
+    padding-inline: max(var(--page-gutter), env(safe-area-inset-left)) max(var(--page-gutter), env(safe-area-inset-right));
+    margin-block-start: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .infoWrapper {
+    padding: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailImageContainer .card {
+    position: relative;
+    inset: auto;
+    float: none;
+    width: 8rem;
+    max-width: 35vw;
+    margin: 0 auto var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContent {
+    /* librarybrowser.scss fixes mobile primary padding with !important. Match
+       only this component to add safe areas without changing global padding. */
+    padding-inline: max(var(--page-gutter), env(safe-area-inset-left)) max(var(--page-gutter), env(safe-area-inset-right)) !important;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+    padding-inline: 0;
+    margin-inline: 0;
+    justify-content: center;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+    flex-basis: 100%;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage h1.itemName {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+}
+
+@media (pointer: coarse) {
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButtonBase-root, .actionSheetMenuItem):not(:where(#videoOsdPage *, .osdHeader *)) {
+    min-block-size: var(--target-size);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+    min-inline-size: var(--target-size);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .mdl-slider-container:not(:where(#videoOsdPage *)) {
+    min-block-size: var(--target-size);
+  }
+}
+
+@media (height <= 30rem) and (orientation: landscape) {
+  html:not(.layout-tv) {
+    --hero-height: 26rem;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+    height: 13rem;
+  }
+}

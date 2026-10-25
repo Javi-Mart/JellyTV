@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "name": "enhanced-firefox-before-final-navigation",
+  "serverVersion": "12.2.0",
+  "browsers": [
+    "firefox"
+  ],
+  "browserVersions": [
+    "157.0"
+  ],
+  "startTime": "2026-10-21T20:05:15.465Z",
+  "durationMs": 52501.663,
+  "counts": {
+    "passed": 11,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0,
+    "setupFailures": 0
+  },
+  "setupFailureKinds": [],
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7352,
+        "gzipBytes": 2264,
+        "sha256": "ce3294426996da0975302e5c0137ba51bdffcac957c6c3ae35cdfb8f6b10c94d"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "tests": [
+    {
+      "project": "laptop",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "expected",
+      "durationMs": 2706,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 2857,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2841,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 1774,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2847,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "home, library, search and all media detail types use real server data",
+      "status": "unexpected",
+      "durationMs": 16847,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(locator).toBeVisible() failed"
+    },
+    {
+      "project": "tv-1080",
+      "title": "user menu, display preferences, dialogs and favorites remain functional",
+      "status": "expected",
+      "durationMs": 3028,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "actual video plays, pauses, exposes subtitles, resumes and returns",
+      "status": "expected",
+      "durationMs": 2983,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "keyboard, reduced motion, touch targets and accessibility",
+      "status": "expected",
+      "durationMs": 2055,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "accessibility": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "affectedNodes": 1
+        }
+      ],
+      "dpad": {
+        "horizontal": true,
+        "enter": true,
+        "back": true,
+        "heroEscape": true
+      }
+    },
+    {
+      "project": "tv-1080",
+      "title": "enhanced carousel, favorites, info, playback and SPA cleanup",
+      "status": "expected",
+      "durationMs": 2771,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 2143,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "tv-1080",
+      "title": "login accepts the real limited user",
+      "status": "expected",
+      "durationMs": 1822,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 1,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    }
+  ]
+}

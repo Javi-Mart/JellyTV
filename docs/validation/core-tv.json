@@ -1,0 +1,357 @@
+{
+  "date": "2026-10-18T17:09:52.505Z",
+  "mode": "tv",
+  "client": "Jellyfin Web 12.2",
+  "records": [
+    {
+      "name": "tv-dpad-1920",
+      "steps": [
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "jellytv-button jellytv-button--primary",
+            "text": "Play",
+            "key": "play",
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "ArrowDown",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/video",
+          "element": {
+            "tag": "BODY",
+            "classes": "libraryDocument hide-scroll mouseIdle mouseIdle-tv",
+            "text": "HomeMedia\n                                    \n                                 ",
+            "key": null,
+            "type": null,
+            "outline": "rgb(245, 247, 250) none 3px",
+            "outlineWidth": 3,
+            "outlineVisible": false,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        }
+      ],
+      "errors": [],
+      "video": {
+        "readyState": 4,
+        "error": null
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "tv-dpad-3840",
+      "steps": [
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "jellytv-button jellytv-button--primary",
+            "text": "Play",
+            "key": "play",
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "ArrowDown",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/video",
+          "element": {
+            "tag": "BODY",
+            "classes": "libraryDocument hide-scroll mouseIdle mouseIdle-tv",
+            "text": "HomeMedia\n                                    \n                                 ",
+            "key": null,
+            "type": null,
+            "outline": "rgb(245, 247, 250) none 3px",
+            "outlineWidth": 3,
+            "outlineVisible": false,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        }
+      ],
+      "errors": [],
+      "video": {
+        "readyState": 4,
+        "error": null
+      },
+      "status": "PASS"
+    }
+  ],
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7322,
+        "gzipBytes": 2245,
+        "sha256": "8577cf936e4c9e6756690b4a0a2d490109e6cecf6e6f0aa3165a56e91e5f61ae"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18238,
+        "gzipBytes": 6216,
+        "sha256": "897364e68e635d1d539d9efd0e4313161d3391181a381459ea6cdff9dee62f39"
+      }
+    }
+  },
+  "browser": "154.0.8037.100",
+  "status": "PASS"
+}

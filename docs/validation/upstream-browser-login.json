@@ -1,0 +1,112 @@
+{
+  "serverVersion": "12.2.0",
+  "baseline": "Per-context vanilla control: original plugin list, empty JellyTV assets, empty CustomCss response; fresh context per login",
+  "records": [
+    {
+      "browser": "firefox",
+      "version": "157.0",
+      "iteration": 1,
+      "errors": [
+        {
+          "message": "[JavaScript Error: \"Firefox can’t establish a connection to the server at ws://127.0.0.1:18996/socket.\" {file: \"http://127.0.0.1:18996/web/node_modules.%40jellyfin.sdk.bundle.js?26148176bec435074cdd\" line: 2}]",
+          "route": "/login"
+        },
+        {
+          "message": "[JavaScript Error: \"Firefox can’t establish a connection to the server at ws://127.0.0.1:18996/socket.\" {file: \"http://127.0.0.1:18996/web/node_modules.%40jellyfin.sdk.bundle.js?26148176bec435074cdd\" line: 2}]",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    },
+    {
+      "browser": "firefox",
+      "version": "157.0",
+      "iteration": 2,
+      "errors": [
+        {
+          "message": "[JavaScript Error: \"Firefox can’t establish a connection to the server at ws://127.0.0.1:18996/socket.\" {file: \"http://127.0.0.1:18996/web/node_modules.%40jellyfin.sdk.bundle.js?26148176bec435074cdd\" line: 2}]",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    },
+    {
+      "browser": "firefox",
+      "version": "157.0",
+      "iteration": 3,
+      "errors": [
+        {
+          "message": "[JavaScript Error: \"Firefox can’t establish a connection to the server at ws://127.0.0.1:18996/socket.\" {file: \"http://127.0.0.1:18996/web/node_modules.%40jellyfin.sdk.bundle.js?26148176bec435074cdd\" line: 2}]",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    },
+    {
+      "browser": "webkit",
+      "version": "27.2",
+      "iteration": 1,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Unexpected response code: 403",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    },
+    {
+      "browser": "webkit",
+      "version": "27.2",
+      "iteration": 2,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Unexpected response code: 403",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    },
+    {
+      "browser": "webkit",
+      "version": "27.2",
+      "iteration": 3,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Unexpected response code: 403",
+          "route": "/login"
+        }
+      ],
+      "clean": {
+        "theme": "",
+        "enhancedGlobal": "undefined",
+        "hero": 0
+      },
+      "loginSucceeded": true
+    }
+  ]
+}

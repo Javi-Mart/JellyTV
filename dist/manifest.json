@@ -1,0 +1,35 @@
+{
+  "version": "1.1.0-dev.0",
+  "webVersions": [
+    "10.10.6",
+    "12.2"
+  ],
+  "validationStatus": "development",
+  "profiles": [
+    "legacy-nested-detail-10.10.6",
+    "legacy-direct-detail-12.2",
+    "modern-12.2"
+  ],
+  "assets": {
+    "jellytv-core.css": {
+      "bytes": 49746,
+      "gzipBytes": 9870,
+      "sha256": "596e1197c22f5351d1c5c8c5e7ac02f68d3418ff990cc4a9c1f259a96889a93b"
+    },
+    "jellytv-core.min.css": {
+      "bytes": 40561,
+      "gzipBytes": 7222,
+      "sha256": "ae0f4dc439938bc13b160f50efb0f264b98e808e7793cae84eb647820898397e"
+    },
+    "jellytv-enhanced.css": {
+      "bytes": 9602,
+      "gzipBytes": 2844,
+      "sha256": "d4ff580f7f4dca3ec7c53c2333357ddbc404b39440931f2cf61f8a0bbef0d49f"
+    },
+    "jellytv-enhanced.js": {
+      "bytes": 28413,
+      "gzipBytes": 8976,
+      "sha256": "15ed60340b066ab898fb7ef172ce26fae6516c397b668a9714b806c20e4ca2bd"
+    }
+  }
+}

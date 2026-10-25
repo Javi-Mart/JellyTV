@@ -1,0 +1,67 @@
+/* Do not set display on generic controls, page containers or hide utilities:
+   Jellyfin owns permissions, playback visibility and route transitions. */
+body:not(.dashboardDocument) {
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  accent-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.backgroundContainer, .nowPlayingPlaylist) {
+  background-color: var(--color-background);
+}
+
+body:not(.dashboardDocument) :where(.page, .dialog, .MuiPaper-root) {
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) :where(h1, h2, h3, .sectionTitle) {
+  font-family: var(--font-family);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-weight: 650;
+}
+
+body:not(.dashboardDocument) :where(.sectionTitle, .sectionTitleTextButton) {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-section);
+}
+
+body:not(.dashboardDocument) :where(.fieldDescription, .secondaryText, .listItemBodyText-secondary, .cardText-secondary) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.fieldDescription, .overview, .loginDisclaimer, .MuiDialogContent-root) {
+  overflow-wrap: anywhere;
+}
+
+body:not(.dashboardDocument) :where(.MuiButton-root, .MuiInputBase-root, .MuiTypography-root, .MuiMenuItem-root, .MuiTab-root) {
+  font-family: var(--font-family);
+}
+
+body:not(.dashboardDocument) :where(.button-link, .emby-linkbutton) {
+  text-underline-offset: 0.2em;
+}
+
+body:not(.dashboardDocument) ::selection {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.emby-scroller, .dialog, .scrollFrame, .MuiPaper-root, .mainDrawer) {
+  scrollbar-color: var(--color-border) transparent;
+  scrollbar-width: thin;
+}
+
+body:not(.dashboardDocument) :where(.verticalSection, .detailVerticalSection) {
+  margin-block-end: calc(var(--spacing-6) * var(--density));
+}
+
+body:not(.dashboardDocument) .sectionTitle-cards {
+  margin-block: var(--spacing-4) var(--spacing-2);
+}
+
+body:not(.dashboardDocument) :where(.paperList, .visualCardBox) {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-medium);
+}

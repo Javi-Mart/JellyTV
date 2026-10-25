@@ -1,0 +1,159 @@
+{
+  "upstream": "v0.19.10 / 984181a3d6ab14e9a6d2dcc850c582e1c138bd95",
+  "lint": {
+    "status": "PASS",
+    "upstream": {
+      "counts": {
+        "Error": 41,
+        "Hint": 440,
+        "Warning": 280
+      },
+      "ids": {
+        "AndroidGradlePluginVersion": 1,
+        "Autofill": 1,
+        "ButtonCase": 1,
+        "ButtonOrder": 1,
+        "ButtonStyle": 2,
+        "ClickableViewAccessibility": 2,
+        "ContentDescription": 20,
+        "ConvertToWebp": 1,
+        "DefaultLocale": 2,
+        "ExportedContentProvider": 2,
+        "IconLauncherShape": 5,
+        "IconLocation": 8,
+        "ImpliedQuantity": 1,
+        "InflateParams": 2,
+        "KotlinPropertyAccess": 1,
+        "LabelFor": 1,
+        "LambdaLast": 1,
+        "MissingQuantity": 30,
+        "ModifierParameter": 1,
+        "NestedWeights": 1,
+        "NewApi": 6,
+        "NotificationPermission": 2,
+        "NotifyDataSetChanged": 2,
+        "Overdraw": 7,
+        "PluralsCandidate": 10,
+        "PrivateResource": 94,
+        "RelativeOverlap": 1,
+        "RestrictedApi": 2,
+        "RtlHardcoded": 2,
+        "ScrollViewSize": 1,
+        "SetTextI18n": 16,
+        "SmallSp": 1,
+        "StaticFieldLeak": 5,
+        "UnknownNullness": 440,
+        "UnusedAttribute": 2,
+        "UnusedQuantity": 3,
+        "UnusedResources": 64,
+        "UseKtx": 2,
+        "UseRequiresApi": 3,
+        "UselessLeaf": 2,
+        "UselessParent": 1,
+        "VectorPath": 3,
+        "VectorRaster": 4,
+        "ViewConstructor": 4
+      }
+    },
+    "jellytv": {
+      "counts": {
+        "Hint": 440,
+        "Warning": 280
+      },
+      "ids": {
+        "AndroidGradlePluginVersion": 1,
+        "Autofill": 1,
+        "ButtonCase": 1,
+        "ButtonOrder": 1,
+        "ButtonStyle": 2,
+        "ClickableViewAccessibility": 2,
+        "ContentDescription": 20,
+        "ConvertToWebp": 1,
+        "DefaultLocale": 2,
+        "ExportedContentProvider": 2,
+        "IconLauncherShape": 5,
+        "IconLocation": 8,
+        "InflateParams": 2,
+        "KotlinPropertyAccess": 1,
+        "LabelFor": 1,
+        "LambdaLast": 1,
+        "ModifierParameter": 1,
+        "NestedWeights": 1,
+        "NotifyDataSetChanged": 2,
+        "Overdraw": 7,
+        "PluralsCandidate": 10,
+        "PrivateResource": 94,
+        "RelativeOverlap": 1,
+        "RtlHardcoded": 2,
+        "ScrollViewSize": 1,
+        "SetTextI18n": 16,
+        "SmallSp": 1,
+        "StaticFieldLeak": 5,
+        "UnknownNullness": 440,
+        "UnusedAttribute": 2,
+        "UnusedQuantity": 3,
+        "UnusedResources": 64,
+        "UseKtx": 2,
+        "UseRequiresApi": 3,
+        "UselessLeaf": 2,
+        "UselessParent": 1,
+        "VectorPath": 3,
+        "VectorRaster": 4,
+        "ViewConstructor": 4
+      }
+    },
+    "addedFindings": 24,
+    "removedFindings": 65,
+    "comparison": "CHANGED",
+    "errorComparisonIgnoringLineShifts": "CHANGED",
+    "newErrors": 0,
+    "semanticAddedFindings": 0
+  },
+  "unitTests": {
+    "status": "PASS",
+    "totals": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "suites": [
+      {
+        "name": "org.jellyfin.androidtv.ui.playback.overlay.CustomSeekProviderTests",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "org.jellyfin.androidtv.ui.playback.VideoSpeedControllerTests",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "org.jellyfin.androidtv.util.TimeUtilsTests",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "name": "org.jellyfin.preference.PreferenceStoreTests",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "apk": [
+    {
+      "file": "jellyfin-androidtv-v0.19.10-jellytv.1-debug.apk",
+      "bytes": 31026922,
+      "sha256": "e7d31d38aee854fa1990b6e01dee9f596bab0cc8274c0ec3b11945632e942216"
+    }
+  ],
+  "deviceAcceptance": "See runtime-1080.json, runtime-4k.json and ../docs/device-validation.md; build and unit tests do not establish runtime acceptance."
+}

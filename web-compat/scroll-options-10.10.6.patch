@@ -1,0 +1,12 @@
+diff --git a/src/components/scrollManager.js b/src/components/scrollManager.js
+--- a/src/components/scrollManager.js
++++ b/src/components/scrollManager.js
+@@ -43,7 +43,7 @@ try {
+     const opts = Object.defineProperty({}, 'behavior', {
+         get: function () {
+             supportsScrollToOptions = true;
+-            return null;
++            return 'auto';
+         }
+     });
+ 

@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-10-20T16:38:15.451Z",
+  "browser": "WebKit",
+  "browserVersion": "27.2",
+  "serverVersion": "12.2.0",
+  "protocol": "Five separate mobile touch contexts per mode, Home → movie library → screenshot → Search → query; same routed network behavior.",
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7322,
+        "gzipBytes": 2245,
+        "sha256": "8577cf936e4c9e6756690b4a0a2d490109e6cecf6e6f0aa3165a56e91e5f61ae"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "records": [
+    {
+      "mode": "baseline",
+      "repetition": 1,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "baseline",
+      "repetition": 2,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "baseline",
+      "repetition": 3,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "baseline",
+      "repetition": 4,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "baseline",
+      "repetition": 5,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "enhanced",
+      "repetition": 1,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "enhanced",
+      "repetition": 2,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "enhanced",
+      "repetition": 3,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "enhanced",
+      "repetition": 4,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    },
+    {
+      "mode": "enhanced",
+      "repetition": 5,
+      "crashed": false,
+      "pageErrors": [],
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS",
+  "limitation": "A passing repeat does not erase an earlier transient crash or certify Safari on Apple hardware."
+}

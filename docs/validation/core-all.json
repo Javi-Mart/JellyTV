@@ -1,0 +1,5918 @@
+{
+  "date": "2026-10-23T02:30:07.687Z",
+  "mode": "all",
+  "client": "Jellyfin Web 12.2",
+  "records": [
+    {
+      "name": "desktop-1080",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "outerWidth": 1920,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1920,
+        "bodyWidth": 1920,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1856.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 74.390625,
+            "y": 649.765625,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 219.453125,
+            "y": 649.765625,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 362.421875,
+            "y": 649.765625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 772.21875,
+            "y": 719.796875,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 828,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 872,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 916,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 960,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 1004,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 1048,
+            "y": 719.796875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 1103.15625,
+            "y": 719.796875,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "outerWidth": 1920,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1920,
+        "bodyWidth": 1920,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 65.265625,
+          "y": 528.484375,
+          "width": 357.109375,
+          "height": 535.65625
+        },
+        "title": {
+          "x": 467,
+          "y": 535.921875,
+          "width": 457.125,
+          "height": 62.484375
+        },
+        "actions": {
+          "x": 467,
+          "y": 673.046875,
+          "width": 294.828125,
+          "height": 48.171875
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "desktop-1440",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 2560,
+          "height": 1440,
+          "outerWidth": 2560,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 2560,
+        "bodyWidth": 2560,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 2496.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 74.390625,
+            "y": 659.375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 219.453125,
+            "y": 659.375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 362.421875,
+            "y": 659.375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 1092.21875,
+            "y": 729.40625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 1148,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 1192,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 1236,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 1280,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 1324,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 1368,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 1423.15625,
+            "y": 729.40625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 2560,
+          "height": 1440,
+          "outerWidth": 2560,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 2560,
+        "bodyWidth": 2560,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 74.390625,
+          "y": 583.671875,
+          "width": 357.109375,
+          "height": 535.65625
+        },
+        "title": {
+          "x": 476.125,
+          "y": 591.109375,
+          "width": 457.125,
+          "height": 62.484375
+        },
+        "actions": {
+          "x": 476.125,
+          "y": 728.234375,
+          "width": 294.828125,
+          "height": 48.171875
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "desktop-4k",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 3840,
+          "height": 2160,
+          "outerWidth": 3840,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 3840,
+        "bodyWidth": 3840,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 3776.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 74.390625,
+            "y": 659.375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 219.453125,
+            "y": 659.375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 362.421875,
+            "y": 659.375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 1732.21875,
+            "y": 729.40625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 1788,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 1832,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 1876,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 1920,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 1964,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 2008,
+            "y": 729.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 2063.15625,
+            "y": 729.40625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 3840,
+          "height": 2160,
+          "outerWidth": 3840,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 3840,
+        "bodyWidth": 3840,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 74.390625,
+          "y": 583.671875,
+          "width": 357.109375,
+          "height": 535.65625
+        },
+        "title": {
+          "x": 476.125,
+          "y": 591.109375,
+          "width": 457.125,
+          "height": 62.484375
+        },
+        "actions": {
+          "x": 476.125,
+          "y": 728.234375,
+          "width": 294.828125,
+          "height": 48.171875
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "laptop",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1302.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 61.46875,
+            "y": 437.609375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 206.53125,
+            "y": 437.609375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 349.5,
+            "y": 437.609375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 495.21875,
+            "y": 507.640625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 551,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 595,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 639,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 683,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 727,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 771,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 826.15625,
+            "y": 507.640625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 46.4375,
+          "y": 372.484375,
+          "width": 254.625,
+          "height": 381.9375
+        },
+        "title": {
+          "x": 345.6875,
+          "y": 379.921875,
+          "width": 368.078125,
+          "height": 50.328125
+        },
+        "actions": {
+          "x": 345.6875,
+          "y": 504.890625,
+          "width": 275.140625,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tablet-portrait",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 768,
+          "height": 1024,
+          "outerWidth": 768,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 768,
+        "bodyWidth": 768,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 704.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 34.546875,
+            "y": 421.28125,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 179.609375,
+            "y": 421.28125,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 322.578125,
+            "y": 421.28125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 196.21875,
+            "y": 491.3125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 252,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 296,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 340,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 384,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 428,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 472,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 527.15625,
+            "y": 491.3125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 768,
+          "height": 1024,
+          "outerWidth": 768,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 768,
+        "bodyWidth": 768,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 324.484375,
+          "y": 391.71875,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 22.3125,
+          "y": 592.578125,
+          "width": 723.375,
+          "height": 41.65625
+        },
+        "actions": {
+          "x": 22.3125,
+          "y": 699.953125,
+          "width": 723.375,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tablet-landscape",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1024,
+          "height": 768,
+          "outerWidth": 1024,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1024,
+        "bodyWidth": 1024,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 960.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 46.078125,
+            "y": 391.53125,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 191.140625,
+            "y": 391.53125,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 334.109375,
+            "y": 391.53125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 324.21875,
+            "y": 461.5625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 380,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 424,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 468,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 512,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 556,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 600,
+            "y": 461.5625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 655.15625,
+            "y": 461.5625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1024,
+          "height": 768,
+          "outerWidth": 1024,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1024,
+        "bodyWidth": 1024,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 22.3125,
+          "y": 372.484375,
+          "width": 225.25,
+          "height": 337.875
+        },
+        "title": {
+          "x": 269.875,
+          "y": 379.921875,
+          "width": 321,
+          "height": 41.890625
+        },
+        "actions": {
+          "x": 269.875,
+          "y": 496.453125,
+          "width": 275.140625,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-320",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 320,
+          "height": 740,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 264.21875,
+            "y": 59.15625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59375,
+            "y": 403.328125,
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.875,
+            "y": 403.328125,
+            "width": 105.703125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.015625,
+            "y": 403.328125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 484.203125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 72,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 116,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 160,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 204,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 116,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 160,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 264.21875,
+            "y": 484.203125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 320,
+          "height": 740,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 104,
+          "y": 301.078125,
+          "width": 112,
+          "height": 168
+        },
+        "title": {
+          "x": 14.875,
+          "y": 491.390625,
+          "width": 290.25,
+          "height": 24.984375
+        },
+        "actions": {
+          "x": 14.875,
+          "y": 582.09375,
+          "width": 290.25,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-360",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 360,
+          "height": 800,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 360,
+        "bodyWidth": 360,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 304.21875,
+            "y": 59.15625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59375,
+            "y": 403.328125,
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.875,
+            "y": 403.328125,
+            "width": 105.703125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.015625,
+            "y": 403.328125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 484.203125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 70,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 114,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 158,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 202,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 246,
+            "y": 462.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 158,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 304.21875,
+            "y": 484.203125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 360,
+          "height": 800,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 360,
+        "bodyWidth": 360,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 120.484375,
+          "y": 321.484375,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 14.875,
+          "y": 522.34375,
+          "width": 330.25,
+          "height": 24.984375
+        },
+        "actions": {
+          "x": 14.875,
+          "y": 613.046875,
+          "width": 330.25,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-390",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 390,
+        "bodyWidth": 390,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 334.21875,
+            "y": 59.15625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59375,
+            "y": 447.328125,
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.875,
+            "y": 447.328125,
+            "width": 105.703125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.015625,
+            "y": 447.328125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 63,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 107,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 151,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 195,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 239,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 283,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 334.21875,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 390,
+          "height": 844,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 390,
+        "bodyWidth": 390,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 135.484375,
+          "y": 336.4375,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 14.875,
+          "y": 537.296875,
+          "width": 360.25,
+          "height": 26.203125
+        },
+        "actions": {
+          "x": 14.875,
+          "y": 629.21875,
+          "width": 360.25,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-430",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 430,
+          "height": 932,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 430,
+        "bodyWidth": 430,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 374.21875,
+            "y": 59.15625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59375,
+            "y": 447.328125,
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.875,
+            "y": 447.328125,
+            "width": 105.703125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.015625,
+            "y": 447.328125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 83,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 127,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 171,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 215,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 259,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 303,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 374.21875,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 430,
+          "height": 932,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 430,
+        "bodyWidth": 430,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 155.484375,
+          "y": 366.359375,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 14.875,
+          "y": 567.21875,
+          "width": 400.25,
+          "height": 28.890625
+        },
+        "actions": {
+          "x": 14.875,
+          "y": 661.828125,
+          "width": 400.25,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-480",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 480,
+          "height": 900,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 480,
+        "bodyWidth": 480,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 424.21875,
+            "y": 59.15625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59375,
+            "y": 447.328125,
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.875,
+            "y": 447.328125,
+            "width": 105.703125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.015625,
+            "y": 447.328125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 108,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 152,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 196,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 240,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 284,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 328,
+            "y": 506.203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 424.21875,
+            "y": 506.203125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 480,
+          "height": 900,
+          "outerWidth": 552,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 480,
+        "bodyWidth": 480,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 180.484375,
+          "y": 355.484375,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 14.875,
+          "y": 556.34375,
+          "width": 450.25,
+          "height": 32.25
+        },
+        "actions": {
+          "x": 14.875,
+          "y": 654.3125,
+          "width": 450.25,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-landscape",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 844,
+          "height": 390,
+          "outerWidth": 844,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 844,
+        "bodyWidth": 844,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 780.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 37.96875,
+            "y": 421.28125,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 183.03125,
+            "y": 421.28125,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 326,
+            "y": 421.28125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 234.21875,
+            "y": 491.3125,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 290,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 334,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 378,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 422,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 466,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 510,
+            "y": 491.3125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 565.15625,
+            "y": 491.3125,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 844,
+          "height": 390,
+          "outerWidth": 844,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 844,
+        "bodyWidth": 844,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 362.484375,
+          "y": 242.921875,
+          "width": 119.03125,
+          "height": 178.546875
+        },
+        "title": {
+          "x": 22.3125,
+          "y": 443.78125,
+          "width": 799.375,
+          "height": 41.65625
+        },
+        "actions": {
+          "x": 22.3125,
+          "y": 551.15625,
+          "width": 799.375,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tv-1080",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "outerWidth": 1920,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1920,
+        "bodyWidth": 1920,
+        "layout": "layout-tv",
+        "rootFont": "20px",
+        "targetSize": "3.5rem",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1756,
+            "y": 53.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Play",
+            "x": 96,
+            "y": 505.75,
+            "width": 133.75,
+            "height": 68
+          },
+          {
+            "label": "More info",
+            "x": 244.75,
+            "y": 505.75,
+            "width": 193.546875,
+            "height": 68
+          },
+          {
+            "label": "Add to favorites",
+            "x": 453.296875,
+            "y": 505.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Previous title",
+            "x": 673,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 756,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 824,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 892,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 960,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 1028,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 1096,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          },
+          {
+            "label": "Next title",
+            "x": 1179,
+            "y": 608.75,
+            "width": 68,
+            "height": 68
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "jellytv-button jellytv-button--secondary",
+        "text": "More info",
+        "key": "info",
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 5px",
+        "outlineWidth": 5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "outerWidth": 1920,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1920,
+        "bodyWidth": 1920,
+        "layout": "layout-tv",
+        "rootFont": "20px",
+        "targetSize": "3.5rem",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 96,
+          "y": 134.5,
+          "width": 345.59375,
+          "height": 518.390625
+        },
+        "title": {
+          "x": 501.59375,
+          "y": 144.5,
+          "width": 1322.40625,
+          "height": 69.6875
+        },
+        "actions": {
+          "x": 501.59375,
+          "y": 306.328125,
+          "width": 1322.40625,
+          "height": 72.875
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button show-focus",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 5px",
+        "outlineWidth": 5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tv-4k",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 3840,
+          "height": 2160,
+          "outerWidth": 3840,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 3840,
+        "bodyWidth": 3840,
+        "layout": "layout-tv",
+        "rootFont": "20px",
+        "targetSize": "4.5rem",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 3558,
+            "y": -21,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Play",
+            "x": 192,
+            "y": 1035,
+            "width": 155.28125,
+            "height": 90
+          },
+          {
+            "label": "More info",
+            "x": 362.28125,
+            "y": 1035,
+            "width": 233.28125,
+            "height": 90
+          },
+          {
+            "label": "Add to favorites",
+            "x": 610.5625,
+            "y": 1035,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Previous title",
+            "x": 1545,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 1650,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 1740,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 1830,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 1920,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 2010,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 2100,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          },
+          {
+            "label": "Next title",
+            "x": 2205,
+            "y": 1160,
+            "width": 90,
+            "height": 90
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "jellytv-button jellytv-button--secondary",
+        "text": "More info",
+        "key": "info",
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 5px",
+        "outlineWidth": 5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 3840,
+          "height": 2160,
+          "outerWidth": 3840,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 3840,
+        "bodyWidth": 3840,
+        "layout": "layout-tv",
+        "rootFont": "20px",
+        "targetSize": "4.5rem",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 192,
+          "y": 166,
+          "width": 691.1875,
+          "height": 1036.78125
+        },
+        "title": {
+          "x": 943.1875,
+          "y": 176,
+          "width": 2704.8125,
+          "height": 84
+        },
+        "actions": {
+          "x": 943.1875,
+          "y": 365.515625,
+          "width": 2704.8125,
+          "height": 97.171875
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button show-focus",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 5px",
+        "outlineWidth": 5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "forced-colors",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "Canvas",
+          "surface": "Canvas",
+          "surface-elevated": "Canvas",
+          "text-primary": "CanvasText",
+          "text-secondary": "CanvasText",
+          "text-muted": "CanvasText",
+          "focus": "Highlight",
+          "on-accent": "HighlightText"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1301.78125,
+            "y": 67.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 62.46875,
+            "y": 438.609375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 207.53125,
+            "y": 438.609375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 350.5,
+            "y": 438.609375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 495.21875,
+            "y": 508.640625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 551,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 595,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 639,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 683,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 727,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 771,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 826.15625,
+            "y": 508.640625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "System palette; checked through axe and visual review"
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(55, 0, 110) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "Canvas",
+          "surface": "Canvas",
+          "surface-elevated": "Canvas",
+          "text-primary": "CanvasText",
+          "text-secondary": "CanvasText",
+          "text-muted": "CanvasText",
+          "focus": "Highlight",
+          "on-accent": "HighlightText"
+        },
+        "poster": {
+          "x": 46.4375,
+          "y": 372.484375,
+          "width": 254.625,
+          "height": 380.9375
+        },
+        "title": {
+          "x": 345.6875,
+          "y": 379.921875,
+          "width": 368.078125,
+          "height": 50.328125
+        },
+        "actions": {
+          "x": 345.6875,
+          "y": 504.890625,
+          "width": 285.140625,
+          "height": 46.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(55, 0, 110) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "forced-colors-dark",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "Canvas",
+          "surface": "Canvas",
+          "surface-elevated": "Canvas",
+          "text-primary": "CanvasText",
+          "text-secondary": "CanvasText",
+          "text-muted": "CanvasText",
+          "focus": "Highlight",
+          "on-accent": "HighlightText"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1301.78125,
+            "y": 67.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 62.46875,
+            "y": 438.609375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 207.53125,
+            "y": 438.609375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 350.5,
+            "y": 438.609375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 495.21875,
+            "y": 508.640625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 551,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 595,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 639,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 683,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 727,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 771,
+            "y": 508.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 826.15625,
+            "y": 508.640625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "System palette; checked through axe and visual review"
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(26, 235, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "Canvas",
+          "surface": "Canvas",
+          "surface-elevated": "Canvas",
+          "text-primary": "CanvasText",
+          "text-secondary": "CanvasText",
+          "text-muted": "CanvasText",
+          "focus": "Highlight",
+          "on-accent": "HighlightText"
+        },
+        "poster": {
+          "x": 46.4375,
+          "y": 372.484375,
+          "width": 254.625,
+          "height": 380.9375
+        },
+        "title": {
+          "x": 345.6875,
+          "y": 379.921875,
+          "width": 368.078125,
+          "height": 50.328125
+        },
+        "actions": {
+          "x": 345.6875,
+          "y": 504.890625,
+          "width": 285.140625,
+          "height": 46.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(26, 235, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "contrast-more",
+      "zoom": null,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#e0e5ed",
+          "text-muted": "#c5ccd7",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1302.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 61.46875,
+            "y": 437.609375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 206.53125,
+            "y": 437.609375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 349.5,
+            "y": 437.609375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 495.21875,
+            "y": 507.640625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 551,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 595,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 639,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 683,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 727,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 771,
+            "y": 507.640625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 826.15625,
+            "y": 507.640625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 15.66
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 13.94
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 11.42
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 12.26
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 10.91
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 8.94
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 3px",
+        "outlineWidth": 3,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1366,
+          "height": 768,
+          "outerWidth": 1366,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1366,
+        "bodyWidth": 1366,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#e0e5ed",
+          "text-muted": "#c5ccd7",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 46.4375,
+          "y": 372.484375,
+          "width": 254.625,
+          "height": 381.9375
+        },
+        "title": {
+          "x": 345.6875,
+          "y": 379.921875,
+          "width": 368.078125,
+          "height": 50.328125
+        },
+        "actions": {
+          "x": 345.6875,
+          "y": 504.890625,
+          "width": 275.140625,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 3px",
+        "outlineWidth": 3,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tv-dpad-1920",
+      "steps": [
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "jellytv-button jellytv-button--primary",
+            "text": "Play",
+            "key": "play",
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "ArrowDown",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/video",
+          "element": {
+            "tag": "BODY",
+            "classes": "libraryDocument hide-scroll mouseIdle mouseIdle-tv",
+            "text": "HomeMedia\n                                    \n                                 ",
+            "key": null,
+            "type": null,
+            "outline": "rgb(245, 247, 250) none 3px",
+            "outlineWidth": 3,
+            "outlineVisible": false,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        }
+      ],
+      "errors": [],
+      "video": {
+        "readyState": 4,
+        "error": null
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "tv-dpad-3840",
+      "steps": [
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "jellytv-button jellytv-button--primary",
+            "text": "Play",
+            "key": "play",
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "ArrowDown",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Enter",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/video",
+          "element": {
+            "tag": "BODY",
+            "classes": "libraryDocument hide-scroll mouseIdle mouseIdle-tv",
+            "text": "HomeMedia\n                                    \n                                 ",
+            "key": null,
+            "type": null,
+            "outline": "rgb(245, 247, 250) none 3px",
+            "outlineWidth": 3,
+            "outlineVisible": false,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/details",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "button-flat btnPlay detailButton emby-button show-focus",
+            "text": "",
+            "key": null,
+            "type": null,
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "Escape",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        },
+        {
+          "key": "initial",
+          "route": "/home",
+          "element": {
+            "tag": "BUTTON",
+            "classes": "card overflowBackdropCard show-focus show-animation card-withuserdata itemAction",
+            "text": "The Quiet Horizon",
+            "key": null,
+            "type": "Movie",
+            "outline": "rgb(197, 231, 255) solid 5px",
+            "outlineWidth": 5,
+            "outlineVisible": true,
+            "inViewport": true
+          }
+        }
+      ],
+      "errors": [],
+      "video": {
+        "readyState": 4,
+        "error": null
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "browser-zoom-100",
+      "zoom": 1,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 1280,
+          "height": 900,
+          "outerWidth": 1306,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1280,
+        "bodyWidth": 1280,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 1216.78125,
+            "y": 66.59375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 57.59375,
+            "y": 527.375,
+            "width": 133.90625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 202.65625,
+            "y": 527.375,
+            "width": 131.8125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 345.625,
+            "y": 527.375,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 452.21875,
+            "y": 597.40625,
+            "width": 44.625,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 508,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 552,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 596,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 640,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 684,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 728,
+            "y": 597.40625,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 783.15625,
+            "y": 597.40625,
+            "width": 44.625,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "A",
+        "classes": "MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit Mui-focusVisible MuiButton-root MuiButton-text MuiButton-textInherit MuiButton-sizeLarge MuiButton-textSizeLarge MuiButton-colorInherit css-iqm7ky",
+        "text": "JAVIER-PC",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "zoomHeroFocus": {
+        "tag": "BUTTON",
+        "classes": "jellytv-button jellytv-button--primary",
+        "text": "Play",
+        "key": "play",
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 1280,
+          "height": 900,
+          "outerWidth": 1306,
+          "devicePixelRatio": 1
+        },
+        "documentWidth": 1280,
+        "bodyWidth": 1280,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 43.515625,
+          "y": 438.484375,
+          "width": 238.59375,
+          "height": 357.890625
+        },
+        "title": {
+          "x": 326.734375,
+          "y": 445.921875,
+          "width": 352.59375,
+          "height": 48.203125
+        },
+        "actions": {
+          "x": 326.734375,
+          "y": 568.765625,
+          "width": 275.140625,
+          "height": 44.609375
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2px",
+        "outlineWidth": 2,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "browser-zoom-200",
+      "zoom": 2,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 640,
+          "height": 450,
+          "outerWidth": 1306,
+          "devicePixelRatio": 2
+        },
+        "documentWidth": 640,
+        "bodyWidth": 640,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 576.7734375,
+            "y": 66.59375,
+            "width": 44.6328125,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 28.796875,
+            "y": 421.2890625,
+            "width": 133.9140625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 173.8671875,
+            "y": 421.2890625,
+            "width": 131.8203125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 316.84375,
+            "y": 421.2890625,
+            "width": 44.6328125,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 132.2109375,
+            "y": 491.3203125,
+            "width": 44.6328125,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 188,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 232,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 276,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 320,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 364,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 408,
+            "y": 491.3203125,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 463.15625,
+            "y": 491.3203125,
+            "width": 44.6328125,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.5px",
+        "outlineWidth": 2.5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "zoomHeroFocus": {
+        "tag": "BUTTON",
+        "classes": "jellytv-button jellytv-button--primary",
+        "text": "Play",
+        "key": "play",
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.5px",
+        "outlineWidth": 2.5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 640,
+          "height": 450,
+          "outerWidth": 1306,
+          "devicePixelRatio": 2
+        },
+        "documentWidth": 640,
+        "bodyWidth": 640,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 260.4765625,
+          "y": 242.921875,
+          "width": 119.0390625,
+          "height": 178.5546875
+        },
+        "title": {
+          "x": 22.3125,
+          "y": 443.7890625,
+          "width": 595.375,
+          "height": 41.6640625
+        },
+        "actions": {
+          "x": 22.3125,
+          "y": 551.1875,
+          "width": 595.375,
+          "height": 44.6328125
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.5px",
+        "outlineWidth": 2.5,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "browser-zoom-400",
+      "zoom": 4,
+      "errors": [],
+      "home": {
+        "viewport": {
+          "width": 320,
+          "height": 225,
+          "outerWidth": 1306,
+          "devicePixelRatio": 4
+        },
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "rotationDisabled": true,
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": null,
+        "title": null,
+        "actions": null,
+        "heroTargets": [
+          {
+            "label": "Start rotation",
+            "x": 264.20703125,
+            "y": 59.15625,
+            "width": 44.63671875,
+            "height": 44
+          },
+          {
+            "label": "Play",
+            "x": 18.59765625,
+            "y": 403.32421875,
+            "width": 72.890625,
+            "height": 44
+          },
+          {
+            "label": "More info",
+            "x": 98.92578125,
+            "y": 403.32421875,
+            "width": 105.76953125,
+            "height": 44
+          },
+          {
+            "label": "Add to favorites",
+            "x": 212.1328125,
+            "y": 403.32421875,
+            "width": 44.63671875,
+            "height": 44
+          },
+          {
+            "label": "Previous title",
+            "x": 11.15625,
+            "y": 484.19921875,
+            "width": 44.63671875,
+            "height": 44
+          },
+          {
+            "label": "Title 1: The Meridian Archive",
+            "x": 72,
+            "y": 462.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 2: Without Artwork",
+            "x": 116,
+            "y": 462.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 3: A Very Long Journey Beyond Every Known Horizon and Into the Unknown",
+            "x": 160,
+            "y": 462.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 4: The Last Signal",
+            "x": 204,
+            "y": 462.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 5: North of the Stars",
+            "x": 116,
+            "y": 506.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Title 6: Tides of Tomorrow",
+            "x": 160,
+            "y": 506.19921875,
+            "width": 44,
+            "height": 44
+          },
+          {
+            "label": "Next title",
+            "x": 264.20703125,
+            "y": 484.19921875,
+            "width": 44.63671875,
+            "height": 44
+          }
+        ]
+      },
+      "paletteContrast": {
+        "method": "WCAG relative luminance of resolved theme palette; artwork also needs visual review",
+        "checks": [
+          {
+            "text": "text-primary",
+            "surface": "background",
+            "ratio": 18.46
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface",
+            "ratio": 16.43
+          },
+          {
+            "text": "text-primary",
+            "surface": "surface-elevated",
+            "ratio": 13.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "background",
+            "ratio": 10.46
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface",
+            "ratio": 9.32
+          },
+          {
+            "text": "text-secondary",
+            "surface": "surface-elevated",
+            "ratio": 7.63
+          },
+          {
+            "text": "text-muted",
+            "surface": "background",
+            "ratio": 7.95
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface",
+            "ratio": 7.08
+          },
+          {
+            "text": "text-muted",
+            "surface": "surface-elevated",
+            "ratio": 5.8
+          },
+          {
+            "text": "focus",
+            "surface": "background",
+            "ratio": 15.33
+          },
+          {
+            "text": "focus",
+            "surface": "surface",
+            "ratio": 13.65
+          },
+          {
+            "text": "focus",
+            "surface": "surface-elevated",
+            "ratio": 11.17
+          }
+        ]
+      },
+      "homeFocus": {
+        "tag": "BUTTON",
+        "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeLarge css-i2hxb6",
+        "text": "Open Menu",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.75px",
+        "outlineWidth": 2.75,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "zoomHeroFocus": {
+        "tag": "BUTTON",
+        "classes": "jellytv-button jellytv-button--primary",
+        "text": "Play",
+        "key": "play",
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.75px",
+        "outlineWidth": 2.75,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "homeAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "details": {
+        "viewport": {
+          "width": 320,
+          "height": 225,
+          "outerWidth": 1306,
+          "devicePixelRatio": 4
+        },
+        "documentWidth": 320,
+        "bodyWidth": 320,
+        "layout": "layout-desktop",
+        "rootFont": "14.88px",
+        "targetSize": "max(2.75rem, 44px)",
+        "reducedMotion": true,
+        "transitionToken": "0ms",
+        "colors": {
+          "background": "#080a0e",
+          "surface": "#15191f",
+          "surface-elevated": "#242a33",
+          "text-primary": "#f5f7fa",
+          "text-secondary": "#b6bdc7",
+          "text-muted": "#9ba5b3",
+          "focus": "#c5e7ff",
+          "on-accent": "#101820"
+        },
+        "poster": {
+          "x": 104,
+          "y": 242.921875,
+          "width": 112,
+          "height": 168
+        },
+        "title": {
+          "x": 14.87890625,
+          "y": 433.23828125,
+          "width": 290.2421875,
+          "height": 24.99609375
+        },
+        "actions": {
+          "x": 14.87890625,
+          "y": 523.98046875,
+          "width": 290.2421875,
+          "height": 44.6328125
+        },
+        "heroTargets": []
+      },
+      "detailsFocus": {
+        "tag": "BUTTON",
+        "classes": "button-flat btnPlay detailButton emby-button",
+        "text": "",
+        "key": null,
+        "type": null,
+        "outline": "rgb(197, 231, 255) solid 2.75px",
+        "outlineWidth": 2.75,
+        "outlineVisible": true,
+        "inViewport": true
+      },
+      "detailsAudit": [
+        {
+          "id": "meta-viewport",
+          "impact": "moderate",
+          "help": "Zooming and scaling must not be disabled",
+          "nodes": [
+            {
+              "target": [
+                "meta[name=\"viewport\"]"
+              ],
+              "failure": "Fix any of the following:\n  user-scalable=no on <meta> tag disables zooming on mobile devices"
+            }
+          ]
+        }
+      ],
+      "status": "PASS"
+    }
+  ],
+  "hostCompatibility": [
+    {
+      "patch": "quick-connect",
+      "file": "session-login.6addd55f3321bb7b4f28.chunk.js",
+      "sha256": "e9ea5618c78c4f92fd9d2447e0bc84e6e3ba11dbee8c0087efbea8038afc60ab"
+    },
+    {
+      "patch": "navigation",
+      "file": "main.jellyfin.bundle.js",
+      "sha256": "5e0ea2d5f60379dbab50a4173088e5b5cb26e92744ad045576fcd09a6101ef37"
+    }
+  ],
+  "build": {
+    "version": "1.0.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7554,
+        "sha256": "f9d2e3af06ce25d75876af66d00a46edda405186e13a8afd02832859851896e3"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7352,
+        "gzipBytes": 2264,
+        "sha256": "ce3294426996da0975302e5c0137ba51bdffcac957c6c3ae35cdfb8f6b10c94d"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "browser": "154.0.8037.100",
+  "status": "PASS"
+}

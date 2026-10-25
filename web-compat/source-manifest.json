@@ -1,0 +1,16 @@
+{
+  "upstreamCommit": "61b1f890365ad15138e943e694af723c1d47df2a",
+  "file": "jellyfin-web-12.2-compat-source.zip",
+  "bytes": 4672832,
+  "sha256": "dfd1dbb106cd4827e7c5846b48c14b94ef2dd2e04dbc2045ae261fb949b524f5",
+  "modifiedSources": [
+    {
+      "file": "src/apps/legacy/controllers/session/login/index.js",
+      "sha256": "65c767988d9c8d27d52d62f6016ab154d82d67673da8f2f638858931650b4eb9"
+    },
+    {
+      "file": "src/components/viewManager/ViewManagerPage.tsx",
+      "sha256": "ffd32b07959fbcd97d7b28f50e41b56fa37c259baae041e2e72fcec6690dc5d4"
+    }
+  ]
+}

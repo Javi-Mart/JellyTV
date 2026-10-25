@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-21T14:53:47.031Z",
+  "server": "12.2.0",
+  "browser": "154.0.8037.100",
+  "protocol": "Three native controls with empty Branding and no Enhanced plugin. Select second real AAC track, wait for playback, pause and return using native Back. Record every console error and uncaught exception.",
+  "runs": [
+    {
+      "disabled": {
+        "core": true,
+        "enhanced": true
+      },
+      "errors": [
+        {
+          "message": "HLS Error: Type: otherError Details: internalException Fatal: false",
+          "source": "/web/main.jellyfin.bundle.js",
+          "stage": "detail",
+          "route": "/details?id=b95f91ce37b20aee678ab7efff005e8b"
+        }
+      ],
+      "exceptions": [],
+      "playbackAdvanced": true,
+      "nativeReturn": true
+    },
+    {
+      "disabled": {
+        "core": true,
+        "enhanced": true
+      },
+      "errors": [
+        {
+          "message": "HLS Error: Type: otherError Details: internalException Fatal: false",
+          "source": "/web/main.jellyfin.bundle.js",
+          "stage": "detail",
+          "route": "/details?id=b95f91ce37b20aee678ab7efff005e8b"
+        }
+      ],
+      "exceptions": [],
+      "playbackAdvanced": true,
+      "nativeReturn": true
+    },
+    {
+      "disabled": {
+        "core": true,
+        "enhanced": true
+      },
+      "errors": [
+        {
+          "message": "HLS Error: Type: otherError Details: internalException Fatal: false",
+          "source": "/web/main.jellyfin.bundle.js",
+          "stage": "detail",
+          "route": "/details?id=b95f91ce37b20aee678ab7efff005e8b"
+        }
+      ],
+      "exceptions": [],
+      "playbackAdvanced": true,
+      "nativeReturn": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+node_modules/
+.lab/
+.playwright-mcp/
+test-results/
+playwright-report/
+android-tv/.gradle/
+*.local.json
+*.log
+__pycache__/
+*.pyc
+releases/*.zip

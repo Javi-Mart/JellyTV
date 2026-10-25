@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-21T14:48:31.496898+00:00",
+  "device": "Android TV API 34 x86 emulator / WHPX",
+  "resolution": "1080",
+  "app": "org.jellyfin.androidtv.debug",
+  "input": "ADB KEYCODE_DPAD events; no injected UI or fake media responses",
+  "installedApkSha256": "ebcb4803710d219436f30dc831f9aa40309bf5599f0554ab4015afc2c59088c8",
+  "server": "isolated Jellyfin 12.2 laboratory",
+  "checks": [
+    {
+      "name": "home",
+      "status": "FAIL",
+      "detail": "ADB ('exec-out', 'screencap', '-p'): exit 4294967295: * daemon still not running\r\nerror: cannot connect to daemon at tcp:5038: cannot connect to 127.0.0.1:5038: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (10060)\r\n",
+      "screenshot": "screenshots/runtime-1080-failure-home.png"
+    },
+    {
+      "name": "info-return",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-1080-info.png",
+        "screenshots/runtime-1080-return-info.png"
+      ],
+      "restoredFocus": "Info"
+    },
+    {
+      "name": "favorite",
+      "status": "PASS",
+      "persistedAcrossRestart": true,
+      "restoredOriginalFavorite": true,
+      "screenshot": "screenshots/runtime-1080-favorite.png"
+    },
+    {
+      "name": "carousel",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-1080-missing-art.png",
+        "screenshots/runtime-1080-long-title.png"
+      ],
+      "fallbackTitle": true
+    },
+    {
+      "name": "vertical",
+      "status": "PASS",
+      "nativeRowsAccessible": true,
+      "screenshot": "screenshots/runtime-1080-native-row.png"
+    },
+    {
+      "name": "play",
+      "status": "PASS",
+      "nativePlayer": true,
+      "position": "0:01",
+      "screenshots": [
+        "screenshots/runtime-1080-playback.png",
+        "screenshots/runtime-1080-return-play.png"
+      ]
+    },
+    {
+      "name": "resume",
+      "status": "PASS",
+      "savedPositionSeconds": 180,
+      "playerPosition": "3:01",
+      "restoredFocus": "Resume",
+      "screenshot": "screenshots/runtime-1080-resume.png"
+    },
+    {
+      "name": "row-detail-play",
+      "status": "PASS",
+      "route": "Home \u2192 native row \u2192 movie detail \u2192 Play \u2192 detail \u2192 row",
+      "input": "D-pad only",
+      "position": "0:01",
+      "rowFocusRestored": true,
+      "screenshots": [
+        "screenshots/runtime-1080-flow-row.png",
+        "screenshots/runtime-1080-flow-detail.png",
+        "screenshots/runtime-1080-flow-player.png",
+        "screenshots/runtime-1080-flow-return.png"
+      ]
+    }
+  ],
+  "status": "FAIL"
+}

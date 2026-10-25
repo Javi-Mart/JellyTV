@@ -1,0 +1,107 @@
+/* Upstream sets outline:none!important on emby controls, cards and listItems.
+   This narrowly targeted override restores a real, high-contrast focus ring. */
+body:not(.dashboardDocument) :is(a, button, input, textarea, select, [tabindex]):focus-visible,
+html.layout-tv body:not(.dashboardDocument) :is(.focusable, .show-focus, button, a, input, select):focus {
+  outline: var(--focus-width) solid var(--color-focus) !important;
+  outline-offset: 0.1875rem;
+}
+
+/* Card paint containment can clip an external outline. The inset ring on its
+   artwork remains visible even when an ancestor scroller clips its edges. */
+body:not(.dashboardDocument) .card:focus-within .cardScalable,
+body:not(.dashboardDocument) .card:focus-visible .cardScalable,
+html.layout-tv body:not(.dashboardDocument) .card:focus .cardScalable {
+  box-shadow: inset 0 0 0 var(--focus-width) var(--color-focus), var(--shadow-focus);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-select, .emby-textarea):focus {
+  border-color: var(--color-focus);
+}
+
+body:not(.dashboardDocument) :where(.listItem, .actionSheetMenuItem):focus-visible {
+  outline-offset: -0.1875rem;
+  background-color: var(--color-selected);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light).show-focus:focus {
+  transform: scale(1.035);
+}
+
+body:not(.dashboardDocument) :where(.card, .MuiButton-root, .emby-button)[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 0ms;
+    --motion-fast: 0ms;
+    --motion-normal: 0ms;
+    --motion-slow: 0ms;
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+
+  body:not(.dashboardDocument) :is(.card, .cardBox, .emby-button, .paper-icon-button-light, .listItem, .cardOverlayContainer, .itemBackdrop, .lazy-image-fadein, .lazy-image-fadein-fast, .MuiSkeleton-root, .MuiSkeleton-root::after) {
+    /* Upstream focusscale/select animations use !important; retain focused
+       position and make image/skeleton transitions static for this preference. */
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body:not(.dashboardDocument) .card:is(:hover, :focus, :active) .cardBox,
+  body:not(.dashboardDocument) :is(.emby-button, .paper-icon-button-light, .emby-select):is(:focus, :active) {
+    transform: none !important;
+  }
+
+  body:not(.dashboardDocument) :where(.emby-scroller, .scrollFrame) {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-secondary: #e0e5ed;
+    --color-text-muted: #c5ccd7;
+    --color-border: #8b95a5;
+    --color-divider: #687384;
+    --color-scrim: #080a0e;
+    --focus-width: 0.25rem;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    /* Resolve our palette to the user's system palette as well as allowing
+       the UA's forced-color painting. This keeps authored/computed colors,
+       SVG currentColor and focus indicators consistent in both HC schemes. */
+    --color-background: Canvas;
+    --color-surface: Canvas;
+    --color-surface-elevated: Canvas;
+    --color-text-primary: CanvasText;
+    --color-text-secondary: CanvasText;
+    --color-text-muted: CanvasText;
+    --color-accent: Highlight;
+    --color-on-accent: HighlightText;
+    --color-focus: Highlight;
+    --color-border: ButtonText;
+    --color-divider: ButtonText;
+    --color-hover: Highlight;
+    --color-selected: Highlight;
+    --color-scrim: Canvas;
+  }
+
+  body:not(.dashboardDocument) :where(.cardScalable, .emby-button, .MuiButton-root, .emby-input, .emby-select, .MuiDialog-paper) {
+    border: 1px solid ButtonText;
+  }
+
+  body:not(.dashboardDocument) :is(a, button, input, textarea, select, [tabindex]):focus-visible,
+  html.layout-tv body:not(.dashboardDocument) .focusable:focus {
+    outline-color: Highlight !important;
+  }
+
+  body:not(.dashboardDocument) :where(.MuiMenuItem-root.Mui-selected, .navMenuOption-selected, .emby-tab-button-active) {
+    border-block-end: 2px solid Highlight;
+  }
+}

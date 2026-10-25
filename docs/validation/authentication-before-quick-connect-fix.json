@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-21T19:58:53.911Z",
+  "server": "12.2.0",
+  "browser": "154.0.8037.100",
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7352,
+        "gzipBytes": 2264,
+        "sha256": "ce3294426996da0975302e5c0137ba51bdffcac957c6c3ae35cdfb8f6b10c94d"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "protocol": "Fresh baseline/Core/Enhanced contexts: reject nonexistent user, show error, authorize real Quick Connect session as the limited lab account, confirm Home and hero scope. No codes, secrets or tokens in evidence.",
+  "runs": [
+    {
+      "mode": "baseline",
+      "invalidLoginRejected": true,
+      "errorVisible": true,
+      "quickConnect": true,
+      "correctLimitedUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "source": "/Users/authenticatebyname",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        }
+      ],
+      "exceptions": [
+        {
+          "message": "undefined",
+          "stage": "quick-connect"
+        }
+      ],
+      "rejections": [
+        {
+          "stage": "quick-connect",
+          "reason": "undefined"
+        }
+      ]
+    },
+    {
+      "mode": "core",
+      "invalidLoginRejected": true,
+      "errorVisible": true,
+      "quickConnect": true,
+      "correctLimitedUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "source": "/Users/authenticatebyname",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        }
+      ],
+      "exceptions": [
+        {
+          "message": "undefined",
+          "stage": "quick-connect"
+        }
+      ],
+      "rejections": [
+        {
+          "stage": "quick-connect",
+          "reason": "undefined"
+        }
+      ]
+    },
+    {
+      "mode": "enhanced",
+      "invalidLoginRejected": true,
+      "errorVisible": true,
+      "quickConnect": true,
+      "correctLimitedUser": true,
+      "errors": [
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+          "source": "/Users/authenticatebyname",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        },
+        {
+          "message": "WebSocket connection to 'ws://127.0.0.1:18996/socket' failed: Error during WebSocket handshake: Unexpected response code: 403",
+          "source": "/web/node_modules.%40jellyfin.sdk.bundle.js",
+          "route": "/login"
+        }
+      ],
+      "exceptions": [
+        {
+          "message": "undefined",
+          "stage": "quick-connect"
+        }
+      ],
+      "rejections": [
+        {
+          "stage": "quick-connect",
+          "reason": "undefined"
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}

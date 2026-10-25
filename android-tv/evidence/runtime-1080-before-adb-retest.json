@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-21T14:41:13.254032+00:00",
+  "device": "Android TV API 34 x86 emulator / WHPX",
+  "resolution": "1080",
+  "app": "org.jellyfin.androidtv.debug",
+  "input": "ADB KEYCODE_DPAD events; no injected UI or fake media responses",
+  "installedApkSha256": "ebcb4803710d219436f30dc831f9aa40309bf5599f0554ab4015afc2c59088c8",
+  "server": "isolated Jellyfin 12.2 laboratory",
+  "checks": [
+    {
+      "name": "home",
+      "status": "PASS",
+      "candidates": 6,
+      "minimumButtonDp": 44,
+      "screenshot": "screenshots/runtime-1080-home.png"
+    },
+    {
+      "name": "info-return",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-1080-info.png",
+        "screenshots/runtime-1080-return-info.png"
+      ],
+      "restoredFocus": "Info"
+    },
+    {
+      "name": "favorite",
+      "status": "FAIL",
+      "detail": "Command '['F:\\\\01_personal_projects\\\\jellyfin-css\\\\.lab\\\\android-tools\\\\sdk\\\\platform-tools\\\\adb.exe', '-P', '5038', '-s', 'emulator-5554', 'shell', 'am', 'force-stop', 'org.jellyfin.androidtv.debug']' returned non-zero exit status 1.",
+      "screenshot": "screenshots/runtime-1080-failure-favorite.png"
+    },
+    {
+      "name": "carousel",
+      "status": "PASS",
+      "screenshots": [
+        "screenshots/runtime-1080-missing-art.png",
+        "screenshots/runtime-1080-long-title.png"
+      ],
+      "fallbackTitle": true
+    },
+    {
+      "name": "vertical",
+      "status": "PASS",
+      "nativeRowsAccessible": true,
+      "screenshot": "screenshots/runtime-1080-native-row.png"
+    },
+    {
+      "name": "play",
+      "status": "PASS",
+      "nativePlayer": true,
+      "position": "0:01",
+      "screenshots": [
+        "screenshots/runtime-1080-playback.png",
+        "screenshots/runtime-1080-return-play.png"
+      ]
+    },
+    {
+      "name": "resume",
+      "status": "PASS",
+      "savedPositionSeconds": 180,
+      "playerPosition": "3:01",
+      "restoredFocus": "Resume",
+      "screenshot": "screenshots/runtime-1080-resume.png"
+    }
+  ],
+  "status": "FAIL"
+}

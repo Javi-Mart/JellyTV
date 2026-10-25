@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "name": "extended-initial",
+  "serverVersion": "12.2.0",
+  "browsers": [
+    "chrome"
+  ],
+  "browserVersions": [
+    "154.0.8037.100"
+  ],
+  "startTime": "2026-10-21T14:47:19.452Z",
+  "durationMs": 134967.623,
+  "counts": {
+    "passed": 0,
+    "failed": 7,
+    "skipped": 2,
+    "flaky": 0,
+    "setupFailures": 0
+  },
+  "setupFailureKinds": [],
+  "build": {
+    "version": "0.1.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7552,
+        "sha256": "091be1f44aca571a3a86d0516c18ad077487dd0bbed13559d761fe9fb4f494df"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7322,
+        "gzipBytes": 2245,
+        "sha256": "8577cf936e4c9e6756690b4a0a2d490109e6cecf6e6f0aa3165a56e91e5f61ae"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "tests": [
+    {
+      "project": "desktop-1080",
+      "title": "collection details and empty search retain usable navigation",
+      "status": "unexpected",
+      "durationMs": 15087,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: Visible artwork must finish loading before its visual evidence is captured"
+    },
+    {
+      "project": "desktop-1080",
+      "title": "native player switches real audio tracks, adjusts volume and seeks",
+      "status": "unexpected",
+      "durationMs": 17999,
+      "diagnostics": {
+        "unexpected": 1,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(received).toBe(expected) // Object.is equality"
+    },
+    {
+      "project": "desktop-1080",
+      "title": "touch swipe, missing artwork and mobile landscape remain usable",
+      "status": "skipped",
+      "durationMs": 307,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "mobile-390",
+      "title": "collection details and empty search retain usable navigation",
+      "status": "unexpected",
+      "durationMs": 15115,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: Visible artwork must finish loading before its visual evidence is captured"
+    },
+    {
+      "project": "mobile-390",
+      "title": "native player switches real audio tracks, adjusts volume and seeks",
+      "status": "unexpected",
+      "durationMs": 22069,
+      "diagnostics": {
+        "unexpected": 1,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "TimeoutError: locator.focus: Timeout 15000ms exceeded."
+    },
+    {
+      "project": "mobile-390",
+      "title": "touch swipe, missing artwork and mobile landscape remain usable",
+      "status": "unexpected",
+      "durationMs": 16380,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(locator).not.toHaveText(expected) failed"
+    },
+    {
+      "project": "tv-1080",
+      "title": "collection details and empty search retain usable navigation",
+      "status": "unexpected",
+      "durationMs": 14972,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: Visible artwork must finish loading before its visual evidence is captured"
+    },
+    {
+      "project": "tv-1080",
+      "title": "native player switches real audio tracks, adjusts volume and seeks",
+      "status": "unexpected",
+      "durationMs": 21338,
+      "diagnostics": {
+        "unexpected": 1,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "Error: expect(received).toBe(expected) // Object.is equality"
+    },
+    {
+      "project": "tv-1080",
+      "title": "touch swipe, missing artwork and mobile landscape remain usable",
+      "status": "skipped",
+      "durationMs": 287,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    }
+  ]
+}

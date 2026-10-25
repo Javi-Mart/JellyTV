@@ -1,0 +1,3289 @@
+{
+  "date": "2026-10-23",
+  "serverVersion": "10.10.6",
+  "webCommit": "c335a3024",
+  "browser": "154.0.8037.100",
+  "source": "isolated-10.10.6-original-fixtures",
+  "runs": [
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "home",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/home.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [],
+        "headings": [
+          {
+            "text": "My Media",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section0 emby-scroller-container",
+            "x": 0,
+            "y": 99.6875,
+            "width": 1920,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Continue Watching",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section1 emby-scroller-container",
+            "x": 0,
+            "y": 363.578125,
+            "width": 1920,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Next Up",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 746.71875,
+            "width": 87.421875,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Movies",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 1136.90625,
+            "width": 316.25,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Music",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 1619.390625,
+            "width": 302.5,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Shows",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 2010.6875,
+            "width": 308.265625,
+            "height": 44.265625,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "movie-library",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/movie-library.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [],
+        "headings": []
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "movie",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/movie.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 561.59375,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 65.265625,
+            "y": 367.203125,
+            "width": 300,
+            "height": 450,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 417.34375,
+            "y": 502.328125,
+            "width": 1437.390625,
+            "height": 48.171875,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Aster Vale",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 417.34375,
+            "y": 374.640625,
+            "width": 1437.390625,
+            "height": 62.484375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "text": "More Like This",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-right",
+            "parent": "verticalSection detailVerticalSection verticalSection-extrabottompadding emby-scroller-container",
+            "x": 65.265625,
+            "y": 1046.375,
+            "width": 1789.46875,
+            "height": 44.671875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "series",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/series.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 561.59375,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 65.265625,
+            "y": 129.59375,
+            "width": 440,
+            "height": 129.59375,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 65.265625,
+            "y": 367.203125,
+            "width": 300,
+            "height": 450,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 417.34375,
+            "y": 502.328125,
+            "width": 1437.390625,
+            "height": 48.171875,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "The Meridian Archive",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 417.34375,
+            "y": 374.640625,
+            "width": 1437.390625,
+            "height": 62.484375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "text": "Next Up",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "nextUpSection verticalSection detailVerticalSection",
+            "x": 65.265625,
+            "y": 898.03125,
+            "width": 1789.46875,
+            "height": 44.671875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Seasons",
+            "selector": "h2.childrenSectionHeader.sectionTitle.sectionTitle-cards",
+            "parent": "verticalSection detailVerticalSection",
+            "x": 65.265625,
+            "y": 1253.390625,
+            "width": 1789.46875,
+            "height": 44.671875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "season",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/season.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 561.59375,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 65.265625,
+            "y": 129.59375,
+            "width": 440,
+            "height": 129.59375,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 65.265625,
+            "y": 367.203125,
+            "width": 300,
+            "height": 450,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 417.34375,
+            "y": 702.09375,
+            "width": 1437.390625,
+            "height": 48.171875,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": []
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "episode",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/episode.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 561.59375,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 65.265625,
+            "y": 129.59375,
+            "width": 440,
+            "height": 129.59375,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 65.265625,
+            "y": 367.203125,
+            "width": 300,
+            "height": 168.75,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 417.34375,
+            "y": 507.390625,
+            "width": 1437.390625,
+            "height": 48.171875,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "More from Season 1",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-right",
+            "parent": "verticalSection detailVerticalSection moreFromSeasonSection emby-scroller-container",
+            "x": 65.265625,
+            "y": 1002.984375,
+            "width": 1789.46875,
+            "height": 44.671875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "music-album",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/music-album.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 1920,
+            "height": 561.59375,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 65.265625,
+            "y": 367.203125,
+            "width": 300,
+            "height": 450,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 417.34375,
+            "y": 702.09375,
+            "width": 1437.390625,
+            "height": 48.171875,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Ambient Coordinates",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 417.34375,
+            "y": 374.640625,
+            "width": 1437.390625,
+            "height": 62.484375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "search",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/search.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Suggestions",
+            "selector": "h2.sectionTitle.padded-left.padded-right",
+            "parent": "",
+            "x": 0,
+            "y": 238.96875,
+            "width": 1920,
+            "height": 28.21875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "screen": "favorites",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/1920/favorites.png",
+      "geometry": {
+        "htmlClass": "preload layout-desktop",
+        "viewport": {
+          "width": 1920,
+          "height": 1080
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage noBackdropTransparency hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "300px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Movies",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 63.359375,
+            "y": 133.15625,
+            "width": 75.875,
+            "height": 28.21875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "home",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/home.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [],
+        "headings": [
+          {
+            "text": "My Media",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section0",
+            "x": 0,
+            "y": 108,
+            "width": 390,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Continue Watching",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-left",
+            "parent": "verticalSection section1",
+            "x": 0,
+            "y": 289.09375,
+            "width": 390,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Next Up",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 12.859375,
+            "y": 593.921875,
+            "width": 64.1875,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Movies",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 12.859375,
+            "y": 908.390625,
+            "width": 232.203125,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Music",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 12.859375,
+            "y": 1237.046875,
+            "width": 222.109375,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Recently Added in Lab Shows",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 12.859375,
+            "y": 1516.96875,
+            "width": 226.34375,
+            "height": 35.96875,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "movie-library",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/movie-library.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [],
+        "headings": []
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "movie",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/movie.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 43.1875,
+            "width": 390,
+            "height": 253.1875,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 14.390625,
+            "y": 256.375,
+            "width": 80,
+            "height": 120,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 14.390625,
+            "y": 390.765625,
+            "width": 361.21875,
+            "height": 44,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Aster Vale",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 108.78125,
+            "y": 263.5625,
+            "width": 266.828125,
+            "height": 26.203125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "text": "More Like This",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-right",
+            "parent": "verticalSection detailVerticalSection verticalSection-extrabottompadding",
+            "x": 14.390625,
+            "y": 931.1875,
+            "width": 361.21875,
+            "height": 32.8125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "series",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/series.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 43.1875,
+            "width": 390,
+            "height": 253.1875,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 14.390625,
+            "y": 76,
+            "width": 253.5,
+            "height": 64,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 14.390625,
+            "y": 256.375,
+            "width": 80,
+            "height": 120,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 14.390625,
+            "y": 390.765625,
+            "width": 361.21875,
+            "height": 44,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "The Meridian Archive",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 108.78125,
+            "y": 263.5625,
+            "width": 266.828125,
+            "height": 26.203125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "text": "Next Up",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "nextUpSection verticalSection detailVerticalSection",
+            "x": 14.390625,
+            "y": 783.359375,
+            "width": 361.21875,
+            "height": 32.8125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "text": "Seasons",
+            "selector": "h2.childrenSectionHeader.sectionTitle.sectionTitle-cards",
+            "parent": "verticalSection detailVerticalSection",
+            "x": 14.390625,
+            "y": 1049.625,
+            "width": 361.21875,
+            "height": 32.8125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "season",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/season.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 43.1875,
+            "width": 390,
+            "height": 253.1875,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 14.390625,
+            "y": 76,
+            "width": 253.5,
+            "height": 64,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 14.390625,
+            "y": 256.375,
+            "width": 80,
+            "height": 120,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 14.390625,
+            "y": 390.765625,
+            "width": 361.21875,
+            "height": 44,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": []
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "episode",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/episode.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 43.1875,
+            "width": 390,
+            "height": 253.1875,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 14.390625,
+            "y": 76,
+            "width": 253.5,
+            "height": 64,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 14.390625,
+            "y": 256.375,
+            "width": 80,
+            "height": 45,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 14.390625,
+            "y": 408.09375,
+            "width": 361.21875,
+            "height": 44,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "More from Season 1",
+            "selector": "h2.sectionTitle.sectionTitle-cards.padded-right",
+            "parent": "verticalSection detailVerticalSection moreFromSeasonSection",
+            "x": 14.390625,
+            "y": 900.203125,
+            "width": 361.21875,
+            "height": 32.8125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "music-album",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/music-album.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-hidden",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 43.1875,
+            "width": 390,
+            "height": 253.1875,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 14.390625,
+            "y": 256.375,
+            "width": 80,
+            "height": 120,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 14.390625,
+            "y": 405.453125,
+            "width": 361.21875,
+            "height": 44,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Ambient Coordinates",
+            "selector": "h1.itemName.infoText.parentNameLast",
+            "parent": "nameContainer",
+            "x": 108.78125,
+            "y": 263.5625,
+            "width": 266.828125,
+            "height": 26.203125,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "100%",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "search",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/search.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-hidden",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Suggestions",
+            "selector": "h2.sectionTitle.padded-left.padded-right",
+            "parent": "",
+            "x": 0,
+            "y": 212.3125,
+            "width": 390,
+            "height": 20.734375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    },
+    {
+      "mode": "new",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "screen": "favorites",
+      "cssSha256": "c55e132bfee8e7220e86a147b088df38681d4b0d7bb217ea20731145b3067c90",
+      "screenshot": "docs/comparison/10.10.6/new/390/favorites.png",
+      "geometry": {
+        "htmlClass": "preload layout-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "pageOverflow": false,
+        "detail": [
+          {
+            "selector": "div.itemBackdrop.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Backdrop"
+          },
+          {
+            "selector": "div.detailLogo.lazy.lazy-image-fadein-fast",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": "Logo"
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.backdropCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.itemBackdrop.lazy-hidden",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailLogo.hide",
+            "parent": "page libraryPage itemDetailPage noSecondaryNavPage selfBackdropPage mainAnimatedPage hide",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "absolute",
+            "display": "none",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.detailPagePrimaryContainer.padded-left.padded-right.detailRibbon",
+            "parent": "detailPageWrapperContainer",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "none",
+            "imageType": null
+          },
+          {
+            "selector": "div.infoWrapper",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "contents",
+            "maxWidth": "100%",
+            "imageType": null
+          },
+          {
+            "selector": "div.card.portraitCard",
+            "parent": "detailImageContainer padded-left",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "relative",
+            "display": "block",
+            "maxWidth": "80px",
+            "imageType": null
+          },
+          {
+            "selector": "div.mainDetailButtons.focuscontainer-x",
+            "parent": "detailPagePrimaryContainer padded-left padded-right detailRibbon",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "position": "static",
+            "display": "flex",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ],
+        "headings": [
+          {
+            "text": "Movies",
+            "selector": "h2.sectionTitle.sectionTitle-cards",
+            "parent": "more button-flat button-flat-mini sectionTitleTextButton emby-button",
+            "x": 12.859375,
+            "y": 133.3125,
+            "width": 55.703125,
+            "height": 29.359375,
+            "position": "static",
+            "display": "block",
+            "maxWidth": "none",
+            "imageType": null
+          }
+        ]
+      },
+      "pageErrors": [
+        "Failed to execute 'scrollTo' on 'Element': Failed to read the 'behavior' property from 'ScrollOptions': The provided value 'null' is not a valid enum value of type ScrollBehavior."
+      ]
+    }
+  ]
+}

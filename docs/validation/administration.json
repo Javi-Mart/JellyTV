@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-23T02:31:29.266Z",
+  "browser": "154.0.8037.100",
+  "server": "12.2.0",
+  "method": "Browser-local differential control; no server preferences or data are modified",
+  "runs": [
+    {
+      "mode": "baseline",
+      "pages": [
+        "Dashboard",
+        "Users",
+        "Libraries",
+        "Plugins"
+      ],
+      "errors": [
+        {
+          "message": "Unexpected null reference",
+          "route": "/dashboard/users",
+          "source": "users.f5b80a5f1b08bc92de28.chunk.js"
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    },
+    {
+      "mode": "enhanced",
+      "pages": [
+        "Dashboard",
+        "Users",
+        "Libraries",
+        "Plugins"
+      ],
+      "errors": [
+        {
+          "message": "Unexpected null reference",
+          "route": "/dashboard/users",
+          "source": "users.f5b80a5f1b08bc92de28.chunk.js"
+        }
+      ],
+      "exceptions": [],
+      "unhandledRejections": 0
+    }
+  ],
+  "hostCompatibility": [
+    {
+      "patch": "quick-connect",
+      "file": "session-login.6addd55f3321bb7b4f28.chunk.js",
+      "sha256": "e9ea5618c78c4f92fd9d2447e0bc84e6e3ba11dbee8c0087efbea8038afc60ab"
+    },
+    {
+      "patch": "navigation",
+      "file": "main.jellyfin.bundle.js",
+      "sha256": "5e0ea2d5f60379dbab50a4173088e5b5cb26e92744ad045576fcd09a6101ef37"
+    }
+  ],
+  "status": "PASS: four admin screens usable and no JellyTV overrides or additional errors; reproduced upstream console errors are retained below"
+}

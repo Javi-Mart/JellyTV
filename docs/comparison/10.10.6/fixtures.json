@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-24T14:49:07.852Z",
+  "serverVersion": "10.10.6",
+  "source": "original-local-media; no external provider queries",
+  "fixtures": {
+    "A": {
+      "name": "JellyTV A — Complete Artwork",
+      "type": "Movie",
+      "description": "Logo, backdrop, poster, ratings and genres",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "B": {
+      "name": "JellyTV B — Without Logo",
+      "type": "Movie",
+      "description": "Title fallback without logo",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": false
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "C": {
+      "name": "JellyTV C — Without Backdrop",
+      "type": "Movie",
+      "description": "Poster retained without background artwork",
+      "roles": {
+        "poster": true,
+        "backdrop": false,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "D": {
+      "name": "JellyTV D — Without Poster",
+      "type": "Movie",
+      "description": "Background and title without Primary",
+      "roles": {
+        "poster": false,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "E": {
+      "name": "JellyTV E — Without Overview",
+      "type": "Movie",
+      "description": "Metadata and actions without synopsis",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": false,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "F": {
+      "name": "The Journey Beyond the Last Constellation: A Chronicle of Every Uncharted Horizon, the People Who Crossed It, and the Extraordinary Silence That Followed",
+      "type": "Movie",
+      "description": "Long title wraps without clipping or moving actions outside the page",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "G": {
+      "name": "JellyTV G — Many Genres",
+      "type": "Movie",
+      "description": "Twelve available genres",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 12,
+      "streams": [
+        {
+          "Codec": "h264",
+          "Profile": "Constrained Baseline",
+          "Width": 1280,
+          "Height": 720,
+          "VideoRange": "SDR",
+          "VideoRangeType": "SDR"
+        }
+      ]
+    },
+    "H": {
+      "name": "JellyTV H — UHD HDR Signal",
+      "type": "Movie",
+      "description": "Original 3840×2160 HEVC Main 10 PQ BT.2020 technical fixture",
+      "roles": {
+        "poster": true,
+        "backdrop": true,
+        "logo": true
+      },
+      "overview": true,
+      "genres": 2,
+      "streams": [
+        {
+          "Codec": "hevc",
+          "Profile": "Main 10",
+          "Width": 3840,
+          "Height": 2160,
+          "ColorPrimaries": "bt2020",
+          "ColorTransfer": "smpte2084",
+          "VideoRange": "HDR",
+          "VideoRangeType": "HDR10"
+        }
+      ]
+    },
+    "I": {
+      "name": "JellyTV I — The Horizon Collection",
+      "type": "BoxSet",
+      "description": "Three accessible movie members; collection created locally"
+    },
+    "J": {
+      "name": "The Meridian Archive",
+      "type": "Series",
+      "description": "Existing original Series fixture"
+    },
+    "K": {
+      "name": "The Long Passage",
+      "type": "Episode",
+      "description": "Existing original Episode fixture"
+    },
+    "L": {
+      "name": "Ambient Coordinates",
+      "type": "MusicAlbum",
+      "description": "Existing original MusicAlbum fixture"
+    }
+  }
+}

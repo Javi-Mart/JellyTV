@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "kind": "debug-validation",
+  "upstreamCommit": "984181a3d6ab14e9a6d2dcc850c582e1c138bd95",
+  "files": [
+    {
+      "file": "jellyfin-androidtv-v0.19.10-jellytv.1-debug.apk",
+      "bytes": 31026922,
+      "sha256": "e7d31d38aee854fa1990b6e01dee9f596bab0cc8274c0ec3b11945632e942216"
+    },
+    {
+      "file": "jellyfin-androidtv-v0.19.10-jellytv.1-source.zip",
+      "bytes": 9310984,
+      "sha256": "5ca72be9116c7c2053bf126a7b01e49b5c7a889d790b6a15c43a5ab281f58bfa"
+    }
+  ]
+}

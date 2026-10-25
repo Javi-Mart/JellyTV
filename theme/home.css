@@ -1,0 +1,95 @@
+/* Core composes native rows without reserving space for an optional hero. */
+body:not(.dashboardDocument) #homeTab .verticalSection {
+  margin-block: 0 var(--row-gap);
+  padding-block: 0;
+}
+
+body:not(.dashboardDocument) #homeTab .sectionTitleContainer {
+  margin-block: 0 var(--spacing-1);
+  padding-block: 0;
+  min-height: var(--target-size);
+  align-items: center;
+}
+
+/* Native cardBox-bottompadded adds 1.8em after every row. The rail already
+   reserves focus room; retain one small inset instead of stacking both gaps. */
+body:not(.dashboardDocument) #homeTab .scrollSlider > .card > .cardBox {
+  margin-block: var(--spacing-1) var(--spacing-2);
+  margin-inline-end: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #homeTab .scrollSlider > .card > .cardBox-bottompadded {
+  /* Native utility fixes 1.8em with !important; avoid an extra gap per rail. */
+  margin-block-end: var(--spacing-2) !important;
+}
+
+body:not(.dashboardDocument) #homeTab :is(.sectionTitle, .sectionTitle-cards, .sectionTitleTextButton) {
+  margin-block: 0;
+  padding-block: var(--spacing-2);
+  line-height: 1.25;
+}
+
+body:not(.dashboardDocument) #homeTab .padded-top-focusscale {
+  padding-block-start: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #homeTab .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"],
+body:not(.dashboardDocument) #homeTab .card[data-type="UserView"] {
+  width: clamp(11rem, 15vw, 19rem);
+}
+
+/* Native library tiles carry data-type, independent of section order/preferences. */
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardPadder {
+  padding-bottom: 42%;
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardImageIcon {
+  font-size: 2.75rem;
+}
+
+/* Jellyfin repeats .cardImageContainer on the transparent overlay hit target.
+   Paint only the actual artwork surface; an opaque fallback on that link
+   covers the image as soon as hover/focus reveals the overlay. */
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardScalable > .cardImageContainer {
+  background-color: var(--color-surface);
+  background-image: linear-gradient(135deg, rgb(180 205 230 / 8%), transparent);
+  border: 1px solid var(--color-divider);
+}
+
+body:not(.dashboardDocument) #homeTab .card .cardText {
+  /* Jellyfin's cardTextCentered utility declares its alignment !important. */
+  text-align: start !important;
+  padding-inline: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardText {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) .skinHeader:not(.osdHeader) .headerTabs {
+  padding-block: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) .skinHeader .emby-tab-button {
+  margin-inline: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-5);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) .skinHeader .emby-tab-button-active {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+  background: var(--color-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:not(.dashboardDocument) .card:hover .cardBox {
+    transition-delay: 140ms;
+  }
+}

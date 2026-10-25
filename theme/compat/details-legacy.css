@@ -1,0 +1,238 @@
+/* Web 10.10.6: primaryContainer IS detailRibbon, image is nested in
+   infoWrapper. All geometry below requires that contract. Generic wrappers
+   become grid contents; actual headings, controls and sections retain semantics. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) {
+  --detail-foreground-offset: clamp(140px, 25vh, 300px);
+  --detail-logo-height: clamp(70px, 12vh, 140px);
+  --detail-logo-gap: var(--spacing-5);
+  --detail-logo-clearance: 90px;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop {
+  display: block;
+  height: clamp(340px, 48vh, 600px);
+  background-position: center 28%;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop::after {
+  background: none;
+}
+
+/* 10.10.6 paints the actual image in the shared backdrop layer. Its native
+   86% black overlay would darken our second scrim twice. Compose that layer
+   only while this detail contract is the active page. */
+body:not(.dashboardDocument):has(#itemDetailPage:not(.hide) .detailPagePrimaryContainer.detailRibbon) .backgroundContainer.withBackdrop {
+  background:
+    linear-gradient(0deg, var(--color-background) 35%, transparent 90%),
+    linear-gradient(90deg, rgb(9 11 14 / 82%), rgb(9 11 14 / 12%) 85%);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageWrapperContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--detail-poster-width) minmax(0, 1fr);
+  gap: 0 var(--detail-column-gap);
+  align-items: start;
+  margin-block-start: calc(-1 * var(--detail-foreground-offset));
+  padding-inline: var(--page-gutter);
+  padding-block-end: var(--spacing-7);
+  background: linear-gradient(transparent, var(--color-background) var(--detail-foreground-offset));
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) :is(.detailPagePrimaryContainer, .infoWrapper, .detailPageSecondaryContainer, .detailPageContent) {
+  display: contents;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  align-self: start;
+  box-sizing: border-box;
+  width: var(--detail-poster-width);
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer .card {
+  /* 10.10.6 librarybrowser.scss makes this absolute !important. One scoped
+     override restores flow; removing limits without this caused the 1.0 bug. */
+  position: relative !important;
+  inset: auto;
+  transform: none;
+  float: none;
+  width: 100%;
+  max-width: var(--detail-poster-width);
+  max-height: none;
+  margin: 0;
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer .cardBox {
+  margin: 0;
+  box-shadow: var(--shadow-elevated);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .nameContainer {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0;
+  text-align: start;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .nameContainer > :is(.itemName, .parentName, h4) {
+  text-align: start;
+}
+
+/* Preserve native localized Play/Resume text from the title attribute. Only
+   this pre10.11 button contains an icon without a visible text label. */
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .btnPlay {
+  width: auto;
+  min-width: 8rem;
+  flex-direction: row;
+  gap: var(--spacing-2);
+  padding-inline: var(--spacing-5);
+  font-size: 1rem;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .btnPlay[title]::after {
+  content: attr(title);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .itemMiscInfo-primary {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .itemMiscInfo-secondary {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .mainDetailButtons {
+  grid-column: 2;
+  grid-row: 4;
+  justify-content: flex-start;
+  margin-block: var(--spacing-4) var(--spacing-5);
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPagePrimaryContent {
+  grid-column: 2;
+  grid-row: 5;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageContent > :is(.detailVerticalSection, .collectionItems, .lyricsContainer) {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-block: var(--spacing-6) 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageContent .padded-right {
+  padding-inline-end: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailLogo:not(.hide) {
+  display: block;
+  position: relative;
+  inset: auto;
+  width: min(38vw, 440px);
+  height: var(--detail-logo-height);
+  margin-inline: var(--page-gutter);
+  margin-block: calc(-1 * (var(--detail-foreground-offset) + var(--detail-logo-height) + var(--detail-logo-gap))) var(--detail-logo-gap);
+  background-size: contain;
+  background-position: left center;
+  pointer-events: none;
+}
+
+/* Logo and foreground now share normal flow. The logo consumes its own height
+   plus a gap before the poster; absolute top/height values used to collide at
+   1080p and at shorter windows. Reserve enough backdrop for the header too.
+   Without a logo the original compact foreground offset is unchanged. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon):has(> .detailLogo:not(.hide)) > .itemBackdrop {
+  min-height: calc(var(--detail-foreground-offset) + var(--detail-logo-height) + var(--detail-logo-gap) + var(--detail-logo-clearance));
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) > .detailLogo:not(.hide) + .detailPageWrapperContainer {
+  margin-block-start: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-4);
+  max-width: 72rem;
+  margin-block: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer:not(.hide) {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 15rem;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  gap: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer .selectLabel {
+  width: auto;
+  flex: none;
+  margin: 0;
+  font-size: var(--font-size-caption);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailTrackSelect {
+  width: 100%;
+  min-width: 0;
+  padding-inline: var(--spacing-3) var(--spacing-6);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer .selectArrowContainer {
+  top: auto;
+  bottom: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemDetailsGroup {
+  margin-block: var(--spacing-5) var(--spacing-6);
+  line-height: 1.6;
+}
+
+@media (width <= 56.249rem) {
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) {
+    --detail-poster-width: clamp(80px, 20vw, 140px);
+    --detail-column-gap: 1rem;
+    --detail-foreground-offset: 40px;
+    --detail-logo-height: 64px;
+    --detail-logo-gap: var(--spacing-4);
+    --detail-logo-clearance: 76px;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop {
+    height: clamp(180px, 30vh, 300px);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer {
+    grid-row: 1 / span 3;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .mainDetailButtons {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPagePrimaryContent {
+    grid-column: 1 / -1;
+
+    /* Cancel the equally important native/mobile inset inside this padded grid. */
+    padding-inline: 0 !important;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailLogo:not(.hide) {
+    width: min(65vw, 280px);
+  }
+}

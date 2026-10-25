@@ -1,0 +1,40 @@
+diff --git a/src/components/viewManager/ViewManagerPage.tsx b/src/components/viewManager/ViewManagerPage.tsx
+--- a/src/components/viewManager/ViewManagerPage.tsx
++++ b/src/components/viewManager/ViewManagerPage.tsx
+@@ -20,6 +20,7 @@
+ }
+ 
+ interface ViewOptions {
++    cancel?: boolean
+     url: string
+     type?: string
+     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+@@ -93,6 +94,7 @@
+     const navigationType = useNavigationType();
+ 
+     useEffect(() => {
++        let pendingView: ViewOptions | undefined;
+         const loadPage = () => {
+             const viewOptions = {
+                 url: location.pathname + location.search,
+@@ -106,6 +108,8 @@
+                     enableMediaControl: isNowPlayingBarEnabled
+                 }
+             };
++
++            pendingView = viewOptions;
+ 
+             if (navigationType !== Action.Pop) {
+                 console.debug('[ViewManagerPage] loading view [%s]', view);
+@@ -123,6 +127,11 @@
+         };
+ 
+         loadPage();
++        return () => {
++            // Ignore a controller import that completes after navigation away.
++            // ViewManager already checks this flag before loading a view.
++            if (pendingView) pendingView.cancel = true;
++        };
+     },
+     // location.state and navigationType are NOT included as dependencies here since dialogs will update state while the current view stays the same
+     // eslint-disable-next-line react-hooks/exhaustive-deps

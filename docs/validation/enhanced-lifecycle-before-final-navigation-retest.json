@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "name": "enhanced-lifecycle-before-final-navigation-retest",
+  "serverVersion": "12.2.0",
+  "browsers": [
+    "chrome"
+  ],
+  "browserVersions": [
+    "154.0.8037.100"
+  ],
+  "startTime": "2026-10-22T20:52:48.195Z",
+  "durationMs": 21026.868000000002,
+  "counts": {
+    "passed": 3,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0,
+    "setupFailures": 0
+  },
+  "setupFailureKinds": [],
+  "build": {
+    "version": "1.0.0",
+    "webVersion": "12.2",
+    "assets": {
+      "jellytv-core.css": {
+        "bytes": 36827,
+        "gzipBytes": 7554,
+        "sha256": "f9d2e3af06ce25d75876af66d00a46edda405186e13a8afd02832859851896e3"
+      },
+      "jellytv-core.min.css": {
+        "bytes": 30348,
+        "gzipBytes": 5815,
+        "sha256": "50919b65f287f9ea812a8c2bdd8158be5454d9aed949101218ff96da4978bb16"
+      },
+      "jellytv-enhanced.css": {
+        "bytes": 7352,
+        "gzipBytes": 2264,
+        "sha256": "ce3294426996da0975302e5c0137ba51bdffcac957c6c3ae35cdfb8f6b10c94d"
+      },
+      "jellytv-enhanced.js": {
+        "bytes": 18734,
+        "gzipBytes": 6327,
+        "sha256": "3a256f67a31bf94f3d4a2b720095677301b8494ab670dc04979fdc3e4cbe213f"
+      }
+    }
+  },
+  "tests": [
+    {
+      "project": "laptop",
+      "title": "rotation runs only after opt-in and remains stopped after focus or reduced motion",
+      "status": "expected",
+      "durationMs": 1017,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "repeated SPA detail and Back restore one hero and the focused action without redundant API batches",
+      "status": "unexpected",
+      "durationMs": 16538,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null,
+      "failureKind": "TimeoutError: locator.click: Timeout 15000ms exceeded."
+    },
+    {
+      "project": "laptop",
+      "title": "leaving Home cancels a delayed featured response without late insertion",
+      "status": "expected",
+      "durationMs": 984,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    },
+    {
+      "project": "laptop",
+      "title": "a timed-out featured request offers a working retry and keeps native rows usable",
+      "status": "expected",
+      "durationMs": 977,
+      "diagnostics": {
+        "unexpected": 0,
+        "upstream": 0,
+        "unhandledRejections": 0
+      },
+      "dpad": null
+    }
+  ]
+}

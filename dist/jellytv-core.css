@@ -1,0 +1,1451 @@
+/* JellyTV 1.1.0-dev.0 · MIT · Web 10.10.6 / 12.2 structural profiles */
+/* JellyTV design tokens. No fonts, images or remote imports. */
+:root {
+  --color-background: #090b0e;
+  --color-surface: #16191e;
+  --color-surface-elevated: #272c34;
+  --color-text-primary: #f5f7fa;
+  --color-text-secondary: #b6bdc7;
+  --color-text-muted: #9ba5b3;
+  --color-accent: #d8eaff;
+  --color-on-accent: #101820;
+  --color-focus: #c5e7ff;
+  --color-error: #ffb4ab;
+  --color-success: #a1dfb3;
+  --color-warning: #f1d092;
+  --color-border: #3f4753;
+  --color-divider: rgb(224 235 250 / 12%);
+  --color-hover: rgb(226 237 255 / 10%);
+  --color-selected: rgb(216 234 255 / 17%);
+  --color-scrim: rgb(8 10 14 / 92%);
+  --radius-small: 0.5rem;
+  --radius-medium: 0.75rem;
+  --radius-large: 1.25rem;
+  --radius-pill: 100rem;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.5rem;
+  --spacing-6: 2rem;
+  --spacing-7: 3rem;
+  --spacing-8: 4rem;
+  --shadow-card: 0 0.5rem 1.5rem rgb(0 0 0 / 28%);
+  --shadow-elevated: 0 1.25rem 3rem rgb(0 0 0 / 45%);
+  --shadow-focus: 0 0 0 0.1875rem var(--color-focus), 0 0 0 0.375rem var(--color-background);
+  --blur-none: 0;
+  --blur-small: 0.75rem;
+  --blur-medium: 1.25rem;
+  --motion-instant: 80ms;
+  --motion-fast: 140ms;
+  --motion-normal: 200ms;
+  --motion-slow: 600ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --transition-fast: var(--motion-fast);
+  --transition-normal: var(--motion-normal);
+  --transition-slow: var(--motion-slow);
+  --easing-standard: var(--ease-standard);
+  --font-family: system-ui, -apple-system, "Segoe UI", roboto, sans-serif;
+  --font-size-caption: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-section: clamp(1.2rem, 1rem + 0.45vw, 1.75rem);
+  --font-size-title: clamp(1.75rem, 1rem + 2.2vw, 3.75rem);
+  --density: 1;
+  --card-size: clamp(10rem, 10.6vw, 17rem);
+  --card-size-landscape: calc(var(--card-size) * 1.7);
+  --hero-height: clamp(28rem, 60vh, 48rem);
+  --page-gutter: clamp(1.25rem, 3.4vw, 5rem);
+  --content-max-width: 120rem;
+  --detail-poster-width: clamp(220px, 18vw, 300px);
+  --detail-column-gap: clamp(1.5rem, 3vw, 3.5rem);
+  --row-gap: clamp(1rem, 1.4vw, 1.5rem);
+
+  /* Jellyfin reduces the root font on narrow screens; preserve a 44px target. */
+  --target-size: max(2.75rem, 44px);
+  --focus-width: 0.1875rem;
+}
+
+/* MUI's generated color scheme and Legacy share the jf palette. The dashboard
+   scheme is deliberately excluded; Core never modifies its spatial layout. */
+:root[data-theme]:not([data-theme="dashboard"]) {
+  color-scheme: dark;
+
+  --jf-palette-background-default: var(--color-background);
+  --jf-palette-background-paper: var(--color-surface);
+  --jf-palette-background-defaultImage: none;
+  --jf-palette-text-primary: var(--color-text-primary);
+  --jf-palette-text-secondary: var(--color-text-secondary);
+  --jf-palette-text-disabled: var(--color-text-muted);
+  --jf-palette-primary-main: var(--color-accent);
+  --jf-palette-primary-light: var(--color-text-primary);
+  --jf-palette-primary-dark: var(--color-focus);
+  --jf-palette-primary-contrastText: var(--color-on-accent);
+  --jf-palette-primary-mainChannel: 216 234 255;
+  --jf-palette-secondary-main: var(--color-focus);
+  --jf-palette-secondary-contrastText: var(--color-on-accent);
+  --jf-palette-secondary-mainChannel: 197 231 255;
+  --jf-palette-error-main: var(--color-error);
+  --jf-palette-error-contrastText: var(--color-on-accent);
+  --jf-palette-success-main: var(--color-success);
+  --jf-palette-warning-main: var(--color-warning);
+  --jf-palette-divider: var(--color-divider);
+  --jf-palette-action-hover: var(--color-hover);
+  --jf-palette-action-focus: var(--color-selected);
+  --jf-palette-action-selected: var(--color-selected);
+  --jf-palette-action-disabled: var(--color-text-muted);
+  --jf-palette-AppBar-defaultBg: var(--color-background);
+  --jf-palette-AppBar-transparentBg: var(--color-scrim);
+  --jf-palette-AppBar-gradient: none;
+  --jf-palette-Button-inheritContainedBg: var(--color-surface-elevated);
+  --jf-palette-Button-inheritContainedHoverBg: var(--color-border);
+  --jf-palette-FilledInput-bg: var(--color-surface);
+  --jf-palette-SnackbarContent-bg: var(--color-surface-elevated);
+  --jf-palette-SnackbarContent-color: var(--color-text-primary);
+  --jf-card-borderRadius: var(--radius-medium);
+}
+
+/* Do not set display on generic controls, page containers or hide utilities:
+   Jellyfin owns permissions, playback visibility and route transitions. */
+body:not(.dashboardDocument) {
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  accent-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.backgroundContainer, .nowPlayingPlaylist) {
+  background-color: var(--color-background);
+}
+
+body:not(.dashboardDocument) :where(.page, .dialog, .MuiPaper-root) {
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) :where(h1, h2, h3, .sectionTitle) {
+  font-family: var(--font-family);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  font-weight: 650;
+}
+
+body:not(.dashboardDocument) :where(.sectionTitle, .sectionTitleTextButton) {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-section);
+}
+
+body:not(.dashboardDocument) :where(.fieldDescription, .secondaryText, .listItemBodyText-secondary, .cardText-secondary) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.fieldDescription, .overview, .loginDisclaimer, .MuiDialogContent-root) {
+  overflow-wrap: anywhere;
+}
+
+body:not(.dashboardDocument) :where(.MuiButton-root, .MuiInputBase-root, .MuiTypography-root, .MuiMenuItem-root, .MuiTab-root) {
+  font-family: var(--font-family);
+}
+
+body:not(.dashboardDocument) :where(.button-link, .emby-linkbutton) {
+  text-underline-offset: 0.2em;
+}
+
+body:not(.dashboardDocument) ::selection {
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.emby-scroller, .dialog, .scrollFrame, .MuiPaper-root, .mainDrawer) {
+  scrollbar-color: var(--color-border) transparent;
+  scrollbar-width: thin;
+}
+
+body:not(.dashboardDocument) :where(.verticalSection, .detailVerticalSection) {
+  margin-block-end: calc(var(--spacing-6) * var(--density));
+}
+
+body:not(.dashboardDocument) .sectionTitle-cards {
+  margin-block: var(--spacing-4) var(--spacing-2);
+}
+
+body:not(.dashboardDocument) :where(.paperList, .visualCardBox) {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-medium);
+}
+
+/* Cards retain native aspect-ratio padders and item semantics. */
+body:not(.dashboardDocument) :where(.cardScalable, .cardContent, .cardImageContainer, .cardPadder, .blurhash-canvas, .visualCardBox) {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .cardBox:not(.visualCardBox) .cardPadder {
+  border-radius: var(--radius-medium);
+  background-color: var(--color-surface-elevated);
+  box-shadow: var(--shadow-card);
+}
+
+body:not(.dashboardDocument) .card .cardBox {
+  border-radius: var(--radius-medium);
+  transform-origin: center;
+}
+
+body:not(.dashboardDocument) .card .cardText {
+  padding-block-start: var(--spacing-2);
+  line-height: 1.4;
+  font-weight: 550;
+}
+
+body:not(.dashboardDocument) .card .cardText-secondary {
+  padding-block-start: var(--spacing-1);
+  font-size: var(--font-size-caption);
+  font-weight: 400;
+}
+
+body:not(.dashboardDocument) .card .innerCardFooter {
+  background: linear-gradient(transparent, rgb(0 0 0 / 92%));
+  padding-block-start: var(--spacing-6);
+  border-end-start-radius: var(--radius-medium);
+  border-end-end-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .cardOverlayContainer {
+  background: linear-gradient(transparent 35%, rgb(0 0 0 / 55%));
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) .card:focus-within .cardOverlayContainer {
+  opacity: 1;
+}
+
+body:not(.dashboardDocument) :where(.playedIndicator, .countIndicator, .mediaSourceIndicator, .filterButtonBubble, .MuiBadge-badge) {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 35%);
+}
+
+body:not(.dashboardDocument) :where(.itemProgressBar, .MuiLinearProgress-root) {
+  background-color: rgb(255 255 255 / 22%);
+  border-radius: var(--radius-pill);
+}
+
+body:not(.dashboardDocument) :where(.itemProgressBarForeground, .MuiLinearProgress-bar) {
+  background-color: var(--color-accent);
+  border-radius: inherit;
+}
+
+body:not(.dashboardDocument) :where(.listItem) {
+  border-radius: var(--radius-small);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) .listItemBody {
+  min-width: 0;
+  line-height: 1.45;
+}
+
+body:not(.dashboardDocument) :where(.listItemImage, .listItemIcon) {
+  border-radius: var(--radius-small);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .MuiButton-root) {
+  border-radius: var(--radius-small);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* OSD controls retain the player's own dimensions, including its compact row. */
+body:not(.dashboardDocument) :where(.emby-button, .MuiButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+  min-inline-size: var(--target-size);
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.raised:not(.button-submit, .button-delete), .MuiButton-containedInherit) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+}
+
+body:not(.dashboardDocument) :where(.button-submit, .MuiButton-containedPrimary) {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) :where(.button-delete, .MuiButton-containedError) {
+  color: var(--color-on-accent);
+  background-color: var(--color-error);
+}
+
+body:not(.dashboardDocument) :where(.MuiButton-outlined, .emby-button.raised) {
+  border: 1px solid var(--color-border);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root)[aria-pressed="true"] {
+  color: var(--color-accent);
+  background-color: var(--color-selected);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+/* Reserve space during existing asynchronous loads; never invent progress. */
+body:not(.dashboardDocument) :where(.card, .emby-button, .MuiButton-root)[aria-busy="true"] {
+  cursor: progress;
+}
+
+body:not(.dashboardDocument) .MuiSkeleton-root {
+  background-color: var(--color-surface-elevated);
+  border-radius: var(--radius-small);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea, .emby-select, .MuiInputBase-root) {
+  box-sizing: border-box;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-body);
+  min-block-size: var(--target-size);
+  max-inline-size: 100%;
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea, .emby-select) {
+  border: 1px solid var(--color-border);
+  padding-block: var(--spacing-3);
+  padding-inline-start: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .MuiOutlinedInput-notchedOutline {
+  border-color: var(--color-border);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-textarea)::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+body:not(.dashboardDocument) :where(.inputLabel, .selectLabel, .textareaLabel, .MuiInputLabel-root, .fieldDescription) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-select, .emby-textarea)[aria-invalid="true"],
+body:not(.dashboardDocument) .Mui-error .MuiOutlinedInput-notchedOutline {
+  border-color: var(--color-error);
+  border-width: 2px;
+}
+
+body:not(.dashboardDocument) :where(.MuiFormHelperText-root.Mui-error, .MuiInputLabel-root.Mui-error) {
+  color: var(--color-error);
+}
+
+body:not(.dashboardDocument) :where(.checkboxContainer, .MuiFormControlLabel-root) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) :where(.MuiCheckbox-root, .MuiRadio-root, .MuiSwitch-switchBase) {
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) :where(.MuiCheckbox-root, .MuiRadio-root, .MuiSwitch-switchBase).Mui-checked {
+  color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.MuiSlider-root, .mdl-slider) {
+  color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider::-webkit-slider-thumb {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider::-moz-range-thumb {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) .mdl-slider-background-lower {
+  background-color: var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.dialog, .MuiDialog-paper, .MuiMenu-paper, .MuiPopover-paper) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  background-image: none;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Upstream actionSheet hardcodes border-radius with !important. */
+body:not(.dashboardDocument) .actionSheet:not(.actionsheet-fullscreen) {
+  border-radius: var(--radius-large) !important;
+}
+
+body:not(.dashboardDocument) :where(.MuiMenu-paper, .MuiPopover-paper) {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) :where(.dialogBackdropOpened, .MuiBackdrop-root) {
+  background-color: rgb(0 0 0 / 65%);
+}
+
+body:not(.dashboardDocument) :where(.formDialogHeader, .formDialogFooter) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) :where(.actionSheetMenuItem, .MuiMenuItem-root) {
+  min-block-size: var(--target-size);
+  border-radius: var(--radius-small);
+  line-height: 1.45;
+}
+
+body:not(.dashboardDocument) :where(.MuiMenuItem-root.Mui-selected, .navMenuOption-selected, .emby-tab-button-active) {
+  color: var(--color-accent);
+  background-color: var(--color-selected);
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+
+body:not(.dashboardDocument) :where(.MuiTooltip-tooltip, .toast) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  box-shadow: var(--shadow-card);
+  font-size: var(--font-size-caption);
+  line-height: 1.5;
+}
+
+body:not(.dashboardDocument) .MuiAvatar-root {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) :where(.MuiAlert-standardError, .MuiAlert-outlinedError) {
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+  background-color: var(--color-surface);
+}
+
+body:not(.dashboardDocument) :where(.MuiAlert-standardSuccess, .MuiAlert-outlinedSuccess) {
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+  background-color: var(--color-surface);
+}
+
+/* Only surfaces under pointer/focus move. No persistent will-change layers. */
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root, .listItem, .card .cardBox) {
+  transition:
+    transform var(--transition-fast) var(--easing-standard),
+    background-color var(--transition-normal) ease,
+    color var(--transition-normal) ease,
+    box-shadow var(--transition-normal) ease;
+}
+
+body:not(.dashboardDocument) .card .cardOverlayContainer {
+  transition: opacity var(--transition-normal) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html:not(.layout-tv) body:not(.dashboardDocument) .card:hover .cardBox {
+    transform: translateY(-0.1875rem) scale(1.025);
+    box-shadow: var(--shadow-card);
+  }
+
+  body:not(.dashboardDocument) :where(.raised:not(.button-submit, .button-delete), .MuiButton-containedInherit):hover:not(:disabled) {
+    background-color: var(--color-border);
+  }
+
+  body:not(.dashboardDocument) :where(.button-submit, .MuiButton-containedPrimary):hover:not(:disabled) {
+    color: var(--color-on-accent);
+    background-color: var(--color-text-primary);
+  }
+
+  body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root, .listItem, .actionSheetMenuItem, .MuiMenuItem-root):hover:not(:disabled) {
+    color: var(--color-text-primary);
+    background-color: var(--color-hover);
+  }
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root):active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+body:not(.dashboardDocument) .card:active .cardBox {
+  transform: scale(0.99);
+}
+
+/* Native headers keep their measured height and visibility. In particular the
+   hidden Legacy header must remain hidden alongside the Modern AppBar. */
+body:not(.dashboardDocument) .skinHeader:not(.osdHeader),
+body:not(.dashboardDocument) .MuiAppBar-root:not(.videoOsd-appBar) {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  background-image: none;
+  border-block-end: 1px solid var(--color-divider);
+  box-shadow: none;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  body:not(.dashboardDocument) .skinHeader-withBackground:not(.osdHeader),
+  body:not(.dashboardDocument) .MuiAppBar-root:not(.videoOsd-appBar) {
+    background-color: var(--color-scrim);
+    backdrop-filter: blur(var(--blur-small));
+  }
+}
+
+body:not(.dashboardDocument) .skinHeader.semiTransparent:not(.osdHeader) {
+  background-color: var(--color-scrim);
+}
+
+body:not(.dashboardDocument) :where(.headerButton, .emby-tab-button, .MuiTab-root) {
+  border-radius: var(--radius-pill);
+  text-transform: none;
+  font-weight: 600;
+}
+
+body:not(.dashboardDocument) :where(.headerButton, .emby-tab-button, .MuiTab-root):not(:where(.osdHeader *)) {
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) .headerTabs {
+  padding-block: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) :where(.mainDrawer, .MuiDrawer-paper) {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-divider);
+}
+
+body:not(.dashboardDocument) .navMenuOption {
+  border-radius: var(--radius-small);
+  margin-inline: var(--spacing-2);
+  min-block-size: var(--target-size);
+}
+
+body:not(.dashboardDocument) .MuiTabs-indicator {
+  background-color: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* Only horizontal rows get the configurable card width. Library grids keep
+   upstream responsive column counts and all their poster/square ratios. */
+body:not(.dashboardDocument) .scrollSlider > :is(.overflowPortraitCard, .overflowSquareCard) {
+  width: var(--card-size);
+}
+
+body:not(.dashboardDocument) .scrollSlider > :is(.overflowBackdropCard, .overflowSmallBackdropCard) {
+  width: var(--card-size-landscape);
+}
+
+body:not(.dashboardDocument) .emby-scroller {
+  scroll-padding-inline: var(--page-gutter);
+}
+
+/* Animated rails move their children with transforms. Clip at the rail frame,
+   not at the page; native .scrollX frames keep their touch scrolling. */
+body:not(.dashboardDocument) .emby-scroller:has(> .animatedScrollX) {
+  overflow: hidden;
+}
+
+body:not(.dashboardDocument) .padded-top-focusscale {
+  padding-block-start: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) .emby-scrollbuttons-button {
+  color: var(--color-text-primary);
+  background-color: var(--color-scrim);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card);
+}
+
+/* Details: artwork remains supplied by Jellyfin. A pseudo-element adds a
+   contrast scrim without replacing its inline background-image. */
+body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+  height: clamp(17rem, 50vh, 40rem);
+  background-attachment: scroll;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .itemBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgb(8 10 14 / 10%) 25%, rgb(8 10 14 / 58%) 68%, var(--color-background));
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPageWrapperContainer {
+  background: var(--color-background);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailRibbon {
+  background: transparent;
+  height: auto;
+  min-height: 0;
+  gap: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #itemDetailPage :where(.itemName, .parentName) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: var(--color-text-primary);
+}
+
+body:not(.dashboardDocument) #itemDetailPage h1.itemName {
+  font-size: var(--font-size-title);
+  line-height: 1.12;
+  margin-block: var(--spacing-2) var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .itemMiscInfo {
+  color: var(--color-text-secondary);
+  gap: var(--spacing-1) 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-block: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailButton {
+  min-inline-size: var(--target-size);
+  min-block-size: var(--target-size);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-pill);
+  margin: 0;
+}
+
+/* Legacy renders resume/play with .btnPlay and a separate secondary .btnReplay. */
+body:not(.dashboardDocument) #itemDetailPage .btnPlay {
+  color: var(--color-on-accent);
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-pill);
+  padding-inline: var(--spacing-5);
+  font-weight: 700;
+}
+
+body:not(.dashboardDocument) #itemDetailPage :where(.overview, .tagline) {
+  max-inline-size: 68ch;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .tagline {
+  color: var(--color-text-primary);
+  font-size: 1.125em;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .trackSelections {
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+  max-inline-size: 100%;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPageSecondaryContainer {
+  padding-block-start: var(--spacing-6);
+}
+
+@media (width >= 56.25rem) {
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+    display: grid;
+    grid-template-columns: minmax(10rem, min(20%, 24rem)) minmax(0, 1fr);
+    grid-template-rows: max-content 1fr;
+    align-items: start;
+    column-gap: var(--spacing-7);
+    padding-inline: var(--page-gutter);
+    margin-block-start: calc(-1 * var(--spacing-8));
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailImageContainer {
+    grid-row: 1 / span 2;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailImageContainer .card {
+    position: relative;
+    float: none;
+    inset: auto;
+    width: 100%;
+    max-width: var(--detail-poster-width);
+    margin: 0;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailRibbon {
+    grid-column: 2;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  html:not(.layout-mobile) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) > .detailPagePrimaryContent {
+    grid-column: 2;
+    min-width: 0;
+    padding: 0;
+  }
+}
+
+/* Search uses the existing input and the native results, including live TV. */
+body:not(.dashboardDocument) #searchPage .searchFieldsInner {
+  box-sizing: border-box;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-block: var(--spacing-5);
+}
+
+body:not(.dashboardDocument) #searchTextInput {
+  min-block-size: 3.25rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  color: var(--color-text-primary);
+  padding-inline: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #loginPage {
+  background: radial-gradient(ellipse at 50% 0%, rgb(65 82 106 / 32%), transparent 65%), var(--color-background);
+}
+
+body:not(.dashboardDocument) #loginPage .manualLoginForm {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 30rem;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevated);
+}
+
+body:not(.dashboardDocument) #loginPage .readOnlyContent {
+  max-width: 30rem;
+}
+
+body:not(.dashboardDocument) #loginPage .sectionTitle {
+  margin-block: var(--spacing-2) var(--spacing-6);
+}
+
+/* Playback is a chrome-only change: no video/canvas, OSD visibility, subtitle
+   sizing, time calculations, gesture layers or stacking-order overrides. */
+body:not(.dashboardDocument) #videoOsdPage .videoOsdBottom {
+  background: linear-gradient(transparent, rgb(0 0 0 / 85%));
+}
+
+body:not(.dashboardDocument) #videoOsdPage :where(.osdTitle, .osdTextContainer) {
+  color: var(--color-text-primary);
+  text-shadow: 0 1px 4px #000;
+}
+
+body:not(.dashboardDocument) #videoOsdPage .osdControls {
+  border-radius: var(--radius-medium);
+}
+
+body:not(.dashboardDocument) #videoOsdPage .upNextContainer {
+  color: var(--color-text-primary);
+  background-color: var(--color-scrim);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-card);
+}
+
+/* Core composes native rows without reserving space for an optional hero. */
+body:not(.dashboardDocument) #homeTab .verticalSection {
+  margin-block: 0 var(--row-gap);
+  padding-block: 0;
+}
+
+body:not(.dashboardDocument) #homeTab .sectionTitleContainer {
+  margin-block: 0 var(--spacing-1);
+  padding-block: 0;
+  min-height: var(--target-size);
+  align-items: center;
+}
+
+/* Native cardBox-bottompadded adds 1.8em after every row. The rail already
+   reserves focus room; retain one small inset instead of stacking both gaps. */
+body:not(.dashboardDocument) #homeTab .scrollSlider > .card > .cardBox {
+  margin-block: var(--spacing-1) var(--spacing-2);
+  margin-inline-end: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #homeTab .scrollSlider > .card > .cardBox-bottompadded {
+  /* Native utility fixes 1.8em with !important; avoid an extra gap per rail. */
+  margin-block-end: var(--spacing-2) !important;
+}
+
+body:not(.dashboardDocument) #homeTab :is(.sectionTitle, .sectionTitle-cards, .sectionTitleTextButton) {
+  margin-block: 0;
+  padding-block: var(--spacing-2);
+  line-height: 1.25;
+}
+
+body:not(.dashboardDocument) #homeTab .padded-top-focusscale {
+  padding-block-start: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #homeTab .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"],
+body:not(.dashboardDocument) #homeTab .card[data-type="UserView"] {
+  width: clamp(11rem, 15vw, 19rem);
+}
+
+/* Native library tiles carry data-type, independent of section order/preferences. */
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardPadder {
+  padding-bottom: 42%;
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardImageIcon {
+  font-size: 2.75rem;
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardImageContainer {
+  background-color: var(--color-surface);
+  background-image: linear-gradient(135deg, rgb(180 205 230 / 8%), transparent);
+  border: 1px solid var(--color-divider);
+}
+
+body:not(.dashboardDocument) #homeTab .card .cardText {
+  /* Jellyfin's cardTextCentered utility declares its alignment !important. */
+  text-align: start !important;
+  padding-inline: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) #homeTab .card[data-type="CollectionFolder"] .cardText {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+}
+
+body:not(.dashboardDocument) .skinHeader:not(.osdHeader) .headerTabs {
+  padding-block: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) .skinHeader .emby-tab-button {
+  margin-inline: var(--spacing-1);
+  padding: var(--spacing-2) var(--spacing-5);
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+body:not(.dashboardDocument) .skinHeader .emby-tab-button-active {
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+  background: var(--color-surface-elevated);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body:not(.dashboardDocument) .card:hover .cardBox {
+    transition-delay: 140ms;
+  }
+}
+
+@media (width >= 37.5rem) and (width <= 74.999rem) {
+  html:not(.layout-tv) {
+    --card-size: 10.5rem;
+    --card-size-landscape: calc(var(--card-size) * 1.65);
+    --page-gutter: var(--spacing-5);
+    --hero-height: clamp(28rem, 62vh, 40rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .headerTop {
+    padding-inline: var(--spacing-3);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+    gap: var(--spacing-2);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+    min-inline-size: min(12rem, 100%);
+  }
+}
+
+@media (width >= 56.25rem) and (width <= 74.999rem) {
+  html:not(.layout-mobile, .layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+    column-gap: var(--spacing-5);
+    grid-template-columns: minmax(9rem, 23%) minmax(0, 1fr);
+  }
+}
+
+@media (width <= 37.499rem) {
+  html:not(.layout-tv) {
+    --card-size: 8.25rem;
+    --card-size-landscape: min(75vw, 18rem);
+    --page-gutter: var(--spacing-4);
+    --hero-height: 34rem;
+    --font-size-section: 1.2rem;
+    --font-size-body: max(1rem, 16px);
+    --radius-large: 1rem;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .headerTop {
+    padding-inline: var(--spacing-1);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #loginPage .manualLoginForm {
+    padding: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #searchPage .searchFieldsInner {
+    padding-block: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #searchTextInput {
+    font-size: var(--font-size-body);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .MuiDialog-paper:not(.MuiDialog-paperFullScreen) {
+    margin: var(--spacing-3);
+    width: calc(100% - 1.5rem);
+    max-width: calc(100% - 1.5rem);
+    max-height: calc(100% - 1.5rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.MuiDialogTitle-root, .MuiDialogContent-root, .MuiDialogActions-root) {
+    padding-inline: var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .MuiDialogActions-root {
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .actionsheet-not-fullscreen {
+    max-width: calc(100% - 1rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .actionSheetItemAsideText {
+    margin-inline-start: var(--spacing-4);
+  }
+}
+
+/* Also handles desktop-browser zoom: no forced minimum page width. */
+@media (width <= 56.249rem) {
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer {
+    margin-block-start: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+    height: clamp(12rem, 34vh, 23rem);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailRibbon {
+    display: block;
+    padding-inline: max(var(--page-gutter), env(safe-area-inset-left)) max(var(--page-gutter), env(safe-area-inset-right));
+    margin-block-start: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .infoWrapper {
+    padding: 0;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailImageContainer .card {
+    position: relative;
+    inset: auto;
+    float: none;
+    width: 8rem;
+    max-width: 35vw;
+    margin: 0 auto var(--spacing-4);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContent {
+    /* librarybrowser.scss fixes mobile primary padding with !important. Match
+       only this component to add safe areas without changing global padding. */
+    padding-inline: max(var(--page-gutter), env(safe-area-inset-left)) max(var(--page-gutter), env(safe-area-inset-right)) !important;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .mainDetailButtons {
+    padding-inline: 0;
+    margin-inline: 0;
+    justify-content: center;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .trackSelectionFieldContainer {
+    flex-basis: 100%;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage h1.itemName {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+}
+
+@media (pointer: coarse) {
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButtonBase-root, .actionSheetMenuItem):not(:where(#videoOsdPage *, .osdHeader *)) {
+    min-block-size: var(--target-size);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root):not(:where(#videoOsdPage *, .osdHeader *)) {
+    min-inline-size: var(--target-size);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) .mdl-slider-container:not(:where(#videoOsdPage *)) {
+    min-block-size: var(--target-size);
+  }
+}
+
+@media (height <= 30rem) and (orientation: landscape) {
+  html:not(.layout-tv) {
+    --hero-height: 26rem;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .itemBackdrop {
+    height: 13rem;
+  }
+}
+
+/* Ten-foot presentation is activated by Jellyfin's TV layout, never by width.
+   D-pad/back/select behavior stays owned by inputManager and focusManager. */
+html.layout-tv {
+  --page-gutter: 5vw;
+  --target-size: 3.5rem;
+  --font-size-caption: 1rem;
+  --font-size-body: 1.125rem;
+  --font-size-section: 1.65rem;
+  --card-size: 13.5rem;
+  --card-size-landscape: calc(var(--card-size) * 1.65);
+  --hero-height: clamp(32rem, 64vh, 60rem);
+  --focus-width: 0.25rem;
+  --shadow-focus: 0 0 0 0.25rem var(--color-focus), 0 0 0 0.5rem var(--color-background);
+}
+
+html.layout-tv body:not(.dashboardDocument) {
+  font-size: var(--font-size-body);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.padded-left, .emby-scroller) {
+  padding-inline-start: max(var(--page-gutter), env(safe-area-inset-left));
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.padded-right, .emby-scroller) {
+  padding-inline-end: max(var(--page-gutter), env(safe-area-inset-right));
+}
+
+html.layout-tv body:not(.dashboardDocument) .headerTop {
+  padding-inline: var(--page-gutter);
+}
+
+html.layout-tv body:not(.dashboardDocument) .padded-top-focusscale {
+  padding-block-start: var(--spacing-5);
+}
+
+html.layout-tv body:not(.dashboardDocument) .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-5);
+}
+
+html.layout-tv body:not(.dashboardDocument) .card.show-animation:focus > .cardBox {
+  transform: scale(1.035);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.emby-button.show-focus, .paper-icon-button-light.show-focus):focus {
+  transform: scale(1.035);
+  background-color: var(--color-text-primary);
+  color: var(--color-on-accent);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.listItem, .actionSheetMenuItem):focus {
+  background-color: var(--color-selected);
+  color: var(--color-text-primary);
+}
+
+html.layout-tv body:not(.dashboardDocument) .card .cardText {
+  font-size: 1.0625rem;
+}
+
+html.layout-tv body:not(.dashboardDocument) .card .cardText-secondary {
+  font-size: var(--font-size-caption);
+}
+
+html.layout-tv body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+  grid-template-columns: minmax(10rem, 20%) minmax(0, 1fr);
+  margin-block-start: var(--spacing-6);
+}
+
+html.layout-tv body:not(.dashboardDocument) .dialog {
+  font-size: var(--font-size-body);
+}
+
+html.layout-tv body:not(.dashboardDocument) .actionSheetScroller-tv {
+  max-width: min(70vw, 60rem);
+}
+
+@media (width >= 160rem) {
+  html.layout-tv {
+    --font-size-body: 1.5rem;
+    --font-size-caption: 1.375rem;
+    --font-size-section: 2.25rem;
+    --target-size: 4.5rem;
+    --card-size: 20rem;
+  }
+
+  html.layout-tv body:not(.dashboardDocument) .card .cardText {
+    font-size: 1.5rem;
+  }
+}
+
+/* Web 10.10.6: primaryContainer IS detailRibbon, image is nested in
+   infoWrapper. All geometry below requires that contract. Generic wrappers
+   become grid contents; actual headings, controls and sections retain semantics. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) {
+  --detail-foreground-offset: clamp(140px, 25vh, 300px);
+  --detail-logo-height: clamp(70px, 12vh, 140px);
+  --detail-logo-gap: var(--spacing-5);
+  --detail-logo-clearance: 90px;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop {
+  display: block;
+  height: clamp(340px, 48vh, 600px);
+  background-position: center 28%;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop::after {
+  background: none;
+}
+
+/* 10.10.6 paints the actual image in the shared backdrop layer. Its native
+   86% black overlay would darken our second scrim twice. Compose that layer
+   only while this detail contract is the active page. */
+body:not(.dashboardDocument):has(#itemDetailPage:not(.hide) .detailPagePrimaryContainer.detailRibbon) .backgroundContainer.withBackdrop {
+  background:
+    linear-gradient(0deg, var(--color-background) 35%, transparent 90%),
+    linear-gradient(90deg, rgb(9 11 14 / 82%), rgb(9 11 14 / 12%) 85%);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageWrapperContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--detail-poster-width) minmax(0, 1fr);
+  gap: 0 var(--detail-column-gap);
+  align-items: start;
+  margin-block-start: calc(-1 * var(--detail-foreground-offset));
+  padding-inline: var(--page-gutter);
+  padding-block-end: var(--spacing-7);
+  background: linear-gradient(transparent, var(--color-background) var(--detail-foreground-offset));
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) :is(.detailPagePrimaryContainer, .infoWrapper, .detailPageSecondaryContainer, .detailPageContent) {
+  display: contents;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  align-self: start;
+  box-sizing: border-box;
+  width: var(--detail-poster-width);
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer .card {
+  /* 10.10.6 librarybrowser.scss makes this absolute !important. One scoped
+     override restores flow; removing limits without this caused the 1.0 bug. */
+  position: relative !important;
+  inset: auto;
+  transform: none;
+  float: none;
+  width: 100%;
+  max-width: var(--detail-poster-width);
+  max-height: none;
+  margin: 0;
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer .cardBox {
+  margin: 0;
+  box-shadow: var(--shadow-elevated);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .nameContainer {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0;
+  text-align: start;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .nameContainer > :is(.itemName, .parentName, h4) {
+  text-align: start;
+}
+
+/* Preserve native localized Play/Resume text from the title attribute. Only
+   this pre10.11 button contains an icon without a visible text label. */
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .btnPlay {
+  width: auto;
+  min-width: 8rem;
+  flex-direction: row;
+  gap: var(--spacing-2);
+  padding-inline: var(--spacing-5);
+  font-size: 1rem;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .btnPlay[title]::after {
+  content: attr(title);
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .itemMiscInfo-primary {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .itemMiscInfo-secondary {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .mainDetailButtons {
+  grid-column: 2;
+  grid-row: 4;
+  justify-content: flex-start;
+  margin-block: var(--spacing-4) var(--spacing-5);
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPagePrimaryContent {
+  grid-column: 2;
+  grid-row: 5;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageContent > :is(.detailVerticalSection, .collectionItems, .lyricsContainer) {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-block: var(--spacing-6) 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageContent .padded-right {
+  padding-inline-end: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailLogo:not(.hide) {
+  display: block;
+  position: relative;
+  inset: auto;
+  width: min(38vw, 440px);
+  height: var(--detail-logo-height);
+  margin-inline: var(--page-gutter);
+  margin-block: calc(-1 * (var(--detail-foreground-offset) + var(--detail-logo-height) + var(--detail-logo-gap))) var(--detail-logo-gap);
+  background-size: contain;
+  background-position: left center;
+  pointer-events: none;
+}
+
+/* Logo and foreground now share normal flow. The logo consumes its own height
+   plus a gap before the poster; absolute top/height values used to collide at
+   1080p and at shorter windows. Reserve enough backdrop for the header too.
+   Without a logo the original compact foreground offset is unchanged. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon):has(> .detailLogo:not(.hide)) > .itemBackdrop {
+  min-height: calc(var(--detail-foreground-offset) + var(--detail-logo-height) + var(--detail-logo-gap) + var(--detail-logo-clearance));
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) > .detailLogo:not(.hide) + .detailPageWrapperContainer {
+  margin-block-start: 0;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-4);
+  max-width: 72rem;
+  margin-block: var(--spacing-4);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer:not(.hide) {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 15rem;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  gap: var(--spacing-1);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer .selectLabel {
+  width: auto;
+  flex: none;
+  margin: 0;
+  font-size: var(--font-size-caption);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailTrackSelect {
+  width: 100%;
+  min-width: 0;
+  padding-inline: var(--spacing-3) var(--spacing-6);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer .selectArrowContainer {
+  top: auto;
+  bottom: var(--spacing-2);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemDetailsGroup {
+  margin-block: var(--spacing-5) var(--spacing-6);
+  line-height: 1.6;
+}
+
+@media (width <= 56.249rem) {
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) {
+    --detail-poster-width: clamp(80px, 20vw, 140px);
+    --detail-column-gap: 1rem;
+    --detail-foreground-offset: 40px;
+    --detail-logo-height: 64px;
+    --detail-logo-gap: var(--spacing-4);
+    --detail-logo-clearance: 76px;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop {
+    height: clamp(180px, 30vh, 300px);
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer {
+    grid-row: 1 / span 3;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .mainDetailButtons {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPagePrimaryContent {
+    grid-column: 1 / -1;
+
+    /* Cancel the equally important native/mobile inset inside this padded grid. */
+    padding-inline: 0 !important;
+  }
+
+  html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailLogo:not(.hide) {
+    width: min(65vw, 280px);
+  }
+}
+
+/* Upstream sets outline:none!important on emby controls, cards and listItems.
+   This narrowly targeted override restores a real, high-contrast focus ring. */
+body:not(.dashboardDocument) :is(a, button, input, textarea, select, [tabindex]):focus-visible,
+html.layout-tv body:not(.dashboardDocument) :is(.focusable, .show-focus, button, a, input, select):focus {
+  outline: var(--focus-width) solid var(--color-focus) !important;
+  outline-offset: 0.1875rem;
+}
+
+/* Card paint containment can clip an external outline. The inset ring on its
+   artwork remains visible even when an ancestor scroller clips its edges. */
+body:not(.dashboardDocument) .card:focus-within .cardScalable,
+body:not(.dashboardDocument) .card:focus-visible .cardScalable,
+html.layout-tv body:not(.dashboardDocument) .card:focus .cardScalable {
+  box-shadow: inset 0 0 0 var(--focus-width) var(--color-focus), var(--shadow-focus);
+}
+
+body:not(.dashboardDocument) :where(.emby-input, .emby-select, .emby-textarea):focus {
+  border-color: var(--color-focus);
+}
+
+body:not(.dashboardDocument) :where(.listItem, .actionSheetMenuItem):focus-visible {
+  outline-offset: -0.1875rem;
+  background-color: var(--color-selected);
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light).show-focus:focus {
+  transform: scale(1.035);
+}
+
+body:not(.dashboardDocument) :where(.card, .MuiButton-root, .emby-button)[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 0ms;
+    --motion-fast: 0ms;
+    --motion-normal: 0ms;
+    --motion-slow: 0ms;
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+
+  body:not(.dashboardDocument) :is(.card, .cardBox, .emby-button, .paper-icon-button-light, .listItem, .cardOverlayContainer, .itemBackdrop, .lazy-image-fadein, .lazy-image-fadein-fast, .MuiSkeleton-root, .MuiSkeleton-root::after) {
+    /* Upstream focusscale/select animations use !important; retain focused
+       position and make image/skeleton transitions static for this preference. */
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body:not(.dashboardDocument) .card:is(:hover, :focus, :active) .cardBox,
+  body:not(.dashboardDocument) :is(.emby-button, .paper-icon-button-light, .emby-select):is(:focus, :active) {
+    transform: none !important;
+  }
+
+  body:not(.dashboardDocument) :where(.emby-scroller, .scrollFrame) {
+    scroll-behavior: auto;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-secondary: #e0e5ed;
+    --color-text-muted: #c5ccd7;
+    --color-border: #8b95a5;
+    --color-divider: #687384;
+    --color-scrim: #080a0e;
+    --focus-width: 0.25rem;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    /* Resolve our palette to the user's system palette as well as allowing
+       the UA's forced-color painting. This keeps authored/computed colors,
+       SVG currentColor and focus indicators consistent in both HC schemes. */
+    --color-background: Canvas;
+    --color-surface: Canvas;
+    --color-surface-elevated: Canvas;
+    --color-text-primary: CanvasText;
+    --color-text-secondary: CanvasText;
+    --color-text-muted: CanvasText;
+    --color-accent: Highlight;
+    --color-on-accent: HighlightText;
+    --color-focus: Highlight;
+    --color-border: ButtonText;
+    --color-divider: ButtonText;
+    --color-hover: Highlight;
+    --color-selected: Highlight;
+    --color-scrim: Canvas;
+  }
+
+  body:not(.dashboardDocument) :where(.cardScalable, .emby-button, .MuiButton-root, .emby-input, .emby-select, .MuiDialog-paper) {
+    border: 1px solid ButtonText;
+  }
+
+  body:not(.dashboardDocument) :is(a, button, input, textarea, select, [tabindex]):focus-visible,
+  html.layout-tv body:not(.dashboardDocument) .focusable:focus {
+    outline-color: Highlight !important;
+  }
+
+  body:not(.dashboardDocument) :where(.MuiMenuItem-root.Mui-selected, .navMenuOption-selected, .emby-tab-button-active) {
+    border-block-end: 2px solid Highlight;
+  }
+}

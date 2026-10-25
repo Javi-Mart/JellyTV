@@ -1,0 +1,9 @@
+{
+  "webVersion": "12.2",
+  "upstreamCommit": "61b1f890365ad15138e943e694af723c1d47df2a",
+  "file": "session-login.6addd55f3321bb7b4f28.chunk.js",
+  "originalSha256": "6a10cad86ac367c06042165d097c2a988bb7469b1b8086c8eb32218ea7f55b23",
+  "patchedSha256": "e9ea5618c78c4f92fd9d2447e0bc84e6e3ba11dbee8c0087efbea8038afc60ab",
+  "before": "(0,b.A)({dialogOptions:{id:\"quickConnectAlert\"},title:y.Ay.translate(\"QuickConnect\"),text:y.Ay.translate(\"QuickConnectAuthorizeCode\",t.Code)});",
+  "after": "(0,b.A)({dialogOptions:{id:\"quickConnectAlert\"},title:y.Ay.translate(\"QuickConnect\"),text:y.Ay.translate(\"QuickConnectAuthorizeCode\",t.Code)}).catch(function(error){if(void 0!==error)throw error;});"
+}

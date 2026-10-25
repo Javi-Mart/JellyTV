@@ -1,0 +1,298 @@
+{
+  "date": "2026-10-25T03:53:32.736Z",
+  "source": "layout-chrome-matrix-compat.json",
+  "cssSha256": "7985d73887bce718d537de1d05a604150872cd9135560d2e5bc3708eb9953623",
+  "scope": "Offline re-evaluation of recorded geometry, not a new browser run",
+  "status": "FAIL",
+  "count": 9,
+  "cases": [
+    {
+      "name": "desktop-1920x1080-A",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-C",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-D",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 300,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-E",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-F",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-G",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-H",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-J",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 450,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    },
+    {
+      "name": "desktop-1920x1080-K",
+      "logo": {
+        "x": 65.265625,
+        "y": 129.59375,
+        "width": 440,
+        "height": 129.59375,
+        "right": 505.265625,
+        "position": "absolute",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "contain"
+      },
+      "poster": {
+        "x": 65.265625,
+        "y": 248.390625,
+        "width": 300,
+        "height": 168.75,
+        "right": 365.265625,
+        "position": "relative",
+        "display": "block",
+        "visibility": "visible",
+        "objectFit": "fill",
+        "backgroundSize": "auto"
+      },
+      "intersection": {
+        "width": 300,
+        "height": 10.796875,
+        "area": 3239.0625
+      }
+    }
+  ]
+}

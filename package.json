@@ -1,0 +1,28 @@
+{
+  "name": "jellytv",
+  "version": "1.1.0-dev.0",
+  "private": true,
+  "description": "An independent cinematic theme and optional featured hero for Jellyfin Web",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "eslint enhanced scripts tests && stylelint \"theme/**/*.css\" \"enhanced/**/*.css\"",
+    "test": "node --test tests/unit/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm run build && npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.64.1",
+    "esbuild": "0.28.2",
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "stylelint": "17.16.0",
+    "stylelint-config-standard": "40.0.0"
+  }
+}

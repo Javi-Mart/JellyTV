@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-25T04:27:47.200Z",
+  "engine": "chrome",
+  "browserVersion": "154.0.8037.100",
+  "serverVersion": "10.10.6",
+  "assets": {
+    "jellytv-core.css": {
+      "bytes": 49746,
+      "gzipBytes": 9870,
+      "sha256": "596e1197c22f5351d1c5c8c5e7ac02f68d3418ff990cc4a9c1f259a96889a93b"
+    },
+    "jellytv-core.min.css": {
+      "bytes": 40561,
+      "gzipBytes": 7222,
+      "sha256": "ae0f4dc439938bc13b160f50efb0f264b98e808e7793cae84eb647820898397e"
+    },
+    "jellytv-enhanced.css": {
+      "bytes": 9602,
+      "gzipBytes": 2844,
+      "sha256": "d4ff580f7f4dca3ec7c53c2333357ddbc404b39440931f2cf61f8a0bbef0d49f"
+    },
+    "jellytv-enhanced.js": {
+      "bytes": 28413,
+      "gzipBytes": 8976,
+      "sha256": "15ed60340b066ab898fb7ef172ce26fae6516c397b668a9714b806c20e4ca2bd"
+    }
+  },
+  "upstreamBundle": "25b50389160c4d80c4062b5fcaa2bc94823ee645072268c8fe025fe22863e1fc",
+  "results": [
+    {
+      "name": "native 10.10 plugin mounts one contained hero",
+      "passed": true,
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "carousel keeps primary actions stable across every slide",
+      "passed": true,
+      "positions": [
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        },
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        },
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        },
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        },
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        },
+        {
+          "x": 142.59375,
+          "y": 588.03125,
+          "width": 550.578125,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "name": "leaving shortly before intent cancels preview and its request",
+      "passed": true,
+      "requests": 0
+    },
+    {
+      "name": "intentional hover opens context without shifting the row",
+      "passed": true,
+      "before": {
+        "x": 63.359375,
+        "y": 828.859375,
+        "width": 345.96875,
+        "height": 251.109375
+      },
+      "after": {
+        "x": 63.359375,
+        "y": 828.859375,
+        "width": 345.96875,
+        "height": 251.109375
+      },
+      "preview": {
+        "x": 421.328125,
+        "y": 550.015625,
+        "width": 420,
+        "height": 524.46875
+      }
+    },
+    {
+      "name": "scroll dismisses the preview",
+      "passed": true
+    },
+    {
+      "name": "keyboard actions and Escape restore focus without reopening",
+      "passed": true
+    },
+    {
+      "name": "favorites route removes enhancements; Back mounts only once",
+      "passed": true,
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "touch 320x740 has no hover overlays or horizontal overflow",
+      "passed": true,
+      "actions": {
+        "x": 33.40625,
+        "y": 421.421875,
+        "width": 253.1875,
+        "height": 44
+      },
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "touch 390x844 has no hover overlays or horizontal overflow",
+      "passed": true,
+      "actions": {
+        "x": 33.40625,
+        "y": 421.421875,
+        "width": 323.1875,
+        "height": 44
+      },
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "touch 844x390 has no hover overlays or horizontal overflow",
+      "passed": true,
+      "actions": {
+        "x": 60.5625,
+        "y": 440.21875,
+        "width": 485.65625,
+        "height": 44
+      },
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "touch 768x1024 has no hover overlays or horizontal overflow",
+      "passed": true,
+      "actions": {
+        "x": 57.140625,
+        "y": 440.21875,
+        "width": 492.5,
+        "height": 44
+      },
+      "errors": [],
+      "rejections": []
+    },
+    {
+      "name": "TV retained focus shows context after a longer delay without taking focus",
+      "passed": false,
+      "error": "locator.focus: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#homeTab .card[data-type=\"Movie\"] a').first()\u001b[22m\n"
+    },
+    {
+      "name": "reduced motion disables rotation and preview animation",
+      "passed": false,
+      "error": "expect(locator).toBeVisible() failed\n\nLocator: locator('.jellytv-preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" locator('.jellytv-preview') with timeout 5000ms\n  - waiting for locator('.jellytv-preview')\n"
+    }
+  ],
+  "status": "FAIL"
+}
