@@ -1177,12 +1177,17 @@
     {
       "path": "buildSrc/build.gradle.kts",
       "before": "6a5cee3e4977c55c26e0718587fc630191cc00b38cec8986d21637884d5a75ea",
-      "after": "5e99df2eb226ed1c4d195abafa48bd8b9c1b1c6ccd14151227d9eadc127be0f1"
+      "after": "00dc6b321ccb65003a128994c4f846ed7eae246ebe75571aa2f22c96daa44fd7"
     },
     {
       "path": "gradle/libs.versions.toml",
       "before": "fb2e8e70c4fe3a44978d4405f6fbf610e9ee1b03265a4ae34401021ce9c82841",
       "after": "79b0d93b5bad3d285b4803cdd57a19cd7afa94dc16e875ad694d6268bfbbf58a"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "before": "182807858dbaf4ea85f9a9c885f6793076691ddac02ff50dd99d692454cd8ea7",
+      "after": "caf6af5b656056bc8fc2a2b7e7cde68bdc6fb6875899c74e952f09c4ded87ab5"
     },
     {
       "path": "playback/media3/session/build.gradle.kts",

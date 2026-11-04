@@ -2,7 +2,7 @@
 
 ## 1.1.0-dev.1
 
-- Android TV 0.19.10-jellytv.2 actualiza Guava y Kotlin, limita las dependencias de compilación afectadas y separa los identificadores de aplicación debug y release.
+- Android TV 0.19.10-jellytv.2 actualiza Guava y Kotlin, fija Gradle 8.14.6 con su SHA-256 y separa los identificadores de aplicación debug y release.
 - La CLI de CasaOS/Docker exige el repositorio de distribución y la versión explícitos para descargar. Los candidatos locales siguen usando `--bundle`.
 - El bootstrap comprueba que las descargas incompletas, los fallos HTTP y los tiempos agotados se detienen antes de ejecutar código con privilegios.
 - Jellyfin Server y Web 10.10.6 siguen siendo el objetivo. La firma Android de distribución y la aceptación de una versión estable siguen pendientes. [Seguridad](SECURITY.md) · [Compatibilidad](docs/COMPATIBILITY.md)

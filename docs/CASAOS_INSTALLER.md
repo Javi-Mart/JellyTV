@@ -2,7 +2,7 @@
 
 Se mantiene el perfil de Jellyfin Server 10.10.6, afectado por CVE-2025-31499. El preflight verifica compatibilidad, y las pruebas del instalador se hacen en un laboratorio aislado. [Compatibilidad](COMPATIBILITY.md) · [Riesgo de la plataforma](../SECURITY.md)
 
-Requiere un host Linux con Python 3.9 o posterior y acceso al daemon Docker local. Ejecuta el instalador como un administrador de confianza. El acceso al daemon Docker concede privilegios sobre el host. [Seguridad de Docker Engine](https://docs.docker.com/engine/security/)
+Requiere un host Linux con una versión de Python que reciba parches de seguridad y acceso al daemon Docker local. Ejecuta el instalador como un administrador de confianza. El acceso al daemon Docker concede privilegios sobre el host. [Seguridad de Docker Engine](https://docs.docker.com/engine/security/) · [Soporte de Python](https://devguide.python.org/versions/)
 
 La selección automática requiere un único contenedor Jellyfin en ejecución. Para varias instancias usa `--container YOUR_JELLYFIN_CONTAINER`. El preflight comprueba la versión del servidor, los bytes del bundle Web, los montajes y la salud por loopback. Para un puerto o prefijo personalizados, indica la URL local con `--url`. En instalaciones no estándar puedes indicar `--webroot YOUR_WEBROOT`.
 

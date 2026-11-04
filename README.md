@@ -14,6 +14,6 @@ Enhanced utiliza la sesión activa de Jellyfin para leer contenido y enviar las 
 
 ## Desarrollo
 
-Usa Node.js 22.13 o posterior dentro de la rama 22, o Node.js 24 o posterior, además de npm y Python 3.9 o posterior. Ejecuta `npm ci --ignore-scripts` y `npm run check` para compilar, comprobar estilos y ejecutar las pruebas unitarias. Los cambios del instalador deben cubrir preflight, restauración y errores de integridad. [Pruebas](docs/TESTING.md) · [Cambios](CHANGELOG.md)
+Usa una versión LTS actualizada de Node.js 22 o 24 y una versión de Python con soporte de seguridad. Ejecuta `npm ci --ignore-scripts` y `npm run check` para compilar, comprobar estilos y ejecutar las pruebas unitarias. Los cambios del instalador deben cubrir preflight, restauración y errores de integridad. [Pruebas](docs/TESTING.md) · [Cambios](CHANGELOG.md) · [Versiones de Node.js](https://nodejs.org/en/about/previous-releases) · [Soporte de Python](https://devguide.python.org/versions/)
 
 El tema Web y el instalador se distribuyen con licencia MIT. Los parches derivados de Jellyfin tienen sus propios avisos y licencias. [MIT](LICENSE) · [Licencias y procedencia](docs/THIRD_PARTY.md)

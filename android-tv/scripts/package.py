@@ -26,7 +26,8 @@ allowed_paths = (
 )
 allowed_build_files = {
     "android-lint.xml", "app/build.gradle.kts", "build.gradle.kts", "buildSrc/build.gradle.kts",
-    "gradle/libs.versions.toml", "playback/media3/session/build.gradle.kts", "settings.gradle.kts",
+    "gradle/libs.versions.toml", "gradle/wrapper/gradle-wrapper.properties",
+    "playback/media3/session/build.gradle.kts", "settings.gradle.kts",
 }
 
 
