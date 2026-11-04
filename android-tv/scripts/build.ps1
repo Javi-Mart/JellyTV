@@ -10,6 +10,8 @@ $sourcePath = (Resolve-Path -LiteralPath $Source).Path
 $jdkPath = (Resolve-Path -LiteralPath $JdkHome).Path
 $sdkPath = (Resolve-Path -LiteralPath $SdkHome).Path
 $workPath = [IO.Path]::GetFullPath($WorkDirectory)
+$manifest = Get-Content -Raw -LiteralPath (Join-Path $PSScriptRoot '../manifest.json') | ConvertFrom-Json
+if ($manifest.androidVersion -notmatch '^0\.19\.10-jellytv\.[0-9]+$') { throw 'Invalid Android package version.' }
 New-Item -ItemType Directory -Force -Path $workPath | Out-Null
 & $Python (Join-Path $PSScriptRoot 'theme.py') check $sourcePath
 if ($LASTEXITCODE -ne 0) { throw 'Source verification failed; build stopped.' }
@@ -24,7 +26,7 @@ try {
     $env:ANDROID_HOME = $sdkPath
     $env:ANDROID_USER_HOME = Join-Path $workPath 'user'
     $env:GRADLE_USER_HOME = Join-Path $workPath 'gradle-home'
-    & (Join-Path $sourcePath 'gradlew.bat') -p $sourcePath --no-daemon --no-build-cache --console=plain '-Pjellyfin.version=0.19.10-jellytv.1' assembleDebug lintDebug testDebugUnitTest
+    & (Join-Path $sourcePath 'gradlew.bat') -p $sourcePath --no-daemon --no-build-cache --console=plain "-Pjellyfin.version=$($manifest.androidVersion)" assembleDebug lintDebug testDebugUnitTest
     if ($LASTEXITCODE -ne 0) { throw "Gradle failed with exit code $LASTEXITCODE" }
     # Upstream sets abortOnError=false. A successful Gradle exit alone does not mean lint passed.
     $reports = Get-ChildItem -LiteralPath $sourcePath -Recurse -Filter 'lint-results-debug.xml'

@@ -17,7 +17,7 @@ Las pruebas opcionales de Docker requieren un daemon local y las imágenes fijad
 python3 scripts/package-setup.py --development --output .lab/test-package
 python3 tests/integration/bootstrap-linux.py
 python3 tests/integration/installer-lifecycle.py \
-  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.0.zip \
+  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.1.zip \
   --output .lab/reports/installer-lifecycle.json
 ```
 

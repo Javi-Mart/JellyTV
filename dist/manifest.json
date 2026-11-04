@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0-dev.0",
+  "version": "1.1.0-dev.1",
   "webVersions": [
     "10.10.6",
     "12.2"
@@ -14,7 +14,7 @@
     "jellytv-core.css": {
       "bytes": 52764,
       "gzipBytes": 10744,
-      "sha256": "0492931182a047ea47abc8f15c826d8df126c05b7836e081bf9cca0e0f4a2635"
+      "sha256": "481ebfda9a6a60eb4c583a6877acfb4636e1c52f363bdec610506c845870f5ba"
     },
     "jellytv-core.min.css": {
       "bytes": 42031,

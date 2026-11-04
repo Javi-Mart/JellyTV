@@ -23,10 +23,12 @@ def write_text(path, value):
         stream.write(value)
 
 
-def install_command(version, checksum):
+def install_command(version, checksum, repository):
     if not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', version) or not re.fullmatch(r'[0-9a-f]{64}', checksum):
         raise ValueError('Installation command requires stable version and SHA-256')
-    url = f'https://github.com/Javi-Mart/JellyTV/releases/download/v{version}/jellytv-setup-{version}.pyz'
+    if not isinstance(repository, str) or not re.fullmatch(r'[A-Za-z0-9-]+/[A-Za-z0-9_.-]+', repository) or repository.split('/')[1] in ('.', '..'):
+        raise ValueError('Installation command requires a confirmed GitHub repository (OWNER/REPOSITORY)')
+    url = f'https://github.com/{repository}/releases/download/v{version}/jellytv-setup-{version}.pyz'
     # Authenticate the bytes again after elevation and execute a private copy.
     # The invoking user still controls the original download directory.
     loader = """import hashlib, os, runpy, stat, sys, tempfile
@@ -52,7 +54,7 @@ with tempfile.TemporaryDirectory(prefix='jellytv-setup-', dir='/tmp') as directo
     return 'sh -c ' + shlex.quote(script) + ' jellytv-setup'
 
 
-def package(dist, output, development=False):
+def package(dist, output, development=False, repository=None):
     # Dedicated immutable output avoids replacing a draft or an earlier candidate.
     if output.exists():
         raise ValueError('Use a new setup output directory; existing artifacts are preserved')
@@ -60,6 +62,8 @@ def package(dist, output, development=False):
     version = manifest['version']
     if not development and (manifest.get('validationStatus') != 'accepted' or not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+', version)):
         raise ValueError('Acceptance remains open; only --development can package this local candidate')
+    if not development:
+        install_command(version, '0' * 64, repository)
     # Validate source files and bundle integrity before creating the output folder.
     # A CRLF shebang fails when Linux executes the installed command directly.
     cli = (ROOT / 'installer/jellytv.py').read_bytes().replace(b'\r\n', b'\n')
@@ -91,7 +95,7 @@ def package(dist, output, development=False):
     checksum = digest(target.read_bytes())
     write_text(target.with_suffix('.pyz.sha256'), f'{checksum}  {target.name}\n')
     # A development archive deliberately has no remote installation command.
-    command = None if development else install_command(version, checksum)
+    command = None if development else install_command(version, checksum, repository)
     if command:
         write_text(output / 'INSTALL-COMMAND.txt', command + '\n')
     plan = {'version': version, 'validationStatus': manifest['validationStatus'], 'development': development,
@@ -108,5 +112,6 @@ if __name__ == '__main__':
     parser.add_argument('--dist', type=Path, default=ROOT / 'dist')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--development', action='store_true')
+    parser.add_argument('--repo', help='Confirmed OWNER/REPOSITORY for the stable installation command')
     args = parser.parse_args()
-    print(json.dumps(package(args.dist, args.output, args.development), indent=2))
+    print(json.dumps(package(args.dist, args.output, args.development, args.repo), indent=2))

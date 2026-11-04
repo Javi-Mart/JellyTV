@@ -78,17 +78,23 @@ class SetupPackageTests(unittest.TestCase):
 
     def test_stable_accepted_fixture_generates_pinned_command(self):
         self.manifest.update(version='1.2.3', validationStatus='accepted'); self.save_manifest()
-        output = self.root / 'accepted'; plan = p.package(self.dist, output)
+        output = self.root / 'accepted'
+        with self.assertRaisesRegex(ValueError, 'confirmed GitHub repository'):
+            p.package(self.dist, output)
+        self.assertFalse(output.exists())
+        plan = p.package(self.dist, output, repository='example/JellyTV')
         command = (output / 'INSTALL-COMMAND.txt').read_text()
         sha = plan['artifacts']['jellytv-setup-1.2.3.pyz']['sha256']
-        self.assertIn(sha, command); self.assertIn('/v1.2.3/', command)
+        self.assertIn(sha, command); self.assertIn('https://github.com/example/JellyTV/releases/download/v1.2.3/', command)
         self.assertLess(command.index('sha256sum'), command.index('sudo python3'))
         self.assertNotIn('/main/', command); self.assertTrue(plan['remoteCommandGenerated'])
 
     def test_injected_version_or_digest_cannot_enter_shell_command(self):
         for version in ['1.0.0-dev.0', '1.0.0;id', '../../main', 'latest']:
-            with self.assertRaises(ValueError): p.install_command(version, 'a' * 64)
-        with self.assertRaises(ValueError): p.install_command('1.2.3', 'a' * 64 + ';id')
+            with self.assertRaises(ValueError): p.install_command(version, 'a' * 64, 'example/JellyTV')
+        with self.assertRaises(ValueError): p.install_command('1.2.3', 'a' * 64 + ';id', 'example/JellyTV')
+        for repository in ('example/..', '../JellyTV', 'example/JellyTV;id'):
+            with self.assertRaises(ValueError): p.install_command('1.2.3', 'a' * 64, repository)
 
     @unittest.skipUnless(os.name == 'posix', 'POSIX shell and direct shebang execution run on Linux')
     def test_shell_checks_digest_before_execution_and_cleans_download(self):
@@ -96,8 +102,10 @@ class SetupPackageTests(unittest.TestCase):
         archive = output / 'jellytv-setup-1.1.0-dev.0.pyz'
         fakebin = self.root / 'fakebin'; fakebin.mkdir()
         download_log, sudo_log = self.root / 'download.log', self.root / 'sudo.log'
-        fake_curl = (f'#!{sys.executable}\nimport sys\nfrom pathlib import Path\n'
+        fake_curl = (f'#!{sys.executable}\nimport os, sys\nfrom pathlib import Path\n'
                      f'target=Path(sys.argv[sys.argv.index("-o")+1])\nPath({str(download_log)!r}).write_text(str(target))\n'
+                     'failure=os.environ.get("JELLYTV_TEST_CURL_EXIT")\n'
+                     'if failure:\n    target.write_bytes(b"partial response")\n    raise SystemExit(int(failure))\n'
                      f'target.write_bytes(Path({str(archive)!r}).read_bytes())\n')
         fake_sudo = (f'#!{sys.executable}\nimport os, sys, subprocess\nfrom pathlib import Path\n'
                      f'Path({str(sudo_log)!r}).write_text("executed")\n'
@@ -106,7 +114,7 @@ class SetupPackageTests(unittest.TestCase):
         for name, source in [('curl', fake_curl), ('sudo', fake_sudo)]:
             path = fakebin / name; path.write_text(source); path.chmod(0o755)
         env = {**os.environ, 'PATH': str(fakebin) + os.pathsep + os.environ['PATH']}
-        command = p.install_command('1.2.3', p.digest(archive.read_bytes()))
+        command = p.install_command('1.2.3', p.digest(archive.read_bytes()), 'example/JellyTV')
         completed = subprocess.run(shlex.split(command) + ['--help'], env=env, capture_output=True, timeout=20)
         self.assertEqual(completed.returncode, 0, completed.stderr)
         self.assertTrue(sudo_log.exists()); self.assertFalse(Path(download_log.read_text()).exists())
@@ -114,7 +122,14 @@ class SetupPackageTests(unittest.TestCase):
         self.assertNotEqual(swapped.returncode, 0)
         self.assertIn(b'digest changed before execution', swapped.stderr)
         self.assertFalse(Path(download_log.read_text()).exists())
-        sudo_log.unlink(); archive.write_bytes(b'corrupt download')
+        sudo_log.unlink()
+        for curl_exit in ('18', '22', '28'):
+            with self.subTest(curl_exit=curl_exit):
+                failure = subprocess.run(shlex.split(command), env={**env, 'JELLYTV_TEST_CURL_EXIT': curl_exit}, capture_output=True, timeout=20)
+                self.assertEqual(failure.returncode, int(curl_exit))
+                self.assertFalse(sudo_log.exists())
+                self.assertFalse(Path(download_log.read_text()).exists())
+        archive.write_bytes(b'corrupt download')
         completed = subprocess.run(shlex.split(command) + ['--help'], env=env, capture_output=True, timeout=20)
         self.assertNotEqual(completed.returncode, 0); self.assertFalse(sudo_log.exists())
         self.assertFalse(Path(download_log.read_text()).exists())

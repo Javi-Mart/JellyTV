@@ -18,7 +18,6 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
-REPO = "Javi-Mart/JellyTV"
 ASSETS = ("jellytv/jellytv-enhanced.css", "jellytv/jellytv-enhanced.js")
 MARKER = ".jellytv-casaos.json"
 FILES = (*ASSETS, "config.json", "index.html", MARKER)
@@ -379,7 +378,8 @@ def github_request(url, token=None, binary=False):
 
 
 def download(repo, version, token=None):
-    require(bool(re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo)), "Invalid GitHub repository")
+    require(isinstance(repo, str) and re.fullmatch(r"[A-Za-z0-9-]+/[A-Za-z0-9_.-]+", repo)
+            and repo.split("/")[1] not in (".", ".."), "Invalid GitHub repository")
     require(isinstance(version, str) and re.fullmatch(r"v?[0-9]+\.[0-9]+\.[0-9]+", version),
             "Remote installation requires --version X.Y.Z of a published stable release")
     expected_tag = version if version.startswith("v") else "v" + version
@@ -552,14 +552,14 @@ def main():
     parser.add_argument("action", choices=("install", "update", "uninstall", "status", "rollback"))
     parser.add_argument("--container"); parser.add_argument("--webroot"); parser.add_argument("--url")
     parser.add_argument("--state-dir", type=Path, default=Path("/var/lib/jellytv"))
-    parser.add_argument("--repo", default=REPO); parser.add_argument("--version")
+    parser.add_argument("--repo"); parser.add_argument("--version")
     parser.add_argument("--bundle", type=Path); parser.add_argument("--token-file", type=Path)
     parser.add_argument("--allow-development", action="store_true"); parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--reinstall", action="store_true")
     args = parser.parse_args()
     require(not args.allow_development or args.bundle is not None, "Development packages are allowed only from an explicit local --bundle")
-    require(args.action not in ("install", "update") or args.bundle is not None or args.version,
-            "Supply --version X.Y.Z for a remote release or --bundle for a local package")
+    require(args.action not in ("install", "update") or args.bundle is not None or (args.version and args.repo),
+            "Supply --repo OWNER/REPOSITORY and --version X.Y.Z for a remote release, or --bundle for a local package")
     with locked(args.state_dir):
         saved = read_state(args.state_dir / "state.json")
         selected = args.container or (saved or {}).get("identity", {}).get("name")

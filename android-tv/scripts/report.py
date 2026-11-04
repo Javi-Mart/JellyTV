@@ -82,7 +82,7 @@ def main():
         "unitTests": {"status": "PASS" if totals["tests"] and not totals["failures"] and not totals["errors"] else "FAIL",
                       "totals": totals, "suites": tests},
         "apk": apks,
-        "deviceAcceptance": "See runtime-1080.json, runtime-4k.json and ../docs/device-validation.md; build and unit tests do not establish runtime acceptance."
+        "deviceAcceptance": "Separate from the build, lint and unit-test results."
     }
     output = json.dumps(result, indent=2) + "\n"
     if args.output:

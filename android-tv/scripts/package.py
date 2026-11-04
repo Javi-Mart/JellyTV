@@ -17,12 +17,17 @@ if subprocess.check_output(["git", "-C", str(source), "rev-parse", "HEAD"], text
 archive = subprocess.check_output(["git", "-C", str(source), "archive", "--format=zip", COMMIT])
 version = json.loads((PACKAGE.parent / 'package.json').read_text(encoding='utf-8'))['version']
 manifest = {"format": 1, "version": version, "upstreamTag": "v0.19.10", "upstreamCommit": COMMIT,
+            "androidVersion": "0.19.10-jellytv.2",
+            "applicationIds": {"debug": "org.jellyfin.androidtv.jellytv.debug", "release": "org.jellyfin.androidtv.jellytv"},
             "source": {}, "changes": []}
 patch = []
 allowed_paths = (
     "app/src/", "playback/media3/session/src/",
 )
-allowed_build_files = {"playback/media3/session/build.gradle.kts", "android-lint.xml"}
+allowed_build_files = {
+    "android-lint.xml", "app/build.gradle.kts", "build.gradle.kts", "buildSrc/build.gradle.kts",
+    "gradle/libs.versions.toml", "playback/media3/session/build.gradle.kts", "settings.gradle.kts",
+}
 
 
 def allowed(name):

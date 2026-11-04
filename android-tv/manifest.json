@@ -1,8 +1,13 @@
 {
   "format": 1,
-  "version": "1.0.0",
+  "version": "1.1.0-dev.1",
   "upstreamTag": "v0.19.10",
   "upstreamCommit": "984181a3d6ab14e9a6d2dcc850c582e1c138bd95",
+  "androidVersion": "0.19.10-jellytv.2",
+  "applicationIds": {
+    "debug": "org.jellyfin.androidtv.jellytv.debug",
+    "release": "org.jellyfin.androidtv.jellytv"
+  },
   "source": {
     ".editorconfig": "0df5833a6af79529a7898d90c005e9ad1205969e060d75140ae3a3313e5e308f",
     ".gitattributes": "17faf7f216c4f1e5fae88a40f39543e9af70fd19e8cc91b8a488e259bed0ae5a",
@@ -1045,6 +1050,11 @@
       "after": "46a2fca19cd8dcd3eff60fa6f7145f9d51b729a9422f3037ae6f5327913287e6"
     },
     {
+      "path": "app/build.gradle.kts",
+      "before": "685a84c024d2c7536627dc67315d7683c5c7f49ebed78e07a7aeb70995882e19",
+      "after": "89e898b9b482e04cab43048f2384135b1da173d507b1aec915a0223668a16f16"
+    },
+    {
       "path": "app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt",
       "before": "736e79230277e8aca5fafe36ec44c3e736eea0770450419280d68a63695bbc19",
       "after": "2fe1cc4b0bb4ad11bccb778890fadb83a8339d415bcf93f021d89f6b44be8530"
@@ -1077,12 +1087,17 @@
     {
       "path": "app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt",
       "before": null,
-      "after": "bb77a0db54ece344f6dcf1058ea6c6260566d90fdb556c9e70638bd814733778"
+      "after": "cddbafd04408b0d57f2b9e666692db7fc84b597eeccbe5bcfa1633b5aa39569e"
     },
     {
       "path": "app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/CustomPlaybackTransportControlGlue.java",
       "before": "36b1e6094b2490a14b0284e95e973419c2c20454b576b1cf4b765c53307400cd",
       "after": "2345a891a9c7a40f76dc1c7ff737f96d5cd484fd9bc6f7db2c097228499374d5"
+    },
+    {
+      "path": "app/src/main/java/org/jellyfin/androidtv/ui/preference/screen/HomePreferencesScreen.kt",
+      "before": "2d13332690acb22d2f0325fe072e6f8bdbc9fb2b8ed947b04477bd95aa1f1253",
+      "after": "c27a570d598d32404131286683a90654421579d84dea9873527a88592904f632"
     },
     {
       "path": "app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt",
@@ -1145,6 +1160,31 @@
       "after": "5946dff91c61d2eeb19925eb524500a68d927b5e881b3e3e901ac02f0d9224e1"
     },
     {
+      "path": "app/src/main/res/xml/backup_content.xml",
+      "before": "cd18b58cefbaf0a545b5b989a12ad1a8488fed55eef5f81514249ea7a460cf64",
+      "after": "648f786780857aab288d3aef9f390de57322a957bd60682174ff74ada1fb2787"
+    },
+    {
+      "path": "app/src/main/res/xml/backup_rules.xml",
+      "before": "a505a96f593d067cf332324fd3ee25ad4d426222f7f199ba65fec686e355936b",
+      "after": "7c31a804b8f0fd847550fc1dd8ae571fedb2ca984f1b0cf8f0ad907d4f0c7afe"
+    },
+    {
+      "path": "build.gradle.kts",
+      "before": "3468411acde4a6f08f5b04331e1c71b2c97f93eac56dba5a13a6aac342d2ccd6",
+      "after": "4e743dab5ffdca2ce697be28b4dde3774f963426ba17d3f4eb55e4143d7f6980"
+    },
+    {
+      "path": "buildSrc/build.gradle.kts",
+      "before": "6a5cee3e4977c55c26e0718587fc630191cc00b38cec8986d21637884d5a75ea",
+      "after": "5e99df2eb226ed1c4d195abafa48bd8b9c1b1c6ccd14151227d9eadc127be0f1"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "before": "fb2e8e70c4fe3a44978d4405f6fbf610e9ee1b03265a4ae34401021ce9c82841",
+      "after": "79b0d93b5bad3d285b4803cdd57a19cd7afa94dc16e875ad694d6268bfbbf58a"
+    },
+    {
       "path": "playback/media3/session/build.gradle.kts",
       "before": "a710e3f7cc81966e2c1d02c4627d0842af10b85c80f1b4590658c78a876378ff",
       "after": "fe8925576c1e416927d72b092af4bf7950791c5938051862f20e617d7594c0ad"
@@ -1153,6 +1193,11 @@
       "path": "playback/media3/session/src/main/kotlin/MediaSessionService.kt",
       "before": "07b19613ba7aa49ae123c2ebf09b0dbf0baf2e019de310f0359377007518f638",
       "after": "35000f02f8f64c12a8fb73ea9306cb18957b447b3919209c7cf3e544e276df7e"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "before": "f92b860903b26416ad41471052cef3031d372e5de4593817986b2b27d70e3d08",
+      "after": "313ee0dc442d81fbe8d08fdba393c54254c5347f318a70da51508269bf0696bc"
     }
   ]
 }

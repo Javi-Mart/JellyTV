@@ -247,7 +247,8 @@ class JellyTvHeroPresenter(
 					setOnFocusChangeListener { _, focused -> if (focused && !state.restoreFocus) state.focusKey = "slide-$index" }
 					setPadding(0, 0, 0, 0)
 					textSize = 22f
-					contentDescription = context.getString(R.string.jellytv_slide, index + 1, value.items.size, item.name.orEmpty())
+					val slideNumber: Int = index + 1
+					contentDescription = context.getString(R.string.jellytv_slide, slideNumber, value.items.size, item.name.orEmpty())
 					setOnClickListener {
 						if (action?.isActive != true) { value.index = index; render() }
 					}

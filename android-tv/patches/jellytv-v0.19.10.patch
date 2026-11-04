@@ -14,6 +14,75 @@ diff --git a/android-lint.xml b/android-lint.xml
      <issue id="Registered" severity="warning" />
      <issue id="RequiredSize" severity="error" />
      <issue id="Typos" severity="ignore" />
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,3 +1,11 @@
++buildscript {
++	dependencies {
++		constraints {
++			add("classpath", "org.codehaus.plexus:plexus-utils:3.6.1")
++		}
++	}
++}
++
+ plugins {
+ 	id("com.android.application")
+ 	kotlin("android")
+@@ -5,6 +13,8 @@
+ 	alias(libs.plugins.kotlin.compose)
+ 	alias(libs.plugins.aboutlibraries)
+ }
++
++val jellytvApplicationId = "org.jellyfin.androidtv.jellytv"
+ 
+ android {
+ 	namespace = "org.jellyfin.androidtv"
+@@ -15,7 +25,7 @@
+ 		targetSdk = libs.versions.android.targetSdk.get().toInt()
+ 
+ 		// Release version
+-		applicationId = namespace
++		applicationId = jellytvApplicationId
+ 		versionName = project.getVersionName()
+ 		versionCode = getVersionCode(versionName!!)
+ 	}
+@@ -56,9 +66,9 @@
+ 			isMinifyEnabled = false
+ 
+ 			// Set package names used in various XML files
+-			resValue("string", "app_id", namespace!!)
+-			resValue("string", "app_search_suggest_authority", "${namespace}.content")
+-			resValue("string", "app_search_suggest_intent_data", "content://${namespace}.content/intent")
++			resValue("string", "app_id", jellytvApplicationId)
++			resValue("string", "app_search_suggest_authority", "${jellytvApplicationId}.content")
++			resValue("string", "app_search_suggest_intent_data", "content://${jellytvApplicationId}.content/intent")
+ 
+ 			// Set flavored application name
+ 			resValue("string", "app_name", "@string/app_name_release")
+@@ -73,9 +83,9 @@
+ 			applicationIdSuffix = ".debug"
+ 
+ 			// Set package names used in various XML files
+-			resValue("string", "app_id", namespace + applicationIdSuffix)
+-			resValue("string", "app_search_suggest_authority", "${namespace + applicationIdSuffix}.content")
+-			resValue("string", "app_search_suggest_intent_data", "content://${namespace + applicationIdSuffix}.content/intent")
++			resValue("string", "app_id", jellytvApplicationId + applicationIdSuffix)
++			resValue("string", "app_search_suggest_authority", "${jellytvApplicationId + applicationIdSuffix}.content")
++			resValue("string", "app_search_suggest_intent_data", "content://${jellytvApplicationId + applicationIdSuffix}.content/intent")
+ 
+ 			// Set flavored application name
+ 			resValue("string", "app_name", "@string/app_name_debug")
+@@ -124,6 +134,9 @@
+ 			"unstable-snapshot" -> version { strictly("openapi-unstable-SNAPSHOT") }
+ 		}
+ 	}
++
++	// Keep the Android variant on the fixed Guava version throughout the runtime graph.
++	implementation(libs.guava.android)
+ 
+ 	// Kotlin
+ 	implementation(libs.kotlinx.coroutines)
 diff --git a/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt b/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
 --- a/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
 +++ b/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
@@ -325,7 +394,7 @@ diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/home/HomeRowsFragment.k
 diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt b/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt
 --- /dev/null
 +++ b/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt
-@@ -0,0 +1,350 @@
+@@ -0,0 +1,351 @@
 +package org.jellyfin.androidtv.ui.home
 +
 +import android.content.Context
@@ -575,7 +644,8 @@ diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt 
 +					setOnFocusChangeListener { _, focused -> if (focused && !state.restoreFocus) state.focusKey = "slide-$index" }
 +					setPadding(0, 0, 0, 0)
 +					textSize = 22f
-+					contentDescription = context.getString(R.string.jellytv_slide, index + 1, value.items.size, item.name.orEmpty())
++					val slideNumber: Int = index + 1
++					contentDescription = context.getString(R.string.jellytv_slide, slideNumber, value.items.size, item.name.orEmpty())
 +					setOnClickListener {
 +						if (action?.isActive != true) { value.index = index; render() }
 +					}
@@ -696,6 +766,20 @@ diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/Custom
                      FrameLayout v = (FrameLayout) bar.getChildAt(0);
                      mButtonRef = (LinearLayout) v.getChildAt(0);
  
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/preference/screen/HomePreferencesScreen.kt b/app/src/main/java/org/jellyfin/androidtv/ui/preference/screen/HomePreferencesScreen.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/preference/screen/HomePreferencesScreen.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/preference/screen/HomePreferencesScreen.kt
+@@ -22,8 +22,9 @@
+ 			setTitle(R.string.home_sections)
+ 
+ 			userSettingPreferences.homesections.forEachIndexed { index, section ->
++				val sectionNumber: Int = index + 1
+ 				enum<HomeSectionType> {
+-					title = getString(R.string.home_section_i, index + 1)
++					title = getString(R.string.home_section_i, sectionNumber)
+ 					bind(userSettingPreferences, section)
+ 				}
+ 			}
 diff --git a/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt b/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
 --- a/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
 +++ b/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
@@ -1193,6 +1277,125 @@ diff --git a/app/src/main/res/values/theme_jellytv.xml b/app/src/main/res/values
 +        <item name="overlayDimDimmedLevel">15%</item>
 +    </style>
 +</resources>
+diff --git a/app/src/main/res/xml/backup_content.xml b/app/src/main/res/xml/backup_content.xml
+--- a/app/src/main/res/xml/backup_content.xml
++++ b/app/src/main/res/xml/backup_content.xml
+@@ -8,10 +8,10 @@
+     <!-- UserPreferences -->
+     <include
+         domain="sharedpref"
+-        path="org.jellyfin.androidtv_preferences" />
++        path="org.jellyfin.androidtv.jellytv_preferences" />
+     <include
+         domain="sharedpref"
+-        path="org.jellyfin.androidtv.debug_preferences" />
++        path="org.jellyfin.androidtv.jellytv.debug_preferences" />
+     <!-- SystemPreferences -->
+     <include
+         domain="sharedpref"
+diff --git a/app/src/main/res/xml/backup_rules.xml b/app/src/main/res/xml/backup_rules.xml
+--- a/app/src/main/res/xml/backup_rules.xml
++++ b/app/src/main/res/xml/backup_rules.xml
+@@ -9,10 +9,10 @@
+         <!-- UserPreferences -->
+         <include
+             domain="sharedpref"
+-            path="org.jellyfin.androidtv_preferences" />
++            path="org.jellyfin.androidtv.jellytv_preferences" />
+         <include
+             domain="sharedpref"
+-            path="org.jellyfin.androidtv.debug_preferences" />
++            path="org.jellyfin.androidtv.jellytv.debug_preferences" />
+         <!-- SystemPreferences -->
+         <include
+             domain="sharedpref"
+@@ -31,10 +31,10 @@
+         <!-- UserPreferences -->
+         <include
+             domain="sharedpref"
+-            path="org.jellyfin.androidtv_preferences" />
++            path="org.jellyfin.androidtv.jellytv_preferences" />
+         <include
+             domain="sharedpref"
+-            path="org.jellyfin.androidtv.debug_preferences" />
++            path="org.jellyfin.androidtv.jellytv.debug_preferences" />
+         <!-- SystemPreferences -->
+         <include
+             domain="sharedpref"
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -7,6 +7,17 @@
+ 	dependencies {
+ 		classpath(libs.android.gradle)
+ 		classpath(libs.kotlin.gradle)
++		classpath(libs.guava.build)
++		classpath(platform("io.netty:netty-bom:4.1.137.Final"))
++		constraints {
++			add("classpath", "org.apache.commons:commons-compress:1.26.0")
++			add("classpath", "org.apache.commons:commons-lang3:3.18.0")
++			add("classpath", "org.bitbucket.b_c:jose4j:0.9.6")
++			add("classpath", "org.bouncycastle:bcpkix-jdk18on:1.85")
++			add("classpath", "org.bouncycastle:bcprov-jdk18on:1.85")
++			add("classpath", "org.bouncycastle:bcutil-jdk18on:1.85")
++			add("classpath", "org.jdom:jdom2:2.0.6.1")
++		}
+ 	}
+ }
+ 
+diff --git a/buildSrc/build.gradle.kts b/buildSrc/build.gradle.kts
+--- a/buildSrc/build.gradle.kts
++++ b/buildSrc/build.gradle.kts
+@@ -1,11 +1,20 @@
+ plugins {
+-	`kotlin-dsl`
++	alias(libs.plugins.kotlin.jvm)
+ }
+ 
+ kotlin {
+ 	jvmToolchain {
+ 		languageVersion.set(JavaLanguageVersion.of(libs.versions.java.jdk.get()))
+ 	}
++	// Gradle 9.1 compiles its Kotlin DSL with Kotlin 2.2.
++	compilerOptions {
++		languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2)
++		apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_2)
++	}
++}
++
++dependencies {
++	implementation(gradleApi())
+ }
+ 
+ repositories {
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -32,7 +32,7 @@
+ koin = "4.1.1"
+ koin-compose = "4.1.1"
+ kotest = "6.0.4"
+-kotlin = "2.2.21"
++kotlin = "2.4.21"
+ kotlinx-coroutines = "1.10.2"
+ kotlinx-serialization = "1.9.0"
+ markwon = "4.6.2"
+@@ -41,12 +41,15 @@
+ timber = "5.0.1"
+ 
+ [plugins]
++kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ aboutlibraries = { id = "com.mikepenz.aboutlibraries.plugin", version.ref = "aboutlibraries" }
+ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ 
+ [libraries]
++guava-android = { module = "com.google.guava:guava", version = "33.7.2-android" }
++guava-build = { module = "com.google.guava:guava", version = "33.7.2-jre" }
+ # Jellyfin
+ jellyfin-sdk = { module = "org.jellyfin.sdk:jellyfin-core", version.ref = "jellyfin-sdk" }
+ 
 diff --git a/playback/media3/session/build.gradle.kts b/playback/media3/session/build.gradle.kts
 --- a/playback/media3/session/build.gradle.kts
 +++ b/playback/media3/session/build.gradle.kts
@@ -1237,3 +1440,25 @@ diff --git a/playback/media3/session/src/main/kotlin/MediaSessionService.kt b/pl
  		notificationManager.notify(notifiedNotificationId!!, notification)
  	}
  }
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -13,6 +13,18 @@
+ include(":preference")
+ 
+ pluginManagement {
++	// Kotlin 2.4 class files require D8/R8 9.1.29 or later.
++	buildscript {
++		repositories {
++			maven("https://storage.googleapis.com/r8-releases/raw") {
++				content { includeModule("com.android.tools", "r8") }
++			}
++			mavenCentral()
++		}
++		dependencies {
++			classpath("com.android.tools:r8:9.1.29")
++		}
++	}
+ 	repositories {
+ 		gradlePluginPortal()
+ 		mavenCentral()
