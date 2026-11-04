@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_theme_jellytv" translatable="false">JellyTV</string>
+
+    <!-- Tokens shared by native Views and the Compose theme adapter. -->
+    <color name="jellytv_background">#08090B</color>
+    <color name="jellytv_surface">#20232A</color>
+    <color name="jellytv_elevated">#30353F</color>
+    <color name="jellytv_text">#F5F6F8</color>
+    <color name="jellytv_secondary">#BBC0CA</color>
+    <color name="jellytv_accent">#BBD6FF</color>
+    <color name="jellytv_focus">#FFFFFF</color>
+    <color name="jellytv_focus_surface">#E5ECF7</color>
+    <color name="jellytv_on_focus">#121820</color>
+    <color name="jellytv_disabled">#181B21</color>
+    <color name="jellytv_on_disabled">#8C939F</color>
+    <color name="jellytv_recording">#743A42</color>
+
+    <dimen name="jellytv_radius_small">8dp</dimen>
+    <dimen name="jellytv_radius_medium">12dp</dimen>
+    <dimen name="jellytv_radius_large">20dp</dimen>
+    <dimen name="jellytv_focus_width">3dp</dimen>
+    <dimen name="jellytv_control_min_size">44dp</dimen>
+
+    <style name="Theme.Jellyfin.JellyTV" parent="Theme.Jellyfin">
+        <item name="jellyTvTheme">true</item>
+        <item name="android:colorPrimary">@color/jellytv_surface</item>
+        <item name="android:colorPrimaryDark">@color/jellytv_background</item>
+        <item name="android:colorAccent">@color/jellytv_accent</item>
+        <item name="defaultBackground">@color/jellytv_background</item>
+        <item name="cardImageBackground">@color/jellytv_surface</item>
+        <item name="cardImageForeground">@drawable/jellytv_card_focus</item>
+        <item name="defaultSearchColor">@color/jellytv_surface</item>
+        <item name="headerTextColor">@color/jellytv_text</item>
+        <item name="android:colorButtonNormal">@color/jellytv_surface</item>
+        <item name="buttonDefaultNormalBackground">@color/jellytv_surface</item>
+        <item name="buttonDefaultHighlightBackground">@color/jellytv_focus_surface</item>
+        <item name="inputDefaultStrokeColor">@color/jellytv_secondary</item>
+        <!-- Legacy input text switches to dark on focus. -->
+        <item name="inputDefaultHighlightBackground">@color/jellytv_focus_surface</item>
+        <item name="popupMenuBackground">@color/jellytv_surface</item>
+        <item name="progressBackground">@color/jellytv_elevated</item>
+        <item name="progressPrimary">@color/jellytv_accent</item>
+        <item name="progressSecondary">@color/jellytv_secondary</item>
+        <item name="controlIconBackground">@color/jellytv_surface</item>
+        <item name="controlIconForegroundActive">@color/jellytv_accent</item>
+        <item name="controlIconForegroundInactive">@color/jellytv_secondary</item>
+        <item name="cardRounding">@dimen/jellytv_radius_medium</item>
+        <item name="buttonRounding">@dimen/jellytv_radius_large</item>
+        <item name="inputRounding">@dimen/jellytv_radius_small</item>
+        <item name="popupMenuRounding">@dimen/jellytv_radius_medium</item>
+        <item name="overlayDimDimmedLevel">15%</item>
+    </style>
+</resources>

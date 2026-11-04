@@ -1,0 +1,9 @@
+{
+  "webVersion": "10.10.6",
+  "upstreamCommit": "c335a3024e436fb347078d4f657ba647647676e6",
+  "file": "main.jellyfin.bundle.js",
+  "originalSha256": "cf2b876d62cbc567da0ff2e5d3e22ac799729f13ce1208d6f1f9345ae6f8c1ec",
+  "patchedSha256": "25b50389160c4d80c4062b5fcaa2bc94823ee645072268c8fe025fe22863e1fc",
+  "before": "get:function(){return f=!0,null}});p.scrollTo(h)",
+  "after": "get:function(){return f=!0,\"auto\"}});p.scrollTo(h)"
+}

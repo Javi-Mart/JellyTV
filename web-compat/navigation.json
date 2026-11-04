@@ -1,0 +1,9 @@
+{
+  "webVersion": "12.2",
+  "upstreamCommit": "61b1f890365ad15138e943e694af723c1d47df2a",
+  "file": "main.jellyfin.bundle.js",
+  "originalSha256": "5ddd1a9db7171efe85d499687015c9c9b3fe9cda5822b9e1ea83b3907a22477e",
+  "patchedSha256": "5e0ea2d5f60379dbab50a4173088e5b5cb26e92744ad045576fcd09a6101ef37",
+  "before": "}),[a,u,f,y,h,b,S,A.pathname,A.search])",
+  "after": ";return function(){e.cancel=!0}}),[a,u,f,y,h,b,S,A.pathname,A.search])"
+}

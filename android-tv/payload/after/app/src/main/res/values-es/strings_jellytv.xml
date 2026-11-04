@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="jellytv_info">Información</string>
+    <string name="jellytv_resume">Continuar</string>
+    <string name="jellytv_slide">Destacado %1$d de %2$d: %3$s</string>
+    <string name="jellytv_action_error">No se pudo completar esta acción. Inténtalo de nuevo.</string>
+</resources>

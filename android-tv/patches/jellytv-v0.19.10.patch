@@ -1,0 +1,1239 @@
+diff --git a/android-lint.xml b/android-lint.xml
+--- a/android-lint.xml
++++ b/android-lint.xml
+@@ -13,6 +13,12 @@
+     <issue id="MangledCRLF" severity="warning" />
+     <issue id="NegativeMargin" severity="warning" />
+     <issue id="NoHardKeywords" severity="warning" />
++    <!-- MediaStyle(session) notifications are permission-exempt. Lint's app-level
++         cross-module summary loses the method suppression; match only this service.
++         See android-tv/docs/lint-decisions.md in the JellyTV distribution. -->
++    <issue id="NotificationPermission">
++        <ignore regexp=".*usage from org[.]jellyfin[.]playback[.]media3[.]session[.]MediaSessionService.*" />
++    </issue>
+     <issue id="Registered" severity="warning" />
+     <issue id="RequiredSize" severity="error" />
+     <issue id="Typos" severity="ignore" />
+diff --git a/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt b/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/preference/constant/AppTheme.kt
+@@ -20,4 +20,7 @@
+ 	 * A theme with a more muted accent color, inspired by CTalvio's Monochromic CSS theme for Jellyfin Web
+ 	 */
+ 	MUTED_PURPLE(R.string.pref_theme_muted_purple),
++
++	/** Cinematic theme shared with JellyTV Web, implemented with native resources. */
++	JELLYTV(R.string.pref_theme_jellytv),
+ }
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyTvTheme.kt b/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyTvTheme.kt
+--- /dev/null
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyTvTheme.kt
+@@ -0,0 +1,45 @@
++package org.jellyfin.androidtv.ui.base
++
++import android.util.TypedValue
++import androidx.compose.foundation.shape.RoundedCornerShape
++import androidx.compose.runtime.Composable
++import androidx.compose.ui.platform.LocalContext
++import androidx.compose.ui.res.colorResource
++import androidx.compose.ui.res.dimensionResource
++import org.jellyfin.androidtv.R
++
++/** Resolve the activity's applied theme, including the player's existing lifecycle rules. */
++@Composable
++fun isJellyTvTheme(): Boolean {
++	val value = TypedValue()
++	return LocalContext.current.theme.resolveAttribute(R.attr.jellyTvTheme, value, true) && value.data != 0
++}
++
++@Composable
++fun nativeColorScheme(): ColorScheme = if (!isJellyTvTheme()) JellyfinTheme.colorScheme else ColorScheme(
++	background = colorResource(R.color.jellytv_background),
++	onBackground = colorResource(R.color.jellytv_text),
++	button = colorResource(R.color.jellytv_surface),
++	onButton = colorResource(R.color.jellytv_text),
++	buttonFocused = colorResource(R.color.jellytv_focus_surface),
++	onButtonFocused = colorResource(R.color.jellytv_on_focus),
++	buttonDisabled = colorResource(R.color.jellytv_disabled),
++	onButtonDisabled = colorResource(R.color.jellytv_on_disabled),
++	buttonActive = colorResource(R.color.jellytv_elevated),
++	onButtonActive = colorResource(R.color.jellytv_text),
++	input = colorResource(R.color.jellytv_surface),
++	onInput = colorResource(R.color.jellytv_text),
++	inputFocused = colorResource(R.color.jellytv_elevated),
++	onInputFocused = colorResource(R.color.jellytv_text),
++	recording = colorResource(R.color.jellytv_recording),
++	onRecording = colorResource(R.color.jellytv_text),
++	popover = colorResource(R.color.jellytv_surface),
++)
++
++@Composable
++fun nativeShapes(): Shapes = if (!isJellyTvTheme()) JellyfinTheme.shapes else Shapes(
++	extraSmall = RoundedCornerShape(dimensionResource(R.dimen.jellytv_radius_small)),
++	small = RoundedCornerShape(dimensionResource(R.dimen.jellytv_radius_small)),
++	medium = RoundedCornerShape(dimensionResource(R.dimen.jellytv_radius_medium)),
++	large = RoundedCornerShape(dimensionResource(R.dimen.jellytv_radius_large)),
++)
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyfinTheme.kt b/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyfinTheme.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyfinTheme.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/base/JellyfinTheme.kt
+@@ -7,8 +7,8 @@
+ 
+ @Composable
+ fun JellyfinTheme(
+-	colorScheme: ColorScheme = JellyfinTheme.colorScheme,
+-	shapes: Shapes = JellyfinTheme.shapes,
++	colorScheme: ColorScheme = nativeColorScheme(),
++	shapes: Shapes = nativeShapes(),
+ 	typography: Typography = JellyfinTheme.typography,
+ 	content: @Composable () -> Unit
+ ) {
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/base/button/ButtonBase.kt b/app/src/main/java/org/jellyfin/androidtv/ui/base/button/ButtonBase.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/base/button/ButtonBase.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/base/button/ButtonBase.kt
+@@ -2,22 +2,29 @@
+ 
+ import androidx.compose.foundation.ExperimentalFoundationApi
+ import androidx.compose.foundation.background
++import androidx.compose.foundation.border
+ import androidx.compose.foundation.combinedClickable
+ import androidx.compose.foundation.interaction.MutableInteractionSource
+ import androidx.compose.foundation.interaction.collectIsFocusedAsState
+ import androidx.compose.foundation.interaction.collectIsPressedAsState
+ import androidx.compose.foundation.layout.Box
+ import androidx.compose.foundation.layout.BoxScope
++import androidx.compose.foundation.layout.defaultMinSize
+ import androidx.compose.runtime.Composable
+ import androidx.compose.runtime.getValue
+ import androidx.compose.runtime.remember
+ import androidx.compose.ui.Modifier
+ import androidx.compose.ui.draw.clip
+ import androidx.compose.ui.graphics.Shape
++import androidx.compose.ui.graphics.Color
++import androidx.compose.ui.res.colorResource
++import androidx.compose.ui.res.dimensionResource
+ import androidx.compose.ui.semantics.Role
+ import androidx.compose.ui.unit.sp
++import org.jellyfin.androidtv.R
+ import org.jellyfin.androidtv.ui.base.JellyfinTheme
+ import org.jellyfin.androidtv.ui.base.ProvideTextStyle
++import org.jellyfin.androidtv.ui.base.isJellyTvTheme
+ 
+ @OptIn(ExperimentalFoundationApi::class)
+ @Composable
+@@ -35,6 +42,17 @@
+ 	val interactionSource = interactionSource ?: remember { MutableInteractionSource() }
+ 	val focused by interactionSource.collectIsFocusedAsState()
+ 	val pressed by interactionSource.collectIsPressedAsState()
++	val jellyTv = isJellyTvTheme()
++	val themeModifier = if (jellyTv) Modifier
++		.defaultMinSize(
++			minWidth = dimensionResource(R.dimen.jellytv_control_min_size),
++			minHeight = dimensionResource(R.dimen.jellytv_control_min_size),
++		)
++		.border(
++			width = dimensionResource(R.dimen.jellytv_focus_width),
++			color = if (focused && enabled) colorResource(R.color.jellytv_focus) else Color.Transparent,
++			shape = shape,
++		) else Modifier
+ 
+ 	val colors = when {
+ 		!enabled -> colors.disabledContainerColor to colors.disabledContentColor
+@@ -46,6 +64,7 @@
+ 	ProvideTextStyle(value = JellyfinTheme.typography.default.copy(fontSize = 14.sp, color = colors.second)) {
+ 		Box(
+ 			modifier = modifier
++				.then(themeModifier)
+ 				.combinedClickable(
+ 					interactionSource = interactionSource,
+ 					indication = null,
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/card/LegacyImageCardView.java b/app/src/main/java/org/jellyfin/androidtv/ui/card/LegacyImageCardView.java
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/card/LegacyImageCardView.java
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/card/LegacyImageCardView.java
+@@ -4,6 +4,7 @@
+ import android.content.Context;
+ import android.graphics.drawable.Drawable;
+ import android.text.TextUtils;
++import android.util.TypedValue;
+ import android.view.KeyEvent;
+ import android.view.LayoutInflater;
+ import android.view.View;
+@@ -24,12 +25,14 @@
+ import org.jellyfin.androidtv.util.Utils;
+ 
+ import java.text.NumberFormat;
++import java.util.Arrays;
+ 
+ /**
+  * Modified ImageCard with no fade on the badge
+  * A card view with an {@link ImageView} as its main region.
+  */
+ public class LegacyImageCardView extends BaseCardView {
++    private boolean jellyTvFocus;
+     private ViewCardLegacyImageBinding binding = ViewCardLegacyImageBinding.inflate(LayoutInflater.from(getContext()), this);
+     private ImageView mBanner;
+     private int BANNER_SIZE = Utils.convertDpToPixel(getContext(), 50);
+@@ -38,6 +41,9 @@
+ 
+     public LegacyImageCardView(Context context, boolean showInfo) {
+         super(context, null, androidx.leanback.R.attr.imageCardViewStyle);
++
++        TypedValue themeValue = new TypedValue();
++        jellyTvFocus = context.getTheme().resolveAttribute(R.attr.jellyTvTheme, themeValue, true) && themeValue.data != 0;
+ 
+         if (!showInfo) {
+             setCardType(CARD_TYPE_MAIN_ONLY);
+@@ -55,6 +61,15 @@
+         });
+ 
+         setForeground(null);
++    }
++
++    @Override
++    protected int[] onCreateDrawableState(int extraSpace) {
++        int[] states = super.onCreateDrawableState(extraSpace);
++        // Leanback deliberately removes focus from its card drawable state. Restore it
++        // only for JellyTV so the artwork's duplicateParentState border can follow focus.
++        if (!jellyTvFocus || !isFocused()) return states;
++        return mergeDrawableStates(Arrays.copyOf(states, states.length + 1), FOCUSED_STATE_SET);
+     }
+ 
+     public void setBanner(int bannerResource) {
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/home/HomeRowsFragment.kt b/app/src/main/java/org/jellyfin/androidtv/ui/home/HomeRowsFragment.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/home/HomeRowsFragment.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/home/HomeRowsFragment.kt
+@@ -1,20 +1,24 @@
+ package org.jellyfin.androidtv.ui.home
+ 
+ import android.os.Bundle
++import android.util.TypedValue
+ import android.view.KeyEvent
+ import android.view.View
+ import androidx.leanback.app.RowsSupportFragment
+ import androidx.leanback.widget.ListRow
++import androidx.leanback.widget.ClassPresenterSelector
+ import androidx.leanback.widget.OnItemViewClickedListener
+ import androidx.leanback.widget.OnItemViewSelectedListener
+ import androidx.leanback.widget.Presenter
+ import androidx.leanback.widget.Row
+ import androidx.leanback.widget.RowPresenter
++import androidx.lifecycle.ViewModelProvider
+ import androidx.lifecycle.Lifecycle
+ import androidx.lifecycle.flowWithLifecycle
+ import androidx.lifecycle.lifecycleScope
+ import androidx.lifecycle.repeatOnLifecycle
+ import kotlinx.coroutines.Dispatchers
++import kotlinx.coroutines.CancellationException
+ import kotlinx.coroutines.delay
+ import kotlinx.coroutines.flow.filterNotNull
+ import kotlinx.coroutines.flow.first
+@@ -23,8 +27,11 @@
+ import kotlinx.coroutines.isActive
+ import kotlinx.coroutines.launch
+ import kotlinx.coroutines.withContext
++import kotlinx.coroutines.withTimeoutOrNull
+ import kotlinx.coroutines.withTimeout
+ import org.jellyfin.androidtv.auth.repository.UserRepository
++import org.jellyfin.androidtv.R
++import org.jellyfin.androidtv.data.repository.ItemRepository
+ import org.jellyfin.androidtv.constant.CustomMessage
+ import org.jellyfin.androidtv.constant.HomeSectionType
+ import org.jellyfin.androidtv.constant.QueryType
+@@ -49,6 +56,10 @@
+ import org.jellyfin.androidtv.util.KeyProcessor
+ import org.jellyfin.playback.core.PlaybackManager
+ import org.jellyfin.sdk.api.client.ApiClient
++import org.jellyfin.sdk.api.client.extensions.itemsApi
++import org.jellyfin.sdk.model.api.BaseItemKind
++import org.jellyfin.sdk.model.api.ItemSortBy
++import org.jellyfin.sdk.model.api.SortOrder
+ import org.jellyfin.sdk.api.sockets.subscribe
+ import org.jellyfin.sdk.model.api.LibraryChangedMessage
+ import org.jellyfin.sdk.model.api.UserDataChangedMessage
+@@ -71,6 +82,8 @@
+ 	private val itemLauncher by inject<ItemLauncher>()
+ 	private val keyProcessor by inject<KeyProcessor>()
+ 
++	private val heroState by lazy { ViewModelProvider(requireParentFragment())[JellyTvHeroState::class.java] }
++
+ 	private val helper by lazy { HomeFragmentHelper(requireContext(), userRepository) }
+ 
+ 	// Data
+@@ -86,12 +99,28 @@
+ 	override fun onCreate(savedInstanceState: Bundle?) {
+ 		super.onCreate(savedInstanceState)
+ 
+-		adapter = MutableObjectAdapter<Row>(PositionableListRowPresenter())
++		val themeValue = TypedValue()
++		val jellyTv = requireContext().theme.resolveAttribute(R.attr.jellyTvTheme, themeValue, true) && themeValue.data != 0
++		adapter = if (jellyTv) MutableObjectAdapter<Row>(ClassPresenterSelector()
++			.addClassPresenter(JellyTvHeroRow::class.java, JellyTvHeroPresenter(lifecycleScope, lifecycle, heroState))
++			.addClassPresenter(Row::class.java, PositionableListRowPresenter()))
++		else MutableObjectAdapter<Row>(PositionableListRowPresenter())
+ 
+ 		lifecycleScope.launch(Dispatchers.IO) {
+ 			val currentUser = withTimeout(30.seconds) {
+ 				userRepository.currentUser.filterNotNull().first()
+ 			}
++			val heroItems = if (jellyTv) try {
++				withTimeoutOrNull(8.seconds) {
++					api.itemsApi.getItems(userId = currentUser.id, recursive = true, limit = 6,
++						includeItemTypes = setOf(BaseItemKind.MOVIE, BaseItemKind.SERIES),
++						fields = ItemRepository.browseFields, enableUserData = true,
++						sortBy = setOf(ItemSortBy.DATE_CREATED), sortOrder = setOf(SortOrder.DESCENDING),
++					).content.items.distinctBy { it.id }.toMutableList()
++				} ?: mutableListOf()
++			} catch (error: CancellationException) { throw error }
++			catch (_: Exception) { mutableListOf() }
++			else mutableListOf()
+ 
+ 			// Start out with default sections
+ 			val homesections = userSettingPreferences.activeHomesections
+@@ -122,7 +151,9 @@
+ 
+ 			// Add sections to layout
+ 			withContext(Dispatchers.Main) {
++				if (userRepository.currentUser.value?.id != currentUser.id) return@withContext
+ 				val cardPresenter = CardPresenter()
++				if (heroItems.isNotEmpty()) (adapter as MutableObjectAdapter<Row>).add(JellyTvHeroRow(currentUser.id, heroItems))
+ 
+ 				// Add rows in order
+ 				notificationsRow.addToRowsAdapter(requireContext(), cardPresenter, adapter as MutableObjectAdapter<Row>)
+@@ -217,6 +248,22 @@
+ 		lifecycleScope.launch(Dispatchers.IO) {
+ 			if (delayed) delay(1.5.seconds)
+ 
++			val hero = withContext(Dispatchers.Main) { (0 until adapter.size()).map { adapter[it] }.filterIsInstance<JellyTvHeroRow>().firstOrNull() }
++			if (hero != null && userRepository.currentUser.value?.id == hero.userId) {
++				try {
++					val items = withTimeoutOrNull(8.seconds) {
++						api.itemsApi.getItems(userId = hero.userId, ids = hero.items.map { it.id }.toSet(),
++							fields = ItemRepository.browseFields, enableUserData = true).content.items.associateBy { it.id }
++					}
++					withContext(Dispatchers.Main) {
++						if (items != null && userRepository.currentUser.value?.id == hero.userId) {
++							for (index in hero.items.indices) items[hero.items[index].id]?.let { hero.items[index] = it }
++							hero.onChanged?.invoke()
++						}
++					}
++				} catch (error: CancellationException) { throw error }
++				catch (_: Exception) { /* Native rows stay available during a transient hero refresh failure. */ }
++			}
+ 			repeat(adapter.size()) { i ->
+ 				val rowAdapter = (adapter[i] as? ListRow)?.adapter as? ItemRowAdapter
+ 				if (force) rowAdapter?.Retrieve()
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt b/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt
+--- /dev/null
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/home/JellyTvHeroRow.kt
+@@ -0,0 +1,350 @@
++package org.jellyfin.androidtv.ui.home
++
++import android.content.Context
++import android.content.res.ColorStateList
++import android.graphics.Color
++import android.graphics.Typeface
++import android.graphics.drawable.GradientDrawable
++import android.graphics.drawable.StateListDrawable
++import android.text.TextUtils
++import android.view.Gravity
++import android.view.View
++import android.view.ViewGroup
++import android.widget.Button
++import android.widget.FrameLayout
++import android.widget.ImageView
++import android.widget.LinearLayout
++import android.widget.ProgressBar
++import android.widget.TextView
++import android.widget.Toast
++import androidx.core.text.HtmlCompat
++import androidx.core.content.ContextCompat
++import androidx.core.view.isVisible
++import androidx.core.view.doOnPreDraw
++import androidx.leanback.widget.Row
++import androidx.leanback.widget.RowPresenter
++import androidx.lifecycle.ViewModel
++import androidx.lifecycle.Lifecycle
++import coil3.ImageLoader
++import coil3.asDrawable
++import coil3.request.Disposable
++import coil3.request.ImageRequest
++import coil3.request.target
++import kotlinx.coroutines.CancellationException
++import kotlinx.coroutines.CoroutineScope
++import kotlinx.coroutines.Dispatchers
++import kotlinx.coroutines.Job
++import kotlinx.coroutines.TimeoutCancellationException
++import kotlinx.coroutines.launch
++import kotlinx.coroutines.suspendCancellableCoroutine
++import kotlinx.coroutines.withContext
++import kotlinx.coroutines.withTimeout
++import org.jellyfin.androidtv.R
++import org.jellyfin.androidtv.auth.repository.UserRepository
++import org.jellyfin.androidtv.data.repository.ItemMutationRepository
++import org.jellyfin.androidtv.data.repository.ItemRepository
++import org.jellyfin.androidtv.preference.UserPreferences
++import org.jellyfin.androidtv.ui.AsyncImageView
++import org.jellyfin.androidtv.ui.navigation.Destinations
++import org.jellyfin.androidtv.ui.navigation.NavigationRepository
++import org.jellyfin.androidtv.ui.playback.PlaybackLauncher
++import org.jellyfin.androidtv.util.PlaybackHelper
++import org.jellyfin.androidtv.util.apiclient.Response
++import org.jellyfin.androidtv.util.apiclient.getUrl
++import org.jellyfin.androidtv.util.apiclient.itemBackdropImages
++import org.jellyfin.androidtv.util.apiclient.itemImages
++import org.jellyfin.androidtv.util.apiclient.parentBackdropImages
++import org.jellyfin.androidtv.util.apiclient.parentImages
++import org.jellyfin.sdk.api.client.ApiClient
++import org.jellyfin.sdk.api.client.extensions.tvShowsApi
++import org.jellyfin.sdk.api.client.extensions.userLibraryApi
++import org.jellyfin.sdk.model.api.BaseItemDto
++import org.jellyfin.sdk.model.api.BaseItemKind
++import org.jellyfin.sdk.model.api.ImageType
++import org.koin.core.component.KoinComponent
++import org.koin.core.component.inject
++import java.util.UUID
++import kotlin.coroutines.resume
++import kotlin.coroutines.resumeWithException
++
++/** Retained only with the owning Home fragment; never persists user media or tokens. */
++class JellyTvHeroState : ViewModel() {
++	var userId: UUID? = null
++	var itemId: UUID? = null
++	var focusKey = "play"
++	var restoreFocus = false
++}
++
++/** A normal Leanback row: it scrolls out of the way and retains the existing TV focus bridge. */
++class JellyTvHeroRow(val userId: UUID, val items: MutableList<BaseItemDto>) : Row() {
++	var index = 0
++	var onChanged: (() -> Unit)? = null
++}
++
++class JellyTvHeroPresenter(
++	private val scope: CoroutineScope,
++	private val lifecycle: Lifecycle,
++	private val state: JellyTvHeroState,
++) : RowPresenter(), KoinComponent {
++	private val api by inject<ApiClient>()
++	private val imageLoader by inject<ImageLoader>()
++	private val users by inject<UserRepository>()
++	private val mutations by inject<ItemMutationRepository>()
++	private val navigation by inject<NavigationRepository>()
++	private val playback by inject<PlaybackLauncher>()
++	private val playbackHelper by inject<PlaybackHelper>()
++	private val preferences by inject<UserPreferences>()
++
++	init { headerPresenter = null }
++	override fun isUsingDefaultSelectEffect() = false
++	override fun createRowViewHolder(parent: ViewGroup): ViewHolder = HeroHolder(parent.context)
++	override fun onBindRowViewHolder(holder: ViewHolder, item: Any) {
++		super.onBindRowViewHolder(holder, item)
++		(holder as HeroHolder).bind(item as JellyTvHeroRow)
++	}
++	override fun onUnbindRowViewHolder(holder: ViewHolder) {
++		(holder as HeroHolder).unbind()
++		super.onUnbindRowViewHolder(holder)
++	}
++
++	private inner class HeroHolder(val context: Context) : ViewHolder(FrameLayout(context)) {
++		private val root = view as FrameLayout
++		private val artwork = AsyncImageView(context)
++		private val logo = ImageView(context)
++		private val title = text(30, R.color.jellytv_text)
++		private val metadata = text(14, R.color.jellytv_secondary)
++		private val overview = text(16, R.color.jellytv_text)
++		private val play = button(context.getString(R.string.lbl_play))
++		private val info = button(context.getString(R.string.jellytv_info))
++		private val favorite = button(context.getString(R.string.lbl_add_favorite))
++		private val dots = LinearLayout(context)
++		private val progress = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal)
++		private var row: JellyTvHeroRow? = null
++		private var action: Job? = null
++		private var bound = false
++		private var logoRequest: Disposable? = null
++
++		private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
++		private fun color(resource: Int) = ContextCompat.getColor(context, resource)
++		private fun text(size: Int, color: Int) = TextView(context).apply {
++			textSize = size.toFloat()
++			setTextColor(ContextCompat.getColor(context, color))
++			fontFeatureSettings = "kern"
++			importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
++		}
++		private fun shape(fill: Int, stroke: Int = fill) = GradientDrawable().apply {
++			cornerRadius = dp(22).toFloat()
++			setColor(fill)
++			setStroke(dp(2), stroke)
++		}
++		private fun button(label: String) = Button(context).apply {
++			id = View.generateViewId()
++			text = label
++			isAllCaps = false
++			textSize = 14f
++			minWidth = dp(44)
++			minimumWidth = dp(44)
++			minHeight = dp(44)
++			minimumHeight = dp(44)
++			setPadding(dp(16), 0, dp(16), 0)
++			background = StateListDrawable().apply {
++				addState(intArrayOf(android.R.attr.state_focused), shape(color(R.color.jellytv_focus_surface), color(R.color.jellytv_focus)))
++				addState(intArrayOf(android.R.attr.state_selected), shape(color(R.color.jellytv_elevated), color(R.color.jellytv_accent)))
++				addState(intArrayOf(), shape(color(R.color.jellytv_surface)))
++			}
++			setTextColor(ColorStateList(
++				arrayOf(intArrayOf(android.R.attr.state_focused), intArrayOf()),
++				intArrayOf(color(R.color.jellytv_on_focus), color(R.color.jellytv_text)),
++			))
++		}
++
++		init {
++			root.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp(300))
++			root.setBackgroundColor(color(R.color.jellytv_background))
++			root.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
++			artwork.scaleType = ImageView.ScaleType.CENTER_CROP
++			// Leanback disables ancestor clipping for focus enlargement. Keep the
++			// center-cropped backdrop inside its own bounds so it cannot cover rows.
++			artwork.cropToPadding = true
++			artwork.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
++			root.addView(artwork, FrameLayout.LayoutParams(-1, -1))
++			root.addView(View(context).apply {
++				background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
++					intArrayOf(Color.argb(245, 8, 9, 11), Color.argb(210, 8, 9, 11), Color.argb(45, 8, 9, 11)))
++			}, FrameLayout.LayoutParams(-1, -1))
++			root.addView(View(context).apply {
++				background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,
++					intArrayOf(Color.TRANSPARENT, color(R.color.jellytv_background)))
++			}, FrameLayout.LayoutParams(-1, dp(100), Gravity.BOTTOM))
++			val copy = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
++			root.addView(copy, FrameLayout.LayoutParams(dp(520), -2, Gravity.START or Gravity.TOP).apply {
++				marginStart = dp(56); topMargin = dp(24)
++			})
++			val heading = FrameLayout(context)
++			copy.addView(heading, LinearLayout.LayoutParams(-1, dp(52)))
++			title.setTypeface(null, Typeface.BOLD)
++			title.maxLines = 1
++			title.ellipsize = TextUtils.TruncateAt.END
++			heading.addView(title, FrameLayout.LayoutParams(-1, -1))
++			logo.scaleType = ImageView.ScaleType.FIT_START
++			heading.addView(logo, FrameLayout.LayoutParams(dp(320), -1))
++			copy.addView(metadata, LinearLayout.LayoutParams(-1, dp(28)))
++			overview.maxLines = 2
++			overview.ellipsize = TextUtils.TruncateAt.END
++			copy.addView(overview, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(6) })
++			listOf(play to "play", info to "info", favorite to "favorite").forEach { (control, key) ->
++				control.tag = key
++				// Leanback initially focuses the first descendant when a row is rebound. Keep the
++				// destination saved before navigation until our restoration has completed.
++				control.setOnFocusChangeListener { _, focused -> if (focused && !state.restoreFocus) state.focusKey = key }
++			}
++			val actions = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
++			for (control in listOf(play, info, favorite)) {
++				actions.addView(control, LinearLayout.LayoutParams(-2, dp(44)).apply { marginEnd = dp(8) })
++			}
++			root.addView(actions, FrameLayout.LayoutParams(-2, dp(44), Gravity.START or Gravity.BOTTOM).apply {
++				marginStart = dp(56); bottomMargin = dp(48)
++			})
++			progress.max = 1000
++			progress.progressTintList = ColorStateList.valueOf(color(R.color.jellytv_accent))
++			progress.progressBackgroundTintList = ColorStateList.valueOf(color(R.color.jellytv_elevated))
++			root.addView(progress, FrameLayout.LayoutParams(dp(240), dp(4), Gravity.START or Gravity.BOTTOM).apply {
++				marginStart = dp(56); bottomMargin = dp(34)
++			})
++			dots.orientation = LinearLayout.HORIZONTAL
++			root.addView(dots, FrameLayout.LayoutParams(-2, dp(44), Gravity.END or Gravity.BOTTOM).apply {
++				marginEnd = dp(56); bottomMargin = dp(48)
++			})
++			play.setOnClickListener { perform { item -> startPlayback(item) } }
++			info.setOnClickListener {
++				val selected = row ?: return@setOnClickListener
++				if (users.currentUser.value?.id == selected.userId && action?.isActive != true) {
++					state.restoreFocus = true
++					navigation.navigate(Destinations.itemDetails(selected.items[selected.index].id))
++				}
++			}
++			favorite.setOnClickListener { perform { item ->
++				val data = mutations.setFavorite(item.id, item.userData?.isFavorite != true)
++				val selected = row ?: return@perform
++				val index = selected.items.indexOfFirst { it.id == item.id }
++				if (index >= 0) selected.items[index] = item.copy(userData = data)
++				render()
++			} }
++		}
++
++		fun bind(value: JellyTvHeroRow) {
++			row = value
++			value.onChanged = ::render
++			bound = true
++			if (state.userId != value.userId) {
++				state.userId = value.userId; state.itemId = null; state.focusKey = "play"; state.restoreFocus = false
++			}
++			value.index = value.items.indexOfFirst { it.id == state.itemId }.takeIf { it >= 0 } ?: value.index
++			dots.removeAllViews()
++			value.items.forEachIndexed { index, item ->
++				val dot = button("•").apply {
++					tag = "slide-$index"
++					setOnFocusChangeListener { _, focused -> if (focused && !state.restoreFocus) state.focusKey = "slide-$index" }
++					setPadding(0, 0, 0, 0)
++					textSize = 22f
++					contentDescription = context.getString(R.string.jellytv_slide, index + 1, value.items.size, item.name.orEmpty())
++					setOnClickListener {
++						if (action?.isActive != true) { value.index = index; render() }
++					}
++				}
++				dots.addView(dot, LinearLayout.LayoutParams(dp(44), dp(44)).apply { marginStart = dp(4) })
++			}
++			render()
++			root.doOnPreDraw {
++				if (bound && state.restoreFocus) {
++					root.findViewWithTag<View>(state.focusKey)?.requestFocus()
++					state.restoreFocus = false
++				}
++			}
++		}
++
++		fun unbind() {
++			bound = false
++			action?.cancel()
++			logoRequest?.dispose()
++			artwork.load()
++			row?.onChanged = null
++			row = null
++		}
++
++		private fun render() {
++			val selected = row ?: return
++			val item = selected.items[selected.index]
++			state.itemId = item.id
++			title.text = item.name.orEmpty().take(200)
++			val image = item.itemBackdropImages.firstOrNull() ?: item.parentBackdropImages.firstOrNull()
++			artwork.load(url = image?.getUrl(api, maxWidth = 1920), aspectRatio = 16.0 / 9.0)
++			val logoImage = item.itemImages[ImageType.LOGO] ?: item.parentImages[ImageType.LOGO]
++			// Title remains visible while loading and on image errors; stale callbacks cannot change a later slide.
++			logoRequest?.dispose()
++			logo.isVisible = false
++			title.isVisible = true
++			logo.contentDescription = title.text
++			if (logoImage != null) {
++				logoRequest = imageLoader.enqueue(ImageRequest.Builder(context)
++					.data(logoImage.getUrl(api, maxWidth = 640))
++					.target(onSuccess = { image ->
++						if (bound && row?.items?.getOrNull(row?.index ?: -1)?.id == item.id) {
++							logo.setImageDrawable(image.asDrawable(context.resources))
++							logo.isVisible = true
++							title.isVisible = false
++						}
++					}).build())
++			}
++			metadata.text = listOfNotNull(item.productionYear?.toString(), item.officialRating,
++				item.genres?.take(2)?.joinToString(" · ")?.takeIf { it.isNotBlank() }).joinToString(" · ")
++			overview.text = HtmlCompat.fromHtml(item.overview.orEmpty().take(2000), HtmlCompat.FROM_HTML_MODE_LEGACY).toString().trim()
++			val position = item.userData?.playbackPositionTicks ?: 0L
++			play.text = context.getString(if (position > 0) R.string.jellytv_resume else R.string.lbl_play)
++			favorite.text = context.getString(if (item.userData?.isFavorite == true) R.string.lbl_remove_favorite else R.string.lbl_add_favorite)
++			val duration = item.runTimeTicks ?: 0L
++			progress.isVisible = position > 0 && duration > 0
++			progress.progress = if (duration > 0) ((position.toDouble() / duration).coerceIn(0.0, 1.0) * 1000).toInt() else 0
++			for (index in 0 until dots.childCount) dots.getChildAt(index).isSelected = index == selected.index
++		}
++
++		private fun perform(block: suspend (BaseItemDto) -> Unit) {
++			val selected = row ?: return
++			if (!bound || action?.isActive == true || users.currentUser.value?.id != selected.userId) return
++			val item = selected.items[selected.index]
++			action = scope.launch {
++				try { withTimeout(12_000) { block(item) } }
++				catch (_: TimeoutCancellationException) {
++					if (bound) Toast.makeText(context, R.string.jellytv_action_error, Toast.LENGTH_LONG).show()
++				}
++				catch (error: CancellationException) { throw error }
++				catch (_: Exception) {
++					if (bound) Toast.makeText(context, R.string.jellytv_action_error, Toast.LENGTH_LONG).show()
++				}
++			}
++		}
++
++		private suspend fun startPlayback(item: BaseItemDto) {
++			val playable = withContext(Dispatchers.IO) {
++				if (item.type == BaseItemKind.SERIES) {
++					api.tvShowsApi.getNextUp(seriesId = item.id, limit = 1, fields = ItemRepository.itemFields).content.items.firstOrNull()
++						?: api.tvShowsApi.getEpisodes(seriesId = item.id, isMissing = false, limit = 1, fields = ItemRepository.itemFields).content.items.firstOrNull()
++				} else api.userLibraryApi.getItem(itemId = item.id).content
++			} ?: throw IllegalStateException("No playable item")
++			val preRoll = (preferences[UserPreferences.resumeSubtractDuration].toLongOrNull() ?: 0L) * 1000
++			val position = ((playable.userData?.playbackPositionTicks ?: 0L) / 10_000 - preRoll).coerceIn(0, Int.MAX_VALUE.toLong()).toInt()
++			val queue = suspendCancellableCoroutine { continuation ->
++				@Suppress("DEPRECATION")
++				playbackHelper.getItemsToPlay(context, playable, position == 0 && playable.type == BaseItemKind.MOVIE, false,
++					object : Response<List<BaseItemDto>>(lifecycle) {
++						override fun onResponse(response: List<BaseItemDto>) { if (continuation.isActive) continuation.resume(response) }
++						override fun onError(exception: Exception) { if (continuation.isActive) continuation.resumeWithException(exception) }
++					})
++			}
++			if (bound && lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED) && users.currentUser.value?.id == row?.userId && queue.isNotEmpty()) {
++				state.restoreFocus = true
++				playback.launch(context, queue, position)
++			}
++		}
++	}
++}
+diff --git a/app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/CustomPlaybackTransportControlGlue.java b/app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/CustomPlaybackTransportControlGlue.java
+--- a/app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/CustomPlaybackTransportControlGlue.java
++++ b/app/src/main/java/org/jellyfin/androidtv/ui/playback/overlay/CustomPlaybackTransportControlGlue.java
+@@ -19,7 +19,6 @@
+ import androidx.leanback.widget.PlaybackControlsRow;
+ import androidx.leanback.widget.PlaybackRowPresenter;
+ import androidx.leanback.widget.PlaybackTransportRowPresenter;
+-import androidx.leanback.widget.PlaybackTransportRowView;
+ import androidx.leanback.widget.RowPresenter;
+ 
+ import org.jellyfin.androidtv.R;
+@@ -141,7 +140,7 @@
+ 
+                     LinearLayout view = (LinearLayout) vh.view;
+ 
+-                    PlaybackTransportRowView bar = (PlaybackTransportRowView) view.getChildAt(1);
++                    ViewGroup bar = (ViewGroup) view.getChildAt(1);
+                     FrameLayout v = (FrameLayout) bar.getChildAt(0);
+                     mButtonRef = (LinearLayout) v.getChildAt(0);
+ 
+diff --git a/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt b/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
+--- a/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
++++ b/app/src/main/java/org/jellyfin/androidtv/util/ActivityThemeExtensions.kt
+@@ -17,6 +17,7 @@
+ 		AppTheme.DARK -> R.style.Theme_Jellyfin
+ 		AppTheme.EMERALD -> R.style.Theme_Jellyfin_Emerald
+ 		AppTheme.MUTED_PURPLE -> R.style.Theme_Jellyfin_MutedPurple
++		AppTheme.JELLYTV -> R.style.Theme_Jellyfin_JellyTV
+ 	}
+ 
+ /**
+diff --git a/app/src/main/res/drawable/jellytv_card_focus.xml b/app/src/main/res/drawable/jellytv_card_focus.xml
+--- /dev/null
++++ b/app/src/main/res/drawable/jellytv_card_focus.xml
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- Draw inside the artwork boundary so Leanback row clipping cannot hide focus. -->
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:state_pressed="true">
++        <shape>
++            <solid android:color="#22000000" />
++            <stroke android:width="@dimen/jellytv_focus_width" android:color="@color/jellytv_accent" />
++            <corners android:radius="@dimen/jellytv_radius_medium" />
++        </shape>
++    </item>
++    <item android:state_focused="true">
++        <shape>
++            <solid android:color="@android:color/transparent" />
++            <stroke android:width="@dimen/jellytv_focus_width" android:color="@color/jellytv_focus" />
++            <corners android:radius="@dimen/jellytv_radius_medium" />
++        </shape>
++    </item>
++    <item android:drawable="@android:color/transparent" />
++</selector>
+diff --git a/app/src/main/res/layout/view_card_legacy_image.xml b/app/src/main/res/layout/view_card_legacy_image.xml
+--- a/app/src/main/res/layout/view_card_legacy_image.xml
++++ b/app/src/main/res/layout/view_card_legacy_image.xml
+@@ -21,7 +21,7 @@
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:duplicateParentState="true"
+-        android:foreground="@drawable/ripple"
++        android:foreground="?attr/cardImageForeground"
+         android:gravity="start"
+         android:visibility="gone"
+         tools:ignore="UnusedAttribute"
+diff --git a/app/src/main/res/values-cs/strings.xml b/app/src/main/res/values-cs/strings.xml
+--- a/app/src/main/res/values-cs/strings.xml
++++ b/app/src/main/res/values-cs/strings.xml
+@@ -456,29 +456,44 @@
+     <string name="color_pink">Růžová</string>
+     <string name="pref_screensaver">Spořič obrazovky</string>
+     <string name="enable_reactive_homepage">Povolit reaktivní domovskou stránku</string>
+-    <plurals name="hours">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="hours" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s hodina</item>
+         <item quantity="few">%1$s hodiny</item>
+         <item quantity="other">%1$s hodin</item>
+     </plurals>
+-    <plurals name="episodes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="episodes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s epizoda</item>
+         <item quantity="few">%1$s epizody</item>
+         <item quantity="other">%1$s epizod</item>
+     </plurals>
+-    <plurals name="minutes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="minutes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s minuta</item>
+         <item quantity="few">%1$s minuty</item>
+         <item quantity="other">%1$s minut</item>
+     </plurals>
+-    <plurals name="tracks">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tracks" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s skladba</item>
+         <item quantity="few">%1$s skladby</item>
+         <item quantity="other">%1$s skladeb</item>
+     </plurals>
+     <string name="item_deleted">%1$s odstraněno</string>
+     <string name="pref_screensaver_inapp_timeout">Spustit spořič obrazovky po</string>
+-    <plurals name="seconds">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="seconds" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s sekunda</item>
+         <item quantity="few">%1$s sekundy</item>
+         <item quantity="other">%1$s sekund</item>
+@@ -500,12 +515,18 @@
+     <string name="photos">Fotky</string>
+     <string name="lbl_hide_watched_checkmark">Pokud zbývají epizody</string>
+     <string name="eac3">DD+</string>
+-    <plurals name="items">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="items" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s položka</item>
+         <item quantity="few">%1$s položek</item>
+         <item quantity="other">%1$s položek</item>
+     </plurals>
+-    <plurals name="tv_series">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tv_series" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s seriál</item>
+         <item quantity="few">%1$s seriály</item>
+         <item quantity="other">%1$s seriálů</item>
+@@ -518,17 +539,26 @@
+     <string name="dts_hd">DTS:HD</string>
+     <string name="dca">DTS</string>
+     <string name="ac3">DD</string>
+-    <plurals name="movies">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="movies" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s film</item>
+         <item quantity="few">%1$s filmy</item>
+         <item quantity="other">%1$s filmů</item>
+     </plurals>
+-    <plurals name="songs">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="songs" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s skladba</item>
+         <item quantity="few">%1$s skladby</item>
+         <item quantity="other">%1$s skladeb</item>
+     </plurals>
+-    <plurals name="albums">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="albums" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s album</item>
+         <item quantity="few">%1$s alba</item>
+         <item quantity="other">%1$s alb</item>
+diff --git a/app/src/main/res/values-es/strings_jellytv.xml b/app/src/main/res/values-es/strings_jellytv.xml
+--- /dev/null
++++ b/app/src/main/res/values-es/strings_jellytv.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <string name="jellytv_info">Información</string>
++    <string name="jellytv_resume">Continuar</string>
++    <string name="jellytv_slide">Destacado %1$d de %2$d: %3$s</string>
++    <string name="jellytv_action_error">No se pudo completar esta acción. Inténtalo de nuevo.</string>
++</resources>
+diff --git a/app/src/main/res/values-lt/strings.xml b/app/src/main/res/values-lt/strings.xml
+--- a/app/src/main/res/values-lt/strings.xml
++++ b/app/src/main/res/values-lt/strings.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<resources>
++<resources xmlns:tools="http://schemas.android.com/tools">
+     <string name="lbl_upcoming">Tuoj bus</string>
+     <string name="lbl_seasons">Sezonai</string>
+     <string name="lbl_series">Serialai</string>
+@@ -467,7 +467,10 @@
+     <string name="pref_subtitles_background_opacity">Subtitrų fono skaidrumas</string>
+     <string name="pref_report_device_profile_title">Pranešti serveriui apie grojimo galimybes</string>
+     <string name="pref_report_device_profile_success">Dokumentas pateiktas kaip %1$s</string>
+-    <plurals name="movies">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="movies" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s filmas</item>
+         <item quantity="few">%1$s filmai</item>
+         <item quantity="other">%1$s filmų</item>
+@@ -484,7 +487,10 @@
+     <string name="pref_screensaver_inapp_timeout">Įjungti ekrano užsklandą po</string>
+     <string name="photo_albums">Nuotraukų albumai</string>
+     <string name="dca">DTS</string>
+-    <plurals name="minutes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="minutes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s minutė</item>
+         <item quantity="few">%1$s minutės</item>
+         <item quantity="other">%1$s minučių</item>
+@@ -503,18 +509,27 @@
+     <string name="prefer_exoplayer_ffmpeg_content">Naudoti FFmpeg garso dekodavimui, net jei yra platformos kodeksai.</string>
+     <string name="segment_type_unknown">Nežinomi segmentai</string>
+     <string name="skip_forward_length">Praleidimo į priekį trukmė</string>
+-    <plurals name="episodes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="episodes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s epizodas</item>
+         <item quantity="few">%1$s epizodai</item>
+         <item quantity="other">%1$s epizodų</item>
+     </plurals>
+     <string name="photos">Nuotraukos</string>
+-    <plurals name="songs">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="songs" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s daina</item>
+         <item quantity="few">%1$s dainos</item>
+         <item quantity="other">%1$s dainų</item>
+     </plurals>
+-    <plurals name="albums">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="albums" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s albumas</item>
+         <item quantity="few">%1$s albumai</item>
+         <item quantity="other">%1$s albumų</item>
+@@ -534,13 +549,19 @@
+     <string name="preference_enable_trickplay">Įjungti \"trickplay\" vaizdo grotuve</string>
+     <string name="pref_troubleshooting">Diagnostika</string>
+     <string name="pref_report_device_profile_summary">Įkelti diagnostikos dokumentą į Jellyfin serverį su informacija apie atkūrimo galimybes</string>
+-    <plurals name="tracks">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tracks" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s takelis</item>
+         <item quantity="few">%1$s takeliai</item>
+         <item quantity="other">%1$s takelių</item>
+     </plurals>
+     <string name="pref_report_device_profile_failure">Nepavyko pateikti dokumento. Jellyfin serveris gali drausti naudotojų žurnalus.</string>
+-    <plurals name="tv_series">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tv_series" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s TV laida</item>
+         <item quantity="few">%1$s TV laidos</item>
+         <item quantity="other">%1$s TV laidų</item>
+@@ -561,7 +582,10 @@
+     <string name="dolby_atmos">Dolby Atmos</string>
+     <string name="pref_screensaver_ageratingrequired_title">Reikalauti amžiaus įvertinimo</string>
+     <string name="pref_screensaver_ageratingmax_unlimited">Išjungti maksimumą</string>
+-    <plurals name="items">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="items" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s dalykas</item>
+         <item quantity="few">%1$s dalykai</item>
+         <item quantity="other">%1$s dalykų</item>
+@@ -569,14 +593,20 @@
+     <string name="pref_screensaver_ageratingrequired_enabled">Rodomi tik su amžiaus įvertinimu</string>
+     <string name="pref_screensaver_ageratingrequired_disabled">Rodomi visi</string>
+     <string name="item_deletion_failed">Nepavyko ištrinti %1$s</string>
+-    <plurals name="seconds">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="seconds" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s sekundė</item>
+         <item quantity="few">%1$s sekundės</item>
+         <item quantity="other">%1$s sekundžių</item>
+     </plurals>
+     <string name="app_notification_beta">Programa atnaujinta į %1$s
+ \nAčiū, kad dalyvaujate Jellyfin beta programoje.</string>
+-    <plurals name="hours">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="hours" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s valanda</item>
+         <item quantity="few">%1$s valandos</item>
+         <item quantity="other">%1$s valandų</item>
+diff --git a/app/src/main/res/values-sk/strings.xml b/app/src/main/res/values-sk/strings.xml
+--- a/app/src/main/res/values-sk/strings.xml
++++ b/app/src/main/res/values-sk/strings.xml
+@@ -463,28 +463,43 @@
+     <string name="pref_screensaver">Šetrič obrazovky</string>
+     <string name="pref_screensaver_inapp_enabled_description">Zobrazovať šetrič obrazovky vstavaný v Jellyfine, dokým je aplikácia otvorená</string>
+     <string name="pref_screensaver_inapp_timeout">Spustiť šetrič obrazovky po</string>
+-    <plurals name="tracks">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tracks" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s stopa</item>
+         <item quantity="few">%1$s stopy</item>
+         <item quantity="other">%1$s stôp</item>
+     </plurals>
+-    <plurals name="minutes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="minutes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s minúte</item>
+         <item quantity="few">%1$s minútach</item>
+         <item quantity="other">%1$s minútach</item>
+     </plurals>
+     <string name="pref_screensaver_inapp_enabled">Použiť vstavaný šetrič obrazovky</string>
+-    <plurals name="episodes">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="episodes" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s epizóda</item>
+         <item quantity="few">%1$s epizódy</item>
+         <item quantity="other">%1$s epizód</item>
+     </plurals>
+-    <plurals name="seconds">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="seconds" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s sekunde</item>
+         <item quantity="few">%1$s sekundách</item>
+         <item quantity="other">%1$s sekundách</item>
+     </plurals>
+-    <plurals name="hours">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="hours" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s hodine</item>
+         <item quantity="few">%1$s hodinách</item>
+         <item quantity="other">%1$s hodinách</item>
+@@ -507,31 +522,46 @@
+     <string name="ac3">DD</string>
+     <string name="dca">DTS</string>
+     <string name="eac3">DD+</string>
+-    <plurals name="items">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="items" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s položka</item>
+         <item quantity="few">%1$s položky</item>
+         <item quantity="other">%1$s položiek</item>
+     </plurals>
+-    <plurals name="movies">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="movies" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s film</item>
+         <item quantity="few">%1$s filmy</item>
+         <item quantity="other">%1$s filmov</item>
+     </plurals>
+-    <plurals name="albums">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="albums" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s album</item>
+         <item quantity="few">%1$s albumy</item>
+         <item quantity="other">%1$s albumov</item>
+     </plurals>
+     <string name="dts_x">DTS:X</string>
+     <string name="dts_hd">DTS:HD</string>
+-    <plurals name="tv_series">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="tv_series" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s seriál</item>
+         <item quantity="few">%1$s seriály</item>
+         <item quantity="other">%1$s seriálov</item>
+     </plurals>
+     <string name="clear_image_cache">Vymazať vyrovnávaciu pamäť obrázkov</string>
+     <string name="clear_image_cache_content">Použité: %1$s</string>
+-    <plurals name="songs">
++    <!-- CLDR many in this locale requires a fractional quantity. Android
++         Resources.getQuantityString selects using int (the app also calls toInt).
++         Integer one/few/other remain checked; see android-tv/docs/lint-decisions.md. -->
++    <plurals name="songs" tools:ignore="MissingQuantity">
+         <item quantity="one">%1$s skladba</item>
+         <item quantity="few">%1$s skladby</item>
+         <item quantity="other">%1$s skladieb</item>
+diff --git a/app/src/main/res/values-sr/strings.xml b/app/src/main/res/values-sr/strings.xml
+--- a/app/src/main/res/values-sr/strings.xml
++++ b/app/src/main/res/values-sr/strings.xml
+@@ -437,9 +437,9 @@
+     <string name="speech_error_unavailable">Препознавање говора није доступно на Вашем уређају.</string>
+     <string name="speech_error_unknown">Дошло је до неочекиване грешке током препознавања говора.</string>
+     <plurals name="seconds">
+-        <item quantity="one">Једна</item>
+-        <item quantity="few">Неколико</item>
+-        <item quantity="other">Друго</item>
++        <item quantity="one">%1$s секунда</item>
++        <item quantity="few">%1$s секунде</item>
++        <item quantity="other">%1$s секунди</item>
+     </plurals>
+     <string name="lbl_from_beginning">Пусти од почетка</string>
+     <string name="channels">Канали</string>
+diff --git a/app/src/main/res/values/attrs.xml b/app/src/main/res/values/attrs.xml
+--- a/app/src/main/res/values/attrs.xml
++++ b/app/src/main/res/values/attrs.xml
+@@ -10,6 +10,8 @@
+         <!-- CardView Attributes -->
+         <attr name="cardImageBackground" format="reference|color" />
+         <attr name="cardViewBackground" format="reference|color" />
++        <attr name="cardImageForeground" format="reference" />
++        <attr name="jellyTvTheme" format="boolean" />
+         <!-- Theme Attributes -->
+         <attr name="cardRounding" format="dimension" />
+         <attr name="buttonRounding" format="dimension" />
+diff --git a/app/src/main/res/values/strings_jellytv.xml b/app/src/main/res/values/strings_jellytv.xml
+--- /dev/null
++++ b/app/src/main/res/values/strings_jellytv.xml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
++    <!-- English fallback plus Spanish; other locales keep upstream translations for shared actions. -->
++    <string name="jellytv_info">Info</string>
++    <string name="jellytv_resume">Resume</string>
++    <string name="jellytv_slide">Featured item %1$d of %2$d: %3$s</string>
++    <string name="jellytv_action_error">Unable to complete this action. Please try again.</string>
++</resources>
+diff --git a/app/src/main/res/values/theme_jellyfin.xml b/app/src/main/res/values/theme_jellyfin.xml
+--- a/app/src/main/res/values/theme_jellyfin.xml
++++ b/app/src/main/res/values/theme_jellyfin.xml
+@@ -12,6 +12,8 @@
+         <!-- Background color for CardViews -->
+         <item name="cardImageBackground">@color/grey</item>
+         <item name="cardViewBackground">@android:color/transparent</item>
++        <item name="cardImageForeground">@drawable/ripple</item>
++        <item name="jellyTvTheme">false</item>
+         <!-- Search FAB color -->
+         <item name="defaultSearchColor">@color/jellyfin_blue</item>
+         <!-- Default (non-active) button color -->
+diff --git a/app/src/main/res/values/theme_jellytv.xml b/app/src/main/res/values/theme_jellytv.xml
+--- /dev/null
++++ b/app/src/main/res/values/theme_jellytv.xml
+@@ -0,0 +1,54 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <string name="pref_theme_jellytv" translatable="false">JellyTV</string>
++
++    <!-- Tokens shared by native Views and the Compose theme adapter. -->
++    <color name="jellytv_background">#08090B</color>
++    <color name="jellytv_surface">#20232A</color>
++    <color name="jellytv_elevated">#30353F</color>
++    <color name="jellytv_text">#F5F6F8</color>
++    <color name="jellytv_secondary">#BBC0CA</color>
++    <color name="jellytv_accent">#BBD6FF</color>
++    <color name="jellytv_focus">#FFFFFF</color>
++    <color name="jellytv_focus_surface">#E5ECF7</color>
++    <color name="jellytv_on_focus">#121820</color>
++    <color name="jellytv_disabled">#181B21</color>
++    <color name="jellytv_on_disabled">#8C939F</color>
++    <color name="jellytv_recording">#743A42</color>
++
++    <dimen name="jellytv_radius_small">8dp</dimen>
++    <dimen name="jellytv_radius_medium">12dp</dimen>
++    <dimen name="jellytv_radius_large">20dp</dimen>
++    <dimen name="jellytv_focus_width">3dp</dimen>
++    <dimen name="jellytv_control_min_size">44dp</dimen>
++
++    <style name="Theme.Jellyfin.JellyTV" parent="Theme.Jellyfin">
++        <item name="jellyTvTheme">true</item>
++        <item name="android:colorPrimary">@color/jellytv_surface</item>
++        <item name="android:colorPrimaryDark">@color/jellytv_background</item>
++        <item name="android:colorAccent">@color/jellytv_accent</item>
++        <item name="defaultBackground">@color/jellytv_background</item>
++        <item name="cardImageBackground">@color/jellytv_surface</item>
++        <item name="cardImageForeground">@drawable/jellytv_card_focus</item>
++        <item name="defaultSearchColor">@color/jellytv_surface</item>
++        <item name="headerTextColor">@color/jellytv_text</item>
++        <item name="android:colorButtonNormal">@color/jellytv_surface</item>
++        <item name="buttonDefaultNormalBackground">@color/jellytv_surface</item>
++        <item name="buttonDefaultHighlightBackground">@color/jellytv_focus_surface</item>
++        <item name="inputDefaultStrokeColor">@color/jellytv_secondary</item>
++        <!-- Legacy input text switches to dark on focus. -->
++        <item name="inputDefaultHighlightBackground">@color/jellytv_focus_surface</item>
++        <item name="popupMenuBackground">@color/jellytv_surface</item>
++        <item name="progressBackground">@color/jellytv_elevated</item>
++        <item name="progressPrimary">@color/jellytv_accent</item>
++        <item name="progressSecondary">@color/jellytv_secondary</item>
++        <item name="controlIconBackground">@color/jellytv_surface</item>
++        <item name="controlIconForegroundActive">@color/jellytv_accent</item>
++        <item name="controlIconForegroundInactive">@color/jellytv_secondary</item>
++        <item name="cardRounding">@dimen/jellytv_radius_medium</item>
++        <item name="buttonRounding">@dimen/jellytv_radius_large</item>
++        <item name="inputRounding">@dimen/jellytv_radius_small</item>
++        <item name="popupMenuRounding">@dimen/jellytv_radius_medium</item>
++        <item name="overlayDimDimmedLevel">15%</item>
++    </style>
++</resources>
+diff --git a/playback/media3/session/build.gradle.kts b/playback/media3/session/build.gradle.kts
+--- a/playback/media3/session/build.gradle.kts
++++ b/playback/media3/session/build.gradle.kts
+@@ -9,6 +9,10 @@
+ 
+ 	defaultConfig {
+ 		minSdk = libs.versions.android.minSdk.get().toInt()
++	}
++
++	compileOptions {
++		isCoreLibraryDesugaringEnabled = true
+ 	}
+ 
+ 	lint {
+diff --git a/playback/media3/session/src/main/kotlin/MediaSessionService.kt b/playback/media3/session/src/main/kotlin/MediaSessionService.kt
+--- a/playback/media3/session/src/main/kotlin/MediaSessionService.kt
++++ b/playback/media3/session/src/main/kotlin/MediaSessionService.kt
+@@ -1,5 +1,6 @@
+ package org.jellyfin.playback.media3.session
+ 
++import android.annotation.SuppressLint
+ import android.content.Context
+ import android.os.Looper
+ import androidx.annotation.OptIn
+@@ -46,6 +47,10 @@
+ 		}.launchIn(coroutineScope)
+ 	}
+ 
++	// This method only posts MediaStyle(session) notifications, which Android exempts
++	// from POST_NOTIFICATIONS. Lint 31.11.1 does not recognise Media3's style.
++	// https://developer.android.com/develop/ui/compose/notifications/notification-permission#media-sessions
++	@SuppressLint("MissingPermission", "NotificationPermission")
+ 	@OptIn(UnstableApi::class)
+ 	private suspend fun updateNotification(session: MediaSession, item: QueueEntry) {
+ 		val notification = NotificationCompat.Builder(androidContext, options.channelId).apply {
+@@ -78,8 +83,6 @@
+ 
+ 		if (notifiedNotificationId == null) notifiedNotificationId = options.notificationId
+ 
+-		// POST_NOTIFICATIONS permission is not required for media notifications
+-		@Suppress("MissingPermission")
+ 		notificationManager.notify(notifiedNotificationId!!, notification)
+ 	}
+ }

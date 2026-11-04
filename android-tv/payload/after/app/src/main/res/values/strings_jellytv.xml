@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- English fallback plus Spanish; other locales keep upstream translations for shared actions. -->
+    <string name="jellytv_info">Info</string>
+    <string name="jellytv_resume">Resume</string>
+    <string name="jellytv_slide">Featured item %1$d of %2$d: %3$s</string>
+    <string name="jellytv_action_error">Unable to complete this action. Please try again.</string>
+</resources>

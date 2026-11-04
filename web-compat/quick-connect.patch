@@ -1,0 +1,15 @@
+diff --git a/src/apps/legacy/controllers/session/login/index.js b/src/apps/legacy/controllers/session/login/index.js
+--- a/src/apps/legacy/controllers/session/login/index.js
++++ b/src/apps/legacy/controllers/session/login/index.js
+@@ -68,6 +68,11 @@ function authenticateQuickConnect(apiClient, targetUrl) {
+             },
+             title: globalize.translate('QuickConnect'),
+             text: globalize.translate('QuickConnectAuthorizeCode', json.Code)
++        }).catch(error => {
++            // dialog.show rejects with undefined when closed without a button.
++            // Quick Connect deliberately closes this dialog on authorization.
++            // Preserve unexpected errors rather than suppressing global rejections.
++            if (error !== undefined) throw error;
+         });
+ 
+         const connectUrl = apiClient.getUrl('/QuickConnect/Connect?Secret=' + json.Secret);

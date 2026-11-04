@@ -1,0 +1,311 @@
+.jellytv-carousel {
+  --carousel-height: clamp(13rem, 24vw, 24rem);
+  --carousel-gap: clamp(0.65rem, 1.2vw, 1.25rem);
+  --carousel-active-width: min(calc(var(--carousel-height) * 16 / 9), calc(100vw - 2 * var(--page-gutter, 3.4vw) - 16px));
+
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--page-gutter, 3.4vw));
+  max-width: var(--content-max-width, 120rem);
+  margin: 0 auto var(--spacing-7, 3rem);
+  color: var(--color-text-primary, #f5f7fa);
+}
+
+.jellytv-carousel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-end: 0.75rem;
+}
+
+.jellytv-carousel__heading {
+  margin: 0;
+  font-size: var(--font-size-section, 1.5rem);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.jellytv-carousel__controls {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+}
+
+.jellytv-carousel__counter {
+  color: var(--color-text-secondary, #b6bdc7);
+  min-width: 3ch;
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.jellytv-carousel__controls .jellytv-button {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.jellytv-carousel__rail {
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: calc(var(--carousel-height) + 16px);
+  padding: 8px;
+  margin-inline: -8px;
+  gap: var(--carousel-gap);
+  overflow: auto hidden;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 8px;
+  scrollbar-width: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+.jellytv-carousel__rail::-webkit-scrollbar { display: none; }
+
+.jellytv-carousel__card {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  flex: 0 0 calc(var(--carousel-height) * 2 / 3);
+  min-width: 0;
+  height: var(--carousel-height);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-divider, rgb(224 235 250 / 12%));
+  border-radius: var(--radius-medium, 0.75rem);
+  background: radial-gradient(ellipse at 80% 0, #2b3b4a, #131920 80%);
+  color: var(--color-text-primary, #f5f7fa);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.jellytv-carousel__card.is-active {
+  flex-basis: var(--carousel-active-width);
+  border-color: var(--color-focus, #c5e7ff);
+  box-shadow: 0 0 0 1px var(--color-focus, #c5e7ff);
+}
+
+.jellytv-carousel__card:focus-visible,
+.layout-tv .jellytv-carousel__card:focus {
+  outline: 3px solid var(--color-focus, #c5e7ff);
+  outline-offset: 4px;
+}
+
+.jellytv-carousel__card:active { filter: brightness(0.94); }
+
+.jellytv-carousel__poster,
+.jellytv-carousel__landscape,
+.jellytv-carousel__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.jellytv-carousel__poster,
+.jellytv-carousel__landscape {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--motion-normal, 200ms) var(--ease-standard, ease);
+}
+
+.jellytv-carousel__card.has-poster .jellytv-carousel__poster { opacity: 1; }
+.jellytv-carousel__card.is-secondary-art .jellytv-carousel__poster { object-fit: contain; }
+.jellytv-carousel__card.is-active.has-landscape .jellytv-carousel__poster { opacity: 0; }
+.jellytv-carousel__card.is-active.has-landscape .jellytv-carousel__landscape { opacity: 1; }
+
+.jellytv-carousel__card.is-active:not(.has-landscape) .jellytv-carousel__poster {
+  box-sizing: border-box;
+  inset-inline: auto 4%;
+  width: 44%;
+  padding-block: 1rem;
+  object-fit: contain;
+}
+
+.jellytv-carousel__shade {
+  background: linear-gradient(0deg, rgb(5 8 12 / 90%), rgb(5 8 12 / 78%) 40%, transparent 85%);
+}
+
+.jellytv-carousel__card.is-active .jellytv-carousel__shade {
+  background: linear-gradient(0deg, rgb(5 8 12 / 90%), rgb(5 8 12 / 76%) 40%, transparent 80%);
+}
+
+.jellytv-carousel__logo {
+  position: absolute;
+  inset-inline-start: 1.25rem;
+  bottom: 1.25rem;
+  width: min(45%, 20rem);
+  height: 30%;
+  object-fit: contain;
+  object-position: left bottom;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[dir="rtl"] .jellytv-carousel__logo { object-position: right bottom; }
+.jellytv-carousel__card.is-active.has-logo .jellytv-carousel__logo { opacity: 1; }
+
+.jellytv-carousel__card-title {
+  position: absolute;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: clamp(1rem, 1.4vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 6px #000;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.jellytv-carousel__card.is-active .jellytv-carousel__card-title {
+  max-width: 70%;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+.jellytv-carousel__card.is-active:not(.has-landscape) .jellytv-carousel__card-title { max-width: 48%; }
+.jellytv-carousel__card.is-active.has-logo .jellytv-carousel__card-title { opacity: 0; }
+
+.jellytv-carousel__panel {
+  display: grid;
+  grid-template-rows: 2.6em 3em 4.8em auto 4px minmax(1.5em, auto);
+  align-items: start;
+  row-gap: 0.5rem;
+  width: min(100%, 52rem);
+  padding-block-start: 0.8rem;
+  line-height: 1.5;
+}
+
+.jellytv-carousel__title,
+.jellytv-carousel__metadata,
+.jellytv-carousel__overview {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+}
+
+.jellytv-carousel__title {
+  font-size: 1.15rem;
+  line-height: 1.25;
+  font-weight: 650;
+  -webkit-line-clamp: 2;
+}
+
+.jellytv-carousel__metadata {
+  color: var(--color-text-primary, #f5f7fa);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  -webkit-line-clamp: 2;
+}
+
+.jellytv-carousel__overview {
+  color: var(--color-text-secondary, #b6bdc7);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-line-clamp: 3;
+}
+
+.jellytv-carousel__overview.is-empty { color: var(--color-text-muted, #9ba5b3); }
+
+.jellytv-carousel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding-block: 0.25rem 0.75rem;
+}
+
+.jellytv-carousel__actions .jellytv-button { min-width: 44px; }
+.jellytv-carousel__actions .jellytv-button--primary { min-width: 8rem; }
+.jellytv-carousel__actions .jellytv-button--icon { font-size: 1.35rem; }
+
+.jellytv-carousel__progress {
+  width: min(24rem, 100%);
+  height: 4px;
+  border: 0;
+  border-radius: 4px;
+  accent-color: var(--color-accent, #d8eaff);
+}
+
+.jellytv-carousel__progress.is-empty { visibility: hidden; }
+
+.jellytv-carousel__status {
+  margin: 0;
+  color: var(--color-error, #ffb4ab);
+  font-size: 0.9rem;
+}
+
+@media (width <= 40rem) {
+  .jellytv-carousel {
+    --carousel-height: clamp(9rem, calc((100vw - 2 * var(--page-gutter, 1.25rem) - 16px) * 9 / 16), 20rem);
+
+    margin-block-end: 1.5rem;
+  }
+
+  .jellytv-carousel__header { gap: 0.5rem; }
+  .jellytv-carousel__heading { font-size: 1.15rem; }
+  .jellytv-carousel__counter { display: none; }
+  .jellytv-carousel__controls { gap: 0.25rem; }
+
+  .jellytv-carousel__controls .jellytv-button {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
+  .jellytv-carousel__panel {
+    grid-template-rows: 2.9em 3em 4.8em auto 4px minmax(1.5em, auto);
+    row-gap: 0.5rem;
+  }
+
+  .jellytv-carousel__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 44px;
+    gap: 0.5rem;
+  }
+
+  .jellytv-carousel__actions .jellytv-button {
+    min-width: 44px;
+    padding-inline: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .jellytv-carousel__logo {
+    inset-inline-start: 0.8rem;
+    bottom: 0.8rem;
+  }
+
+  .jellytv-carousel__card-title { inset-inline: 0.7rem; }
+}
+
+.layout-tv .jellytv-carousel {
+  --carousel-height: clamp(16rem, 34vh, 32rem);
+}
+
+.layout-tv .jellytv-carousel__panel {
+  width: min(100%, 62rem);
+  font-size: 1.2rem;
+}
+
+.layout-tv .jellytv-carousel__title { font-size: 1.4rem; }
+.layout-tv .jellytv-carousel__metadata, .layout-tv .jellytv-carousel__overview { font-size: 1.2rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jellytv-carousel *, .jellytv-carousel__poster, .jellytv-carousel__landscape { transition: none; }
+  .jellytv-carousel__card:active { filter: none; }
+}
+
+@media (forced-colors: active) {
+  .jellytv-carousel__card { border: 1px solid ButtonText; }
+  .jellytv-carousel__card.is-active { outline: 2px solid Highlight; }
+  .jellytv-carousel__logo { display: none; }
+  .jellytv-carousel__card.is-active.has-logo .jellytv-carousel__card-title { opacity: 1; }
+}

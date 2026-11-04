@@ -1,0 +1,33 @@
+{
+  "upstreamCommit": "c335a3024e436fb347078d4f657ba647647676e6",
+  "upstreamArchiveSha256": "4ae71da0aa45bbd428a5c4989d4ea4d4e8ffc1963119c5ec0ff64dfa4d9a7d97",
+  "upstreamURL": "https://codeload.github.com/jellyfin/jellyfin-web/zip/c335a3024e436fb347078d4f657ba647647676e6",
+  "file": "jellyfin-web-10.10.6-compat-source.zip",
+  "bytes": 5055181,
+  "files": 1043,
+  "sha256": "1737650e2c65c07ee751a8fa1fc149d31d03a883442ae4c3da7de40a41057716",
+  "modifiedSources": [
+    {
+      "file": "src/components/scrollManager.js",
+      "originalSha256": "d871d060044c3ab66cde01c82dbff8cacd5a063dc305dccb2d96ce6d4af4b13b",
+      "patchedSha256": "3a5bc2b376aa4e5b3f6479303d15c69efa12020ba56c1ee4aa666c993df7dfc4",
+      "patch": "scroll-options-10.10.6.patch",
+      "patchSha256": "b28fa00be5b6c8c2d68f66545d1679ab5d9f684c804441eb8eec21d1a88324e2"
+    },
+    {
+      "file": "src/controllers/session/login/index.js",
+      "originalSha256": "169e9f49838ff1bbc9bb5b5b156ae125b6239fa06cd7cf00ea6c9cf0d9831973",
+      "patchedSha256": "2565cabb7339a81135b3482b7f2d731a5fca40ce9ec6c6a730883945a24827c3",
+      "patch": "quick-connect-10.10.6.patch",
+      "patchSha256": "7f88d99743779a537994e0338636e9b5416535a9c1d0012f5d1df7790c379543"
+    },
+    {
+      "file": "src/components/viewManager/ViewManagerPage.tsx",
+      "originalSha256": "a9120cc7ee1c6ec9f2b5e27ac732d2dabff100301451669271d242cbadef8ce0",
+      "patchedSha256": "9e9bd4bea6740318047fc42fe8ae06fe9ee544b5814bb90f65d2f5a8b38cb2b5",
+      "patch": "navigation-10.10.6.patch",
+      "patchSha256": "6998e01dc55e9132029f61b0b32da427a030fc67909329a5e3b60578470e7aff"
+    }
+  ],
+  "status": "source contents and CRC verified; full upstream rebuild not performed; JellyTV acceptance open"
+}

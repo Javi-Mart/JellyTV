@@ -1,0 +1,13 @@
+--- a/src/controllers/session/login/index.js
++++ b/src/controllers/session/login/index.js
+@@ -58,6 +58,10 @@
+             },
+             title: globalize.translate('QuickConnect'),
+             text: globalize.translate('QuickConnectAuthorizeCode', json.Code)
++        }).catch(error => {
++            // Quick Connect closes this dialog programmatically on authorization.
++            // dialog.show rejects with undefined for that expected dismissal.
++            if (error !== undefined) throw error;
+         });
+ 
+         const connectUrl = apiClient.getUrl('/QuickConnect/Connect?Secret=' + json.Secret);

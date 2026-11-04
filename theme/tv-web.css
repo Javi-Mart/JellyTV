@@ -1,0 +1,88 @@
+/* Ten-foot presentation is activated by Jellyfin's TV layout, never by width.
+   D-pad/back/select behavior stays owned by inputManager and focusManager. */
+html.layout-tv {
+  --page-gutter: 5vw;
+  --target-size: 3.5rem;
+  --font-size-caption: 1rem;
+  --font-size-body: 1.125rem;
+  --font-size-section: 1.65rem;
+  --card-size: 13.5rem;
+  --card-size-landscape: calc(var(--card-size) * 1.65);
+  --hero-height: clamp(32rem, 64vh, 60rem);
+  --focus-width: 0.25rem;
+  --shadow-focus: 0 0 0 0.25rem var(--color-focus), 0 0 0 0.5rem var(--color-background);
+}
+
+html.layout-tv body:not(.dashboardDocument) {
+  font-size: var(--font-size-body);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.padded-left, .emby-scroller) {
+  padding-inline-start: max(var(--page-gutter), env(safe-area-inset-left));
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.padded-right, .emby-scroller) {
+  padding-inline-end: max(var(--page-gutter), env(safe-area-inset-right));
+}
+
+html.layout-tv body:not(.dashboardDocument) .headerTop {
+  padding-inline: var(--page-gutter);
+}
+
+html.layout-tv body:not(.dashboardDocument) .padded-top-focusscale {
+  padding-block-start: var(--spacing-5);
+}
+
+html.layout-tv body:not(.dashboardDocument) .padded-bottom-focusscale {
+  padding-block-end: var(--spacing-5);
+}
+
+html.layout-tv body:not(.dashboardDocument) .card.show-animation:focus > .cardBox {
+  transform: scale(1.035);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.emby-button.show-focus, .paper-icon-button-light.show-focus):focus {
+  transform: scale(1.035);
+  background-color: var(--color-text-primary);
+  color: var(--color-on-accent);
+}
+
+html.layout-tv body:not(.dashboardDocument) :where(.listItem, .actionSheetMenuItem):focus {
+  background-color: var(--color-selected);
+  color: var(--color-text-primary);
+}
+
+html.layout-tv body:not(.dashboardDocument) .card .cardText {
+  font-size: 1.0625rem;
+}
+
+html.layout-tv body:not(.dashboardDocument) .card .cardText-secondary {
+  font-size: var(--font-size-caption);
+}
+
+html.layout-tv body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer:not(.detailRibbon) {
+  grid-template-columns: minmax(10rem, 20%) minmax(0, 1fr);
+  margin-block-start: var(--spacing-6);
+}
+
+html.layout-tv body:not(.dashboardDocument) .dialog {
+  font-size: var(--font-size-body);
+}
+
+html.layout-tv body:not(.dashboardDocument) .actionSheetScroller-tv {
+  max-width: min(70vw, 60rem);
+}
+
+@media (width >= 160rem) {
+  html.layout-tv {
+    --font-size-body: 1.5rem;
+    --font-size-caption: 1.375rem;
+    --font-size-section: 2.25rem;
+    --target-size: 4.5rem;
+    --card-size: 20rem;
+  }
+
+  html.layout-tv body:not(.dashboardDocument) .card .cardText {
+    font-size: 1.5rem;
+  }
+}

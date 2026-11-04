@@ -1,0 +1,5 @@
+* text=auto eol=lf
+dist/** -text
+android-tv/payload/** -text -whitespace
+android-tv/patches/** -text -whitespace
+web-compat/*.patch -text -whitespace

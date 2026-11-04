@@ -1,0 +1,41 @@
+/* Only surfaces under pointer/focus move. No persistent will-change layers. */
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root, .listItem, .card .cardBox) {
+  transition:
+    transform var(--transition-fast) var(--easing-standard),
+    background-color var(--transition-normal) ease,
+    color var(--transition-normal) ease,
+    box-shadow var(--transition-normal) ease;
+}
+
+body:not(.dashboardDocument) .card .cardOverlayContainer {
+  transition: opacity var(--transition-normal) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html:not(.layout-tv) body:not(.dashboardDocument) .card:hover .cardBox {
+    transform: translateY(-0.1875rem) scale(1.025);
+    box-shadow: var(--shadow-card);
+  }
+
+  body:not(.dashboardDocument) :where(.raised:not(.button-submit, .button-delete), .MuiButton-containedInherit):hover:not(:disabled) {
+    background-color: var(--color-border);
+  }
+
+  body:not(.dashboardDocument) :where(.button-submit, .MuiButton-containedPrimary):hover:not(:disabled) {
+    color: var(--color-on-accent);
+    background-color: var(--color-text-primary);
+  }
+
+  body:not(.dashboardDocument) :where(.paper-icon-button-light, .MuiIconButton-root, .listItem, .actionSheetMenuItem, .MuiMenuItem-root):hover:not(:disabled) {
+    color: var(--color-text-primary);
+    background-color: var(--color-hover);
+  }
+}
+
+body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root):active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+body:not(.dashboardDocument) .card:active .cardBox {
+  transform: scale(0.99);
+}

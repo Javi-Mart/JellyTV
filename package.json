@@ -1,0 +1,32 @@
+{
+  "name": "jellytv",
+  "version": "1.1.0-dev.0",
+  "private": true,
+  "description": "An independent cinematic theme and optional featured hero for Jellyfin Web",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "eslint enhanced scripts tests && stylelint \"theme/**/*.css\" \"enhanced/**/*.css\"",
+    "test": "node --test tests/unit/adapter.test.mjs tests/unit/artwork-geometry.test.mjs tests/unit/install.test.mjs tests/unit/model.test.mjs",
+    "test:compat": "node --test tests/unit/*-1010.test.mjs tests/unit/*navigation*.test.mjs tests/unit/*quick-connect*.test.mjs tests/unit/scroll-options.test.mjs",
+    "test:installer": "python scripts/validate-installer.py",
+    "test:bootstrap": "python scripts/validate-bootstrap.py",
+    "check": "npm run build && npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "esbuild": "0.28.2",
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "stylelint": "17.16.0",
+    "stylelint-config-standard": "40.0.0"
+  },
+  "overrides": {
+    "fast-uri": "3.1.9",
+    "minimatch": "11.0.1"
+  }
+}
