@@ -1,0 +1,10 @@
+/* Web 10.10.6 positions the first bubble before inserting its sprite.
+   On narrow screens center that sprite above the native track, keeping the
+   selected time and sprite offsets exactly as calculated by the player. */
+@media (width <= 480px) {
+  #videoOsdPage .videoOsdBottom .sliderBubble:has(.chapterThumbWrapper) {
+    left: 50% !important;
+    transform: translate3d(-50%, -120%, 0) scale(0.82);
+    transform-origin: center bottom;
+  }
+}

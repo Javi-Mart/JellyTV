@@ -1,5 +1,13 @@
 # Cambios
 
+## 1.1.0-dev.4
+
+- Restaura las miniaturas al reproducir desde Hero y carrusel. La acción pasa el ID a Jellyfin para que su reproductor obtenga la ficha completa con los datos Trickplay de la fuente activa.
+- Mantiene el sprite y su etiqueta dentro del visor estrecho. El tiempo de reserva sigue a cargo del reproductor.
+- Hero con dos capas que se funden durante 520 ms. Texto, Favorito y acciones cambian a mitad del fundido. La luz ambiental toma dos colores de los bordes de la imagen preparada.
+- Carrusel con ancho y elevación progresivos, mezcla de arte y entrada breve del texto contextual. La selección rápida retoma la geometría que se estaba mostrando.
+- Corrige la lectura de duraciones CSS expresadas en segundos por el minificador. [Movimiento](docs/MOTION_SYSTEM.md) · [Trickplay y regresiones](docs/TESTING.md) · [Actualizar desde dev.3](docs/CASAOS_INSTALLER.md#actualizar-desde-110-dev3)
+
 ## 1.1.0-dev.3
 
 - Fichas Web 10.10.6 con fundido continuo en los backdrops compartidos de escritorio y los backdrops inline del modo móvil. Los detalles técnicos y las etiquetas quedan en una jerarquía secundaria.

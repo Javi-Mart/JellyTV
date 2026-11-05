@@ -24,7 +24,24 @@ JELLYTV_BROWSER=webkit node tests/integration/enhanced-home.mjs .lab/credentials
 
 Para los casos cinematográficos, incluye al menos tres títulos recientes con backdrop. El runner mantiene los casos de dev.2 y añade respuestas lentas y fallidas de artwork, error de Favoritos, sincronización de los controles, relleno del SVG, anclaje del CTA y movimiento reducido. El servidor proporciona los datos reales de navegación y se simulan los fallos de red puntuales.
 
-La revisión visual compara dev.2 y dev.3 con medios sintéticos, igual viewport y los mismos activos de Jellyfin. Revisa escritorio, 320 y 390 px en vertical, 844×390 en horizontal, ficha con y sin artwork, contraste sobre un fondo claro y vista previa de tarjetas. Para movimiento, registra intervalos de frames y desplazamiento de la página en la misma secuencia. Estos valores dependen del navegador y del equipo de laboratorio. Las capturas y datos locales se guardan fuera del conjunto publicado.
+El caso `motion-handoff` toma muestras de frames reales. Comprueba que al entrar la imagen siguiente se conserva la saliente, que el título cambia durante el fundido y que el carrusel pasa por anchos intermedios sin mover el panel. `JELLYTV_MOTION_VIDEO` permite grabar ese caso en un directorio ignorado.
+
+La revisión visual compara dev.3 y dev.4 con medios sintéticos, igual viewport y los mismos activos de Jellyfin. Incluye secuencias de Hero y carrusel, gradientes con artwork azul, rojo, oscuro y claro y nueve tamaños de escritorio y móvil. En la secuencia de ocho selecciones a 1920 × 1080, ambas versiones registraron una mediana de p95 de 16,8 ms y una tarea larga. El tiempo total de layout de esa secuencia subió de 11,3 a 21,2 ms al interpolar el ancho. El p95 se mantuvo en la prueba breve con CPU ralentizada 4×. Estos datos corresponden al equipo de laboratorio. Guarda las capturas y mediciones locales fuera del conjunto publicado.
+
+## Trickplay en Jellyfin Web 10.10.6
+
+En una biblioteca desechable, activa la extracción y ejecuta la tarea nativa de Trickplay. Usa como `fixtures.G.id` un video sintético reproducible suficientemente largo para cubrir varias celdas del sprite. El JSON de credenciales debe incluir el `userId` y `accessToken` de la cuenta local de prueba. El runner verifica el servidor y su versión antes de reproducir y guarda capturas solo si se indica un directorio.
+
+```sh
+node tests/integration/trickplay.mjs .lab/credentials.local.json .lab/storageState.local.json \
+  .lab/fixtures.local.json .lab/dev3-dist .lab/trickplay-before
+node tests/integration/trickplay.mjs .lab/credentials.local.json .lab/storageState.local.json \
+  .lab/fixtures.local.json - .lab/trickplay-after
+```
+
+Con el mismo video y fuente, Jellyfin original, Core dev.3 y Core con Enhanced dev.3 muestran la miniatura desde la ficha. Reproducir directamente desde Hero o carrusel dev.3 muestra solo la hora y no solicita el sprite. El código anterior enviaba un resumen de Inicio como si fuera el objeto de reproducción completo. Web 10.10.6 selecciona la resolución de `item.Trickplay[mediaSourceId]` y calcula la hoja y posición a partir del intervalo y las dimensiones de la cuadrícula. El adaptador de dev.4 pasa el ID a Jellyfin como su botón nativo. El servidor gestiona la extracción, los JPEG agrupados y su almacenamiento junto al medio o en la ruta de metadata. [Gestor Trickplay de Server 10.10.6](https://github.com/jellyfin/jellyfin/blob/v10.10.6/Jellyfin.Server.Implementations/Trickplay/TrickplayManager.cs)
+
+El test verifica la carga HTTP, la miniatura en el DOM, su aspecto, cambios de celda, límites de la vista, pantalla completa y reserva de tiempo. También separa una fuente sin metadata de una respuesta HTTP 404 de una hoja anunciada por el servidor. El posicionamiento de Web mide la burbuja antes de insertar el primer sprite. En ventanas estrechas el CSS de JellyTV centra y reduce visualmente la burbuja con sprite, manteniendo las coordenadas nativas de la hoja. El runner prueba los controles de reproducción, volumen, silencio, ocultación y salto táctil en Chrome. Activa `JELLYTV_TEST_TRANSCODE=1` para incluir HLS real cuando FFmpeg esté disponible.
 
 ## Instalador y bootstrap
 
@@ -34,7 +51,7 @@ Las pruebas opcionales de Docker requieren un daemon local y las imágenes fijad
 python3 scripts/package-setup.py --development --output .lab/test-package
 python3 tests/integration/bootstrap-linux.py
 python3 tests/integration/installer-lifecycle.py \
-  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.3.zip \
+  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.4.zip \
   --output .lab/reports/installer-lifecycle.json
 ```
 

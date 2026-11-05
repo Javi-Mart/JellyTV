@@ -33,7 +33,9 @@ async function scenario(name, test, authenticated = true) {
   if (process.env.JELLYTV_TEST_CASE && process.env.JELLYTV_TEST_CASE !== name) return;
   const context = await browser.newContext({
     serviceWorkers: 'block', viewport: { width: 1366, height: 768 },
-    storageState: authenticated ? process.argv[3] : undefined
+    storageState: authenticated ? process.argv[3] : undefined,
+    recordVideo: name === 'motion-handoff' && process.env.JELLYTV_MOTION_VIDEO ?
+      { dir: process.env.JELLYTV_MOTION_VIDEO, size: { width: 1366, height: 768 } } : undefined
   });
   let served = 0;
   await context.route('**/jellytv/jellytv-enhanced.js*', route => {
@@ -466,6 +468,103 @@ try {
     await page.goBack();
     await mounted(page);
     await expect(page.locator(`${hero} [data-focus-key="info"]`)).toBeFocused();
+  });
+
+  await scenario('motion-handoff', async page => {
+    await start(page);
+    await mounted(page);
+    await expect(page.locator(`${hero} .jellytv-hero__backdrop.is-visible`)).toHaveCount(1);
+    const samples = await page.evaluate(async () => {
+      const { hero, carousel } = window[Symbol.for('jellytv.enhanced.instance')];
+      const original = hero.activeBackdrop;
+      const previous = hero.index;
+      const target = hero.items.findIndex((item, index) =>
+        index !== previous && hero.adapter.image(hero.session, item, 'Backdrop', 1280));
+      const expected = hero.items[target].Id;
+      const nextFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
+      const sample = [];
+      hero.dotButtons[target].click();
+      const end = performance.now() + 3000;
+      do {
+        const now = await nextFrame();
+        const incoming = hero.root.querySelector('.is-incoming');
+        sample.push({
+          now, id: hero.root.dataset.itemId, title: hero.heading.textContent,
+          incoming: incoming ? Number(getComputedStyle(incoming).opacity) : 0,
+          outgoing: Number(getComputedStyle(original).opacity),
+          copy: Number(getComputedStyle(hero.copy).opacity),
+          active: hero.root.querySelectorAll('.jellytv-hero__backdrop.is-visible').length
+        });
+      } while (performance.now() < end && (hero.root.dataset.itemId !== expected || hero.transition));
+      carousel.root.scrollIntoView({ block: 'start' });
+      const candidate = carousel.cards[1].root;
+      const before = candidate.getBoundingClientRect().width;
+      const y = carousel.panel.getBoundingClientRect().y;
+      carousel.next.click();
+      const widths = [];
+      let now;
+      const start = performance.now();
+      do {
+        now = await nextFrame();
+        widths.push(candidate.getBoundingClientRect().width);
+      } while (now - start < 410);
+      return {
+        sample, expected, name: hero.items[target].Name, before, widths,
+        panelDelta: carousel.panel.getBoundingClientRect().y - y,
+        activeCards: carousel.rail.querySelectorAll('.is-active').length,
+        leftover: carousel.animations.filter(animation => animation.playState === 'running').length,
+        ambient: getComputedStyle(hero.glow(hero.activeBackdrop)).getPropertyValue('--ambient-right')
+      };
+    });
+    assert.ok(samples.sample.some(row => row.incoming > 0.08 && row.incoming < 0.43 && row.outgoing === 1 && row.id !== samples.expected),
+      JSON.stringify(samples.sample.map(row => [row.incoming, row.outgoing, row.copy, row.active, row.id === samples.expected])));
+    assert.ok(samples.sample.some(row => row.incoming > 0.57 && row.incoming < 0.95 && row.id === samples.expected && row.copy < 0.98));
+    assert.ok(samples.sample.every(row => row.active === 1));
+    assert.equal(samples.sample.at(-1).title, samples.name);
+    assert.ok(samples.widths.some(width => width > samples.before + 8 && width < samples.widths.at(-1) - 8));
+    assert.ok(Math.abs(samples.panelDelta) < 1);
+    assert.equal(samples.activeCards, 1);
+    assert.equal(samples.leftover, 0);
+    assert.match(samples.ambient, /rgb\(/);
+
+    const invoked = await page.evaluate(async () => {
+      const { hero } = window[Symbol.for('jellytv.enhanced.instance')];
+      const previous = hero.index;
+      const target = hero.items.findIndex((item, index) =>
+        index !== previous && hero.adapter.image(hero.session, item, 'Backdrop', 1280));
+      const actions = [];
+      const details = hero.adapter.details;
+      hero.adapter.details = (_, item) => actions.push(item.Id);
+      const nextFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
+      const until = async predicate => {
+        const end = performance.now() + 3000;
+        while (!predicate() && performance.now() < end) await nextFrame();
+      };
+      try {
+        hero.show(target);
+        await until(() => hero.transition && hero.index === previous);
+        if (!hero.transition || hero.index !== previous) throw new Error('Expected the outgoing slide to remain interactive');
+        hero.info.click();
+        hero.show(target);
+        await until(() => hero.index === target);
+        hero.info.click();
+        return { actions, expected: [hero.items[previous].Id, hero.items[target].Id] };
+      } finally {
+        hero.adapter.details = details;
+      }
+    });
+    assert.deepEqual(invoked.actions, invoked.expected);
+
+    const pending = await page.evaluate(() => {
+      const { hero } = window[Symbol.for('jellytv.enhanced.instance')];
+      const selected = hero.index;
+      const latest = (selected + 3) % hero.items.length;
+      for (let offset = 1; offset <= 3; offset++) hero.show(selected + offset);
+      return hero.items[latest].Id;
+    });
+    await expect(page.locator(hero)).toHaveAttribute('data-item-id', pending);
+    await expect(page.locator(`${hero} [data-pending]`)).toHaveCount(0);
+    await expect(page.locator(`${hero} .jellytv-hero__backdrop.is-incoming`)).toHaveCount(0);
   });
 } catch (error) {
   console.error(error.message.replace(/\b[0-9a-f]{32,}\b/gi, '<id>').split('\n').slice(0, 12).join('\n'));

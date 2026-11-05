@@ -23,7 +23,9 @@ export function icon(name) {
 }
 
 export function timing(style, duration, easing) {
-  return { duration: Number.parseFloat(style.getPropertyValue(duration)) || 0, easing: style.getPropertyValue(easing).trim() || 'linear' };
+  const value = style.getPropertyValue(duration).trim();
+  const milliseconds = (Number.parseFloat(value) || 0) * (value.endsWith('s') && !value.endsWith('ms') ? 1000 : 1);
+  return { duration: milliseconds, easing: style.getPropertyValue(easing).trim() || 'linear' };
 }
 
 const feedback = new WeakMap();

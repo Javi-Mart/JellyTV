@@ -82,7 +82,11 @@ export class JellyfinAdapter {
       if (!playable) throw new Error('No playable episode');
     }
     if (signal.aborted || this.session()?.key !== session.key) throw new DOMException('Session changed', 'AbortError');
-    return this.deps.playbackManager.play({ items: [{ ...playable, ServerId: session.client.serverId() }], startPositionTicks: resumeTicks(playable) });
+    // Home and Next Up return summary DTOs. Like Jellyfin's own Play action,
+    // pass the ID so its manager loads the full item, including Trickplay.
+    return this.deps.playbackManager.play({
+      ids: [playable.Id], serverId: session.client.serverId(), startPositionTicks: resumeTicks(playable)
+    });
   }
 
   details(session, item) {

@@ -48,6 +48,18 @@ Tras revisar la simulación, repite `update` sin `--dry-run`. Comprueba la versi
 
 Para aplicar el fundido de la ficha, guarda por separado tu CSS de marca actual y aplica `dist/jellytv-core.css` de dev.3. El rollback de Enhanced restaura sus archivos Web. Si también actualizaste Core, restaura su CSS anterior en el panel de Jellyfin.
 
+## Actualizar desde 1.1.0-dev.3
+
+Para probar en un entorno aislado, copia el ZIP de Enhanced dev.4 y su checksum en la misma carpeta. La CLI ya instalada con dev.3 admite el nuevo ZIP. Revisa en `status` la versión, la integridad y el estado de recuperación.
+
+```sh
+sudo jellytv status
+sha256sum --check jellytv-enhanced-1.1.0-dev.4.zip.sha256 &&
+  sudo jellytv update --bundle ./jellytv-enhanced-1.1.0-dev.4.zip --allow-development --dry-run
+```
+
+Tras revisar la simulación, repite el comando de actualización sin `--dry-run` y ejecuta `sudo jellytv status`. Comprueba Inicio y el timeline de un título con sprites generados. Si dev.3 era la generación anterior, `sudo jellytv rollback` restaura sus archivos. El PYZ de dev.4 se reserva para una primera instalación. La corrección de reproducción y el ajuste estrecho del tooltip se incluyen en Enhanced.
+
 ## Estado y recuperación
 
 Se gestionan dos recursos Enhanced, `config.json`, `index.html` y un marcador. El estado y el journal se guardan en `/var/lib/jellytv`. El directorio debe pertenecer al usuario que ejecuta la herramienta, con modo 700, y sus padres deben tener propietarios de confianza y permisos que impidan escritura compartida.

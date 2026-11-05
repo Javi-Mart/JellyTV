@@ -4,14 +4,14 @@ import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
-const modules = ['tokens', 'motion', 'base', 'components', 'animations', 'web', 'home', 'tablet', 'mobile', 'tv-web', 'compat/details-legacy', 'accessibility'];
+const modules = ['tokens', 'motion', 'base', 'components', 'animations', 'web', 'trickplay', 'home', 'tablet', 'mobile', 'tv-web', 'compat/details-legacy', 'accessibility'];
 const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
 const root = new URL('../', import.meta.url);
 await mkdir(new URL('dist/', root), { recursive: true });
 const core = (await Promise.all(modules.map(name => readFile(new URL(`theme/${name}.css`, root), 'utf8')))).join('\n');
 await writeFile(new URL('dist/jellytv-core.css', root), `/* JellyTV ${pkg.version} · MIT · Web 10.10.6 / 12.2 structural profiles */\n${core}`);
 await writeFile(new URL('dist/jellytv-core.min.css', root), (await transform(core, { loader: 'css', minify: true, target: 'chrome109' })).code);
-const enhanced = (await Promise.all(['theme/motion', 'enhanced/hero', 'enhanced/carousel'].map(name => readFile(new URL(`${name}.css`, root), 'utf8')))).join('\n');
+const enhanced = (await Promise.all(['theme/motion', 'theme/trickplay', 'enhanced/hero', 'enhanced/carousel'].map(name => readFile(new URL(`${name}.css`, root), 'utf8')))).join('\n');
 await writeFile(new URL('dist/jellytv-enhanced.css', root), (await transform(enhanced, { loader: 'css', minify: true, target: 'chrome109' })).code);
 await build({ entryPoints: [fileURLToPath(new URL('enhanced/plugin.mjs', root))], bundle: true, format: 'iife', target: 'es2020', minify: true, outfile: fileURLToPath(new URL('dist/jellytv-enhanced.js', root)), legalComments: 'eof' });
 const assets = {};

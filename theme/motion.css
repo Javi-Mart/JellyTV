@@ -1,11 +1,14 @@
-/* Shared by Core and standalone Enhanced. Time tokens use milliseconds. */
+/* Shared by Core and standalone Enhanced. The minifier may emit seconds. */
 :root {
   --motion-instant: 80ms;
   --motion-fast: 140ms;
   --motion-normal: 210ms;
-  --motion-select: 280ms;
+  --motion-select: 320ms;
   --motion-slow: 420ms;
+  --motion-crossfade: 520ms;
+  --motion-handoff: 170ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-blend: cubic-bezier(0.42, 0, 0.58, 1);
   --ease-emphasized: cubic-bezier(0.2, 0.78, 0.25, 1);
   --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-exit: cubic-bezier(0.4, 0, 1, 1);
@@ -22,6 +25,8 @@
     --motion-normal: 0ms;
     --motion-select: 0ms;
     --motion-slow: 0ms;
+    --motion-crossfade: 0ms;
+    --motion-handoff: 0ms;
     --motion-lift: 0px;
     --motion-enter-offset: 0px;
     --motion-press-scale: 1;

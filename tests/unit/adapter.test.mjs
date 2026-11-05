@@ -80,11 +80,13 @@ test('confirmed favorites notify other surfaces only after a successful response
     assert.equal(notifications.length, 1);
   } finally { fetch.mock.restore(); }
 });
-test('resume delegates to Jellyfin playback and preserves ticks', async () => {
+test('resume delegates item resolution to Jellyfin playback and preserves ticks', async () => {
   const { adapter, session, calls } = setup();
   await adapter.play(session, { Id: 'film', Type: 'Movie', UserData: { PlaybackPositionTicks: 12345 } }, new AbortController().signal);
   assert.equal(calls[0].startPositionTicks, 12345);
-  assert.equal(calls[0].items[0].ServerId, 'server');
+  assert.equal(calls[0].serverId, 'server');
+  assert.deepEqual(calls[0].ids, ['film']);
+  assert.equal(Object.hasOwn(calls[0], 'items'), false);
 });
 test('series resolves next up; an empty series cannot launch a dead Play action', async () => {
   const { adapter, session, calls } = setup();
@@ -92,7 +94,7 @@ test('series resolves next up; an empty series cannot launch a dead Play action'
   const fetch = mock.method(globalThis, 'fetch', async () => Response.json(next));
   try {
     await adapter.play(session, { Id: 'series', Type: 'Series' }, new AbortController().signal);
-    assert.equal(calls[0].items[0].Id, 'episode');
+    assert.deepEqual(calls[0].ids, ['episode']);
     next = { Items: [] };
     await assert.rejects(adapter.play(session, { Id: 'empty', Type: 'Series' }, new AbortController().signal), /No playable episode/);
     assert.equal(calls.length, 1);

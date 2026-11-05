@@ -1,12 +1,14 @@
 # Sistema de diseño — revisión web
 
-Revisión del candidato Web 1.1.0-dev.3. Apple TV aporta la referencia de una composición centrada en el artwork, con lectura localizada y una acción principal clara. La referencia de Netflix aporta el ancho diferencial de la tarjeta activa y la información situada debajo del arte. JellyTV conserva sus propios controles, identidad y datos de Jellyfin. [Apple TV](https://tv.apple.com/) · [Netflix](https://www.netflix.com/)
+Revisión del candidato Web 1.1.0-dev.4. Apple TV aporta la referencia de una composición centrada en el artwork, con lectura localizada y una acción principal clara. La referencia de Netflix aporta el ancho diferencial de la tarjeta activa y la información situada debajo del arte. JellyTV conserva sus propios controles, identidad y datos de Jellyfin. [Apple TV](https://tv.apple.com/) · [Netflix](https://www.netflix.com/)
 
 ## Composición
 
 Core es completo sin hero: cabecera compacta, My Media discreto, filas próximas y cards con texto/acciones disponibles. El contenido determina el alto, sin espacios reservados para Enhanced. Fondo casi negro neutral, surfaces escalonadas, tipografía del sistema, blanco para Play y azul suave para foco. Una línea/borde debe distinguir selección además del color.
 
 Escritorio comparte una línea de inicio para encabezados, Hero y filas. El Hero usa un degradado localizado bajo el texto y otro que lo funde con el borde inferior. El logo y el título de reserva comparten un área estable. El Play claro y las acciones secundarias oscuras conservan la misma jerarquía en el carrusel y la ficha.
+
+Dos gradientes radiales difunden color detrás de los bordes del Hero. Se mantienen detrás de la imagen y del degradado de legibilidad. La tarjeta expandida conserva la altura de su fila y eleva el borde 2 px. El texto ocupa el panel existente debajo de la fila y las acciones mantienen su posición.
 
 En Web 10.10.6, el fondo opaco del wrapper cortaba el artwork justo antes del título. La ficha Legacy conserva el póster en flujo y funde el fondo desde su capa real. En escritorio el campo compartido mide hasta el 76 % del alto o el 39 % del ancho. En el modo compacto se desvanece la imagen inline. Ambas soluciones conservan la proporción del original y el encuadre superior. Los panoramas extremos aún pueden perder parte de los bordes, ya que Jellyfin 10.10.6 no aporta un punto focal a Core. La ficha conserva sinopsis, secciones técnicas y todos los enlaces nativos de Tags, en una zona de ancho acotado.
 

@@ -227,10 +227,14 @@ export class ExpandingCarousel {
 
   select(index, { animate = true, announce = false, scroll = true } = {}) {
     if (!this.valid() || this.busy || !this.items.length) return;
-    this.cancelIntent(); this.animations.forEach(animation => animation.cancel()); this.animations = [];
+    this.cancelIntent();
     const selected = (index + this.items.length) % this.items.length;
+    if (this.root.dataset.itemId && selected === this.index) return;
     const moving = animate && !this.reduced.matches && selected !== this.index && typeof this.root.animate === 'function';
-    const before = moving ? this.cards.map(card => card.root.getBoundingClientRect().left) : [];
+    // Read the interpolated widths before cancelling an interrupted selection.
+    const before = moving ? this.cards.map(card => card.root.getBoundingClientRect().width) : [];
+    this.animations.forEach(animation => animation.cancel());
+    this.animations = [];
     this.index = selected;
     const item = this.items[this.index], active = this.cards[this.index];
     this.root.dataset.itemId = item.Id;
@@ -259,14 +263,24 @@ export class ExpandingCarousel {
     this.status.textContent = ''; this.updateFavorite();
     if (scroll) this.ensureVisible(this.index);
     if (moving) {
-      const motion = timing(getComputedStyle(this.root), '--motion-select', '--ease-emphasized');
-      const railWidth = this.rail.clientWidth;
-      this.cards.forEach((card, position) => {
-        const dx = before[position] - card.root.getBoundingClientRect().left;
-        if (motion.duration && Math.abs(dx) > 1 && Math.abs(dx) < railWidth * 2) this.animations.push(card.root.animate([
-          { transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }
-        ], motion));
-      });
+      const style = getComputedStyle(this.root);
+      const motion = timing(style, '--motion-select', '--ease-standard');
+      if (motion.duration) {
+        const after = this.cards.map(card => card.root.getBoundingClientRect().width);
+        this.cards.forEach((card, position) => {
+          if (Math.abs(before[position] - after[position]) <= 1) return;
+          this.animations.push(card.root.animate([
+            { flexBasis: `${before[position]}px` }, { flexBasis: `${after[position]}px` }
+          ], motion));
+        });
+        const copy = timing(style, '--motion-normal', '--ease-enter');
+        for (const target of [this.heading, this.meta, this.overview]) {
+          this.animations.push(target.animate([
+            { opacity: 0.38, transform: `translateY(${style.getPropertyValue('--motion-enter-offset').trim()})` },
+            { opacity: 1, transform: 'none' }
+          ], copy));
+        }
+      }
     }
     if (announce) this.announcement.textContent = `${this.index + 1} ${this.words.count} ${this.items.length}: ${text(item.Name, 200)}`;
   }

@@ -1,5 +1,6 @@
 import { locale, metadata, progress, resumeTicks, secondaryArtwork, text } from './model.mjs';
 import { favoriteState, icon, timing } from './controls.mjs';
+import { ambientPalette } from './ambient.mjs';
 
 function element(tag, className, content) {
   const node = document.createElement(tag);
@@ -24,6 +25,8 @@ export class Hero {
     this.rotating = false;
     this.imageGeneration = 0;
     this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.ambientAvailable = window.matchMedia('(width > 599px) and (forced-colors: none)');
+    this.palettes = new Map();
     this.controller = new AbortController();
     this.root = element('section', 'jellytv-hero');
     this.root.dataset.jellytv = 'hero';
@@ -34,7 +37,8 @@ export class Hero {
     this.art.setAttribute('aria-hidden', 'true');
     this.images = [element('img', 'jellytv-hero__backdrop'), element('img', 'jellytv-hero__backdrop')];
     this.images.forEach(image => { image.alt = ''; image.decoding = 'async'; this.art.append(image); });
-    this.root.append(this.art, element('div', 'jellytv-hero__shade'));
+    this.glows = this.images.map(() => element('div', 'jellytv-hero__ambient'));
+    this.root.append(...this.glows, this.art, element('div', 'jellytv-hero__shade'));
     this.secondary = element('img', 'jellytv-hero__secondary');
     this.secondary.alt = ''; this.secondary.hidden = true;
     this.root.append(this.secondary);
@@ -63,7 +67,9 @@ export class Hero {
     this.status = element('p', 'jellytv-hero__status');
     this.status.setAttribute('role', 'status');
     this.status.setAttribute('aria-live', 'polite');
-    this.body.append(this.identity, this.meta, this.description, this.actions, this.bar, this.status);
+    this.copy = element('div', 'jellytv-hero__copy');
+    this.copy.append(this.identity, this.meta, this.description);
+    this.body.append(this.copy, this.actions, this.bar, this.status);
     this.root.append(this.body);
     this.navigation = element('div', 'jellytv-hero__navigation focuscontainer-x');
     this.rotate = button(this.labels.rotate, '▷', 'jellytv-button--icon');
@@ -105,9 +111,14 @@ export class Hero {
     this.on(this.root, 'pointerenter', event => { if (event.pointerType === 'mouse') this.pause(); });
     this.on(document, 'visibilitychange', () => { if (document.hidden) this.pause(); });
     this.on(this.reduced, 'change', () => {
-      if (this.reduced.matches) { this.pause(); this.identityMotion?.cancel(); }
+      if (this.reduced.matches) {
+        this.pause();
+        this.transition?.commit();
+        this.finishTransition();
+      }
       this.updateRotation();
     });
+    this.on(this.ambientAvailable, 'change', () => this.paintGlow(this.activeBackdrop));
     this.on(this.root, 'pointerdown', event => {
       this.pause();
       // TV scrollManager centers focused controls. Defer mouse focus until click,
@@ -139,6 +150,7 @@ export class Hero {
     this.on(this.play, 'click', () => this.action(this.play, item => adapter.play(session, item, signal)));
     this.on(this.info, 'click', () => {
       this.pause();
+      if (this.selection !== this.index) this.show(this.index);
       // The router removes focus before viewshow is emitted. Remember the action now.
       this.navigationIntent = 'info';
       adapter.details(session, this.items[this.index]);
@@ -179,6 +191,7 @@ export class Hero {
     if (this.busy || this.signal.aborted) return;
     const next = (index + this.items.length) % this.items.length;
     if (next === this.selection) return;
+    this.finishTransition();
     this.dotButtons[this.selection]?.removeAttribute('data-pending');
     this.selection = next;
     const generation = ++this.imageGeneration;
@@ -196,10 +209,10 @@ export class Hero {
     const url = this.adapter.image(this.session, item, 'Backdrop', width);
     const commit = image => {
       if (generation !== this.imageGeneration || this.signal.aborted) return;
-      this.dotButtons[next].removeAttribute('data-pending');
-      if (this.index !== next) this.renderItem(next);
-      this.renderArtwork(next, image);
-      this.schedule();
+      staged.onload = null;
+      staged.onerror = null;
+      this.paintGlow(image);
+      this.changeArtwork(next, image);
     };
     if (!url) {
       if (!staged.complete) staged.removeAttribute('src');
@@ -250,22 +263,88 @@ export class Hero {
       };
       this.logo.src = logoUrl;
     } else this.logo.removeAttribute('src');
-    this.identityMotion?.cancel();
-    if (!this.reduced.matches && this.identity.animate) {
-      const style = getComputedStyle(this.root);
-      this.identityMotion = this.identity.animate([
-        { opacity: 0.72, transform: `translateY(${style.getPropertyValue('--motion-enter-offset').trim()})` },
-        { opacity: 1, transform: 'none' }
-      ], timing(style, '--motion-normal', '--ease-enter'));
+  }
+
+  glow(image) { return this.glows[this.images.indexOf(image)]; }
+
+  paintGlow(image) {
+    if (!image || !this.ambientAvailable.matches) return;
+    const url = image.currentSrc || image.src;
+    if (!this.palettes.has(url)) {
+      if (this.palettes.size === this.items.length) this.palettes.delete(this.palettes.keys().next().value);
+      this.palettes.set(url, ambientPalette(image));
     }
+    const [left = 'transparent', right = 'transparent'] = this.palettes.get(url);
+    const glow = this.glow(image);
+    glow.style.setProperty('--ambient-left', left);
+    glow.style.setProperty('--ambient-right', right);
+  }
+
+  finishTransition() {
+    const transition = this.transition;
+    if (!transition) return;
+    this.transition = null;
+    transition.animations.forEach(animation => animation.cancel());
+    this.images.forEach(image => image.classList.remove('is-incoming', 'is-outgoing'));
+  }
+
+  changeArtwork(index, image) {
+    const previous = this.activeBackdrop;
+    const style = getComputedStyle(this.root);
+    const blend = timing(style, '--motion-crossfade', '--ease-blend');
+    const exit = timing(style, '--motion-handoff', '--ease-exit');
+    const enter = timing(style, '--motion-normal', '--ease-enter');
+    const commit = () => {
+      if (this.artworkIndex === index) return;
+      this.dotButtons[index].removeAttribute('data-pending');
+      if (this.index !== index) this.renderItem(index);
+      this.renderArtwork(index, image);
+      this.schedule();
+    };
+    if (this.artworkIndex === undefined || this.reduced.matches || !blend.duration || !this.root.animate || (!previous && !image)) {
+      commit();
+      return;
+    }
+
+    // Source-over blend: keep the old photo opaque behind the incoming layer.
+    // The foreground and its actions switch at the point of equal contribution.
+    const animations = [];
+    const transition = { animations, commit };
+    this.transition = transition;
+    const fade = (target, from, to, motion) => {
+      if (!target) return;
+      const animation = target.animate([{ opacity: from }, { opacity: to }], { ...motion, fill: 'both' });
+      animations.push(animation);
+      return animation;
+    };
+    previous?.classList.add('is-outgoing');
+    image?.classList.add('is-incoming');
+    const art = image ? fade(image, 0, 1, blend) : fade(previous, 1, 0, blend);
+    if (this.ambientAvailable.matches) {
+      fade(this.glow(previous), 1, 0, blend);
+      fade(this.glow(image), 0, 1, blend);
+    }
+    const handoff = fade(this.copy, 1, 0, { ...exit, delay: blend.duration / 2 - exit.duration });
+    handoff.onfinish = () => {
+      if (this.transition !== transition || this.signal.aborted) return;
+      commit();
+      handoff.cancel();
+      fade(this.copy, 0, 1, enter);
+    };
+    art.onfinish = () => {
+      if (this.transition !== transition || this.signal.aborted) return;
+      if (this.artworkIndex !== index) commit();
+      this.finishTransition();
+    };
   }
 
   renderArtwork(index, image) {
-    // A single commit swaps artwork and metadata. The old image never remains
-    // underneath the new title while a slow replacement is downloading.
     this.artworkIndex = index;
     this.activeBackdrop = image;
-    this.images.forEach(backdrop => backdrop.classList.toggle('is-visible', backdrop === image));
+    this.images.forEach((backdrop, position) => {
+      backdrop.classList.toggle('is-visible', backdrop === image);
+      this.glows[position].classList.toggle('is-visible', backdrop === image);
+    });
     this.root.classList.toggle('jellytv-hero--without-backdrop', !image);
     const item = this.items[index];
     const role = !image && secondaryArtwork(item);
@@ -299,7 +378,8 @@ export class Hero {
 
   destroy() {
     this.pause(); this.controller.abort(); this.imageGeneration++;
-    this.identityMotion?.cancel();
+    this.finishTransition();
+    this.palettes.clear();
     [...this.images, this.logo, this.secondary].forEach(image => { image.onload = null; image.onerror = null; image.removeAttribute('src'); });
     this.root.remove();
   }

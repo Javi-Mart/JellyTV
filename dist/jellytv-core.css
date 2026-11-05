@@ -1,4 +1,4 @@
-/* JellyTV 1.1.0-dev.3 · MIT · Web 10.10.6 / 12.2 structural profiles */
+/* JellyTV 1.1.0-dev.4 · MIT · Web 10.10.6 / 12.2 structural profiles */
 /* JellyTV design tokens. No fonts, images or remote imports. */
 :root {
   --color-background: #090b0e;
@@ -101,14 +101,17 @@
   --jf-card-borderRadius: var(--radius-medium);
 }
 
-/* Shared by Core and standalone Enhanced. Time tokens use milliseconds. */
+/* Shared by Core and standalone Enhanced. The minifier may emit seconds. */
 :root {
   --motion-instant: 80ms;
   --motion-fast: 140ms;
   --motion-normal: 210ms;
-  --motion-select: 280ms;
+  --motion-select: 320ms;
   --motion-slow: 420ms;
+  --motion-crossfade: 520ms;
+  --motion-handoff: 170ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-blend: cubic-bezier(0.42, 0, 0.58, 1);
   --ease-emphasized: cubic-bezier(0.2, 0.78, 0.25, 1);
   --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-exit: cubic-bezier(0.4, 0, 1, 1);
@@ -125,6 +128,8 @@
     --motion-normal: 0ms;
     --motion-select: 0ms;
     --motion-slow: 0ms;
+    --motion-crossfade: 0ms;
+    --motion-handoff: 0ms;
     --motion-lift: 0px;
     --motion-enter-offset: 0px;
     --motion-press-scale: 1;
@@ -818,6 +823,17 @@ body:not(.dashboardDocument) #videoOsdPage .upNextContainer {
   border: 1px solid var(--color-divider);
   border-radius: var(--radius-medium);
   box-shadow: var(--shadow-card);
+}
+
+/* Web 10.10.6 positions the first bubble before inserting its sprite.
+   On narrow screens center that sprite above the native track, keeping the
+   selected time and sprite offsets exactly as calculated by the player. */
+@media (width <= 480px) {
+  #videoOsdPage .videoOsdBottom .sliderBubble:has(.chapterThumbWrapper) {
+    left: 50% !important;
+    transform: translate3d(-50%, -120%, 0) scale(0.82);
+    transform-origin: center bottom;
+  }
 }
 
 /* Core composes native rows without reserving space for an optional hero. */
