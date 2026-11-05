@@ -1,5 +1,11 @@
 # Cambios
 
+## 1.1.0-dev.2
+
+- Corrige la desaparición del hero y del carrusel al volver de Películas o de una ficha. Enhanced identifica el Inicio visible cuando Jellyfin conserva varias vistas con los mismos IDs.
+- La metadata válida se reutiliza al reemplazar Inicio. Las solicitudes pendientes se comparten dentro de la misma sesión y el cambio de usuario invalida sus resultados.
+- Añade regresiones de navegación y reconstrucción de Inicio en Jellyfin Web 10.10.6. [Actualizar Enhanced desde dev.1](docs/CASAOS_INSTALLER.md#actualizar-desde-110-dev1)
+
 ## 1.1.0-dev.1
 
 - Android TV 0.19.10-jellytv.2 actualiza Guava y Kotlin, fija Gradle 8.14.6 con su SHA-256 y separa los identificadores de aplicación debug y release.

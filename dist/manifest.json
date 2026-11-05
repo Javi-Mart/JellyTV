@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0-dev.1",
+  "version": "1.1.0-dev.2",
   "webVersions": [
     "10.10.6",
     "12.2"
@@ -14,7 +14,7 @@
     "jellytv-core.css": {
       "bytes": 52764,
       "gzipBytes": 10744,
-      "sha256": "481ebfda9a6a60eb4c583a6877acfb4636e1c52f363bdec610506c845870f5ba"
+      "sha256": "a40047b8f5322043f357ef695c0c3b193de0604aba474834a122f65694525631"
     },
     "jellytv-core.min.css": {
       "bytes": 42031,
@@ -27,9 +27,9 @@
       "sha256": "224f761c27bba0b7cb879a1d32605fe7644059c3b2fed4fb5b0fcd5bcd67da4b"
     },
     "jellytv-enhanced.js": {
-      "bytes": 41584,
-      "gzipBytes": 11936,
-      "sha256": "5ae3f1edf1cf9a9cb4ce4bcf5b9656ed1bb4ed69de335e4970c7fcd53f38ba1a"
+      "bytes": 43462,
+      "gzipBytes": 12646,
+      "sha256": "1db3fb42a15f3e12199e3e31f086d77847e7d1056ca32d165c5120255e926514"
     }
   }
 }

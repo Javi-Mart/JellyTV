@@ -21,7 +21,7 @@ IMAGE = "jellyfin/jellyfin@sha256:96b09723b22fdde74283274bdc1f63b9b76768afd6045d
 URL = "http://127.0.0.1:19000"
 
 
-def run(bundle, output):
+def run(bundle, output, update_bundle=None):
     j.require_local_docker()
     # Never take over a similarly named container, even one left by an old run.
     existing = j.docker("ps", "-aq", "--filter", "name=^/" + NAME + "$")
@@ -90,15 +90,19 @@ def run(bundle, output):
         return result.stderr.decode(errors="replace")
 
     package_options = ["--bundle", str(bundle.resolve()), "--allow-development"]
-    update = folder / "updated.zip"
-    with zipfile.ZipFile(bundle) as source, zipfile.ZipFile(update, "x") as target:
-        manifest = json.loads(source.read("manifest.json"))
-        manifest["version"] = "999.0.0-dev.test"
-        for name in ("jellytv-enhanced.css", "jellytv-enhanced.js"):
-            data = source.read(name) + b"\n/* lifecycle fixture */\n"
-            manifest["assets"][name].update(sha256=j.digest(data), bytes=len(data))
-            target.writestr(name, data)
-        target.writestr("manifest.json", json.dumps(manifest))
+    if update_bundle is None:
+        update_bundle = folder / "updated.zip"
+        with zipfile.ZipFile(bundle) as source, zipfile.ZipFile(update_bundle, "x") as target:
+            manifest = json.loads(source.read("manifest.json"))
+            manifest["version"] = "999.0.0-dev.test"
+            for name in ("jellytv-enhanced.css", "jellytv-enhanced.js"):
+                data = source.read(name) + b"\n/* lifecycle fixture */\n"
+                manifest["assets"][name].update(sha256=j.digest(data), bytes=len(data))
+                target.writestr(name, data)
+            target.writestr("manifest.json", json.dumps(manifest))
+    updated_package = update_bundle.read_bytes()
+    update_manifest, update_assets = j.read_bundle(updated_package, allow_development=True)
+    report["updatePackageSha256"] = j.digest(updated_package)
     original = None
     try:
         web = create()
@@ -116,22 +120,27 @@ def run(bundle, output):
         report["results"].append({"name": "CLI install and container restart preserve installation and configuration", "passed": True})
         save(); print("PASS CLI install and container restart", flush=True)
 
-        cli("update", "--bundle", str(update), "--allow-development")
-        assert cli("status")["version"] == "999.0.0-dev.test"
-        changed = web.read(j.ASSETS[0])
-        assert changed != installed[j.ASSETS[0]]
+        update_options = ("--bundle", str(update_bundle.resolve()), "--allow-development")
+        assert cli("update", *update_options, "--dry-run")["dryRun"]
+        assert all(web.read(name) == data for name, data in installed.items())
+        cli("update", *update_options)
+        status = cli("status")
+        assert status["version"] == update_manifest["version"] and status["integrityMatches"]
+        assert all(web.read(name) == data for name, data in update_assets.items())
+        changed_asset = next(name for name in j.ASSETS if web.read(name) != installed[name])
+        changed = web.read(changed_asset)
         foreign = changed + b"\n/* foreign edit */\n"
-        web.write(j.ASSETS[0], foreign)
+        web.write(changed_asset, foreign)
         cli("rollback", success=False)
-        assert web.read(j.ASSETS[0]) == foreign
-        web.write(j.ASSETS[0], changed)
-        css_path = web.root + "/" + j.ASSETS[0]
+        assert web.read(changed_asset) == foreign
+        web.write(changed_asset, changed)
+        asset_path = web.root + "/" + changed_asset
         inspect_owned()
-        mode = j.docker("exec", owned_id, "stat", "-c", "%a", "--", css_path).stdout.decode().strip()
-        j.docker("exec", owned_id, "chmod", "g+w", "--", css_path)
+        mode = j.docker("exec", owned_id, "stat", "-c", "%a", "--", asset_path).stdout.decode().strip()
+        j.docker("exec", owned_id, "chmod", "g+w", "--", asset_path)
         cli("rollback", success=False)
-        assert web.read(j.ASSETS[0]) == changed
-        j.docker("exec", owned_id, "chmod", mode, "--", css_path)
+        assert web.read(changed_asset) == changed
+        j.docker("exec", owned_id, "chmod", mode, "--", asset_path)
         cli("rollback")
         assert all(web.read(name) == data for name, data in installed.items())
         assert web.identity() == identity
@@ -184,6 +193,7 @@ def run(bundle, output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bundle", type=Path, required=True)
+    parser.add_argument("--update-bundle", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     options = parser.parse_args()
-    run(options.bundle, options.output)
+    run(options.bundle, options.output, options.update_bundle)

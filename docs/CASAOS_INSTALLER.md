@@ -22,6 +22,18 @@ sudo jellytv uninstall
 
 Para un ZIP local de desarrollo usa `--bundle /ruta/al/archivo.zip --allow-development --dry-run`. Desinstalar restaura los archivos Web originales y conserva la herramienta de administración.
 
+## Actualizar desde 1.1.0-dev.1
+
+Con la CLI de dev.1 ya instalada, usa el ZIP de Enhanced dev.2 y su checksum en la misma carpeta del host. Revisa primero que `status` indique dev.1, integridad correcta y ninguna recuperación pendiente.
+
+```sh
+sudo jellytv status
+sha256sum --check jellytv-enhanced-1.1.0-dev.2.zip.sha256 &&
+  sudo jellytv update --bundle ./jellytv-enhanced-1.1.0-dev.2.zip --allow-development --dry-run
+```
+
+Después de revisar la simulación, repite `update` sin `--dry-run` y comprueba que `sudo jellytv status` indique dev.2 con integridad correcta. Abre Inicio y prueba la navegación. `sudo jellytv rollback` restaura dev.1 cuando esa es la generación anterior. El PYZ de dev.2 sirve para la primera instalación.
+
 ## Estado y recuperación
 
 Se gestionan dos recursos Enhanced, `config.json`, `index.html` y un marcador. El estado y el journal se guardan en `/var/lib/jellytv`. El directorio debe pertenecer al usuario que ejecuta la herramienta, con modo 700, y sus padres deben tener propietarios de confianza y permisos que impidan escritura compartida.

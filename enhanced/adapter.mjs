@@ -12,7 +12,13 @@ export class JellyfinAdapter {
   }
 
   async request(session, path, query = {}, { signal, method = 'GET' } = {}) {
-    if (this.session()?.key !== session.key) throw new DOMException('Session changed', 'AbortError');
+    const checkSession = () => {
+      const current = this.session();
+      if (signal?.aborted || current?.key !== session.key || current.client !== session.client) {
+        throw new DOMException('Session changed', 'AbortError');
+      }
+    };
+    checkSession();
     // Reuse the authenticated client's identity: a different DeviceId creates a
     // different server session even when the bearer token belongs to this client.
     const identity = {
@@ -28,8 +34,9 @@ export class JellyfinAdapter {
       headers: { Accept: 'application/json', Authorization: authorization }
     });
     if (!response.ok) throw new Error(`JellyTV request failed (${response.status})`);
-    if (this.session()?.key !== session.key) throw new DOMException('Session changed', 'AbortError');
-    return response.status === 204 ? null : response.json();
+    const data = response.status === 204 ? null : await response.json();
+    checkSession();
+    return data;
   }
 
   async featured(session, signal, limit) {

@@ -40,6 +40,20 @@ test('results from a previous user are rejected before painting', async () => {
   try { await assert.rejects(adapter.featured(session, new AbortController().signal, 8), { name: 'AbortError' }); }
   finally { fetch.mock.restore(); }
 });
+test('an aborted or switched session cannot finish decoding an old response', async () => {
+  const { adapter, session, changeUser } = setup();
+  const controller = new AbortController();
+  let invalidate = () => controller.abort();
+  const fetch = mock.method(globalThis, 'fetch', async () => ({
+    ok: true, status: 200,
+    json: async () => { invalidate(); return { Items: [] }; }
+  }));
+  try {
+    await assert.rejects(adapter.featured(session, controller.signal, 6), { name: 'AbortError' });
+    invalidate = changeUser;
+    await assert.rejects(adapter.featured(session, new AbortController().signal, 6), { name: 'AbortError' });
+  } finally { fetch.mock.restore(); }
+});
 test('failed favorite update does not change local favorite state', async () => {
   const { adapter, session } = setup();
   const item = { Id: 'a', UserData: { IsFavorite: false } };

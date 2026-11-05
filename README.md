@@ -2,7 +2,7 @@
 
 JellyTV es un tema para Jellyfin Web. **Core** personaliza Inicio, bibliotecas, fichas y navegación mediante CSS. **Enhanced** agrega un hero y un carrusel de contenido de la biblioteca, con controles para ratón, teclado, pantalla táctil y foco de TV.
 
-El código actual corresponde a **1.1.0-dev.1**, un candidato dirigido a **Jellyfin Server y Web 10.10.6**. La compatibilidad conserva el riesgo conocido de esa versión del servidor. La adaptación Android TV tiene su propia versión e instrucciones. [Compatibilidad](docs/COMPATIBILITY.md) · [Seguridad](SECURITY.md) · [Android TV](android-tv/README.md)
+El código Web corresponde a **1.1.0-dev.2**, un candidato dirigido a **Jellyfin Server y Web 10.10.6**. La compatibilidad conserva el riesgo conocido de esa versión del servidor. La adaptación Android TV tiene su propia versión e instrucciones. [Compatibilidad](docs/COMPATIBILITY.md) · [Seguridad](SECURITY.md) · [Android TV](android-tv/README.md)
 
 ## Instalar
 
