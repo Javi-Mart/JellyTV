@@ -345,6 +345,128 @@ try {
       gate.resolve();
     }
   }, false);
+
+  await scenario('cinematic-favorite', async page => {
+    let attempts = 0;
+    let rejected = true;
+    const gate = Promise.withResolvers();
+    await page.route('**/UserFavoriteItems/**', async route => {
+      attempts++;
+      if (rejected) {
+        await gate.promise;
+        await route.fulfill({ status: 403, json: {} });
+      } else {
+        await route.fulfill({ json: { IsFavorite: route.request().method() === 'POST' } });
+      }
+    });
+    try {
+      await start(page);
+      await mounted(page);
+      const heroFavorite = page.locator(`${hero} [data-focus-key="favorite"]`);
+      const railFavorite = page.locator(`${carousel} [data-focus-key="favorite"]`);
+      const readFill = control => control.locator('.jellytv-heart path').evaluate(path => {
+        const css = getComputedStyle(path);
+        return css.fill === css.color;
+      });
+      const initial = await heroFavorite.getAttribute('aria-pressed') === 'true';
+      assert.equal(await readFill(heroFavorite), initial);
+      await heroFavorite.click();
+      await expect(heroFavorite).toHaveAttribute('aria-busy', 'true');
+      await expect(heroFavorite).toHaveAttribute('aria-pressed', String(initial));
+      assert.equal(attempts, 1);
+      gate.resolve();
+      await expect(page.locator(`${hero} .jellytv-hero__status`)).not.toBeEmpty();
+      await expect(heroFavorite).toHaveAttribute('aria-pressed', String(initial));
+      assert.equal(await readFill(heroFavorite), initial);
+      rejected = false;
+      for (const active of [!initial, initial]) {
+        await heroFavorite.click();
+        for (const control of [heroFavorite, railFavorite]) {
+          await expect(control).toHaveAttribute('aria-pressed', String(active));
+          await expect.poll(() => readFill(control)).toBe(active);
+        }
+      }
+      assert.equal(attempts, 3);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await railFavorite.click();
+      await expect(heroFavorite).toHaveAttribute('aria-pressed', String(!initial));
+      await expect.poll(() => readFill(railFavorite)).toBe(!initial);
+      assert.equal(await railFavorite.locator('.jellytv-heart').evaluate(svg => svg.getAnimations().length), 0);
+      assert.equal(attempts, 4);
+    } finally {
+      gate.resolve();
+    }
+  });
+
+  await scenario('cinematic-artwork', async page => {
+    await start(page);
+    await mounted(page);
+    const spotlight = page.locator(hero);
+    const backdrop = spotlight.locator('.jellytv-hero__backdrop.is-visible');
+    await expect(backdrop).toHaveCount(1);
+    const current = await spotlight.getAttribute('data-item-id');
+    const source = await backdrop.getAttribute('src');
+    const targets = await page.evaluate(() => {
+      const spotlight = window[Symbol.for('jellytv.enhanced.instance')].hero;
+      const width = Math.min(3840, Math.ceil(spotlight.root.clientWidth * Math.min(devicePixelRatio || 1, 2) / 320) * 320);
+      return spotlight.items.slice(1).map((item, offset) => ({
+        id: item.Id, index: offset + 1,
+        src: spotlight.adapter.image(spotlight.session, item, 'Backdrop', width)
+      })).filter(item => item.src);
+    });
+    assert.ok(targets.length >= 2, 'At least three featured entries must have backdrops in the lab');
+    const [slow, broken] = targets;
+    const gate = Promise.withResolvers();
+    let waiting = false;
+    await page.route(new URL(slow.src, web).href, async route => {
+      waiting = true;
+      await gate.promise;
+      await route.continue().catch(() => {});
+    });
+    await page.route(new URL(broken.src, web).href, route => route.abort('failed'));
+    const dots = spotlight.locator('.jellytv-hero__dot');
+    const baseline = (await spotlight.locator('.jellytv-hero__actions').boundingBox()).y;
+    try {
+      await dots.nth(slow.index).click();
+      await expect.poll(() => waiting).toBe(true);
+      await expect(spotlight).toHaveAttribute('data-item-id', current);
+      await expect(backdrop).toHaveAttribute('src', source);
+      await dots.nth(broken.index).click();
+      await expect(spotlight).toHaveAttribute('data-item-id', broken.id);
+      await expect(backdrop).toHaveCount(0);
+      await expect(spotlight).toHaveClass(/without-backdrop/);
+      assert.ok(Math.abs((await spotlight.locator('.jellytv-hero__actions').boundingBox()).y - baseline) <= 2,
+        'The CTA must stay anchored during artwork replacement');
+      gate.resolve();
+      await dots.first().click();
+      await expect(spotlight).toHaveAttribute('data-item-id', current);
+      await expect(backdrop).toHaveAttribute('src', source);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      await dots.nth(slow.index).click();
+      await expect(spotlight).toHaveAttribute('data-item-id', slow.id);
+      await expect(backdrop).toHaveAttribute('src', slow.src);
+      await expect(backdrop).toHaveCSS('animation-name', 'none');
+    } finally {
+      gate.resolve();
+    }
+  });
+
+  await scenario('cinematic-detail', async page => {
+    const core = await asset('jellytv-core.css');
+    await page.route('**/Branding/Css*', route => route.fulfill({ contentType: 'text/css', body: core }));
+    await page.route('**/Branding/Configuration*', route => route.fulfill({ json: { CustomCss: core, SplashscreenEnabled: false } }));
+    await start(page);
+    await mounted(page);
+    await page.locator(`${hero} [data-focus-key="info"]`).click();
+    const detail = page.locator('#itemDetailPage:visible');
+    await expect(detail.locator('.detailPageWrapperContainer')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await expect(page.locator('.backdropContainer .backdropImage.displayingBackdropImage')).toHaveCSS('mask-image', /linear-gradient/);
+    await expect(detail.locator('.mainDetailButtons')).toBeVisible();
+    await expect(detail.locator('.overview')).toBeVisible();
+    await page.goBack();
+    await mounted(page);
+    await expect(page.locator(`${hero} [data-focus-key="info"]`)).toBeFocused();
+  });
 } catch (error) {
   console.error(error.message.replace(/\b[0-9a-f]{32,}\b/gi, '<id>').split('\n').slice(0, 12).join('\n'));
   process.exitCode = 1;

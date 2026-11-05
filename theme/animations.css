@@ -2,18 +2,17 @@
 body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root, .listItem, .card .cardBox) {
   transition:
     transform var(--transition-fast) var(--easing-standard),
-    background-color var(--transition-normal) ease,
-    color var(--transition-normal) ease,
-    box-shadow var(--transition-normal) ease;
+    background-color var(--transition-fast) var(--ease-standard),
+    color var(--transition-fast) var(--ease-standard);
 }
 
 body:not(.dashboardDocument) .card .cardOverlayContainer {
-  transition: opacity var(--transition-normal) ease;
+  transition: opacity var(--transition-normal) var(--ease-enter);
 }
 
 @media (hover: hover) and (pointer: fine) {
   html:not(.layout-tv) body:not(.dashboardDocument) .card:hover .cardBox {
-    transform: translateY(-0.1875rem) scale(1.025);
+    transform: translateY(var(--motion-lift)) scale(1.018);
     box-shadow: var(--shadow-card);
   }
 
@@ -33,7 +32,27 @@ body:not(.dashboardDocument) .card .cardOverlayContainer {
 }
 
 body:not(.dashboardDocument) :where(.emby-button, .paper-icon-button-light, .MuiButton-root, .MuiIconButton-root):active:not(:disabled) {
-  transform: scale(0.97);
+  transform: scale(var(--motion-press-scale));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Entry belongs to the visible title; the native page and focus manager
+     keep ownership of navigation, Back and view visibility. */
+  body:not(.dashboardDocument) #itemDetailPage:not(.hide, [hidden]) .nameContainer {
+    animation: jellytv-detail-title var(--motion-normal) var(--ease-enter) both;
+  }
+}
+
+@keyframes jellytv-detail-title {
+  from {
+    opacity: 0.82;
+    transform: translateY(var(--motion-enter-offset));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 body:not(.dashboardDocument) .card:active .cardBox {

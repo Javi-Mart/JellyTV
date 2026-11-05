@@ -1,4 +1,5 @@
 import { locale, metadata, progress, resumeTicks, secondaryArtwork, text } from './model.mjs';
+import { favoriteState, icon, timing } from './controls.mjs';
 
 function element(tag, className, content) {
   const node = document.createElement(tag);
@@ -12,28 +13,6 @@ function button(label, content, className = '') {
   node.type = 'button';
   node.setAttribute('aria-label', label);
   return node;
-}
-
-const paths = {
-  play: 'M8 5v14l11-7z',
-  info: 'M12 8h.01M12 11v6M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z',
-  heart: 'M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z',
-  left: 'm15 5-7 7 7 7', right: 'm9 5 7 7-7 7'
-};
-function icon(name) {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('viewBox', '0 0 24 24');
-  svg.setAttribute('aria-hidden', 'true');
-  svg.setAttribute('focusable', 'false');
-  const path = document.createElementNS(svg.namespaceURI, 'path');
-  path.setAttribute('d', paths[name]);
-  path.setAttribute('fill', name === 'play' ? 'currentColor' : 'none');
-  path.setAttribute('stroke', 'currentColor');
-  path.setAttribute('stroke-width', '1.8');
-  path.setAttribute('stroke-linecap', 'round');
-  path.setAttribute('stroke-linejoin', 'round');
-  svg.append(path);
-  return svg;
 }
 
 /** Owns only its root, listeners, timer and requests. Never modifies Jellyfin overlays. */
@@ -64,6 +43,8 @@ export class Hero {
     this.logo = element('img', 'jellytv-hero__logo');
     this.logo.alt = ''; this.logo.hidden = true;
     this.heading = element('h2', 'jellytv-hero__title');
+    this.identity = element('div', 'jellytv-hero__identity');
+    this.identity.append(this.kicker, this.logo, this.heading);
     this.meta = element('p', 'jellytv-hero__meta');
     this.description = element('p', 'jellytv-hero__description');
     this.actions = element('div', 'jellytv-hero__actions focuscontainer-x');
@@ -72,7 +53,7 @@ export class Hero {
     this.play.append(icon('play'), this.playLabel);
     this.info = button(this.labels.info, '', 'jellytv-button--secondary');
     this.info.append(icon('info'), element('span', '', this.labels.info));
-    this.favorite = button(this.labels.favorite, '', 'jellytv-button--icon');
+    this.favorite = button(this.labels.favorite, '', 'jellytv-button--icon jellytv-button--favorite');
     this.favorite.append(icon('heart'));
     this.actions.append(this.play, this.info, this.favorite);
     for (const [key, node] of Object.entries({ play: this.play, info: this.info, favorite: this.favorite })) node.dataset.focusKey = key;
@@ -82,7 +63,7 @@ export class Hero {
     this.status = element('p', 'jellytv-hero__status');
     this.status.setAttribute('role', 'status');
     this.status.setAttribute('aria-live', 'polite');
-    this.body.append(this.kicker, this.logo, this.heading, this.meta, this.description, this.actions, this.bar, this.status);
+    this.body.append(this.identity, this.meta, this.description, this.actions, this.bar, this.status);
     this.root.append(this.body);
     this.navigation = element('div', 'jellytv-hero__navigation focuscontainer-x');
     this.rotate = button(this.labels.rotate, '▷', 'jellytv-button--icon');
@@ -111,8 +92,8 @@ export class Hero {
     this.root.append(this.navigation);
     this.navigation.hidden = items.length < 2;
     this.rotate.hidden = items.length < 2;
-    this.on(this.previous, 'click', () => { this.pause(); this.show(this.index - 1); });
-    this.on(this.next, 'click', () => { this.pause(); this.show(this.index + 1); });
+    this.on(this.previous, 'click', () => { this.pause(); this.show(this.selection - 1); });
+    this.on(this.next, 'click', () => { this.pause(); this.show(this.selection + 1); });
     this.on(this.rotate, 'click', () => {
       if (this.rotating) this.pause();
       else if (!this.reduced.matches) { this.rotating = true; this.updateRotation(); this.schedule(); }
@@ -123,7 +104,10 @@ export class Hero {
     });
     this.on(this.root, 'pointerenter', event => { if (event.pointerType === 'mouse') this.pause(); });
     this.on(document, 'visibilitychange', () => { if (document.hidden) this.pause(); });
-    this.on(this.reduced, 'change', () => { if (this.reduced.matches) this.pause(); this.updateRotation(); });
+    this.on(this.reduced, 'change', () => {
+      if (this.reduced.matches) { this.pause(); this.identityMotion?.cancel(); }
+      this.updateRotation();
+    });
     this.on(this.root, 'pointerdown', event => {
       this.pause();
       // TV scrollManager centers focused controls. Defer mouse focus until click,
@@ -140,7 +124,7 @@ export class Hero {
       if (!this.touch) return;
       const dx = event.clientX - this.touch.x, dy = event.clientY - this.touch.y;
       this.touch = null;
-      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) this.show(this.index + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) this.show(this.selection + (dx < 0 ? 1 : -1));
     });
     this.on(this.root, 'pointercancel', () => { this.touch = null; });
     this.on(this.root, 'keydown', event => {
@@ -148,8 +132,8 @@ export class Hero {
       if (document.documentElement.classList.contains('layout-tv') || !this.dots.contains(event.target)) return;
       if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
         event.preventDefault(); event.stopPropagation(); this.pause();
-        const index = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : this.index + (event.key === 'ArrowLeft' ? -1 : 1);
-        this.show(index); this.dotButtons[this.index].focus();
+        const index = event.key === 'Home' ? 0 : event.key === 'End' ? items.length - 1 : this.selection + (event.key === 'ArrowLeft' ? -1 : 1);
+        this.show(index); this.dotButtons[this.selection].focus();
       }
     });
     this.on(this.play, 'click', () => this.action(this.play, item => adapter.play(session, item, signal)));
@@ -163,7 +147,7 @@ export class Hero {
     this.on(adapter.userData, 'change', event => {
       if (event.detail.key !== session.key || signal.aborted) return;
       const item = this.items.find(item => item.Id === event.detail.id);
-      if (item) { item.UserData = { ...item.UserData, ...event.detail.userData }; this.updateFavorite(); }
+      if (item) { item.UserData = { ...item.UserData, ...event.detail.userData }; this.updateFavorite(true); }
     });
     host.prepend(this.root);
     this.show(0);
@@ -174,7 +158,9 @@ export class Hero {
 
   async action(control, task) {
     if (this.busy || this.signal.aborted) return;
-    this.pause(); this.busy = true; control.disabled = true;
+    this.pause();
+    if (this.selection !== this.index) this.show(this.index);
+    this.busy = true; control.disabled = true;
     control.setAttribute('aria-busy', 'true'); this.status.textContent = '';
     const item = this.items[this.index];
     try { await task(item); }
@@ -185,16 +171,54 @@ export class Hero {
     }
   }
 
-  updateFavorite() {
-    const active = Boolean(this.items[this.index].UserData?.IsFavorite);
-    this.favorite.setAttribute('aria-pressed', String(active));
-    this.favorite.setAttribute('aria-label', active ? this.labels.unfavorite : this.labels.favorite);
+  updateFavorite(animate = false) {
+    favoriteState(this.favorite, Boolean(this.items[this.index].UserData?.IsFavorite), this.labels, animate);
   }
 
   show(index) {
     if (this.busy || this.signal.aborted) return;
-    this.index = (index + this.items.length) % this.items.length;
-    const item = this.items[this.index];
+    const next = (index + this.items.length) % this.items.length;
+    if (next === this.selection) return;
+    this.dotButtons[this.selection]?.removeAttribute('data-pending');
+    this.selection = next;
+    const generation = ++this.imageGeneration;
+    const staged = this.images.find(image => image !== this.activeBackdrop);
+    staged.onload = null;
+    staged.onerror = null;
+    if (!this.root.dataset.itemId) this.renderItem(next);
+    if (next === this.artworkIndex) {
+      if (!staged.complete) staged.removeAttribute('src');
+      this.schedule();
+      return;
+    }
+    const item = this.items[next];
+    const width = Math.min(3840, Math.ceil(this.root.clientWidth * Math.min(window.devicePixelRatio || 1, 2) / 320) * 320);
+    const url = this.adapter.image(this.session, item, 'Backdrop', width);
+    const commit = image => {
+      if (generation !== this.imageGeneration || this.signal.aborted) return;
+      this.dotButtons[next].removeAttribute('data-pending');
+      if (this.index !== next) this.renderItem(next);
+      this.renderArtwork(next, image);
+      this.schedule();
+    };
+    if (!url) {
+      if (!staged.complete) staged.removeAttribute('src');
+      commit(null);
+      return;
+    }
+    this.dotButtons[next].setAttribute('data-pending', '');
+    staged.onload = () => {
+      if (staged.getAttribute('src') === url && staged.complete && staged.naturalWidth) commit(staged);
+    };
+    staged.onerror = () => { if (staged.getAttribute('src') === url) commit(null); };
+    if (staged.getAttribute('src') !== url) staged.src = url;
+    else if (staged.complete) commit(staged.naturalWidth ? staged : null);
+    this.schedule();
+  }
+
+  renderItem(index) {
+    this.index = index;
+    const item = this.items[index];
     this.root.dataset.itemId = item.Id;
     this.heading.textContent = text(item.Name, 200);
     this.heading.classList.remove('jellytv-visually-hidden');
@@ -210,45 +234,50 @@ export class Hero {
     this.updateFavorite();
     this.status.textContent = '';
     this.dotButtons.forEach((dot, position) => {
-      dot.setAttribute('aria-current', String(position === this.index));
-      dot.tabIndex = position === this.index ? 0 : -1;
+      dot.setAttribute('aria-current', String(position === index));
+      dot.tabIndex = position === index ? 0 : -1;
     });
-    const generation = ++this.imageGeneration;
-    const width = Math.min(3840, Math.ceil(this.root.clientWidth * Math.min(window.devicePixelRatio || 1, 2) / 320) * 320);
-    const backdropUrl = this.adapter.image(this.session, item, 'Backdrop', width);
-    this.root.classList.toggle('jellytv-hero--without-backdrop', !backdropUrl);
-    const role = !backdropUrl && secondaryArtwork(item);
-    this.secondary.hidden = true;
-    if (role) {
-      this.secondary.dataset.artworkRole = role;
-      this.secondary.onload = () => { if (generation === this.imageGeneration && !this.signal.aborted) this.secondary.hidden = false; };
-      this.secondary.onerror = () => { if (generation === this.imageGeneration) this.secondary.hidden = true; };
-      this.secondary.src = this.adapter.image(this.session, item, role, 640);
-    } else this.secondary.removeAttribute('src');
-    const nextImage = this.images[generation % 2];
-    const oldImage = this.images[(generation + 1) % 2];
-    nextImage.classList.remove('is-visible');
-    if (backdropUrl) {
-      nextImage.onload = () => {
-        if (generation !== this.imageGeneration || this.signal.aborted) return;
-        nextImage.classList.add('is-visible'); oldImage.classList.remove('is-visible');
-      };
-      nextImage.onerror = () => { if (generation === this.imageGeneration) this.images.forEach(image => image.classList.remove('is-visible')); };
-      nextImage.src = backdropUrl;
-    } else this.images.forEach(image => image.classList.remove('is-visible'));
     const logoUrl = this.adapter.image(this.session, item, 'Logo', 640);
+    const current = () => this.index === index && !this.signal.aborted;
     if (logoUrl) {
       this.logo.onload = () => {
-        if (generation !== this.imageGeneration || this.signal.aborted) return;
+        if (!current() || !this.logo.complete || !this.logo.naturalWidth) return;
         this.logo.hidden = false; this.heading.classList.add('jellytv-visually-hidden');
       };
       this.logo.onerror = () => {
-        if (generation !== this.imageGeneration || this.signal.aborted) return;
+        if (!current()) return;
         this.logo.hidden = true; this.heading.classList.remove('jellytv-visually-hidden');
       };
       this.logo.src = logoUrl;
     } else this.logo.removeAttribute('src');
-    this.schedule();
+    this.identityMotion?.cancel();
+    if (!this.reduced.matches && this.identity.animate) {
+      const style = getComputedStyle(this.root);
+      this.identityMotion = this.identity.animate([
+        { opacity: 0.72, transform: `translateY(${style.getPropertyValue('--motion-enter-offset').trim()})` },
+        { opacity: 1, transform: 'none' }
+      ], timing(style, '--motion-normal', '--ease-enter'));
+    }
+  }
+
+  renderArtwork(index, image) {
+    // A single commit swaps artwork and metadata. The old image never remains
+    // underneath the new title while a slow replacement is downloading.
+    this.artworkIndex = index;
+    this.activeBackdrop = image;
+    this.images.forEach(backdrop => backdrop.classList.toggle('is-visible', backdrop === image));
+    this.root.classList.toggle('jellytv-hero--without-backdrop', !image);
+    const item = this.items[index];
+    const role = !image && secondaryArtwork(item);
+    this.secondary.hidden = true;
+    if (role) {
+      this.secondary.dataset.artworkRole = role;
+      this.secondary.onload = () => {
+        if (this.index === index && !this.signal.aborted && this.secondary.complete && this.secondary.naturalWidth) this.secondary.hidden = false;
+      };
+      this.secondary.onerror = () => { this.secondary.hidden = true; };
+      this.secondary.src = this.adapter.image(this.session, item, role, 640);
+    } else this.secondary.removeAttribute('src');
   }
 
   schedule() {
@@ -256,7 +285,7 @@ export class Hero {
     if (!this.rotating || this.reduced.matches || this.signal.aborted || document.hidden || this.items.length < 2) return;
     this.timer = setTimeout(() => {
       if (!this.root.isConnected || this.root.closest('[hidden], .hide') || document.querySelector('.dialog.opened, .MuiDialog-root')) { this.pause(); return; }
-      this.show(this.index + 1);
+      this.show(this.selection + 1);
     }, this.interval);
   }
 
@@ -270,6 +299,7 @@ export class Hero {
 
   destroy() {
     this.pause(); this.controller.abort(); this.imageGeneration++;
+    this.identityMotion?.cancel();
     [...this.images, this.logo, this.secondary].forEach(image => { image.onload = null; image.onerror = null; image.removeAttribute('src'); });
     this.root.remove();
   }

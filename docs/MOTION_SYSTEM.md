@@ -1,22 +1,26 @@
-# Sistema de movimiento — revisión web
+# Sistema de movimiento Web
 
-Especificación implementada en el candidato1.1.0-dev.0. Los tiempos siguen pendientes de evaluación perceptual y medición en el build final; no representan resultados de rendimiento.
+Core y Enhanced incluyen el mismo archivo de tokens. CSS y Web Animations usan esas duraciones y curvas.
 
-| Token | Valor inicial | Uso |
+| Token | Valor | Uso |
 |---|---:|---|
-| `--motion-instant` | 80ms | Confirmación discreta de estado |
-| `--motion-fast` | 140ms | Botones, pressed, iconos |
-| `--motion-normal` | 200ms | Card/foco y menús |
-| `--motion-slow` | 600ms | Fondo del hero |
-| `--ease-standard` | cubic-bezier(.2,0,0,1) | Cambios de estado |
-| `--ease-emphasized` | cubic-bezier(.2,.8,.2,1) | Elevación contextual |
-| `--ease-enter` | cubic-bezier(0,0,.2,1) | Aparición |
-| `--ease-exit` | cubic-bezier(.4,0,1,1) | Salida |
+| `--motion-instant` | 80 ms | Feedback inmediato disponible para estados |
+| `--motion-fast` | 140 ms | Presión, relleno del icono y salida de preview |
+| `--motion-normal` | 210 ms | Entrada de identidad, preview y foco contextual |
+| `--motion-select` | 280 ms | Desplazamiento del carrusel y confirmación de Favoritos |
+| `--motion-slow` | 420 ms | Entrada del backdrop preparado |
+| `--ease-standard` | `cubic-bezier(.2,0,0,1)` | Estado de color, relleno y borde |
+| `--ease-enter` | `cubic-bezier(.16,1,.3,1)` | Aparición de artwork y texto |
+| `--ease-exit` | `cubic-bezier(.4,0,1,1)` | Salida breve del portal |
+| `--ease-emphasized` | `cubic-bezier(.2,.78,.25,1)` | Desaceleración del carrusel |
+| `--ease-tactile` | `cubic-bezier(.2,.8,.3,1.15)` | Presión y pulso corto |
 
-Hover intencional: aproximadamente300ms, cancelado al salir/scroll/navegar. Foco TV: contorno inmediato y escala pequeña; contexto tras unos650ms, cancelado por movimiento rápido. La expansión contextual usa transform/opacity en una capa independiente: no animar ancho/alto de la fila ni reservar espacio invisible. Sin observers globales permanentes ni polling.
+Los desplazamientos se limitan a 2 px en elevación y 5 px en entrada. La presión escala a 0.97. El pulso de confirmación escala el corazón hasta 1.12, mientras el botón conserva su geometría. La sombra señala elevación sin animar un desenfoque grande.
 
-La gracia de120ms solo se aplica para pasar de una card a un portal ya abierto; salir antes de la intención cancela de inmediato timer/request. Escape restaura el foco sin programar otra apertura. En escritorio, Alt+ArrowDown lleva a las acciones de la preview; se muestra una ayuda y se retiran sus atributos ARIA al cerrar. TV muestra contexto sin apropiarse del foco; móvil con puntero grueso no abre previews. Interacciones preparadas en `vnext-enhanced.mjs`, ejecución pendiente.
+El Hero conserva el título activo mientras descarga el backdrop siguiente. Al llegar la imagen, cambia el conjunto de artwork y metadata en la misma operación. La imagen nueva entra desde 74 % de opacidad sobre la superficie del Hero. Un fallo muestra el título correcto con la reserva de arte correspondiente. La rotación sigue siendo voluntaria. La generación anterior se descarta cuando cambia la selección o se desmonta el Hero.
 
-Hero: crossfade de backdrop, lectura estable, CTA no cambia de posición. No rotar durante interacción, foco o pestaña oculta. Favorite: pressed, estado pendiente y confirmación real del servidor; no fingir éxito. Page transition: respetar router/transición nativa, sin agregar espera a Back ni superponer vistas abandonadas.
+El carrusel expande el ancho final de la tarjeta una sola vez y anima las posiciones con `transform`. Las capas de artwork usan una única transición de opacidad. La fila nativa y el panel conservan su posición vertical. El portal de preview abre tras unos 300 ms de intención con ratón o 650 ms de foco en TV. Los 120 ms de gracia se reservan al recorrido entre tarjeta y portal. Scroll, Escape y navegación retiran el portal inmediatamente.
 
-`prefers-reduced-motion: reduce`: expansión/crossfade/traslación se vuelven cambios inmediatos; se conservan foco, contorno, texto y confirmación. El modo no elimina funcionalidad. Móvil no simula hover. No declarar60FPS sin medición; comparar frames, layout shift, peticiones y listeners con baseline.
+Favoritos mantiene el estado anterior durante la petición. El cambio de `aria-pressed`, relleno y color se produce tras la confirmación de Jellyfin. El Hero, el carrusel y la preview comparten el estado confirmado. Si falla, se conserva el estado previo y se anuncia el error.
+
+Las transiciones de ruta siguen a cargo de Jellyfin. Core anima discretamente el título de la ficha visible sin cambiar su capa de navegación ni retrasar Back. Con `prefers-reduced-motion: reduce` se mantienen foco, indicadores y formas de estado. Las entradas, traslaciones y pulsos se suprimen.

@@ -1,5 +1,13 @@
 # Cambios
 
+## 1.1.0-dev.3
+
+- Fichas Web 10.10.6 con fundido continuo en los backdrops compartidos de escritorio y los backdrops inline del modo móvil. Los detalles técnicos y las etiquetas quedan en una jerarquía secundaria.
+- Hero con arte más visible, una posición estable para el título y sus acciones, y un cambio coordinado de backdrop y metadata cuando llega la nueva imagen.
+- Corazón relleno y confirmación de Favoritos coherentes entre Hero, carrusel y preview. La interfaz espera el resultado de Jellyfin antes de cambiar el estado.
+- Tokens de movimiento comunes, transiciones del carrusel sin dos animaciones sobre la misma imagen y ajustes táctiles y de movimiento reducido.
+- La navegación Web de dev.2 sigue cubierta por regresiones con varias instancias Home. [Diseño](docs/DESIGN_SYSTEM.md) · [Movimiento](docs/MOTION_SYSTEM.md) · [Pruebas](docs/TESTING.md)
+
 ## 1.1.0-dev.2
 
 - Corrige la desaparición del hero y del carrusel al volver de Películas o de una ficha. Enhanced identifica el Inicio visible cuando Jellyfin conserva varias vistas con los mismos IDs.

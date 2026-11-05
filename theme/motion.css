@@ -1,0 +1,29 @@
+/* Shared by Core and standalone Enhanced. Time tokens use milliseconds. */
+:root {
+  --motion-instant: 80ms;
+  --motion-fast: 140ms;
+  --motion-normal: 210ms;
+  --motion-select: 280ms;
+  --motion-slow: 420ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.78, 0.25, 1);
+  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-tactile: cubic-bezier(0.2, 0.8, 0.3, 1.15);
+  --motion-lift: -2px;
+  --motion-enter-offset: 5px;
+  --motion-press-scale: 0.97;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-instant: 0ms;
+    --motion-fast: 0ms;
+    --motion-normal: 0ms;
+    --motion-select: 0ms;
+    --motion-slow: 0ms;
+    --motion-lift: 0px;
+    --motion-enter-offset: 0px;
+    --motion-press-scale: 1;
+  }
+}

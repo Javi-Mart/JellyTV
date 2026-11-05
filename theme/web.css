@@ -35,6 +35,10 @@ body:not(.dashboardDocument) .headerTabs {
   padding-block: var(--spacing-1);
 }
 
+body:not(.dashboardDocument) :where(.headerTabs .emby-tab-button, .MuiTab-root) {
+  transition: color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard);
+}
+
 body:not(.dashboardDocument) :where(.mainDrawer, .MuiDrawer-paper) {
   color: var(--color-text-primary);
   background-color: var(--color-surface);
@@ -233,6 +237,12 @@ body:not(.dashboardDocument) #searchTextInput {
   border-radius: var(--radius-medium);
   color: var(--color-text-primary);
   padding-inline: var(--spacing-4);
+  transition: border-color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard);
+}
+
+body:not(.dashboardDocument) #searchTextInput:focus-visible {
+  border-color: var(--color-focus);
+  background-color: var(--color-surface-elevated);
 }
 
 body:not(.dashboardDocument) #loginPage {

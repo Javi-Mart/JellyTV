@@ -34,6 +34,20 @@ sha256sum --check jellytv-enhanced-1.1.0-dev.2.zip.sha256 &&
 
 Después de revisar la simulación, repite `update` sin `--dry-run` y comprueba que `sudo jellytv status` indique dev.2 con integridad correcta. Abre Inicio y prueba la navegación. `sudo jellytv rollback` restaura dev.1 cuando esa es la generación anterior. El PYZ de dev.2 sirve para la primera instalación.
 
+## Actualizar desde 1.1.0-dev.2
+
+Coloca el ZIP de Enhanced dev.3 y su checksum en la misma carpeta del host. Comprueba que dev.2 figure instalado, con integridad correcta y sin recuperación pendiente.
+
+```sh
+sudo jellytv status
+sha256sum --check jellytv-enhanced-1.1.0-dev.3.zip.sha256 &&
+  sudo jellytv update --bundle ./jellytv-enhanced-1.1.0-dev.3.zip --allow-development --dry-run
+```
+
+Tras revisar la simulación, repite `update` sin `--dry-run`. Comprueba la versión y la integridad con `sudo jellytv status`. `sudo jellytv rollback` recupera dev.2 si era la generación anterior. Usa el PYZ para una instalación inicial.
+
+Para aplicar el fundido de la ficha, guarda por separado tu CSS de marca actual y aplica `dist/jellytv-core.css` de dev.3. El rollback de Enhanced restaura sus archivos Web. Si también actualizaste Core, restaura su CSS anterior en el panel de Jellyfin.
+
 ## Estado y recuperación
 
 Se gestionan dos recursos Enhanced, `config.json`, `index.html` y un marcador. El estado y el journal se guardan en `/var/lib/jellytv`. El directorio debe pertenecer al usuario que ejecuta la herramienta, con modo 700, y sus padres deben tener propietarios de confianza y permisos que impidan escritura compartida.

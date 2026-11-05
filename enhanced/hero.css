@@ -1,6 +1,7 @@
 .jellytv-hero {
   --hero-ink: var(--color-text-primary, #f5f7fa);
-  --hero-muted: var(--color-text-secondary, #b6bdc7);
+  --hero-muted: #d2d9e2;
+  --hero-title-slot: clamp(6.5rem, 10vw, 8.5rem);
 
   position: relative;
   isolation: isolate;
@@ -11,13 +12,14 @@
   max-width: var(--content-max-width, 120rem);
   min-height: var(--hero-height, clamp(32rem, 66vh, 56rem));
   margin-inline: auto;
-  margin-block: 0 var(--spacing-5, 1.5rem);
+  margin-block: 0 var(--spacing-6, 2rem);
   overflow: hidden;
   border-radius: var(--radius-large, 1.375rem);
-  background: radial-gradient(ellipse at 75% 10%, #263746, #0b1017 65%);
+  background: radial-gradient(ellipse at 76% 0%, #30404d, #10161e 48%, #090b0e 88%);
   color: var(--hero-ink);
   text-align: start;
-  border: 1px solid var(--color-divider, rgb(224 235 250 / 12%));
+  border: 1px solid rgb(224 235 250 / 13%);
+  border-block-end-color: rgb(224 235 250 / 7%);
 
   /* Keep vertical page scrolling and pinch zoom; horizontal gestures belong to the carousel. */
   touch-action: pan-y pinch-zoom;
@@ -50,55 +52,81 @@
   object-fit: cover;
   object-position: center 32%;
   opacity: 0;
-  transition: opacity var(--motion-slow, 600ms) var(--ease-standard, ease);
 }
 
-.jellytv-hero__backdrop.is-visible { opacity: 1; }
+.jellytv-hero__backdrop.is-visible {
+  opacity: 1;
+  animation: jellytv-art-arrive var(--motion-slow) var(--ease-enter);
+}
+
+@keyframes jellytv-art-arrive {
+  from { opacity: 0.74; }
+  to { opacity: 1; }
+}
 
 .jellytv-hero__shade {
   background:
-    linear-gradient(0deg, #080a0e 1%, rgb(8 10 14 / 60%) 28%, transparent 75%),
-    linear-gradient(90deg, rgb(8 10 14 / 94%), rgb(8 10 14 / 79%) 26%, rgb(8 10 14 / 20%) 72%, rgb(8 10 14 / 12%));
+    linear-gradient(0deg, #090b0e 1%, rgb(9 11 14 / 80%) 15%, rgb(9 11 14 / 27%) 49%, transparent 78%),
+    linear-gradient(90deg, rgb(9 11 14 / 94%), rgb(9 11 14 / 82%) 30%, rgb(9 11 14 / 29%) 61%, rgb(9 11 14 / 5%) 83%);
 }
 
 .jellytv-hero__body {
   align-self: end;
   box-sizing: border-box;
-  width: min(100%, 47rem);
-  padding: clamp(1.5rem, 4.5vw, 5rem);
+  width: min(100%, 45rem);
+  padding: clamp(1.5rem, 4vw, 4.75rem);
   padding-block-end: 1rem;
 }
 
 .jellytv-hero__eyebrow {
-  margin: 0 0 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 0.7rem;
   color: var(--hero-muted);
   font-size: 0.75rem;
   font-weight: 650;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.jellytv-hero__eyebrow::before {
+  content: "";
+  inline-size: 1.15rem;
+  block-size: 1px;
+  background: var(--color-accent, #d8eaff);
+}
+
+.jellytv-hero__identity {
+  position: relative;
+  display: grid;
+  align-content: end;
+  block-size: var(--hero-title-slot);
+  min-inline-size: 0;
+  margin-block-end: 0.85rem;
 }
 
 .jellytv-hero__title {
   display: -webkit-box;
-  margin: 0 0 1.25rem;
-  font-size: clamp(2.1rem, 3.8vw, 4.75rem);
+  margin: 0;
+  font-size: clamp(2.1rem, 3.4vw, 4rem);
   font-weight: 750;
   line-height: 1.04;
   letter-spacing: -0.035em;
   overflow-wrap: anywhere;
   text-wrap: balance;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
 .jellytv-hero__logo {
   display: block;
   max-width: min(100%, 25rem);
-  max-height: 8rem;
-  margin-block-end: 1.4rem;
+  max-height: calc(var(--hero-title-slot) - 1.8rem);
   object-fit: contain;
   object-position: left bottom;
+  filter: drop-shadow(0 0 1px rgb(235 244 255 / 45%)) drop-shadow(0 2px 3px rgb(0 0 0 / 55%));
 }
 
 .jellytv-hero__meta {
@@ -132,6 +160,9 @@
 .jellytv-hero__actions { flex-wrap: wrap; }
 
 .jellytv-button {
+  --action-surface: #222932;
+  --action-hover: #333d49;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -139,14 +170,18 @@
   min-width: max(2.75rem, 44px);
   min-height: max(2.75rem, 44px);
   padding: 0.75rem 1.25rem;
-  border: 1px solid rgb(255 255 255 / 24%);
+  border: 1px solid rgb(226 235 248 / 19%);
   border-radius: var(--radius-pill, 100rem);
-  background: #242a33;
+  background: var(--action-surface);
   color: #f5f7fa;
   font: 600 1rem/1.3 system-ui, sans-serif;
   cursor: pointer;
   gap: 0.55rem;
-  transition: transform var(--transition-fast, 120ms) ease, background-color var(--transition-fast, 120ms) ease;
+  transition:
+    transform var(--motion-fast) var(--ease-tactile),
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
 }
 
 .jellytv-button svg {
@@ -156,25 +191,46 @@
 }
 
 .jellytv-button--primary {
+  --action-surface: #f5f7fa;
+  --action-hover: #fff;
+
   min-width: 9rem;
   border-color: transparent;
-  background: #f5f7fa;
   color: #080a0e;
+  box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 25%);
 }
-.jellytv-button--secondary { background: rgb(30 36 44 / 94%); }
+.jellytv-button--secondary { --action-surface: #202730; }
 
 .jellytv-button--icon {
   width: 3rem;
   padding: 0.75rem;
   border-radius: 50%;
 }
-.jellytv-button:active:not(:disabled) { transform: scale(0.97); }
-.jellytv-button[aria-pressed="true"] { border-color: var(--color-focus, #c5e7ff); }
-.jellytv-button[aria-pressed="true"] svg { fill: currentcolor; }
+.jellytv-button:active:not(:disabled) { transform: scale(var(--motion-press-scale)); }
+
+.jellytv-button--favorite[aria-pressed="true"] {
+  --action-surface: var(--color-favorite-surface, #38222e);
+  --action-hover: #4a2d3d;
+
+  color: var(--color-favorite, #ffc0ce);
+  border-color: rgb(255 192 206 / 52%);
+}
+
+.jellytv-heart path {
+  fill: transparent;
+  transition: fill var(--motion-fast) var(--ease-standard);
+}
+
+.jellytv-button--favorite[aria-pressed="true"] .jellytv-heart path { fill: currentcolor; }
 
 .jellytv-button:disabled {
   opacity: 0.55;
   cursor: default;
+}
+
+.jellytv-button[aria-busy="true"] {
+  cursor: progress;
+  opacity: 0.74;
 }
 
 .jellytv-button:focus-visible,
@@ -192,6 +248,8 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0;
+  border-radius: var(--radius-pill, 100rem);
+  background: rgb(9 11 14 / 46%);
 }
 
 .jellytv-hero__dot {
@@ -206,7 +264,12 @@
   height: 0.35rem;
   border-radius: 1rem;
   background: #7d8794;
-  transition: transform var(--motion-normal, 200ms) var(--ease-standard, ease);
+  transition: transform var(--motion-normal) var(--ease-emphasized), background-color var(--motion-fast) var(--ease-standard);
+}
+
+.jellytv-hero__dot[data-pending] span {
+  outline: 1px solid #d8eaff;
+  outline-offset: 3px;
 }
 
 .jellytv-hero__dot[aria-current="true"] span {
@@ -294,6 +357,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  padding-block-start: 0.6rem;
+  border-block-start: 1px solid var(--color-divider, rgb(224 235 250 / 12%));
 }
 
 .jellytv-preview__actions .jellytv-button {
@@ -313,8 +378,8 @@
 
 @keyframes jellytv-preview-enter {
   from {
-    opacity: 0;
-    transform: translateY(4px) scale(0.98);
+    opacity: 0.4;
+    transform: translateY(var(--motion-enter-offset)) scale(0.985);
   }
 
   to {
@@ -349,26 +414,26 @@
 
 @media (hover: hover) and (pointer: fine) {
   .jellytv-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-  background: #394452;
-}
-  .jellytv-button--primary:hover:not(:disabled) { background: #fff; }
+    background: var(--action-hover);
+  }
   .jellytv-hero__dot:hover { background: transparent; }
 }
 
 @media (width <= 900px) {
   .jellytv-hero { min-height: 34rem; }
   .jellytv-hero__body { width: min(100%, 39rem); }
-  .jellytv-hero__shade { background: linear-gradient(0deg, #080a0e 2%, rgb(8 10 14 / 92%) 30%, rgb(8 10 14 / 76%) 80%, rgb(8 10 14 / 38%) 100%); }
+  .jellytv-hero__shade { background: linear-gradient(0deg, #090b0e 2%, rgb(9 11 14 / 89%) 32%, rgb(9 11 14 / 51%) 68%, rgb(9 11 14 / 16%) 100%); }
 }
 
 @media (width <= 599px) {
   .jellytv-hero {
-  min-height: 35rem;
-  margin-block-end: 0.5rem;
-  border-radius: var(--radius-medium, 0.875rem);
-}
-  .jellytv-hero__body { padding: 8rem 1.25rem 0.25rem; }
+    --hero-title-slot: 5.5rem;
+
+    min-height: 32rem;
+    margin-block-end: 1rem;
+    border-radius: var(--radius-medium, 0.875rem);
+  }
+  .jellytv-hero__body { padding: clamp(7rem, 35vw, 11rem) max(1rem, env(safe-area-inset-right)) 0.25rem max(1rem, env(safe-area-inset-left)); }
 
   .jellytv-hero__secondary {
     top: 1rem;
@@ -377,8 +442,6 @@
     width: 6rem;
     height: 8rem;
   }
-
-  .jellytv-hero--without-backdrop .jellytv-hero__body { padding-top: 10rem; }
 
   .jellytv-hero__backdrop {
   object-position: 60% top;
@@ -422,7 +485,24 @@
 }
 }
 
-.layout-tv .jellytv-hero { min-height: 65vh; }
+@media (width <= 599px) and (pointer: coarse) {
+  /* All six direct selectors fit at 320px with 44px targets. Swipe and
+     keyboard arrows still use the same underlying selection. */
+  .jellytv-hero__navigation > .jellytv-button { display: none; }
+}
+
+@media (width <= 410px) and (pointer: fine) {
+  .jellytv-hero__dots {
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+  }
+}
+
+.layout-tv .jellytv-hero {
+  --hero-title-slot: clamp(8.5rem, 12vw, 14rem);
+
+  min-height: 65vh;
+}
 
 .layout-tv .jellytv-hero__body {
   width: min(62%, 60rem);
@@ -461,7 +541,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .jellytv-hero *, .jellytv-button { transition: none; }
+  .jellytv-hero *, .jellytv-button, .jellytv-heart path { transition: none; }
+  .jellytv-hero__backdrop.is-visible { animation: none; }
   .jellytv-button:hover, .jellytv-button:active { transform: none; }
 }
 

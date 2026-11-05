@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-block-end: 0.75rem;
+  margin-block-end: 0.9rem;
 }
 
 .jellytv-carousel__heading {
@@ -83,8 +83,8 @@
 
 .jellytv-carousel__card.is-active {
   flex-basis: var(--carousel-active-width);
-  border-color: var(--color-focus, #c5e7ff);
-  box-shadow: 0 0 0 1px var(--color-focus, #c5e7ff);
+  border-color: #f0f4fa;
+  box-shadow: 0 0 0 1px rgb(240 244 250 / 74%);
 }
 
 .jellytv-carousel__card:focus-visible,
@@ -109,7 +109,7 @@
 .jellytv-carousel__landscape {
   object-fit: cover;
   opacity: 0;
-  transition: opacity var(--motion-normal, 200ms) var(--ease-standard, ease);
+  transition: opacity var(--motion-select) var(--ease-enter);
 }
 
 .jellytv-carousel__card.has-poster .jellytv-carousel__poster { opacity: 1; }
@@ -130,7 +130,7 @@
 }
 
 .jellytv-carousel__card.is-active .jellytv-carousel__shade {
-  background: linear-gradient(0deg, rgb(5 8 12 / 90%), rgb(5 8 12 / 76%) 40%, transparent 80%);
+  background: linear-gradient(0deg, rgb(5 8 12 / 89%), rgb(5 8 12 / 60%) 23%, transparent 67%);
 }
 
 .jellytv-carousel__logo {
@@ -177,7 +177,7 @@
   align-items: start;
   row-gap: 0.5rem;
   width: min(100%, 52rem);
-  padding-block-start: 0.8rem;
+  padding-block-start: 0.75rem;
   line-height: 1.5;
 }
 
@@ -224,7 +224,11 @@
 
 .jellytv-carousel__actions .jellytv-button { min-width: 44px; }
 .jellytv-carousel__actions .jellytv-button--primary { min-width: 8rem; }
-.jellytv-carousel__actions .jellytv-button--icon { font-size: 1.35rem; }
+.jellytv-carousel__actions .jellytv-button--icon { padding-inline: 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  .jellytv-carousel__card:hover:not(.is-active) { border-color: #a8b6c8; }
+}
 
 .jellytv-carousel__progress {
   width: min(24rem, 100%);

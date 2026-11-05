@@ -1,4 +1,5 @@
 import { locale, metadata, progress, resumeTicks, text } from './model.mjs';
+import { favoriteState, icon, timing } from './controls.mjs';
 
 const node = (tag, className, value) => {
   const result = document.createElement(tag);
@@ -48,9 +49,7 @@ export class CardPreview {
       const item = this.cache.get(event.detail.id);
       if (item) item.UserData = { ...item.UserData, ...event.detail.userData };
       if (this.source?.dataset.id === event.detail.id && this.favorite) {
-        const active = Boolean(event.detail.userData.IsFavorite);
-        this.favorite.textContent = active ? this.labels.unfavorite : this.labels.favorite;
-        this.favorite.setAttribute('aria-pressed', String(active));
+        favoriteState(this.favorite, Boolean(event.detail.userData.IsFavorite), this.labels, true);
       }
     });
     signal.addEventListener('abort', () => this.destroy(), { once: true, signal: this.listeners.signal });
@@ -76,7 +75,7 @@ export class CardPreview {
     // Leaving before intent is established cancels the request immediately;
     // only an already open surface needs a grace period to cross the gap.
     if (!this.root) { this.close(); return; }
-    clearTimeout(this.closeTimer); this.closeTimer = setTimeout(() => this.close(), 120);
+    clearTimeout(this.closeTimer); this.closeTimer = setTimeout(() => this.close(true), 120);
   }
 
   async open(card) {
@@ -122,20 +121,18 @@ export class CardPreview {
         button.type = 'button';
         this.onSurface(button, 'click', async () => {
           if (this.busy || this.signal.aborted) return;
-          this.busy = true; button.disabled = true; status.textContent = '';
+          this.busy = true; button.disabled = true; button.setAttribute('aria-busy', 'true'); status.textContent = '';
           try { await callback(button); }
           catch (error) { if (error.name !== 'AbortError' && !this.signal.aborted) status.textContent = this.labels.error; }
-          finally { this.busy = false; button.disabled = false; }
+          finally { this.busy = false; button.disabled = false; button.removeAttribute('aria-busy'); }
         });
         actions.append(button); return button;
       };
       action(resumeTicks(item) > 0 ? this.labels.resume : this.labels.play, () => this.adapter.play(this.session, item, this.signal), true);
-      const favorite = action(item.UserData?.IsFavorite ? this.labels.unfavorite : this.labels.favorite, async button => {
-        const active = await this.adapter.favorite(this.session, item, this.signal);
-        button.textContent = active ? this.labels.unfavorite : this.labels.favorite;
-        button.setAttribute('aria-pressed', String(active));
-      });
-      favorite.setAttribute('aria-pressed', String(Boolean(item.UserData?.IsFavorite)));
+      const favorite = action('', () => this.adapter.favorite(this.session, item, this.signal));
+      favorite.classList.add('jellytv-button--favorite');
+      favorite.append(icon('heart'), node('span', ''));
+      favoriteState(favorite, Boolean(item.UserData?.IsFavorite), this.labels);
       this.favorite = favorite;
       action(this.labels.info, () => this.adapter.details(this.session, item));
       body.append(actions, status);
@@ -164,12 +161,14 @@ export class CardPreview {
     root.style.width = `${Math.min(this.tv ? 620 : 420, available)}px`;
     const size = root.getBoundingClientRect();
     const right = rect.right + 12;
-    const left = right + size.width <= innerWidth - 16 ? right : Math.max(16, Math.min(rect.left, innerWidth - size.width - 16));
+    const beside = right + size.width <= innerWidth - 16;
+    const left = beside ? right : Math.max(16, Math.min(rect.left, innerWidth - size.width - 16));
+    root.style.transformOrigin = beside ? 'left top' : 'right top';
     root.style.left = `${left}px`;
     root.style.top = `${Math.max(16, Math.min(rect.top, innerHeight - size.height - 16))}px`;
   }
 
-  close() {
+  close(fade = false) {
     clearTimeout(this.timer); clearTimeout(this.closeTimer);
     this.request?.abort(); this.request = null;
     this.surface?.abort(); this.surface = null;
@@ -177,7 +176,21 @@ export class CardPreview {
       if (value === null) this.origin.removeAttribute(name); else this.origin.setAttribute(name, value);
     }
     this.originAttributes = null; this.favorite = null;
-    this.root?.remove(); this.root = null; this.source = null; this.origin = null;
+    this.exiting?.remove();
+    this.exiting = null;
+    const root = this.root;
+    this.root = null; this.source = null; this.origin = null;
+    if (!root) return;
+    const motion = fade && root.animate && timing(getComputedStyle(root), '--motion-fast', '--ease-exit');
+    if (!motion?.duration) { root.remove(); return; }
+    root.inert = true;
+    root.setAttribute('aria-hidden', 'true');
+    root.style.pointerEvents = 'none';
+    this.exiting = root;
+    root.animate([{ opacity: 1 }, { opacity: 0 }], { ...motion, fill: 'forwards' }).onfinish = () => {
+      root.remove();
+      if (this.exiting === root) this.exiting = null;
+    };
   }
 
   destroy() { this.close(); this.listeners.abort(); this.cache.clear(); }

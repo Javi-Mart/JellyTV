@@ -48,16 +48,6 @@ body:not(.dashboardDocument) :where(.card, .MuiButton-root, .emby-button)[aria-d
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --motion-instant: 0ms;
-    --motion-fast: 0ms;
-    --motion-normal: 0ms;
-    --motion-slow: 0ms;
-    --transition-fast: 0ms;
-    --transition-normal: 0ms;
-    --transition-slow: 0ms;
-  }
-
   body:not(.dashboardDocument) :is(.card, .cardBox, .emby-button, .paper-icon-button-light, .listItem, .cardOverlayContainer, .itemBackdrop, .lazy-image-fadein, .lazy-image-fadein-fast, .MuiSkeleton-root, .MuiSkeleton-root::after) {
     /* Upstream focusscale/select animations use !important; retain focused
        position and make image/skeleton transitions static for this preference. */

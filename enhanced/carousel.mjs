@@ -1,4 +1,5 @@
 import { candidates, locale, metadata, progress, resumeTicks, text } from './model.mjs';
+import { favoriteState, icon, timing } from './controls.mjs';
 
 let sequence = 0;
 const copy = {
@@ -55,7 +56,8 @@ export class ExpandingCarousel {
     this.actions = node('div', 'jellytv-carousel__actions');
     this.play = control(this.labels.play, this.labels.play, 'jellytv-button--primary');
     this.info = control(this.labels.info, this.labels.info, 'jellytv-button--secondary');
-    this.favorite = control(this.labels.favorite, '♡', 'jellytv-button--icon');
+    this.favorite = control(this.labels.favorite, '', 'jellytv-button--icon jellytv-button--favorite');
+    this.favorite.append(icon('heart'));
     this.actions.append(this.play, this.info, this.favorite);
     for (const [key, element] of Object.entries({ play: this.play, info: this.info, favorite: this.favorite })) element.dataset.focusKey = key;
     this.bar = node('progress', 'jellytv-carousel__progress'); this.bar.max = 100;
@@ -145,7 +147,7 @@ export class ExpandingCarousel {
     this.on(adapter.userData, 'change', event => {
       if (event.detail.key !== session.key || !this.valid()) return;
       const item = this.items.find(item => item.Id === event.detail.id);
-      if (item) { item.UserData = { ...item.UserData, ...event.detail.userData }; this.updateFavorite(); }
+      if (item) { item.UserData = { ...item.UserData, ...event.detail.userData }; this.updateFavorite(true); }
     });
     signal.addEventListener('abort', () => this.destroy(), { once: true, signal: this.controller.signal });
     this.select(0, { animate: false, scroll: false });
@@ -226,8 +228,10 @@ export class ExpandingCarousel {
   select(index, { animate = true, announce = false, scroll = true } = {}) {
     if (!this.valid() || this.busy || !this.items.length) return;
     this.cancelIntent(); this.animations.forEach(animation => animation.cancel()); this.animations = [];
-    const before = this.cards.map(card => card.root.getBoundingClientRect());
-    this.index = (index + this.items.length) % this.items.length;
+    const selected = (index + this.items.length) % this.items.length;
+    const moving = animate && !this.reduced.matches && selected !== this.index && typeof this.root.animate === 'function';
+    const before = moving ? this.cards.map(card => card.root.getBoundingClientRect().left) : [];
+    this.index = selected;
     const item = this.items[this.index], active = this.cards[this.index];
     this.root.dataset.itemId = item.Id;
     this.cards.forEach((card, position) => {
@@ -254,35 +258,34 @@ export class ExpandingCarousel {
     this.previous.disabled = this.items.length < 2; this.next.disabled = this.items.length < 2;
     this.status.textContent = ''; this.updateFavorite();
     if (scroll) this.ensureVisible(this.index);
-    if (animate && !this.reduced.matches) {
+    if (moving) {
+      const motion = timing(getComputedStyle(this.root), '--motion-select', '--ease-emphasized');
+      const railWidth = this.rail.clientWidth;
       this.cards.forEach((card, position) => {
-        const after = card.root.getBoundingClientRect();
-        const dx = before[position].left - after.left;
-        if (Math.abs(dx) > 1 && Math.abs(dx) < this.rail.clientWidth * 2) this.animations.push(card.root.animate([
+        const dx = before[position] - card.root.getBoundingClientRect().left;
+        if (motion.duration && Math.abs(dx) > 1 && Math.abs(dx) < railWidth * 2) this.animations.push(card.root.animate([
           { transform: `translateX(${dx}px)` }, { transform: 'translateX(0)' }
-        ], { duration: 260, easing: 'cubic-bezier(.2,0,0,1)' }));
+        ], motion));
       });
-      this.animations.push(active.landscape.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' }));
     }
     if (announce) this.announcement.textContent = `${this.index + 1} ${this.words.count} ${this.items.length}: ${text(item.Name, 200)}`;
   }
 
-  updateFavorite() {
-    const active = Boolean(this.items[this.index]?.UserData?.IsFavorite);
-    this.favorite.textContent = active ? '♥' : '♡';
-    this.favorite.setAttribute('aria-pressed', String(active));
-    this.favorite.setAttribute('aria-label', active ? this.labels.unfavorite : this.labels.favorite);
+  updateFavorite(animate = false) {
+    favoriteState(this.favorite, Boolean(this.items[this.index]?.UserData?.IsFavorite), this.labels, animate);
   }
 
   async action(control, callback) {
     if (this.busy || !this.valid()) return;
     this.pause(); this.busy = true; this.operation = new AbortController();
-    this.root.setAttribute('aria-busy', 'true'); control.disabled = true; this.status.textContent = '';
+    this.root.setAttribute('aria-busy', 'true'); control.disabled = true; control.setAttribute('aria-busy', 'true'); this.status.textContent = '';
     try { await callback(this.items[this.index]); }
     catch (error) { if (error.name !== 'AbortError' && this.valid()) this.status.textContent = this.labels.error; }
     finally {
       this.busy = false;
-      if (!this.destroyed) { control.disabled = false; this.root.removeAttribute('aria-busy'); this.updateFavorite(); }
+      if (!this.destroyed) {
+        control.disabled = false; control.removeAttribute('aria-busy'); this.root.removeAttribute('aria-busy'); this.updateFavorite();
+      }
       this.operation = null;
     }
   }

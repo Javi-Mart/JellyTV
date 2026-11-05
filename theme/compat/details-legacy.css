@@ -18,13 +18,35 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   background: none;
 }
 
-/* 10.10.6 paints the actual image in the shared backdrop layer. Its native
-   86% black overlay would darken our second scrim twice. Compose that layer
-   only while this detail contract is the active page. */
-body:not(.dashboardDocument):has(#itemDetailPage:not(.hide) .detailPagePrimaryContainer.detailRibbon) .backgroundContainer.withBackdrop {
+/* The compact layout uses the inline native backdrop instead of the shared
+   image. Fade that actual image layer as well as the desktop profile. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop[style*="background-image"] {
+  mask-image: linear-gradient(#000 20%, rgb(0 0 0 / 90%) 49%, rgb(0 0 0 / 53%) 70%, transparent 100%);
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemBackdrop[style*="background-image"]::after {
+  background: linear-gradient(180deg, rgb(9 11 14 / 8%) 15%, rgb(9 11 14 / 48%) 62%, var(--color-background));
+}
+
+/* 10.10.6 supplies the image in a shared layer. A bounded art field keeps
+   ordinary 16:9 backdrops wider than the desktop crop and preserves their
+   horizontal framing. The mask reaches zero before that field ends. */
+body:not(.dashboardDocument):has(#itemDetailPage:not(.hide, [hidden]) .detailPagePrimaryContainer.detailRibbon) {
+  --detail-art-depth: min(76vh, 39vw);
+}
+
+body:not(.dashboardDocument):has(#itemDetailPage:not(.hide, [hidden]) .detailPagePrimaryContainer.detailRibbon) .backdropContainer .backdropImage {
+  height: var(--detail-art-depth);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 32%;
+  mask-image: linear-gradient(#000 24%, rgb(0 0 0 / 92%) 44%, rgb(0 0 0 / 46%) 69%, transparent 99%);
+}
+
+body:not(.dashboardDocument):has(#itemDetailPage:not(.hide, [hidden]) .detailPagePrimaryContainer.detailRibbon) .backgroundContainer.withBackdrop {
   background:
-    linear-gradient(0deg, var(--color-background) 35%, transparent 90%),
-    linear-gradient(90deg, rgb(9 11 14 / 82%), rgb(9 11 14 / 12%) 85%);
+    linear-gradient(180deg, rgb(9 11 14 / 12%) 4%, rgb(9 11 14 / 28%) calc(var(--detail-art-depth) * 0.31), rgb(9 11 14 / 85%) calc(var(--detail-art-depth) * 0.78), var(--color-background) var(--detail-art-depth)),
+    linear-gradient(90deg, rgb(9 11 14 / 85%), rgb(9 11 14 / 76%) 37%, rgb(9 11 14 / 14%) 75%, rgb(9 11 14 / 20%));
 }
 
 body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageWrapperContainer {
@@ -41,17 +63,7 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   margin-block-start: calc(-1 * var(--detail-foreground-offset));
   padding-inline: var(--page-gutter);
   padding-block-end: var(--spacing-7);
-}
-
-/* Anchor readability to the content, including long titles and white artwork.
-   Fade in before the first line without changing its layout or hiding art. */
-body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailPageWrapperContainer::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -3rem 0 0;
-  pointer-events: none;
-  background: linear-gradient(transparent, rgb(9 11 14 / 70%) 3rem, var(--color-background) calc(3rem + var(--detail-foreground-offset)));
+  background: transparent;
 }
 
 body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) :is(.detailPagePrimaryContainer, .infoWrapper, .detailPageSecondaryContainer, .detailPageContent) {
@@ -85,6 +97,7 @@ body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailR
 
 body:not(.dashboardDocument) #itemDetailPage .detailPagePrimaryContainer.detailRibbon .detailImageContainer .cardBox {
   margin: 0;
+  border-radius: var(--radius-medium);
   box-shadow: var(--shadow-elevated);
 }
 
@@ -161,6 +174,7 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   margin-block: calc(-1 * (var(--detail-foreground-offset) + var(--detail-logo-height) + var(--detail-logo-gap))) var(--detail-logo-gap);
   background-size: contain;
   background-position: left center;
+  filter: drop-shadow(0 0 1px rgb(235 244 255 / 45%)) drop-shadow(0 2px 3px rgb(0 0 0 / 55%));
   pointer-events: none;
 }
 
@@ -180,14 +194,16 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-3) var(--spacing-4);
-  max-width: 72rem;
-  margin-block: var(--spacing-4);
+  max-width: 58rem;
+  margin-block: var(--spacing-4) var(--spacing-6);
+  padding-block-start: var(--spacing-3);
+  border-block-start: 1px solid var(--color-divider);
 }
 
 body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .trackSelectionFieldContainer:not(.hide) {
   display: flex;
   flex-direction: column;
-  flex: 1 1 15rem;
+  flex: 1 1 12rem;
   min-width: 0;
   max-width: 100%;
   margin: 0;
@@ -199,6 +215,7 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   flex: none;
   margin: 0;
   font-size: var(--font-size-caption);
+  color: var(--color-text-muted);
 }
 
 body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .detailTrackSelect {
@@ -217,6 +234,28 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
   line-height: 1.6;
 }
 
+/* Keep every native link and its tab order. A bounded line length prevents a
+   long tag list from taking over the full width of the metadata column. */
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemTags:not(.hide) {
+  max-inline-size: 56rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemTags a {
+  padding: 0.18em 0.5em;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+}
+
+@media (pointer: fine) {
+  body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .itemTags a {
+    min-block-size: 2rem;
+    margin-block: 0.12rem;
+  }
+}
+
 @media (width >= 56.25rem) {
   html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) .childrenItemsContainer .listItem[data-type="Episode"] .listItemImage-large {
     /* Native 19.5vw × 13vw becomes a 375 × 250 thumbnail at 1080p. Episodes
@@ -228,6 +267,10 @@ body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.det
 }
 
 @media (width <= 56.249rem) {
+  html:not(.layout-tv) body:not(.dashboardDocument):has(#itemDetailPage:not(.hide, [hidden]) .detailPagePrimaryContainer.detailRibbon) {
+    --detail-art-depth: clamp(15rem, 67vw, 26rem);
+  }
+
   html:not(.layout-tv) body:not(.dashboardDocument) #itemDetailPage:has(.detailPagePrimaryContainer.detailRibbon) {
     --detail-poster-width: clamp(80px, 20vw, 140px);
     --detail-column-gap: 1rem;
