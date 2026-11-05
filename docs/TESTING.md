@@ -26,7 +26,11 @@ Para los casos cinematográficos, incluye al menos tres títulos recientes con b
 
 El caso `motion-handoff` toma muestras de frames reales. Comprueba que al entrar la imagen siguiente se conserva la saliente, que el título cambia durante el fundido y que el carrusel pasa por anchos intermedios sin mover el panel. `JELLYTV_MOTION_VIDEO` permite grabar ese caso en un directorio ignorado.
 
+En dev.5, ese caso comprueba también que la opacidad de la luz coincide con la del backdrop entrante. `carousel-copy-handoff` verifica por fotograma la salida y entrada de texto, la geometría del título durante expansión y contracción, la selección y el ID de las acciones antes y después del relevo. Incluye hover, flechas, foco, selección rápida y movimiento reducido. `carousel-touch` prueba un tap en navegador, la ruta de un gesto horizontal mediante eventos de puntero, cambio a paisaje y regreso desde Películas.
+
 La revisión visual compara dev.3 y dev.4 con medios sintéticos, igual viewport y los mismos activos de Jellyfin. Incluye secuencias de Hero y carrusel, gradientes con artwork azul, rojo, oscuro y claro y nueve tamaños de escritorio y móvil. En la secuencia de ocho selecciones a 1920 × 1080, ambas versiones registraron una mediana de p95 de 16,8 ms y una tarea larga. El tiempo total de layout de esa secuencia subió de 11,3 a 21,2 ms al interpolar el ancho. El p95 se mantuvo en la prueba breve con CPU ralentizada 4×. Estos datos corresponden al equipo de laboratorio. Guarda las capturas y mediciones locales fuera del conjunto publicado.
+
+Para dev.5 se repite la comparación desde dev.4 con las mismas imágenes y tamaños, también con artwork multicolor. Verifica las capturas antes, durante y después de cada movimiento. Compara muestras de píxeles con la luz visible y oculta para separar el halo del artwork. En la repetición de ocho selecciones a 1920 × 1080, el p95 mediano fue 16,8 ms en ambas versiones. El tiempo acumulado de layout fue de 21,3 y 18,8 ms respectivamente. El recuento de layout pasó de 118 a 129. La prueba breve con CPU emulada caracteriza este equipo. La GPU física y la memoria durante sesiones prolongadas requieren pruebas separadas.
 
 ## Trickplay en Jellyfin Web 10.10.6
 
@@ -51,7 +55,7 @@ Las pruebas opcionales de Docker requieren un daemon local y las imágenes fijad
 python3 scripts/package-setup.py --development --output .lab/test-package
 python3 tests/integration/bootstrap-linux.py
 python3 tests/integration/installer-lifecycle.py \
-  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.4.zip \
+  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.5.zip \
   --output .lab/reports/installer-lifecycle.json
 ```
 

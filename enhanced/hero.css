@@ -14,7 +14,6 @@
   margin-inline: auto;
   margin-block: 0 var(--spacing-6, 2rem);
   border-radius: var(--radius-large, 1.375rem);
-  background: radial-gradient(ellipse at 76% 0%, #30404d, #10161e 48%, #090b0e 88%);
   color: var(--hero-ink);
   text-align: start;
   border: 1px solid rgb(224 235 250 / 13%);
@@ -54,19 +53,28 @@
 }
 
 .jellytv-hero__art, .jellytv-hero__shade { border-radius: inherit; }
-.jellytv-hero__art { overflow: hidden; }
+
+.jellytv-hero__art {
+  overflow: hidden;
+  background: radial-gradient(ellipse at 76% 0%, #30404d, #10161e 48%, #090b0e 88%);
+}
+
 .jellytv-hero__backdrop:is(.is-visible, .is-outgoing) { opacity: 1; }
 .jellytv-hero__backdrop.is-incoming { z-index: 0; }
 
 .jellytv-hero__ambient {
   position: absolute;
   z-index: -2;
-  inset: max(-22px, -2vw);
+  inset: 0 max(-52px, -2.6vw) -32px;
   pointer-events: none;
   opacity: 0;
+
+  /* The ellipses reach transparent before the edge of each paint area.
+     The opaque artwork surface above them clips only the image. */
   background:
-    radial-gradient(ellipse at 23% 58%, var(--ambient-left, transparent), transparent 54%),
-    radial-gradient(ellipse at 77% 44%, var(--ambient-right, transparent), transparent 54%);
+    radial-gradient(ellipse 50% 50%, var(--ambient-bottom, transparent), transparent 98%) center bottom / 92% 7rem no-repeat,
+    radial-gradient(ellipse 50% 50%, var(--ambient-left, transparent), transparent 98%) left 70% / 9.5rem 90% no-repeat,
+    radial-gradient(ellipse 50% 50%, var(--ambient-right, transparent), transparent 98%) right 70% / 9.5rem 90% no-repeat;
 }
 
 .jellytv-hero__ambient.is-visible { opacity: 1; }
@@ -455,7 +463,10 @@
   height: 72%;
 }
 
-  .jellytv-hero__ambient { display: none; }
+  .jellytv-hero__ambient {
+    inset: 0 0 -1rem;
+    background: radial-gradient(ellipse 50% 50%, var(--ambient-bottom, transparent), transparent 98%) center bottom / 88% 4.5rem no-repeat;
+  }
 
   .jellytv-hero__eyebrow {
   margin-block-end: 0.75rem;

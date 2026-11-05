@@ -1,5 +1,12 @@
 # Cambios
 
+## 1.1.0-dev.5
+
+- Difunde la luz ambiental por debajo y a los lados del Hero. El recorte redondeado se limita al artwork. Las capas de luz llegan a transparencia antes de sus bordes y acompañan el fundido de 520 ms.
+- El título de cada tarjeta mantiene el mismo ancho, tamaño y anclaje durante la expansión y la contracción. El logo, si llega durante el movimiento, aparece en el mismo espacio cuando termina el cambio de ancho.
+- El panel contextual funde su texto y actualiza juntos la selección, los metadatos y las acciones. Una selección rápida sustituye la pendiente y conserva los botones existentes y su foco.
+- Añade comprobaciones por fotograma del carrusel, sincronización de la luz, acciones durante el fundido y navegación táctil. [Movimiento](docs/MOTION_SYSTEM.md) · [Pruebas](docs/TESTING.md) · [Actualizar desde dev.4](docs/CASAOS_INSTALLER.md#actualizar-desde-110-dev4)
+
 ## 1.1.0-dev.4
 
 - Restaura las miniaturas al reproducir desde Hero y carrusel. La acción pasa el ID a Jellyfin para que su reproductor obtenga la ficha completa con los datos Trickplay de la fuente activa.

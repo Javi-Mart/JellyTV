@@ -31,8 +31,10 @@ const browser = await (engine === 'webkit' ? webkit : chromium).launch(engine ==
 
 async function scenario(name, test, authenticated = true) {
   if (process.env.JELLYTV_TEST_CASE && process.env.JELLYTV_TEST_CASE !== name) return;
+  const mobile = name === 'carousel-touch';
   const context = await browser.newContext({
-    serviceWorkers: 'block', viewport: { width: 1366, height: 768 },
+    serviceWorkers: 'block', viewport: mobile ? { width: 390, height: 844 } : { width: 1366, height: 768 },
+    hasTouch: mobile, isMobile: mobile,
     storageState: authenticated ? process.argv[3] : undefined,
     recordVideo: name === 'motion-handoff' && process.env.JELLYTV_MOTION_VIDEO ?
       { dir: process.env.JELLYTV_MOTION_VIDEO, size: { width: 1366, height: 768 } } : undefined
@@ -491,6 +493,7 @@ try {
         sample.push({
           now, id: hero.root.dataset.itemId, title: hero.heading.textContent,
           incoming: incoming ? Number(getComputedStyle(incoming).opacity) : 0,
+          incomingGlow: incoming ? Number(getComputedStyle(hero.glow(incoming)).opacity) : 0,
           outgoing: Number(getComputedStyle(original).opacity),
           copy: Number(getComputedStyle(hero.copy).opacity),
           active: hero.root.querySelectorAll('.jellytv-hero__backdrop.is-visible').length
@@ -507,7 +510,7 @@ try {
       do {
         now = await nextFrame();
         widths.push(candidate.getBoundingClientRect().width);
-      } while (now - start < 410);
+      } while (now - start < 480);
       return {
         sample, expected, name: hero.items[target].Name, before, widths,
         panelDelta: carousel.panel.getBoundingClientRect().y - y,
@@ -520,6 +523,7 @@ try {
       JSON.stringify(samples.sample.map(row => [row.incoming, row.outgoing, row.copy, row.active, row.id === samples.expected])));
     assert.ok(samples.sample.some(row => row.incoming > 0.57 && row.incoming < 0.95 && row.id === samples.expected && row.copy < 0.98));
     assert.ok(samples.sample.every(row => row.active === 1));
+    assert.ok(samples.sample.every(row => Math.abs(row.incoming - row.incomingGlow) < 0.04));
     assert.equal(samples.sample.at(-1).title, samples.name);
     assert.ok(samples.widths.some(width => width > samples.before + 8 && width < samples.widths.at(-1) - 8));
     assert.ok(Math.abs(samples.panelDelta) < 1);
@@ -565,6 +569,131 @@ try {
     await expect(page.locator(hero)).toHaveAttribute('data-item-id', pending);
     await expect(page.locator(`${hero} [data-pending]`)).toHaveCount(0);
     await expect(page.locator(`${hero} .jellytv-hero__backdrop.is-incoming`)).toHaveCount(0);
+  });
+
+  await scenario('carousel-copy-handoff', async page => {
+    await start(page);
+    await mounted(page);
+    const result = await page.evaluate(async () => {
+      const { carousel } = window[Symbol.for('jellytv.enhanced.instance')];
+      const target = carousel.cards[1].root;
+      const title = target.querySelector('.jellytv-carousel__card-title');
+      const logo = target.querySelector('.jellytv-carousel__logo');
+      const stable = () => {
+        const css = getComputedStyle(title);
+        return [css.inlineSize, css.fontSize, Math.round(title.getBoundingClientRect().height * 64)];
+      };
+      const frame = () => new Promise(resolve => requestAnimationFrame(resolve));
+      const baseline = stable();
+      const compact = target.getBoundingClientRect().width;
+      const focus = carousel.favorite;
+      focus.focus({ preventScroll: true });
+      const frames = [];
+      const capture = async (targetIndex, phase) => {
+        carousel.select(targetIndex, { announce: true });
+        const start = performance.now();
+        do {
+          await frame();
+          const width = target.getBoundingClientRect().width;
+          frames.push({
+            phase, width, geometry: stable(), id: carousel.root.dataset.itemId,
+            title: carousel.heading.textContent, opacity: Number(getComputedStyle(carousel.copy).opacity),
+            focus: document.activeElement === focus, titleVisible: getComputedStyle(title).visibility === 'visible',
+            logoVisible: getComputedStyle(logo).visibility === 'visible', resizing: Boolean(carousel.cards[1].resize),
+            selected: Number(carousel.rail.querySelector('[aria-pressed="true"]').dataset.index)
+          });
+        } while (performance.now() - start < 550 && (carousel.pending || carousel.animations.some(animation => animation.playState === 'running')));
+      };
+      await capture(1, 'expansion');
+      const expanded = target.getBoundingClientRect().width;
+      await capture(0, 'contraction');
+      const details = carousel.adapter.details;
+      const actions = [];
+      carousel.adapter.details = (_, item) => actions.push(item.Id);
+      try {
+        carousel.next.click();
+        carousel.info.click();
+        carousel.next.click();
+        carousel.next.click();
+        carousel.next.click();
+        const latest = carousel.requestedIndex;
+        const until = performance.now() + 2000;
+        while (carousel.index !== latest && performance.now() < until) await frame();
+        carousel.info.click();
+      } finally {
+        carousel.adapter.details = details;
+      }
+      return { frames, baseline, compact, expanded, actions, items: carousel.items.map(({ Id, Name }) => [Id, Name]) };
+    });
+    const [a, b, , d] = result.items;
+    assert.ok(result.expanded > result.compact + 50);
+    for (const phase of ['expansion', 'contraction']) {
+      assert.ok(result.frames.some(row => row.phase === phase && row.width > result.compact + 5 && row.width < result.expanded - 5));
+    }
+    assert.ok(result.frames.some(row => row.phase === 'expansion' && row.id === a[0] && row.opacity > 0 && row.opacity < 0.9));
+    assert.ok(result.frames.some(row => row.phase === 'expansion' && row.id === b[0] && row.opacity > 0 && row.opacity < 0.9));
+    for (const row of result.frames) {
+      assert.deepEqual(row.geometry, result.baseline, 'The title geometry must stay independent of animated card width');
+      assert.notEqual(row.titleVisible, row.logoVisible, 'Exactly one title representation is visible');
+      assert.deepEqual([row.id, row.title], result.items[row.selected]);
+      assert.equal(row.focus, true);
+    }
+    const duringExpansion = result.frames.filter(row => row.phase === 'expansion' && row.resizing);
+    assert.equal(new Set(duringExpansion.map(row => row.logoVisible)).size, 1, 'A delayed logo must wait until the width settles');
+    assert.deepEqual(result.actions, [a[0], d[0]]);
+    const rail = page.locator(`${carousel} .jellytv-carousel__rail`);
+    await rail.locator('button[tabindex="0"]').focus();
+    await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowDown');
+    await expect(page.locator(`${carousel} [data-focus-key="play"]`)).toBeFocused();
+    await expect(page.locator(carousel)).toHaveAttribute('data-item-id', b[0]);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await rail.locator('button').first().focus();
+    await expect(page.locator(carousel)).toHaveAttribute('data-item-id', a[0]);
+    assert.equal(await page.locator(`${carousel} .jellytv-carousel__copy`).evaluate(node => node.getAnimations().length), 0);
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await rail.locator('button').nth(1).hover();
+    await expect(page.locator(carousel)).toHaveAttribute('data-item-id', b[0]);
+    await page.mouse.move(1, 1);
+    await expect(page.locator(carousel)).toHaveAttribute('data-item-id', b[0]);
+  });
+
+  await scenario('carousel-touch', async page => {
+    await start(page);
+    await mounted(page);
+    const surface = page.locator(carousel);
+    const cards = surface.locator('.jellytv-carousel__card');
+    const second = cards.nth(1);
+    await second.scrollIntoViewIfNeeded();
+    const startY = await surface.evaluate(node => node.getBoundingClientRect().top);
+    await second.tap();
+    await expect(second).toHaveAttribute('aria-pressed', 'true');
+    await expect.poll(() => surface.evaluate(node => node.getBoundingClientRect().top)).toBeCloseTo(startY, 0);
+    const pointer = { pointerId: 11, pointerType: 'touch', bubbles: true, clientY: 300 };
+    await second.dispatchEvent('pointerdown', { ...pointer, clientX: 260 });
+    await second.dispatchEvent('pointerup', { ...pointer, clientX: 150 });
+    await expect(cards.nth(2)).toHaveAttribute('aria-pressed', 'true');
+    await page.evaluate(() => window[Symbol.for('jellytv.enhanced.instance')].carousel.next.click());
+    await page.setViewportSize({ width: 844, height: 390 });
+    await expect(cards.nth(3)).toHaveAttribute('aria-pressed', 'true');
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+    await page.evaluate(() => window[Symbol.for('jellytv.enhanced.instance')].carousel.next.click());
+    const library = page.locator('#indexPage:visible #homeTab:visible a[href*="/movies"]').last();
+    await library.evaluate(node => node.click());
+    await expect(page).toHaveURL(/#\/movies/);
+    await unmounted(page);
+    await page.goBack();
+    await expect(page).toHaveURL(/#\/home/);
+    try { await mounted(page); }
+    catch (error) {
+      const diagnostic = await page.evaluate(() => {
+        const app = window[Symbol.for('jellytv.enhanced.instance')];
+        return { host: Boolean(app.host), hero: app.hero?.root.isConnected, carousel: app.carousel?.root.isConnected,
+          cached: app.cache?.items?.length, playing: app.playing, layout: document.documentElement.className };
+      });
+      throw new Error(`Landscape back: ${JSON.stringify(diagnostic)}\n${error.message}`, { cause: error });
+    }
   });
 } catch (error) {
   console.error(error.message.replace(/\b[0-9a-f]{32,}\b/gi, '<id>').split('\n').slice(0, 12).join('\n'));

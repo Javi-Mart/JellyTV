@@ -60,6 +60,18 @@ sha256sum --check jellytv-enhanced-1.1.0-dev.4.zip.sha256 &&
 
 Tras revisar la simulación, repite el comando de actualización sin `--dry-run` y ejecuta `sudo jellytv status`. Comprueba Inicio y el timeline de un título con sprites generados. Si dev.3 era la generación anterior, `sudo jellytv rollback` restaura sus archivos. El PYZ de dev.4 se reserva para una primera instalación. La corrección de reproducción y el ajuste estrecho del tooltip se incluyen en Enhanced.
 
+## Actualizar desde 1.1.0-dev.4
+
+Copia el ZIP de Enhanced dev.5 y su checksum en el mismo directorio del host de pruebas. Comprueba que `status` indique dev.4 con integridad correcta y sin recuperación pendiente.
+
+```sh
+sudo jellytv status
+sha256sum --check jellytv-enhanced-1.1.0-dev.5.zip.sha256 &&
+  sudo jellytv update --bundle ./jellytv-enhanced-1.1.0-dev.5.zip --allow-development --dry-run
+```
+
+Tras revisar la simulación, repite `update` sin `--dry-run` y vuelve a comprobar `status`. Revisa el Hero, el carrusel y la reproducción desde Inicio con un título que disponga de Trickplay. `sudo jellytv rollback` recupera dev.4 si era la generación anterior. El ZIP contiene las dos mejoras de Enhanced. El PYZ se reserva para una primera instalación.
+
 ## Estado y recuperación
 
 Se gestionan dos recursos Enhanced, `config.json`, `index.html` y un marcador. El estado y el journal se guardan en `/var/lib/jellytv`. El directorio debe pertenecer al usuario que ejecuta la herramienta, con modo 700, y sus padres deben tener propietarios de confianza y permisos que impidan escritura compartida.

@@ -53,6 +53,8 @@ export class ExpandingCarousel {
     this.heading = node('h3', 'jellytv-carousel__title');
     this.meta = node('p', 'jellytv-carousel__metadata');
     this.overview = node('p', 'jellytv-carousel__overview');
+    this.copy = node('div', 'jellytv-carousel__copy');
+    this.copy.append(this.heading, this.meta, this.overview);
     this.actions = node('div', 'jellytv-carousel__actions');
     this.play = control(this.labels.play, this.labels.play, 'jellytv-button--primary');
     this.info = control(this.labels.info, this.labels.info, 'jellytv-button--secondary');
@@ -64,15 +66,15 @@ export class ExpandingCarousel {
     this.bar.setAttribute('aria-label', this.labels.progress);
     this.status = node('p', 'jellytv-carousel__status'); this.status.setAttribute('role', 'status');
     this.announcement = node('p', 'jellytv-visually-hidden'); this.announcement.setAttribute('role', 'status');
-    this.panel.append(this.heading, this.meta, this.overview, this.actions, this.bar, this.status);
+    this.panel.append(this.copy, this.actions, this.bar, this.status);
     this.root.append(header, hint, this.rail, this.panel, this.announcement);
     this.cards = this.items.map((item, index) => this.makeCard(item, index));
     this.rail.append(...this.cards.map(card => card.root));
     if (after?.parentElement === host) after.after(this.root); else host.prepend(this.root);
     if (!this.items.length) { this.root.hidden = true; return; }
 
-    this.on(this.previous, 'click', () => this.select(this.index - 1, { announce: true }));
-    this.on(this.next, 'click', () => this.select(this.index + 1, { announce: true }));
+    this.on(this.previous, 'click', () => this.select(this.requestedIndex - 1, { announce: true }));
+    this.on(this.next, 'click', () => this.select(this.requestedIndex + 1, { announce: true }));
     this.on(this.play, 'click', () => this.action(this.play, item => adapter.play(session, item, this.operation.signal)));
     this.on(this.info, 'click', () => {
       if (this.busy || !this.valid()) return;
@@ -127,7 +129,7 @@ export class ExpandingCarousel {
       const dx = event.clientX - this.touch.x, dy = event.clientY - this.touch.y; this.touch = null;
       if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) {
         this.suppressClickUntil = performance.now() + 400;
-        this.select(this.index + (dx < 0 ? 1 : -1) * (this.rtl() ? -1 : 1), { announce: true });
+        this.select(this.requestedIndex + (dx < 0 ? 1 : -1) * (this.rtl() ? -1 : 1), { announce: true });
       } else if (Math.abs(dx) < 12 && Math.abs(dy) < 12) {
         // Some touch engines rely on the parent's synthetic click handler,
         // which must not receive this rail's gesture. Commit a true tap here;
@@ -141,9 +143,9 @@ export class ExpandingCarousel {
       }
     });
     this.on(this.rail, 'pointercancel', () => { this.touch = null; });
-    this.on(window, 'resize', () => { this.pause(); this.ensureVisible(this.index); });
+    this.on(window, 'resize', () => { this.pause({ commitPending: true }); this.ensureVisible(this.index); });
     this.on(document, 'visibilitychange', () => { if (document.hidden) this.pause(); });
-    this.on(this.reduced, 'change', () => this.pause());
+    this.on(this.reduced, 'change', () => this.pause({ commitPending: true }));
     this.on(adapter.userData, 'change', event => {
       if (event.detail.key !== session.key || !this.valid()) return;
       const item = this.items.find(item => item.Id === event.detail.id);
@@ -156,6 +158,7 @@ export class ExpandingCarousel {
 
   on(target, type, callback) { target.addEventListener(type, callback, { signal: this.controller.signal }); }
   valid() { return !this.destroyed && !this.signal.aborted && this.adapter.session()?.key === this.session.key; }
+  get requestedIndex() { return this.pending?.index ?? this.index; }
   rtl() { return getComputedStyle(this.root).direction === 'rtl'; }
   roving(index) {
     this.focusIndex = index;
@@ -181,18 +184,23 @@ export class ExpandingCarousel {
     }
     this.on(landscape, 'load', () => root.classList.add('has-landscape'));
     this.on(landscape, 'error', () => root.classList.remove('has-landscape'));
-    this.on(logo, 'load', () => root.classList.add('has-logo'));
-    this.on(logo, 'error', () => root.classList.remove('has-logo'));
+    const card = { root, poster, landscape, logo, loaded: false, logoReady: false };
+    this.on(logo, 'load', () => { card.logoReady = true; this.updateCardLogo(card); });
+    this.on(logo, 'error', () => { card.logoReady = false; this.updateCardLogo(card); });
     root.append(poster, landscape, node('span', 'jellytv-carousel__shade'), logo, title);
     this.on(root, 'click', event => {
       if (performance.now() < (this.suppressClickUntil || 0)) { event.preventDefault(); return; }
       this.select(index, { announce: true }); this.roving(index);
     });
-    return { root, poster, landscape, logo, title, loaded: false };
+    return card;
+  }
+
+  updateCardLogo(card) {
+    if (!card.resize) card.root.classList.toggle('has-logo', card.logoReady);
   }
 
   queue(index, delay, source) {
-    if (index === this.index || this.busy || !this.valid()) { this.cancelIntent(); return; }
+    if (index === this.requestedIndex || this.busy || !this.valid()) { this.cancelIntent(); return; }
     if (this.intent?.index === index && this.intent.source === source) return;
     this.cancelIntent(); this.intent = { index, source };
     if (!delay) { this.select(index, { announce: source === 'focus' }); return; }
@@ -207,7 +215,7 @@ export class ExpandingCarousel {
     if (!card) return;
     const index = Number(card.dataset.index);
     if (event.key === 'ArrowDown') {
-      event.preventDefault(); event.stopPropagation(); this.select(index, { announce: true }); this.play.focus({ preventScroll: true });
+      event.preventDefault(); event.stopPropagation(); this.select(index, { animate: false, announce: true }); this.play.focus({ preventScroll: true });
     } else if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
       event.preventDefault(); event.stopPropagation();
       const direction = (event.key === 'ArrowRight' ? 1 : -1) * (this.rtl() ? -1 : 1);
@@ -229,13 +237,60 @@ export class ExpandingCarousel {
     if (!this.valid() || this.busy || !this.items.length) return;
     this.cancelIntent();
     const selected = (index + this.items.length) % this.items.length;
-    if (this.root.dataset.itemId && selected === this.index) return;
-    const moving = animate && !this.reduced.matches && selected !== this.index && typeof this.root.animate === 'function';
-    // Read the interpolated widths before cancelling an interrupted selection.
-    const before = moving ? this.cards.map(card => card.root.getBoundingClientRect().width) : [];
+    if (this.root.dataset.itemId && selected === this.index) {
+      if (this.pending) this.cancelPanel();
+      return;
+    }
+    const moving = animate && !this.reduced.matches && this.root.dataset.itemId && this.copy.animate;
+    const choice = { index: selected, announce, scroll };
+    if (!moving) {
+      this.cancelPanel();
+      this.commitSelection(choice);
+      return;
+    }
+    if (this.pending) {
+      if (this.pending.index === selected) choice.announce ||= this.pending.announce;
+      this.pending = choice;
+      return;
+    }
+    const style = getComputedStyle(this.copy);
+    const opacity = Number(style.opacity);
+    const exit = timing(style, '--motion-panel-exit', '--ease-exit');
+    const enter = timing(style, '--motion-normal', '--ease-enter');
+    this.cancelPanel();
+    if (!exit.duration) { this.commitSelection(choice, true); return; }
+    this.pending = choice;
+    const handoff = this.copy.animate([{ opacity }, { opacity: 0 }], { ...exit, duration: exit.duration * opacity, fill: 'forwards' });
+    this.panelMotion = handoff;
+    handoff.onfinish = () => {
+      if (this.panelMotion !== handoff || !this.valid()) return;
+      const latest = this.pending;
+      this.cancelPanel();
+      this.commitSelection(latest, true);
+      const entry = this.copy.animate([{ opacity: 0 }, { opacity: 1 }], enter);
+      this.panelMotion = entry;
+      entry.onfinish = () => { if (this.panelMotion === entry) this.panelMotion = null; };
+    };
+  }
+
+  cancelPanel() {
+    const motion = this.panelMotion;
+    this.panelMotion = null;
+    this.pending = null;
+    motion?.cancel();
+  }
+
+  cancelResize() {
     this.animations.forEach(animation => animation.cancel());
     this.animations = [];
-    this.index = selected;
+    this.cards.forEach(card => { card.resize = null; });
+  }
+
+  commitSelection({ index, announce, scroll }, moving = false) {
+    // Read the interpolated widths before cancelling an interrupted selection.
+    const before = moving ? this.cards.map(card => card.root.getBoundingClientRect().width) : [];
+    this.cancelResize();
+    this.index = index;
     const item = this.items[this.index], active = this.cards[this.index];
     this.root.dataset.itemId = item.Id;
     this.cards.forEach((card, position) => {
@@ -269,19 +324,20 @@ export class ExpandingCarousel {
         const after = this.cards.map(card => card.root.getBoundingClientRect().width);
         this.cards.forEach((card, position) => {
           if (Math.abs(before[position] - after[position]) <= 1) return;
-          this.animations.push(card.root.animate([
+          const resize = card.root.animate([
             { flexBasis: `${before[position]}px` }, { flexBasis: `${after[position]}px` }
-          ], motion));
+          ], motion);
+          card.resize = resize;
+          this.animations.push(resize);
+          resize.onfinish = () => {
+            if (card.resize !== resize) return;
+            card.resize = null;
+            this.updateCardLogo(card);
+          };
         });
-        const copy = timing(style, '--motion-normal', '--ease-enter');
-        for (const target of [this.heading, this.meta, this.overview]) {
-          this.animations.push(target.animate([
-            { opacity: 0.38, transform: `translateY(${style.getPropertyValue('--motion-enter-offset').trim()})` },
-            { opacity: 1, transform: 'none' }
-          ], copy));
-        }
       }
     }
+    this.cards.forEach(card => this.updateCardLogo(card));
     if (announce) this.announcement.textContent = `${this.index + 1} ${this.words.count} ${this.items.length}: ${text(item.Name, 200)}`;
   }
 
@@ -304,7 +360,15 @@ export class ExpandingCarousel {
     }
   }
 
-  pause() { this.cancelIntent(); this.touch = null; this.animations.forEach(animation => animation.cancel()); this.animations = []; }
+  pause({ commitPending = false } = {}) {
+    const pending = commitPending && this.pending;
+    this.cancelIntent();
+    this.touch = null;
+    this.cancelPanel();
+    this.cancelResize();
+    if (pending && this.valid()) this.commitSelection(pending);
+    else this.cards.forEach(card => this.updateCardLogo(card));
+  }
   destroy() {
     if (this.destroyed) return;
     this.destroyed = true; this.pause(); this.operation?.abort(); this.controller.abort();

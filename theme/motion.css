@@ -7,6 +7,7 @@
   --motion-slow: 420ms;
   --motion-crossfade: 520ms;
   --motion-handoff: 170ms;
+  --motion-panel-exit: 105ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-blend: cubic-bezier(0.42, 0, 0.58, 1);
   --ease-emphasized: cubic-bezier(0.2, 0.78, 0.25, 1);
@@ -27,6 +28,7 @@
     --motion-slow: 0ms;
     --motion-crossfade: 0ms;
     --motion-handoff: 0ms;
+    --motion-panel-exit: 0ms;
     --motion-lift: 0px;
     --motion-enter-offset: 0px;
     --motion-press-scale: 1;

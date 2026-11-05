@@ -25,7 +25,7 @@ export class Hero {
     this.rotating = false;
     this.imageGeneration = 0;
     this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    this.ambientAvailable = window.matchMedia('(width > 599px) and (forced-colors: none)');
+    this.ambientAvailable = window.matchMedia('(forced-colors: none)');
     this.palettes = new Map();
     this.controller = new AbortController();
     this.root = element('section', 'jellytv-hero');
@@ -274,10 +274,11 @@ export class Hero {
       if (this.palettes.size === this.items.length) this.palettes.delete(this.palettes.keys().next().value);
       this.palettes.set(url, ambientPalette(image));
     }
-    const [left = 'transparent', right = 'transparent'] = this.palettes.get(url);
+    const [left = 'transparent', right = 'transparent', bottom = 'transparent'] = this.palettes.get(url);
     const glow = this.glow(image);
     glow.style.setProperty('--ambient-left', left);
     glow.style.setProperty('--ambient-right', right);
+    glow.style.setProperty('--ambient-bottom', bottom);
   }
 
   finishTransition() {
