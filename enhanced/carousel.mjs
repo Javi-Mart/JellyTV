@@ -172,7 +172,8 @@ export class ExpandingCarousel {
     root.setAttribute('aria-controls', this.panel.id);
     const poster = node('img', 'jellytv-carousel__poster'); poster.alt = ''; poster.loading = 'lazy'; poster.decoding = 'async';
     const landscape = node('img', 'jellytv-carousel__landscape'); landscape.alt = ''; landscape.loading = 'lazy'; landscape.decoding = 'async';
-    const logo = node('img', 'jellytv-carousel__logo'); logo.alt = ''; logo.loading = 'lazy'; logo.decoding = 'async';
+    const logo = node('img', 'jellytv-carousel__logo'); logo.alt = text(item.Name, 200); logo.decoding = 'async';
+    logo.setAttribute('aria-hidden', 'true');
     const title = node('span', 'jellytv-carousel__card-title', text(item.Name, 160)); title.setAttribute('aria-hidden', 'true');
     const compactRole = ['Primary', 'Thumb', 'Art'].find(role => this.adapter.image(this.session, item, role, 480));
     if (compactRole) {
@@ -185,8 +186,15 @@ export class ExpandingCarousel {
     this.on(landscape, 'load', () => root.classList.add('has-landscape'));
     this.on(landscape, 'error', () => root.classList.remove('has-landscape'));
     const card = { root, poster, landscape, logo, loaded: false, logoReady: false };
-    this.on(logo, 'load', () => { card.logoReady = true; this.updateCardLogo(card); });
+    this.on(logo, 'load', async () => {
+      try { await logo.decode?.(); } catch { return; }
+      if (this.controller.signal.aborted) return;
+      card.logoReady = logo.naturalWidth > 0 && logo.naturalHeight > 0;
+      this.updateCardLogo(card);
+    });
     this.on(logo, 'error', () => { card.logoReady = false; this.updateCardLogo(card); });
+    const logoUrl = this.adapter.image(this.session, item, 'Logo', 640);
+    if (logoUrl) logo.src = logoUrl;
     root.append(poster, landscape, node('span', 'jellytv-carousel__shade'), logo, title);
     this.on(root, 'click', event => {
       if (performance.now() < (this.suppressClickUntil || 0)) { event.preventDefault(); return; }
@@ -302,8 +310,6 @@ export class ExpandingCarousel {
       active.loaded = true;
       const landscapeRole = ['Backdrop', 'Thumb'].find(role => this.adapter.image(this.session, item, role, 1280));
       if (landscapeRole) { active.landscape.dataset.artworkRole = landscapeRole; active.landscape.src = this.adapter.image(this.session, item, landscapeRole, 1280); }
-      const logo = this.adapter.image(this.session, item, 'Logo', 640);
-      if (logo) active.logo.src = logo;
     }
     this.heading.textContent = text(item.Name, 200);
     this.meta.textContent = metadata(item, this.language).join(' · ');

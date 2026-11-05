@@ -32,6 +32,12 @@ La revisión visual compara dev.3 y dev.4 con medios sintéticos, igual viewport
 
 Para dev.5 se repite la comparación desde dev.4 con las mismas imágenes y tamaños, también con artwork multicolor. Verifica las capturas antes, durante y después de cada movimiento. Compara muestras de píxeles con la luz visible y oculta para separar el halo del artwork. En la repetición de ocho selecciones a 1920 × 1080, el p95 mediano fue 16,8 ms en ambas versiones. El tiempo acumulado de layout fue de 21,3 y 18,8 ms respectivamente. El recuento de layout pasó de 118 a 129. La prueba breve con CPU emulada caracteriza este equipo. La GPU física y la memoria durante sesiones prolongadas requieren pruebas separadas.
 
+En dev.6, incluye seis títulos recientes con etiquetas `ImageTags.Logo` en el laboratorio. `carousel-logos-initial` comprueba las URLs reales, los logos ya visibles antes de interactuar, la misma imagen durante expansión y contracción, el salto al final, el regreso desde Películas y la recarga. `carousel-logo-fallbacks` simula red lenta, logo ausente, HTTP 404 y bytes corruptos. También entrega un logo con una etiqueta distinta después de recargar. `carousel-logo-session` retiene una respuesta del usuario anterior mientras se cambia de cuenta.
+
+El carrusel solicita hasta seis logos por montaje a partir de las etiquetas que ya devuelve la consulta de Inicio. Jellyfin proporciona el artwork y su etiqueta versiona la URL que usa la caché HTTP. Las transformaciones de una tarjeta reutilizan el mismo nodo. Los cambios de biblioteca aparecen cuando se renueva la consulta de Inicio o al recargar la página. Las comparaciones visuales usan logos horizontales, verticales, claros y oscuros, además de un título largo sin logo. Guarda estas capturas en el laboratorio.
+
+Con seis títulos que tienen logo, la carga inicial del laboratorio pasó de 4.160 bytes de imagen en dev.5 a 24.960 en dev.6. En seis cambios de selección a 1920 × 1080, la mediana del p95 entre fotogramas fue de 16,8 ms en ambas versiones. El peso depende del artwork y de la caché HTTP de cada instalación.
+
 ## Trickplay en Jellyfin Web 10.10.6
 
 En una biblioteca desechable, activa la extracción y ejecuta la tarea nativa de Trickplay. Usa como `fixtures.G.id` un video sintético reproducible suficientemente largo para cubrir varias celdas del sprite. El JSON de credenciales debe incluir el `userId` y `accessToken` de la cuenta local de prueba. El runner verifica el servidor y su versión antes de reproducir y guarda capturas solo si se indica un directorio.
@@ -55,7 +61,7 @@ Las pruebas opcionales de Docker requieren un daemon local y las imágenes fijad
 python3 scripts/package-setup.py --development --output .lab/test-package
 python3 tests/integration/bootstrap-linux.py
 python3 tests/integration/installer-lifecycle.py \
-  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.5.zip \
+  --bundle .lab/test-package/jellytv-enhanced-1.1.0-dev.6.zip \
   --output .lab/reports/installer-lifecycle.json
 ```
 

@@ -29,7 +29,7 @@ const engine = process.env.JELLYTV_BROWSER || 'chromium';
 assert.ok(['chrome', 'chromium', 'webkit'].includes(engine));
 const browser = await (engine === 'webkit' ? webkit : chromium).launch(engine === 'chrome' ? { channel: 'chrome' } : {});
 
-async function scenario(name, test, authenticated = true) {
+async function scenario(name, test, authenticated = true, documents = 1) {
   if (process.env.JELLYTV_TEST_CASE && process.env.JELLYTV_TEST_CASE !== name) return;
   const mobile = name === 'carousel-touch';
   const context = await browser.newContext({
@@ -60,7 +60,7 @@ async function scenario(name, test, authenticated = true) {
   page.on('pageerror', error => errors.push(error.message.replace(/\b[0-9a-f]{32,}\b/gi, '<id>')));
   try {
     await test(page);
-    assert.equal(served, 1, 'Enhanced must load once per document');
+    assert.equal(served, documents, 'Enhanced must load once per document');
     assert.deepEqual(errors, []);
     console.log(`PASS ${engine} ${name}`);
   } catch (error) {
@@ -695,6 +695,197 @@ try {
       throw new Error(`Landscape back: ${JSON.stringify(diagnostic)}\n${error.message}`, { cause: error });
     }
   });
+
+  await scenario('carousel-logos-initial', async page => {
+    const logoRequests = [];
+    page.on('request', request => {
+      const url = new URL(request.url());
+      if (url.origin === base.origin && /\/Images\/Logo$/i.test(url.pathname) && url.searchParams.get('maxWidth') === '640') logoRequests.push(url.pathname);
+    });
+    const logoState = () => page.evaluate(() => {
+      const rail = window[Symbol.for('jellytv.enhanced.instance')].carousel;
+      return rail.items.map((item, index) => {
+        const { logo, root } = rail.cards[index];
+        const expected = rail.adapter.image(rail.session, item, 'Logo', 640);
+        return { index, expected, actual: logo.getAttribute('src'), decoded: logo.naturalWidth > 0,
+          visible: getComputedStyle(logo).visibility === 'visible',
+          titleVisible: getComputedStyle(root.querySelector('.jellytv-carousel__card-title')).visibility === 'visible' };
+      });
+    });
+    const checkFirstHome = async () => {
+      await mounted(page);
+      await expect.poll(async () => {
+        const rows = await logoState();
+        return rows.filter(row => row.expected && (!row.decoded || !row.visible || row.titleVisible || row.actual !== row.expected)).length;
+      }).toBe(0);
+      const rows = await logoState();
+      assert.ok(rows.filter(row => row.index > 0 && row.expected).length >= 2, 'Include at least two compact cards with real Logo artwork');
+      const active = page.locator(`${carousel} .jellytv-carousel__card[aria-pressed="true"]`);
+      await expect(active).toHaveAttribute('data-index', '0');
+      return rows;
+    };
+    await start(page);
+    const initial = await checkFirstHome();
+    const selected = initial.find(row => row.index === 1 && row.expected);
+    assert.ok(selected, 'The second fixture needs a native Logo');
+    const cards = page.locator(`${carousel} .jellytv-carousel__card`);
+    const secondLogo = cards.nth(1).locator('img.jellytv-carousel__logo');
+    await expect(secondLogo).toHaveAttribute('alt', /\S/);
+    await expect(cards.nth(1)).toHaveAccessibleName(/\S/);
+    await secondLogo.evaluate(image => { image.dataset.logoFixture = 'same-node'; });
+    const loaded = logoRequests.length;
+    const choose = index => page.evaluate(index => window[Symbol.for('jellytv.enhanced.instance')].carousel.select(index), index);
+    await choose(1);
+    await expect(cards.nth(1)).toHaveAttribute('aria-pressed', 'true');
+    await expect(secondLogo).toHaveCSS('visibility', 'visible');
+    await choose(0);
+    await expect(cards.nth(0)).toHaveAttribute('aria-pressed', 'true');
+    await expect(secondLogo).toHaveCSS('visibility', 'visible');
+    await expect(secondLogo).toHaveAttribute('data-logo-fixture', 'same-node');
+    await expect(secondLogo).toHaveAttribute('src', selected.actual);
+    assert.equal(logoRequests.length, loaded, 'Selection must not request logos again');
+    await page.evaluate(() => {
+      const rail = window[Symbol.for('jellytv.enhanced.instance')].carousel;
+      rail.previous.click(); // Wrap from the first card to the far end.
+    });
+    await expect(cards.last()).toHaveAttribute('aria-pressed', 'true');
+    const library = page.locator('#indexPage:visible #homeTab:visible a[href*="/movies"]').last();
+    await library.click();
+    await expect(page).toHaveURL(/#\/movies/);
+    await unmounted(page);
+    await page.goBack();
+    await mounted(page);
+    await expect(secondLogo).toHaveCSS('visibility', 'visible');
+    const selectedId = await page.locator(carousel).getAttribute('data-item-id');
+    await page.locator(`${carousel} [data-focus-key="info"]`).click();
+    await expect(page).toHaveURL(/#\/details\?/);
+    assert.equal(new URLSearchParams(new URL(page.url()).hash.split('?')[1]).get('id'), selectedId);
+    await page.goBack();
+    await mounted(page);
+    await expect(secondLogo).toHaveCSS('visibility', 'visible');
+    await page.reload();
+    await checkFirstHome();
+  }, true, 2);
+
+  await scenario('carousel-logo-fallbacks', async page => {
+    const gate = Promise.withResolvers();
+    const images = new Map();
+    let delayed = false;
+    let refreshed = false;
+    const title = 'Un título largo — café, 夢 y una película que sigue más allá de la última línea';
+    await page.route('**/Items?**', async route => {
+      if (!featured(route.request())) return route.continue();
+      const response = await route.fetch();
+      const data = await response.json();
+      const items = data.Items.slice(0, 6);
+      assert.ok(items.length >= 5, 'Include at least five featured items');
+      for (const [index, behavior] of [[1, 'slow'], [2, 'missing'], [3, 'http-error'], [4, 'corrupt']]) {
+        const item = items[index];
+        assert.ok(item.ImageTags?.Logo, 'Fixtures need Logo tags before fault injection');
+        images.set(item.Id.toLowerCase(), behavior);
+        if (behavior === 'missing') {
+          delete item.ImageTags.Logo;
+          delete item.ParentLogoImageTag;
+          delete item.ParentLogoItemId;
+          item.Name = title;
+        }
+        if (behavior === 'slow' && refreshed) item.ImageTags.Logo = 'fixture-new-logo-tag';
+      }
+      await route.fulfill({ response, json: { ...data, Items: items } });
+    });
+    await page.route(/\/Items\/[^/]+\/Images\/Logo(?:\?|$)/i, async route => {
+      const url = new URL(route.request().url());
+      const id = url.pathname.split('/').at(-3).toLowerCase();
+      if (url.searchParams.get('tag') === 'fixture-new-logo-tag') {
+        return route.fulfill({ contentType: 'image/svg+xml',
+          body: '<svg xmlns="http://www.w3.org/2000/svg" width="42" height="30"><rect width="42" height="30"/></svg>' });
+      }
+      switch (images.get(id)) {
+        case 'slow': delayed = true; await gate.promise; return route.continue().catch(() => {});
+        case 'http-error': return route.fulfill({ status: 404 });
+        case 'corrupt': return route.fulfill({ status: 200, contentType: 'image/png', body: 'invalid synthetic bytes' });
+        case 'missing': throw new Error('Missing logo must not produce a request');
+        default: return route.continue();
+      }
+    });
+    try {
+      await start(page);
+      await mounted(page);
+      const cards = page.locator(`${carousel} .jellytv-carousel__card`);
+      const slowLogo = cards.nth(1).locator('img.jellytv-carousel__logo');
+      const slowText = cards.nth(1).locator('.jellytv-carousel__card-title');
+      await expect.poll(() => delayed).toBe(true);
+      await expect(slowText).toHaveCSS('visibility', 'visible');
+      await expect(slowLogo).toHaveCSS('visibility', 'hidden');
+      await expect(cards.nth(2).locator('.jellytv-carousel__card-title')).toHaveText(title);
+      assert.equal(await cards.nth(2).locator('img.jellytv-carousel__logo').getAttribute('src'), null);
+      for (const index of [3, 4]) {
+        const logo = cards.nth(index).locator('img.jellytv-carousel__logo');
+        await expect.poll(() => logo.evaluate(node => node.complete && node.naturalWidth === 0)).toBe(true);
+        await expect(logo).toHaveCSS('visibility', 'hidden');
+        await expect(cards.nth(index).locator('.jellytv-carousel__card-title')).toBeVisible();
+      }
+      const dimensions = await cards.nth(1).boundingBox();
+      gate.resolve();
+      await expect(slowLogo).toHaveCSS('visibility', 'visible');
+      await expect(slowText).toHaveCSS('visibility', 'hidden');
+      const after = await cards.nth(1).boundingBox();
+      assert.equal(after.width, dimensions.width);
+      assert.equal(after.height, dimensions.height);
+      await expect(cards.nth(1)).toHaveAttribute('aria-pressed', 'false');
+      refreshed = true;
+      await page.reload();
+      await mounted(page);
+      await expect(slowLogo).toHaveAttribute('src', /[?&]tag=fixture-new-logo-tag(?:&|$)/);
+      await expect(slowLogo).toHaveCSS('visibility', 'visible');
+      assert.equal(await slowLogo.evaluate(node => node.naturalWidth), 42);
+    } finally {
+      gate.resolve();
+    }
+  }, true, 2);
+
+  await scenario('carousel-logo-session', async page => {
+    const gate = Promise.withResolvers();
+    let delayed = false;
+    await page.route('**/Items?**', async route => {
+      if (!featured(route.request())) return route.continue();
+      const response = await route.fetch();
+      const data = await response.json();
+      const tag = new URL(route.request().url()).searchParams.get('userId') === lab.limited.userId ? 'before-signout' : 'after-signin';
+      assert.ok(data.Items[1], 'Both lab accounts need at least two featured items');
+      data.Items[1].ImageTags = { ...data.Items[1].ImageTags, Logo: tag };
+      await route.fulfill({ response, json: data });
+    });
+    await page.route(/\/Images\/Logo\?.*tag=(?:before-signout|after-signin)/i, async route => {
+      const old = new URL(route.request().url()).searchParams.get('tag') === 'before-signout';
+      if (old) { delayed = true; await gate.promise; }
+      const width = old ? 73 : 43;
+      await route.fulfill({ contentType: 'image/svg+xml',
+        body: `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="30"><rect width="${width}" height="30"/></svg>` }).catch(() => {});
+    });
+    try {
+      await page.goto(new URL('#/login.html', web).href);
+      await login(page, lab.limited);
+      await mounted(page);
+      await expect.poll(() => delayed).toBe(true);
+      const logo = page.locator(`${carousel} .jellytv-carousel__card`).nth(1).locator('img.jellytv-carousel__logo');
+      await expect(logo).toHaveAttribute('src', /tag=before-signout/);
+      const original = await logo.elementHandle();
+      await page.getByRole('button', { name: 'Menu', exact: true }).click();
+      await page.getByRole('link', { name: 'Sign Out', exact: true }).click();
+      await expect(page.locator('#txtManualName')).toBeVisible();
+      await unmounted(page);
+      assert.equal(await original.evaluate(node => node.isConnected || node.hasAttribute('src')), false);
+      await login(page, lab.admin);
+      await mounted(page);
+      await expect(logo).toHaveAttribute('src', /tag=after-signin/);
+      await expect(logo).toHaveCSS('visibility', 'visible');
+      gate.resolve();
+      assert.equal(await logo.evaluate(node => node.naturalWidth), 43);
+    } finally {
+      gate.resolve();
+    }
+  }, false);
 } catch (error) {
   console.error(error.message.replace(/\b[0-9a-f]{32,}\b/gi, '<id>').split('\n').slice(0, 12).join('\n'));
   process.exitCode = 1;

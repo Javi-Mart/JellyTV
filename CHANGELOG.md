@@ -1,5 +1,11 @@
 # Cambios
 
+## 1.1.0-dev.6
+
+- Carga los logos de Jellyfin al construir el carrusel, de modo que también aparezcan en las tarjetas compactas que el usuario nunca ha seleccionado.
+- Conserva la misma imagen al expandir y contraer. El título de texto queda disponible durante la carga y ante ausencia de logo, errores HTTP o imágenes corruptas.
+- Comprueba la primera carga, la recarga con un logo actualizado y el cambio de sesión con una descarga en curso. [Pruebas](docs/TESTING.md) · [Actualizar desde dev.5](docs/CASAOS_INSTALLER.md#actualizar-desde-110-dev5)
+
 ## 1.1.0-dev.5
 
 - Difunde la luz ambiental por debajo y a los lados del Hero. El recorte redondeado se limita al artwork. Las capas de luz llegan a transparencia antes de sus bordes y acompañan el fundido de 520 ms.

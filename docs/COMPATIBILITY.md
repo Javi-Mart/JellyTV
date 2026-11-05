@@ -2,7 +2,7 @@
 
 | Componente | Versión objetivo | Condición |
 |---|---|---|
-| Core y Enhanced 1.1 | Jellyfin Web 10.10.6 | Candidato dev.5. Hero, carrusel, ficha Legacy y Trickplay nativo con medios generados por el servidor |
+| Core y Enhanced 1.1 | Jellyfin Web 10.10.6 | Candidato dev.6. Logos del carrusel, Hero, ficha Legacy y Trickplay nativo con medios generados por el servidor |
 | Instalador CasaOS/Docker | Jellyfin Server 10.10.6 y compilación Web reconocida | Compatibilidad conservada con un riesgo externo aceptado. Validación en laboratorio aislado |
 | Instalador Web local | Perfiles 10.10.6 y 12.2 | 12.2 es el perfil histórico de 1.0 |
 | Android TV | Jellyfin Android TV 0.19.10 | Adaptación separada al commit fijado |

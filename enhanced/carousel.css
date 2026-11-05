@@ -166,6 +166,7 @@
   object-fit: contain;
   object-position: left bottom;
   visibility: hidden;
+  filter: drop-shadow(0 0 1px rgb(229 237 255 / 62%));
 }
 
 [dir="rtl"] .jellytv-carousel__logo { object-position: right bottom; }
